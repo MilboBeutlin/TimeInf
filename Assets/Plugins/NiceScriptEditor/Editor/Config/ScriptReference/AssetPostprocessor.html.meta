@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6b1d0440c8954cc42b470913d13a13f1
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/AssetPostprocessor.html
+  uploadId: 665789

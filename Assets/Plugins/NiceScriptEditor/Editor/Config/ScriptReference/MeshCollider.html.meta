@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c3a7ec1eb4b63a549aa7ada3d43b5c4a
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/MeshCollider.html
+  uploadId: 665789

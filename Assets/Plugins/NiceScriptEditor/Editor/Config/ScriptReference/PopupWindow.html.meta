@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3d7dc78bc92248d4ba7aa75e279948d9
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/PopupWindow.html
+  uploadId: 665789

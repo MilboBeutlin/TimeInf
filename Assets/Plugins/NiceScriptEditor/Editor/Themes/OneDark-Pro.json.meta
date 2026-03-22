@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4ff691c0320cf324785fe74ef786bf99
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Themes/OneDark-Pro.json
+  uploadId: 665789

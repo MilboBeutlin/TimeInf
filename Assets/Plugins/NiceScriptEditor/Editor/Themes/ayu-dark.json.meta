@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b4392cadee0741f4bacf3be3d3bf03be
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Themes/ayu-dark.json
+  uploadId: 665789

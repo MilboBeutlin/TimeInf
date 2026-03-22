@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 653981487724aa740914c88a9f7a484d
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Snippets/else.snippet
+  uploadId: 665789

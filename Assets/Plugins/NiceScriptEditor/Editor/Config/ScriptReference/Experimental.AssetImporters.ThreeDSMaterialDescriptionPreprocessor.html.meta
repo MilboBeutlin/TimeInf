@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 988a003bc1e4c4e4089efaf4b3b2fe21
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/Experimental.AssetImporters.ThreeDSMaterialDescriptionPreprocessor.html
+  uploadId: 665789

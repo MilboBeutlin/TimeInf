@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c931e2002a2e39340830cdf5dbc6501e
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/FixedJoint.html
+  uploadId: 665789

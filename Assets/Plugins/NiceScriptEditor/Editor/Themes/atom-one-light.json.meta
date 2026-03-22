@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f822b46d18b2f6845a852462469e7296
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Themes/atom-one-light.json
+  uploadId: 665789

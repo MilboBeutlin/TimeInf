@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4baf13bd8946dba4490d9d1484cc45c4
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/FixedJoint2D.html
+  uploadId: 665789

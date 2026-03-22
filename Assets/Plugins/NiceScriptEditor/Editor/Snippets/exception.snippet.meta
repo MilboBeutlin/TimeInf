@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 83b4b8feddf28854da8bd78a7b86d576
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Snippets/exception.snippet
+  uploadId: 665789

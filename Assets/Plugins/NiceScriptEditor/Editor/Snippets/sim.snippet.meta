@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 418b1cabe49ca7144bfb8cab28306420
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Snippets/sim.snippet
+  uploadId: 665789

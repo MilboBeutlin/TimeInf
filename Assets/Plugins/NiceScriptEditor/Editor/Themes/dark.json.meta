@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ace5303d4eca10c4aa8f21b8810a3032
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Themes/dark.json
+  uploadId: 665789

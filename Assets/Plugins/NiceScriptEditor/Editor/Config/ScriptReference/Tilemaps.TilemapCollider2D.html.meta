@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7d25f4d25b348544182150df12f2a090
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/Tilemaps.TilemapCollider2D.html
+  uploadId: 665789

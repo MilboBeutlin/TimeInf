@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: e782d5b63f8498e40b1bc4be6f3c9d33
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/Experimental.AssetImporters.ScriptedImporter.html
+  uploadId: 665789

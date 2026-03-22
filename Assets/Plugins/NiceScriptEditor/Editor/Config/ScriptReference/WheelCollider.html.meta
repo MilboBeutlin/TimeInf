@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 523fa1e64c61ea34fafbb5cac10e43a9
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/WheelCollider.html
+  uploadId: 665789

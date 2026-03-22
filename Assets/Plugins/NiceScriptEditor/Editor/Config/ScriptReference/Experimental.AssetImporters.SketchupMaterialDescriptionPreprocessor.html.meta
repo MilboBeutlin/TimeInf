@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ebcf915f13c152b49a9c45700527302b
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/Experimental.AssetImporters.SketchupMaterialDescriptionPreprocessor.html
+  uploadId: 665789

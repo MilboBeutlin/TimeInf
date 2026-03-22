@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: deb203228ab59cb4ca2b11b1e6c86a02
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Themes/tomorrow-night-blue-color-theme.json
+  uploadId: 665789

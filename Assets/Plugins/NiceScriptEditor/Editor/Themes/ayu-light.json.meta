@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 99338272d5b761b4490f950cfbc1d496
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Themes/ayu-light.json
+  uploadId: 665789

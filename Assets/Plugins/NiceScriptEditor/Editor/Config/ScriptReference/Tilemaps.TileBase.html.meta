@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 35751df92a7c07240a3cd2d53d5f2854
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/Tilemaps.TileBase.html
+  uploadId: 665789

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7b678724108bd344ab634d3c3b0ae328
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/ParticleSystemRenderer.html
+  uploadId: 665789

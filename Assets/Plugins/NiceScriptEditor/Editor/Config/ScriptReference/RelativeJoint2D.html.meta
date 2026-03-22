@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4aa2b62f0089e1a4c847b595ccebf142
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/RelativeJoint2D.html
+  uploadId: 665789

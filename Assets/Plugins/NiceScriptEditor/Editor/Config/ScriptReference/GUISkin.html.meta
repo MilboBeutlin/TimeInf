@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ff0d5f36a4ec1b2418fdc3827e06e68c
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/GUISkin.html
+  uploadId: 665789

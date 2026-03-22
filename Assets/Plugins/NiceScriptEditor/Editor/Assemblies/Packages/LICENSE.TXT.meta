@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: c182e8d8fdf8d574b88de0439730e31d
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Assemblies/Packages/LICENSE.TXT
+  uploadId: 665789

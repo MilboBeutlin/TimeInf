@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 56399c406ec9eb745a251abcf1728b8a
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Themes/atom-one-dark.json
+  uploadId: 665789

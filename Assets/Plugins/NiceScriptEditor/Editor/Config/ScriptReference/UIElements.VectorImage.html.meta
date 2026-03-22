@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b3e7672b48623a64287eb970858f3395
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/UIElements.VectorImage.html
+  uploadId: 665789

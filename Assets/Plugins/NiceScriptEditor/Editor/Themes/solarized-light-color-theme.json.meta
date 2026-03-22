@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: bab8b2fbe0a9dfb489b1bf299d565058
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Themes/solarized-light-color-theme.json
+  uploadId: 665789

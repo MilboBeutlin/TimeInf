@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: b89f67d175412374fad7937b819a2f56
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/Experimental.GraphView.GraphViewBlackboardWindow.html
+  uploadId: 665789

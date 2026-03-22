@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a52e95b59c48f4d409580e83e14cd33f
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/UIElements.VisualTreeAsset.html
+  uploadId: 665789

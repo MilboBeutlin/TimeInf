@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: f9a6d0ce1950d5f46b42a82f0e27ad5c
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/TargetJoint2D.html
+  uploadId: 665789

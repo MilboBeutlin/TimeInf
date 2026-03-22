@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 12f1ebf2a9c769445b7a3c964e610a99
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/SphereCollider.html
+  uploadId: 665789

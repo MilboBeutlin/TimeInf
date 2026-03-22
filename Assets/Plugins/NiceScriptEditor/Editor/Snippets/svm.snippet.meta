@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 617ef34d25cce674db0f67a0a3829118
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Snippets/svm.snippet
+  uploadId: 665789

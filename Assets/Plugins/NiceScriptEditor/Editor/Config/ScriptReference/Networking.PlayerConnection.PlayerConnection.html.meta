@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a59f3d98d2f88204ca944c71d672544f
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/Networking.PlayerConnection.PlayerConnection.html
+  uploadId: 665789

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 65e35235531d5e540a1a86420b4997af
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/ScriptableWizard.html
+  uploadId: 665789

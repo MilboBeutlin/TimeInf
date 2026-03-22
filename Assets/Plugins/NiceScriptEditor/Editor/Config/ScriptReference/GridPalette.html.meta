@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6d4c68e23974c0745a1dac4fab9a4f11
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/ScriptReference/GridPalette.html
+  uploadId: 665789

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 28ca1168c3738e5498a06bb1c77c644f
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 263829
+  packageName: Nice Script Editor
+  packageVersion: 2.1
+  assetPath: Assets/Plugins/NiceScriptEditor/Editor/Config/KeyBindingDefault.xml
+  uploadId: 665789
