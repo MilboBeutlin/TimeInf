@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <documentWindow splitType="None" activeDocument="0">
-    <documentTable select="C:\Users\mionu\UnityProjects\TimeInfG\TimeInf\Assets\Scripts\testscript.cs">
+    <documentTable select="C:\Users\mionu\UnityProjects\TimeInfG\TimeInf\Assets\Scripts\Attacks.cs">
       <tab file="C:\Users\mionu\UnityProjects\TimeInfG\TimeInf\Assets\Scripts\testscript.cs" />
+      <tab file="C:\Users\mionu\UnityProjects\TimeInfG\TimeInf\Assets\Scripts\GM.cs" />
+      <tab file="C:\Users\mionu\UnityProjects\TimeInfG\TimeInf\Assets\Scripts\Attacks.cs" />
     </documentTable>
   </documentWindow>
 </root>

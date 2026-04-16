@@ -9,11 +9,16 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
+<<<<<<< HEAD
     path: "Assets/Scenes/MainMen\xFC.unity"
     guid: 88cff099c91a341448b1a52e3915c07b
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 09d7200a20490a942bd70b05602ff40b
+=======
+    path: Assets/Scenes/Fight.unity
+    guid: 26cd1d0b2a856924e816ff011a9d05d2
+>>>>>>> Fighting-Scene
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
