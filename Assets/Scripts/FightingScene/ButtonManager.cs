@@ -34,6 +34,7 @@ public class ButtonManager : MonoBehaviour
     {
         Instantiate(attackButtons, transform.position, Quaternion.identity, canvas );
         Destroy(mainButtons);
+        
     }
     public void MainButtons()
     {
