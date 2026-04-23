@@ -15,4 +15,17 @@ public class MainButtonScript : MonoBehaviour
         bM.Attacks();
         Destroy(this.gameObject);
     }
+
+    public void MainButtons()
+    {
+        bM.MainButtons();
+        Destroy(this.gameObject);
+    }
+
+    public void Items()
+    {
+        bM.Items();
+        Destroy(this.gameObject);
+    }
+
 }

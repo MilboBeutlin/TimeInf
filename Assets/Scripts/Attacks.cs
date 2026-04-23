@@ -2,5 +2,5 @@ using UnityEngine;
 
 public enum Attacks
 {
-    Donnerschock, Blitzsturm, Freeze
+    NULL, Donnerschock, Blitzsturm, Freeze
 }
