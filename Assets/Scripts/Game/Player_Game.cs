@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Player_Game : MonoBehaviour
 {
@@ -57,5 +58,12 @@ void FixedUpdate()
     }
 
     body.linearVelocity = move.normalized * speed;
+}
+void OnTriggerEnter2D(Collider2D other)
+{
+    if (other.CompareTag("Enemy"))
+    {
+         SceneManager.LoadScene("Fight");
+    }
 }
 }
