@@ -33,6 +33,8 @@ void Update()
         else
             sR.sprite = sprites[3]; // up
     }
+
+    
 }
 
 void FixedUpdate()
@@ -58,6 +60,7 @@ void FixedUpdate()
     }
 
     body.linearVelocity = move.normalized * speed;
+        Debug.Log(input.x = Input.GetAxisRaw("Horizontal"));
 }
 void OnTriggerEnter2D(Collider2D other)
 {
