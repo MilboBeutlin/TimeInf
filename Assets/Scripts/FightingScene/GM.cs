@@ -2,12 +2,16 @@ using UnityEngine;
 
 public class GM : MonoBehaviour
 {
+    private Model model;
     private ButtonManager bM;
+
+    //Fight logic
     private bool playerturn;
 
-    private Datenbank DB;
-
-    private Attacks[] currentPlayerAttacks;
+    //Stats
+    [SerializeField] private Attacks[] currentPlayerAttacks;
+    [SerializeField] private int currentplayerHealth;
+    [SerializeField] private int currentopponentHealth;
     
     
 
@@ -15,30 +19,52 @@ public class GM : MonoBehaviour
     void Start()
     {
         bM = FindAnyObjectByType<ButtonManager>();
-        DB = FindAnyObjectByType<Datenbank>();
+        model = FindAnyObjectByType<Model>();
+
+        //Fight Logic
         playerturn = true;
 
-        currentPlayerAttacks = DB.GetCurrentAttacks();
+        //Stats
+        currentPlayerAttacks = new Attacks[6];
+        currentPlayerAttacks = model.GetCurrentPlayerAttacks();
     }
     // Update is called once per frame
     void Update()
     {
-        /*
-        if(playerturn == false)
-        {
-            bM.MainButtons();
-            bM.blockPlayerButtons();
-            
-        }
+        
+    }
 
-        if(playerturn == true)
+    public void Loaded()
+    {
+        currentPlayerAttacks = model.GetCurrentPlayerAttacks();
+    }
+
+    public void DoAttack(Attacks i)
+    {
+        switch (i)
         {
-            bM.MainButtons();
-            bM.openPlayerButtons();
-            
+            case Attacks.NULL:
+                break;
+
+            case Attacks.Donnerschock:
+                break;
+
+            default:
+                Debug.Log("Gooner");
+                break;
         }
-        */
+    }
+
+
+    public Attacks givePlayerAttack(int attack)
+    {
+        return currentPlayerAttacks[attack];
     }
 
     
+
+    
+
+
+
 }
