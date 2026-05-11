@@ -235,6 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ButtonManager
   mainButtons: {fileID: 2675350473780637392, guid: 2c63b2a3a9417fc4ebddf25f1fbb761a, type: 3}
   attackButtons: {fileID: 6519929126305059002, guid: 90d24b989d2717d4a82d326d0e5d8f45, type: 3}
+  itemButtons: {fileID: 781221810130157685, guid: b868181edc81a01408d7710bd32882ec, type: 3}
   canvas: {fileID: 28046685}
 --- !u!1 &531401901
 GameObject:

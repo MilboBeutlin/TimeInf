@@ -3,11 +3,13 @@ using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
 {
-    public GameObject mainButtons;
+    [SerializeField] private GameObject mainButtons;
 
 
-    public GameObject attackButtons;
-    public Transform canvas;
+    [SerializeField] private GameObject attackButtons;
+
+    [SerializeField] private GameObject itemButtons;
+    [SerializeField] private Transform canvas;
 
     private void Start()
     {
@@ -42,7 +44,12 @@ public class ButtonManager : MonoBehaviour
         Destroy(attackButtons);
     }
 
-    
+    public void Items()
+    {
+        Instantiate(itemButtons, transform.position, Quaternion.identity, canvas);
+        Destroy(mainButtons);
+    }
+
 
 
 }
