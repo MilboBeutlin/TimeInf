@@ -18,15 +18,27 @@ public class Model : MonoBehaviour
         
     }
 
+
+
+
     public Attacks[] GetCurrentPlayerAttacks()
     {
         return DB.GetCurrentAttacks();
     }
-
     public int GetCurrentPlayerHealth()
     {
         return DB.GetCurrentPlayerHealth();
     }
+    public Statuseffekte[] GetcurrentPlayerstats()
+    {
+        return DB.GetCurrentPlayetStats();
+    }
+    public Items[] GetCurrentPlayeritems()
+    {
+        return DB.GetCurrentPlayeritems();
+    }
+
+
     public void UpdateFightViews()
     {
         FindAnyObjectByType<GM>().DoLoad();

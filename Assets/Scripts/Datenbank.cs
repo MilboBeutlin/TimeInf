@@ -7,8 +7,14 @@ public class Datenbank : MonoBehaviour
     //Alle Stats im Game
     private Attacks[] currentPlayerAttacks;
     private int currentPlayerHealth;
+    private Statuseffekte[] currentPlayerStat;
+    private Items[] currentPlayerItems;
+
+    private Gegner currentOponent;
     private Attacks[] currentOponnentAttacks;
     private int currentOponnentHealth;
+    private Statuseffekte[] currentOponentStats;
+
 
 
     private void Start()
@@ -27,6 +33,9 @@ public class Datenbank : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
     }
+
+
+
     //Alle Satas im Game
     public Attacks[] GetCurrentAttacks()
     {
@@ -37,7 +46,16 @@ public class Datenbank : MonoBehaviour
     {
         return currentPlayerHealth;
     }
+    public Statuseffekte[] GetCurrentPlayetStats()
+    {
+        return currentPlayerStat;
+    }
+    public Items[] GetCurrentPlayeritems()
+    {
+        return currentPlayerItems;
+    }
 
-    
+
+
 
 }
