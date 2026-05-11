@@ -13,4 +13,9 @@ public class Controller : MonoBehaviour
     {
         
     }
+
+    public void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 }

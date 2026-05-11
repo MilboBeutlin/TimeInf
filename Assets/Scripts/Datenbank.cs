@@ -33,6 +33,11 @@ public class Datenbank : MonoBehaviour
         return currentPlayerAttacks;
     }
 
+    public int GetCurrentPlayerHealth()
+    {
+        return currentPlayerHealth;
+    }
+
     
 
 }

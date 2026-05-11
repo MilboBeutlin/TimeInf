@@ -23,13 +23,22 @@ public class Model : MonoBehaviour
         return DB.GetCurrentAttacks();
     }
 
+    public int GetCurrentPlayerHealth()
+    {
+        return DB.GetCurrentPlayerHealth();
+    }
     public void UpdateFightViews()
     {
-        FindAnyObjectByType<GM>().Loaded();
+        FindAnyObjectByType<GM>().DoLoad();
     }
 
     public void UpdateGAmeViews()
     {
 
+    }
+
+    public void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
     }
 }

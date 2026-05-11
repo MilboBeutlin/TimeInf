@@ -27,6 +27,7 @@ public class GM : MonoBehaviour
         //Stats
         currentPlayerAttacks = new Attacks[6];
         currentPlayerAttacks = model.GetCurrentPlayerAttacks();
+        currentplayerHealth = model.GetCurrentPlayerHealth();
     }
     // Update is called once per frame
     void Update()
@@ -34,7 +35,7 @@ public class GM : MonoBehaviour
         
     }
 
-    public void Loaded()
+    public void DoLoad()
     {
         currentPlayerAttacks = model.GetCurrentPlayerAttacks();
     }
