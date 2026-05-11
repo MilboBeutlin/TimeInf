@@ -9,9 +9,12 @@ public class Player_Game : MonoBehaviour
 [SerializeField] private LayerMask wallLayer;
 [SerializeField] private Sprite[] sprites;
 [SerializeField] private SpriteRenderer sR;
-
+private Datenbank DB;
 private Vector2 input;
-
+void Start()
+    {
+        DB = FindAnyObjectByType<Datenbank>();
+    }
 void Update()
 {
     input.x = Input.GetAxisRaw("Horizontal");
@@ -66,7 +69,17 @@ void OnTriggerEnter2D(Collider2D other)
 {
     if (other.CompareTag("Enemy"))
     {
-         SceneManager.LoadScene("Fight");
+         switch (other.gameObject.name)
+        {
+            case "Enemy":
+            Debug.Log("hi, I am the godess Aqua");
+            //DB.currentOponnentHealth = x;
+            break;
+            default:
+                Debug.Log("I am useless");
+                break;
+        }
+        SceneManager.LoadScene("Fight");
     }
 }
 }

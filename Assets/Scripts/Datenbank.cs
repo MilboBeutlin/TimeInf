@@ -38,6 +38,16 @@ public class Datenbank : MonoBehaviour
         return currentPlayerHealth;
     }
 
+    public Attacks[] GetCurrentOponnentAttacks()
+    {
+        return currentOponnentAttacks;
+    }
+
+    public int GetCurrentOponnentHealth()
+    {
+        return currentOponnentHealth;
+    }
+
     
 
 }
