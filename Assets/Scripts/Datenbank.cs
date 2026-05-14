@@ -8,7 +8,7 @@ public class Datenbank : MonoBehaviour
     private Attacks[] currentPlayerAttacks;
     private int currentPlayerHealth;
     private Attacks[] currentOponnentAttacks;
-    private int currentOponnentHealth;
+    private int[] currentOponnentStats; //health, attack, armor, speed, dk
 
 
     private void Start()
@@ -43,11 +43,20 @@ public class Datenbank : MonoBehaviour
         return currentOponnentAttacks;
     }
 
-    public int GetCurrentOponnentHealth()
+    public int GetCurrentOponnentStats()
     {
-        return currentOponnentHealth;
+        return currentOponnentStats[5];
     }
 
+        public void SetCurrentOpponentAttacks(Attacks[] attacks)
+    {
+        currentOponnentAttacks = attacks;
+    }
+
+    public void SetCurrentOpponentStats(int[] stats)
+    {
+        currentOponnentStats = stats;
+    }
     
 
 }

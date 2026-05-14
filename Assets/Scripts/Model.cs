@@ -32,9 +32,18 @@ public class Model : MonoBehaviour
         return DB.GetCurrentOponnentAttacks();
     }
 
-    public int GetCurrentOpponentHealth()
+    public int GetCurrentOpponentStats()
     {
-        return DB.GetCurrentOponnentHealth();
+        return DB.GetCurrentOponnentStats();
+    }
+    public void SetCurrentOpponentAttacks(Attacks[] attacks)
+    {
+        DB.SetCurrentOpponentAttacks(attacks);
+    }
+
+    public void SetCurrentOpponentStats(int[] stats)
+    {
+        DB.SetCurrentOpponentStats(stats);
     }
     public void UpdateFightViews()
     {

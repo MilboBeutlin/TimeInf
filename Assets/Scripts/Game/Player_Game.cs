@@ -9,11 +9,11 @@ public class Player_Game : MonoBehaviour
 [SerializeField] private LayerMask wallLayer;
 [SerializeField] private Sprite[] sprites;
 [SerializeField] private SpriteRenderer sR;
-private Datenbank DB;
+private Model model;
 private Vector2 input;
 void Start()
     {
-        DB = FindAnyObjectByType<Datenbank>();
+        model = FindAnyObjectByType<Model>();
     }
 void Update()
 {
@@ -71,9 +71,26 @@ void OnTriggerEnter2D(Collider2D other)
     {
          switch (other.gameObject.name)
         {
-            case "Enemy":
-            Debug.Log("hi, I am the godess Aqua");
-            //DB.currentOponnentHealth = x;
+            case "R1":
+            EnemyLoading(15, 30, 100, 3, 5);
+            break;
+            case "R3":
+            EnemyLoading(30, 35, 40, 9, 30);
+            break;
+            case "R6":
+            EnemyLoading(10, 50, 60, 7, 90); //Verflucht
+            break;
+            case "G1":
+            EnemyLoading(25, 25, 0, 4, 55); // Vergiftet
+            break;
+            case "G3":
+            EnemyLoading(100, 55, 30, 5, 35); // blutend
+            break;
+            case "Foyer":
+            EnemyLoading(160, 75, 10, 8, 100); // verbrennen
+            break;
+            case "Endboss":
+            EnemyLoading(300, 90, 30, (int)speed, 120); //speed = player speed
             break;
             default:
                 Debug.Log("I am useless");
@@ -81,5 +98,33 @@ void OnTriggerEnter2D(Collider2D other)
         }
         SceneManager.LoadScene("Fight");
     }
+}
+
+    private void EnemyLoading(int lp, int atk, int armor, int speed, int dk)
+{
+    if (dk == 120)
+    {
+        model.SetCurrentOpponentAttacks(new Attacks[]
+        {
+            Attacks.DunklerSchnitt,
+            Attacks.Giftwurf,
+            Attacks.KronederVerdammnis,
+            Attacks.Daemonensphaere,
+            Attacks.ChaosLanze,
+            Attacks.Block,
+            Attacks.DunkleResonanz,
+            Attacks.KingsBreaker,
+            Attacks.EndloseDunkelheit
+        });
+    }
+    else
+    {
+        model.SetCurrentOpponentAttacks(new Attacks[]
+        {
+
+        });
+    }
+
+    model.SetCurrentOpponentStats(new int[]{lp, atk, armor, speed, dk});
 }
 }
