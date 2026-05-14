@@ -11,7 +11,11 @@ public class GM : MonoBehaviour
     //Stats
     [SerializeField] private Attacks[] currentPlayerAttacks;
     [SerializeField] private int currentplayerHealth;
+    [SerializeField] private Items[] currentPlayerItems;
+    [SerializeField] private Statuseffekte[] currentPlayerStats;
+
     [SerializeField] private int currentopponentHealth;
+    
     
     
 
@@ -28,6 +32,9 @@ public class GM : MonoBehaviour
         currentPlayerAttacks = new Attacks[6];
         currentPlayerAttacks = model.GetCurrentPlayerAttacks();
         currentplayerHealth = model.GetCurrentPlayerHealth();
+        currentPlayerItems = model.GetCurrentPlayeritems();
+        currentPlayerStats = model.GetcurrentPlayerstats();
+        
     }
     // Update is called once per frame
     void Update()
