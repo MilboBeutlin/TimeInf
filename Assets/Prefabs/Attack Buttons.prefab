@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1235297839002666743}
   - component: {fileID: 1904789686619884918}
   m_Layer: 5
-  m_Name: Attack1
+  m_Name: Attack3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,7 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1235297839002666743}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4462815130592062526}
+        m_TargetAssemblyTypeName: MainButtonScript, Assembly-CSharp
+        m_MethodName: DoAttack_ONE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &834594886628157609
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,7 +690,7 @@ GameObject:
   - component: {fileID: 3691660618458967215}
   - component: {fileID: 661385846691736405}
   m_Layer: 5
-  m_Name: Attack1 (5)
+  m_Name: Attack4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -799,7 +811,7 @@ GameObject:
   - component: {fileID: 7440340315403629987}
   - component: {fileID: 4609031680361831001}
   m_Layer: 5
-  m_Name: Attack1 (3)
+  m_Name: Attack2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -906,7 +918,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7440340315403629987}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1021191568072353325}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4008905003202269639
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,7 +1081,7 @@ GameObject:
   - component: {fileID: 764908711196368078}
   - component: {fileID: 5648374456346776147}
   m_Layer: 5
-  m_Name: Attack1 (1)
+  m_Name: Attack5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1315,7 +1339,7 @@ GameObject:
   - component: {fileID: 5484344602078003325}
   - component: {fileID: 648123218259584967}
   m_Layer: 5
-  m_Name: Attack1 (2)
+  m_Name: Attack6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1422,7 +1446,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5484344602078003325}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4462815130592062526}
+        m_TargetAssemblyTypeName: MainButtonScript, Assembly-CSharp
+        m_MethodName: DoAttack_TWO
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5742583580905778764
 GameObject:
   m_ObjectHideFlags: 0
@@ -1436,7 +1472,7 @@ GameObject:
   - component: {fileID: 5035310674197715270}
   - component: {fileID: 5914796559281532132}
   m_Layer: 5
-  m_Name: Attack1 (4)
+  m_Name: Attack1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1543,7 +1579,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5035310674197715270}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4462815130592062526}
+        m_TargetAssemblyTypeName: MainButtonScript, Assembly-CSharp
+        m_MethodName: DoAttack_ONE
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6519929126305059002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,12 +1647,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 8545632938458085307}
-  Attack2: {fileID: 4416726573773144471}
-  Attack3: {fileID: 3341905841996260970}
-  Attack4: {fileID: 2488481230030910605}
-  Attack5: {fileID: 4008905003202269639}
-  Attack6: {fileID: 834594886628157609}
+  Attack1: {fileID: 4008905003202269639}
+  Attack2: {fileID: 3341905841996260970}
+  Attack3: {fileID: 8545632938458085307}
+  Attack4: {fileID: 834594886628157609}
+  Attack5: {fileID: 2488481230030910605}
+  Attack6: {fileID: 4416726573773144471}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
 --- !u!1 &7851392487643823846
 GameObject:
   m_ObjectHideFlags: 0

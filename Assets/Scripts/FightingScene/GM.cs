@@ -6,7 +6,7 @@ public class GM : MonoBehaviour
     private ButtonManager bM;
 
     //Fight logic
-    private bool playerturn;
+    [SerializeField] private bool playerturn;
 
     //Stats
     [SerializeField] private Attacks[] currentPlayerAttacks;
@@ -47,8 +47,16 @@ public class GM : MonoBehaviour
         currentPlayerAttacks = model.GetCurrentPlayerAttacks();
     }
 
-    public void DoAttack(Attacks i)
+    
+
+    
+
+    public void DoAttack(int y)
     {
+        playerturn = false;
+        bM.TurnChange();
+
+        Attacks i = currentPlayerAttacks[y];
         switch (i)
         {
             case Attacks.NULL:
@@ -61,12 +69,21 @@ public class GM : MonoBehaviour
                 Debug.Log("Gooner");
                 break;
         }
+
+        //Oponnent turn
+        //playerturn = true;
+
     }
 
 
     public Attacks givePlayerAttack(int attack)
     {
         return currentPlayerAttacks[attack];
+    }
+
+    public bool GetPlayerturn()
+    {
+        return playerturn;
     }
 
     

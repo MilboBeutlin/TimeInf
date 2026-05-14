@@ -714,6 +714,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 798287301406003470}
+  ItemButtons: {fileID: 230571881018967698}
+  FleeButtons: {fileID: 679874271476417089}
 --- !u!1 &8729803063705383760
 GameObject:
   m_ObjectHideFlags: 0

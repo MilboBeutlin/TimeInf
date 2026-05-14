@@ -266,6 +266,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d16ab30a1b1f3ab428dde8014c346f67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  playerturn: 0
+  currentPlayerAttacks: 
+  currentplayerHealth: 0
+  currentPlayerItems: 
+  currentPlayerStats: 
+  currentopponentHealth: 0
 --- !u!4 &531401903
 Transform:
   m_ObjectHideFlags: 0
