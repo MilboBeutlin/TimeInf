@@ -12,9 +12,9 @@ public class Player_Game : MonoBehaviour
 private Model model;
 private Vector2 input;
 void Start()
-    {
+{
         model = FindAnyObjectByType<Model>();
-    }
+}
 void Update()
 {
     input.x = Input.GetAxisRaw("Horizontal");
@@ -121,10 +121,9 @@ void OnTriggerEnter2D(Collider2D other)
     {
         model.SetCurrentOpponentAttacks(new Attacks[]
         {
-
+            //gegner attacken
         });
     }
-
     model.SetCurrentOpponentStats(new int[]{lp, atk, armor, speed, dk});
 }
 }
