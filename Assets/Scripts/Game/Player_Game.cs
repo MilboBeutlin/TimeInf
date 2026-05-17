@@ -11,6 +11,7 @@ public class Player_Game : MonoBehaviour
 [SerializeField] private SpriteRenderer sR;
 private Model model;
 private Vector2 input;
+private string location = "R0";
 void Start()
 {
         model = FindAnyObjectByType<Model>();
@@ -126,4 +127,9 @@ void OnTriggerEnter2D(Collider2D other)
     }
     model.SetCurrentOpponentStats(new int[]{lp, atk, armor, speed, dk});
 }
+
+    public string Location()
+    {
+        return location;
+    }
 }

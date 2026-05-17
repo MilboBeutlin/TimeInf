@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Camera_Game : MonoBehaviour
 {
-    [SerializeField] private Transform player;
+    [SerializeField] private Player_Game player;
     [SerializeField] private Transform[] rooms; //empty object for the postion
     [SerializeField] private Transform[] corridors; //empty object for the postion
-    private string PlayerPosition; //<-- where are you? which corridor/room; String or int? or enum?
+    private string playerLocation; //<-- where are you? which corridor/room; String or int? or enum?
     void Start()
     {
         
@@ -13,18 +13,23 @@ public class Camera_Game : MonoBehaviour
 
     void Update()
     {
-        this.transform.position = player.position; // für den moment nur da
+        playerLocation = player.Location();
+        char type = playerLocation[0];
+        int index = int.Parse(playerLocation.Substring(1));
 
-        /*switch (PlayerPosition)
+        switch (type)
         {
-            case "R1":
-            this.transform.position = rooms[0].position;
+            case 'R':
+            transform.position = rooms[index].position;
             break;
-            case "K1":
-            this.transform.position = player.position.y; 
-            this.transform.position = corridors[0].position.x;
+
+            case 'K': //vertical
+            transform.position = new Vector2(corridors[index].position.x, player.transform.position.y);
             break;
-            ...
-        }*/
+
+            case 'G': //horizontal
+            transform.position = new Vector2(player.transform.position.x, corridors[index].position.y);
+            break;
+        }
     }
 }
