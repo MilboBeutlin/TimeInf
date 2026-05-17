@@ -5,51 +5,50 @@ public class ButtonManager : MonoBehaviour
 {
     [SerializeField] private GameObject mainButtons;
 
-
     [SerializeField] private GameObject attackButtons;
+
+    private GM gm;
 
     [SerializeField] private GameObject itemButtons;
     [SerializeField] private Transform canvas;
 
     private void Start()
     {
-        Instantiate(mainButtons, transform.position, Quaternion.identity, canvas);
+        MainButton();
+        gm = FindAnyObjectByType<GM>();
     }
-    /*
-    //hierfür wird ein anderes Script beim Main Button Objekt gebraucht
-    public void blockPlayerButtons()
+    
+    public void MainButton()
     {
-        Attackbutton.interactable = false;
-        Itembutton.interactable = false;
-        Runbutton.interactable = false;
+        mainButtons.SetActive(true);
+        attackButtons.SetActive(false);
+        itemButtons.SetActive(false);
+    }
+    public void AttackButtons()
+    {
+        mainButtons.SetActive(false);
+        attackButtons.SetActive(true);
+        itemButtons.SetActive(false);
+    }
+    public void ItemButtons()
+    {
+        mainButtons.SetActive(false);
+        attackButtons.SetActive(false);
+        itemButtons.SetActive(true);
     }
 
-    public void openPlayerButtons()
+    private void Update()
     {
-        Attackbutton.interactable = true;
-        Itembutton.interactable = true;
-        Runbutton.interactable = true;
-    }
-    */
-
-    public void Attacks()
-    {
-        Instantiate(attackButtons, transform.position, Quaternion.identity, canvas );
-        Destroy(mainButtons);
         
     }
-    public void MainButtons()
-    {
-        Instantiate(mainButtons, transform.position, Quaternion.identity, canvas);
-        Destroy(attackButtons);
-    }
 
-    public void Items()
-    {
-        Instantiate(itemButtons, transform.position, Quaternion.identity, canvas);
-        Destroy(mainButtons);
-    }
+    
 
+    public void TurnChange()
+    {
+        MainButton();
+        mainButtons.GetComponent<MainButtonScript>().SetMainButtonActive(false);
+    }
 
 
 }
