@@ -28,23 +28,6 @@ public class MainButtonScript : MonoBehaviour
         GM = FindAnyObjectByType<GM>();
     }
 
-    public void Attacks()
-    {
-        bM.Attacks();
-        Destroy(this.gameObject);
-    }
-
-    public void MainButtons()
-    {
-        bM.MainButtons();
-        Destroy(this.gameObject);
-    }
-
-    public void Items()
-    {
-        bM.Items();
-        Destroy(this.gameObject);
-    }
 
     public void Update()
     {
@@ -60,29 +43,20 @@ public class MainButtonScript : MonoBehaviour
         }
         
     }
-
-    
-
-    public void DeactivateButtons()
+    public void SetMainButtonActive(bool active)
     {
-        if (GM.GetPlayerturn() == false)
+        if(active == true)
+        {
+            AttackButtons.GetComponent<Button>().interactable = true;
+            ItemButtons.GetComponent<Button>().interactable = true;
+            FleeButtons.GetComponent<Button>().interactable = true;
+        } else if (active == false)
         {
             AttackButtons.GetComponent<Button>().interactable = false;
             ItemButtons.GetComponent<Button>().interactable = false;
             FleeButtons.GetComponent<Button>().interactable = false;
         }
-
     }
-
-    public void ActivateButtons()
-    {
-        
-            AttackButtons.GetComponent<Button>().interactable = true;
-            ItemButtons.GetComponent<Button>().interactable = true;
-            FleeButtons.GetComponent<Button>().interactable = true;
-        
-    }
-    
 
     public void DoAttack_ONE()
     {
@@ -107,10 +81,5 @@ public class MainButtonScript : MonoBehaviour
     public void DoAttack_SIX()
     {
         GM.DoAttack(5);
-    }
-
-    public void SelfDestruct()
-    {
-        Destroy(gameObject);
     }
 }

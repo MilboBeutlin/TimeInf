@@ -14,59 +14,40 @@ public class ButtonManager : MonoBehaviour
 
     private void Start()
     {
-        Instantiate(mainButtons, transform.position, Quaternion.identity, canvas);
+        MainButton();
         gm = FindAnyObjectByType<GM>();
     }
-    /*
-    //hierfür wird ein anderes Script beim Main Button Objekt gebraucht
-    public void blockPlayerButtons()
+    
+    public void MainButton()
     {
-        Attackbutton.interactable = false;
-        Itembutton.interactable = false;
-        Runbutton.interactable = false;
+        mainButtons.SetActive(true);
+        attackButtons.SetActive(false);
+        itemButtons.SetActive(false);
     }
-
-    public void openPlayerButtons()
+    public void AttackButtons()
     {
-        Attackbutton.interactable = true;
-        Itembutton.interactable = true;
-        Runbutton.interactable = true;
+        mainButtons.SetActive(false);
+        attackButtons.SetActive(true);
+        itemButtons.SetActive(false);
     }
-    */
+    public void ItemButtons()
+    {
+        mainButtons.SetActive(false);
+        attackButtons.SetActive(false);
+        itemButtons.SetActive(true);
+    }
 
     private void Update()
     {
         
     }
 
-    public void Attacks()
-    {
-        Instantiate(attackButtons, transform.position, Quaternion.identity, canvas );
-        Destroy(mainButtons);
-        
-        
-    }
-    public void MainButtons()
-    {
-        Instantiate(mainButtons, transform.position, Quaternion.identity, canvas);
-        Destroy(attackButtons);
-        Destroy(itemButtons);
-
-    }
-
-    public void Items()
-    {
-        Instantiate(itemButtons, transform.position, Quaternion.identity, canvas);
-        
-        Destroy(mainButtons);
-    }
+    
 
     public void TurnChange()
     {
-        
-            MainButtons();
-            mainButtons.GetComponent<MainButtonScript>().DeactivateButtons();
-        
+        MainButton();
+        mainButtons.GetComponent<MainButtonScript>().SetMainButtonActive(false);
     }
 
 

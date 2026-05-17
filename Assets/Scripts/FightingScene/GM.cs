@@ -15,10 +15,10 @@ public class GM : MonoBehaviour
     [SerializeField] private Statuseffekte[] currentPlayerStats;
 
     [SerializeField] private int currentopponentHealth;
-    
-    
-    
+    private Attacks[] currentOponnentAttacks;
 
+    private int timer;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,26 +30,24 @@ public class GM : MonoBehaviour
 
         //Stats
         currentPlayerAttacks = new Attacks[6];
-        currentPlayerAttacks = model.GetCurrentPlayerAttacks();
-        currentplayerHealth = model.GetCurrentPlayerHealth();
-        currentPlayerItems = model.GetCurrentPlayeritems();
-        currentPlayerStats = model.GetcurrentPlayerstats();
-        
+        DoLoad();
+
     }
     // Update is called once per frame
     void Update()
     {
-        
+        //timer einbauen, wenn Gegner gemacht wurde.
     }
 
     public void DoLoad()
     {
         currentPlayerAttacks = model.GetCurrentPlayerAttacks();
+        currentplayerHealth = model.GetCurrentPlayerHealth();
+        currentPlayerItems = model.GetCurrentPlayeritems();
+        currentPlayerStats = model.GetcurrentPlayerstats();
+
     }
 
-    
-
-    
 
     public void DoAttack(int y)
     {
@@ -70,8 +68,8 @@ public class GM : MonoBehaviour
                 break;
         }
 
-        //Oponnent turn
-        //playerturn = true;
+        OponentTurn();
+        playerturn = true;
 
     }
 
@@ -86,10 +84,9 @@ public class GM : MonoBehaviour
         return playerturn;
     }
 
-    
 
-    
-
-
-
+    public void OponentTurn()
+    {
+        
+    }
 }
