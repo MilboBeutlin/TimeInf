@@ -28,6 +28,13 @@ public class Datenbank : MonoBehaviour
             currentPlayerAttacks[i] = Attacks.NULL;
         }
 
+        currentOponnentAttacks = new Attacks[6];
+        for (int i = 0; i <currentOponnentAttacks.Length; i++)
+        {
+            currentOponnentAttacks[i] = Attacks.NULL;   
+        }
+        
+
     }
     private void Awake()
     {

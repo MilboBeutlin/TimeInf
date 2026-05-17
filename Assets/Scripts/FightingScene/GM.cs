@@ -15,7 +15,7 @@ public class GM : MonoBehaviour
     [SerializeField] private Statuseffekte[] currentPlayerStats;
 
     [SerializeField] private int currentopponentHealth;
-    private Attacks[] currentOponnentAttacks;
+    [SerializeField] private Attacks[] currentOponnentAttacks;
 
     private int timer;
     
@@ -30,13 +30,17 @@ public class GM : MonoBehaviour
 
         //Stats
         currentPlayerAttacks = new Attacks[6];
+        currentOponnentAttacks = new Attacks[6];
         DoLoad();
 
     }
     // Update is called once per frame
     void Update()
     {
-        //timer einbauen, wenn Gegner gemacht wurde.
+        if(timer > 0)
+        {
+            timer--;
+        }
     }
 
     public void DoLoad()
@@ -46,13 +50,14 @@ public class GM : MonoBehaviour
         currentPlayerItems = model.GetCurrentPlayeritems();
         currentPlayerStats = model.GetcurrentPlayerstats();
 
+        currentOponnentAttacks = model.GetCurrentOpponentAttacks();
     }
 
 
     public void DoAttack(int y)
     {
         playerturn = false;
-        bM.TurnChange();
+        bM.TurnChange(false);
 
         Attacks i = currentPlayerAttacks[y];
         switch (i)
@@ -70,9 +75,9 @@ public class GM : MonoBehaviour
 
         OponentTurn();
         playerturn = true;
-
+        bM.TurnChange(true);
+        
     }
-
 
     public Attacks givePlayerAttack(int attack)
     {
@@ -87,6 +92,17 @@ public class GM : MonoBehaviour
 
     public void OponentTurn()
     {
+        Attacks i;
+
+        //hier entscheiden welche Attacke gewählt wird.
         
+
+        i = currentOponnentAttacks[0];
+        switch(i)
+        {
+            case Attacks.NULL:
+            break;
+
+        }
     }
 }

@@ -44,11 +44,13 @@ public class ButtonManager : MonoBehaviour
 
     
 
-    public void TurnChange()
+    public void TurnChange(bool i)
     {
         MainButton();
-        mainButtons.GetComponent<MainButtonScript>().SetMainButtonActive(false);
+        mainButtons.GetComponent<MainButtonScript>().SetMainButtonActive(i);
     }
+
+  
 
 
 }
