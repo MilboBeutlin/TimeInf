@@ -98,7 +98,36 @@ void OnTriggerEnter2D(Collider2D other)
                 break;
         }
         SceneManager.LoadScene("Fight");
-    }
+    }else if (other.CompareTag("Tür"))
+        {
+
+            if (input.x != 0)
+            {
+                if (input.x > 0)
+                {
+                    body.position = new Vector2(body.position.x + 2, body.position.y);
+
+                }
+                else
+                {
+                    body.position = new Vector2(body.position.x - 2, body.position.y);
+
+                }
+            }
+
+            if (input.y != 0)
+            {
+                if (input.y > 0)
+                {
+                    body.position = new Vector2(body.position.x, body.position.y + 2);
+                }
+
+                else
+                {
+                     body.position = new Vector2(body.position.x, body.position.y - 2);
+                }
+            }
+        }
 }
 
     private void EnemyLoading(int lp, int atk, int armor, int speed, int dk)
