@@ -98,7 +98,7 @@ void OnTriggerEnter2D(Collider2D other)
                 break;
         }
         SceneManager.LoadScene("Fight");
-    }else if (other.CompareTag("Tür"))
+    }else if (other.CompareTag("door"))
         {
 
             if (input.x != 0)
@@ -120,12 +120,15 @@ void OnTriggerEnter2D(Collider2D other)
                 if (input.y > 0)
                 {
                     body.position = new Vector2(body.position.x, body.position.y + 2);
+                    location = "R1";
                 }
 
                 else
                 {
-                     body.position = new Vector2(body.position.x, body.position.y - 2);
+                    body.position = new Vector2(body.position.x, body.position.y - 2);
+                    location = "R0";
                 }
+                
             }
         }
 }
