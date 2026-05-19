@@ -2,5 +2,5 @@ using UnityEngine;
 
 public enum Gegner
 {
-    NULL, 
+    NULL, StorageGuard, MonsterPainting, ShadowEnemy, Insects, PrisonGuard, MiniBoss, Endboss
 }
