@@ -9,12 +9,12 @@ public class Player_Game : MonoBehaviour
 [SerializeField] private LayerMask wallLayer;
 [SerializeField] private Sprite[] sprites;
 [SerializeField] private SpriteRenderer sR;
-private Model model;
+private Controller controller;
 private Vector2 input;
 private string location = "R0";
 void Start()
 {
-        model = FindAnyObjectByType<Model>();
+        controller = FindAnyObjectByType<Controller>();
 }
 void Update()
 {
@@ -26,16 +26,25 @@ void Update()
         input.y = 0;
 
         if (input.x < 0)
+        {
             sR.sprite = sprites[0]; // left
+        }
         else
+        {
             sR.sprite = sprites[1]; // right
+        }
+            
     }
     else if (input.y != 0)
     {
         if (input.y < 0)
+        {
             sR.sprite = sprites[2]; // down
+        }
         else
+        {
             sR.sprite = sprites[3]; // up
+        }          
     }
 
     
@@ -137,7 +146,7 @@ void OnTriggerEnter2D(Collider2D other)
 {
     if (dk == 120)
     {
-        model.SetCurrentOpponentAttacks(new Attacks[]
+        controller.SetCurrentOponnentAttacks(new Attacks[]
         {
             Attacks.DunklerSchnitt,
             Attacks.Giftwurf,
@@ -152,12 +161,12 @@ void OnTriggerEnter2D(Collider2D other)
     }
     else
     {
-        model.SetCurrentOpponentAttacks(new Attacks[]
+        controller.SetCurrentOponnentAttacks(new Attacks[]
         {
             //gegner attacken
         });
     }
-    model.SetCurrentOpponentStats(new int[]{lp, atk, armor, speed, dk});
+    controller.SetCurrentOponnentStats(new int[]{lp, atk, armor, speed, dk});
 }
 
     public string Location()
