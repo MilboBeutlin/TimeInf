@@ -79,28 +79,29 @@ void OnTriggerEnter2D(Collider2D other)
 {
     if (other.CompareTag("Enemy"))
     {
-         switch (other.gameObject.name)
+        Enemy_Game enemyScript = other.gameObject.GetComponent<Enemy_Game>();
+         switch (enemyScript.type)
         {
-            case "R1":
-            EnemyLoading(15, 30, 100, 3, 5);
+            case Gegner.StorageGuard:
+            EnemyLoading(Gegner.StorageGuard, 15, 30, 100, 3, 5);
             break;
-            case "R3":
-            EnemyLoading(30, 35, 40, 9, 30);
+            case Gegner.MonsterPainting:
+            EnemyLoading(Gegner.MonsterPainting, 30, 35, 40, 9, 30);
             break;
-            case "R6":
-            EnemyLoading(10, 50, 60, 7, 90); //Verflucht
+            case Gegner.ShadowEnemy:
+            EnemyLoading(Gegner.ShadowEnemy, 10, 50, 60, 7, 90); //Verflucht
             break;
-            case "G1":
-            EnemyLoading(25, 25, 0, 4, 55); // Vergiftet
+            case Gegner.Insects:
+            EnemyLoading(Gegner.Insects, 25, 25, 0, 4, 55); // Vergiftet
             break;
-            case "G3":
-            EnemyLoading(100, 55, 30, 5, 35); // blutend
+            case Gegner.PrisonGuard:
+            EnemyLoading(Gegner.PrisonGuard, 100, 55, 30, 5, 35); // blutend
             break;
-            case "Foyer":
-            EnemyLoading(160, 75, 10, 8, 100); // verbrennen
+            case Gegner.MiniBoss:
+            EnemyLoading(Gegner.MiniBoss, 160, 75, 10, 8, 100); // verbrennen
             break;
-            case "Endboss":
-            EnemyLoading(300, 90, 30, (int)speed, 120); //speed = player speed
+            case Gegner.Endboss:
+            EnemyLoading(Gegner.Endboss, 300, 90, 30, (int)speed, 120); //speed = player speed
             break;
             default:
                 Debug.Log("I am useless");
@@ -142,10 +143,11 @@ void OnTriggerEnter2D(Collider2D other)
         }
 }
 
-    private void EnemyLoading(int lp, int atk, int armor, int speed, int dk)
+    private void EnemyLoading(Gegner type, int lp, int atk, int armor, int speed, int dk)
 {
-    if (dk == 120)
+    if (type == Gegner.Endboss)
     {
+        controller.SetCurrentOponent(type);
         controller.SetCurrentOponnentAttacks(new Attacks[]
         {
             Attacks.DunklerSchnitt,
