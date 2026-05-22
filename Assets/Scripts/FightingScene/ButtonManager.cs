@@ -52,6 +52,17 @@ public class ButtonManager : MonoBehaviour
         mainButtons.GetComponent<MainButtonScript>().SetMainButtonActive(i);
     }
 
+    public void CheckItems()
+    {
+        for(int i = 0; i < gm.giveCurrentPlayerItems().Length; i++)
+        {
+            if (gm.giveCurrentPlayerItems()[i] == Items.MagischerApfel)
+            {
+
+            }
+        }
+    }
+
   
 
 
