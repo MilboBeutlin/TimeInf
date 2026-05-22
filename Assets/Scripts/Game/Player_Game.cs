@@ -9,12 +9,12 @@ public class Player_Game : MonoBehaviour
 [SerializeField] private LayerMask wallLayer;
 [SerializeField] private Sprite[] sprites;
 [SerializeField] private SpriteRenderer sR;
-private Controller controller;
+private Model model;
 private Vector2 input;
 private string location = "R0";
 void Start()
 {
-        controller = FindAnyObjectByType<Controller>();
+        model = FindAnyObjectByType<Model>();
 }
 void Update()
 {
@@ -26,25 +26,16 @@ void Update()
         input.y = 0;
 
         if (input.x < 0)
-        {
             sR.sprite = sprites[0]; // left
-        }
         else
-        {
             sR.sprite = sprites[1]; // right
-        }
-            
     }
     else if (input.y != 0)
     {
         if (input.y < 0)
-        {
             sR.sprite = sprites[2]; // down
-        }
         else
-        {
             sR.sprite = sprites[3]; // up
-        }          
     }
 
     
@@ -79,76 +70,42 @@ void OnTriggerEnter2D(Collider2D other)
 {
     if (other.CompareTag("Enemy"))
     {
-        Enemy_Game enemyScript = other.gameObject.GetComponent<Enemy_Game>();
-         switch (enemyScript.type)
+         switch (other.gameObject.name)
         {
-            case Gegner.StorageGuard:
-            EnemyLoading(Gegner.StorageGuard, 15, 30, 100, 3, 5);
+            case "R1":
+            EnemyLoading(15, 30, 100, 3, 5);
             break;
-            case Gegner.MonsterPainting:
-            EnemyLoading(Gegner.MonsterPainting, 30, 35, 40, 9, 30);
+            case "R3":
+            EnemyLoading(30, 35, 40, 9, 30);
             break;
-            case Gegner.ShadowEnemy:
-            EnemyLoading(Gegner.ShadowEnemy, 10, 50, 60, 7, 90); //Verflucht
+            case "R6":
+            EnemyLoading(10, 50, 60, 7, 90); //Verflucht
             break;
-            case Gegner.Insects:
-            EnemyLoading(Gegner.Insects, 25, 25, 0, 4, 55); // Vergiftet
+            case "G1":
+            EnemyLoading(25, 25, 0, 4, 55); // Vergiftet
             break;
-            case Gegner.PrisonGuard:
-            EnemyLoading(Gegner.PrisonGuard, 100, 55, 30, 5, 35); // blutend
+            case "G3":
+            EnemyLoading(100, 55, 30, 5, 35); // blutend
             break;
-            case Gegner.MiniBoss:
-            EnemyLoading(Gegner.MiniBoss, 160, 75, 10, 8, 100); // verbrennen
+            case "Foyer":
+            EnemyLoading(160, 75, 10, 8, 100); // verbrennen
             break;
-            case Gegner.Endboss:
-            EnemyLoading(Gegner.Endboss, 300, 90, 30, (int)speed, 120); //speed = player speed
+            case "Endboss":
+            EnemyLoading(300, 90, 30, (int)speed, 120); //speed = player speed
             break;
             default:
                 Debug.Log("I am useless");
                 break;
         }
         SceneManager.LoadScene("Fight");
-    }else if (other.CompareTag("door"))
-        {
-
-            if (input.x != 0)
-            {
-                if (input.x > 0)
-                {
-                    body.position = new Vector2(body.position.x + 2, body.position.y);
-
-                }
-                else
-                {
-                    body.position = new Vector2(body.position.x - 2, body.position.y);
-
-                }
-            }
-
-            if (input.y != 0)
-            {
-                if (input.y > 0)
-                {
-                    body.position = new Vector2(body.position.x, body.position.y + 2);
-                    location = "R1";
-                }
-
-                else
-                {
-                    body.position = new Vector2(body.position.x, body.position.y - 2);
-                    location = "R0";
-                }
-                
-            }
-        }
+    }
 }
 
-    private void EnemyLoading(Gegner type, int lp, int atk, int armor, int speed, int dk)
+    private void EnemyLoading(int lp, int atk, int armor, int speed, int dk)
 {
-    if (type == Gegner.Endboss)
+    if (dk == 120)
     {
-        controller.SetCurrentOponent(type);
-        controller.SetCurrentOponnentAttacks(new Attacks[]
+        model.SetCurrentOpponentAttacks(new Attacks[]
         {
             Attacks.DunklerSchnitt,
             Attacks.Giftwurf,
@@ -163,12 +120,12 @@ void OnTriggerEnter2D(Collider2D other)
     }
     else
     {
-        controller.SetCurrentOponnentAttacks(new Attacks[]
+        model.SetCurrentOpponentAttacks(new Attacks[]
         {
             //gegner attacken
         });
     }
-    controller.SetCurrentOponnentStats(new int[]{lp, atk, armor, speed, dk});
+    model.SetCurrentOpponentStats(new int[]{lp, atk, armor, speed, dk});
 }
 
     public string Location()

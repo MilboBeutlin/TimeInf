@@ -10,11 +10,11 @@ public class GM : MonoBehaviour
 
     //Stats
     [SerializeField] private Attacks[] currentPlayerAttacks;
-    [SerializeField] private int[] currentplayerStats;
+    [SerializeField] private int currentplayerHealth;
     [SerializeField] private Items[] currentPlayerItems;
-    [SerializeField] private Statuseffekte[] currentPlayerEffects;
+    [SerializeField] private Statuseffekte[] currentPlayerStats;
 
-    [SerializeField] private int[] currentopponentStats; //health, attack, armor, speed, dk
+    [SerializeField] private int currentopponentHealth;
     [SerializeField] private Attacks[] currentOponnentAttacks;
 
     private int timer;
@@ -46,11 +46,11 @@ public class GM : MonoBehaviour
     public void DoLoad()
     {
         currentPlayerAttacks = model.GetCurrentPlayerAttacks();
-        currentplayerStats = model.GetCurrentPlayerStats();
-        currentPlayerItems = model.GetCurrentPlayerItems();
-        currentPlayerEffects = model.GetCurrentPlayerEffects();
+        currentplayerHealth = model.GetCurrentPlayerHealth();
+        currentPlayerItems = model.GetCurrentPlayeritems();
+        currentPlayerStats = model.GetcurrentPlayerstats();
 
-        currentOponnentAttacks = model.GetCurrentOponnentAttacks();
+        currentOponnentAttacks = model.GetCurrentOpponentAttacks();
     }
 
 
@@ -94,7 +94,7 @@ public class GM : MonoBehaviour
     {
         Attacks i;
 
-        //hier entscheiden welche Attacke gewï¿½hlt wird.
+        //hier entscheiden welche Attacke gewählt wird.
         
 
         i = currentOponnentAttacks[0];
