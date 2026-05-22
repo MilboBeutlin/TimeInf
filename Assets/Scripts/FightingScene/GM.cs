@@ -60,6 +60,9 @@ public class GM : MonoBehaviour
         bM.TurnChange(false);
 
         Attacks i = currentPlayerAttacks[y];
+        //Hier hin, alles irgendwie außerhalb von Attacken passiert: z.B. Jeden Zug gift schaden.
+
+        //Hier ALLE Attacen für NUR Spieler rein.
         switch (i)
         {
             case Attacks.NULL:
@@ -103,6 +106,7 @@ public class GM : MonoBehaviour
         
 
         i = currentOponnentAttacks[0];
+        //Hier ALLE Attacken für NUR jeden Gegner.
         switch(i)
         {
             case Attacks.NULL:
