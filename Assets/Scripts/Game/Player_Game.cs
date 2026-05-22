@@ -20,7 +20,7 @@ void Update()
 {
     input.x = Input.GetAxisRaw("Horizontal");
     input.y = Input.GetAxisRaw("Vertical");
-
+    //player.sprite change
     if (input.x != 0)
     {
         input.y = 0;
@@ -50,7 +50,7 @@ void Update()
     
 }
 
-void FixedUpdate()
+void FixedUpdate() //movement
 {
     Vector2 move = input;
 
@@ -77,7 +77,7 @@ void FixedUpdate()
 }
 void OnTriggerEnter2D(Collider2D other)
 {
-    if (other.CompareTag("Enemy"))
+    if (other.CompareTag("Enemy")) //loading enemie on collision
     {
         Enemy_Game enemyScript = other.gameObject.GetComponent<Enemy_Game>();
          switch (enemyScript.type)
@@ -108,7 +108,7 @@ void OnTriggerEnter2D(Collider2D other)
                 break;
         }
         SceneManager.LoadScene("Fight");
-    }else if (other.CompareTag("door"))
+    }else if (other.CompareTag("door")) //going through doors:
         {
 
             if (input.x != 0)
@@ -143,7 +143,7 @@ void OnTriggerEnter2D(Collider2D other)
         }
 }
 
-    private void EnemyLoading(Gegner type, int lp, int atk, int armor, int speed, int dk)
+    private void EnemyLoading(Gegner type, int lp, int atk, int armor, int speed, int dk) 
 {
     if (type == Gegner.Endboss)
     {
@@ -171,7 +171,7 @@ void OnTriggerEnter2D(Collider2D other)
     controller.SetCurrentOponnentStats(new int[]{lp, atk, armor, speed, dk});
 }
 
-    public string Location()
+    public string Location() //location for camera
     {
         return location;
     }

@@ -5,7 +5,7 @@ public class Camera_Game : MonoBehaviour
     [SerializeField] private Player_Game player;
     [SerializeField] private Transform[] rooms; //empty object for the postion
     [SerializeField] private Transform[] corridors; //empty object for the postion
-    private string playerLocation; //<-- where are you? which corridor/room; String or int? or enum?
+    private string playerLocation;
     void Start()
     {
         

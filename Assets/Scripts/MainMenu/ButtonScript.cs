@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class ButtonScript : MonoBehaviour
 {
     [SerializeField] private GameObject settings;
-     public void LoadNewScene(string sceneName)
+     public void LoadNewScene(string sceneName) //start button
     {
         SceneManager.LoadScene(sceneName);
     }
