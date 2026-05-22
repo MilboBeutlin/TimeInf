@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Controller : MonoBehaviour
 {
-    private Model model;
+    private Datenbank DB;
 
     void Start()
     {
-        model = FindAnyObjectByType<Model>();
+        DB = FindAnyObjectByType<Datenbank>();
     }
 
     // Update is called once per frame
@@ -22,32 +22,32 @@ public class Controller : MonoBehaviour
 
     // player
     public void SetCurrentPlayerAttacks(Attacks[] attacks) {
-        model.SetCurrentPlayerAttacks(attacks);
+        DB.SetCurrentPlayerAttacks(attacks);
     }
 
     public void SetCurrentPlayerStats(int[] stats) {
-        model.SetCurrentPlayerStats(stats);
+        DB.SetCurrentPlayerStats(stats);
     }
 
     public void SetCurrentPlayerEffects(Statuseffekte[] effects) {
-        model.SetCurrentPlayerEffects(effects);
+        DB.SetCurrentPlayerEffects(effects);
     }
 
     public void SetCurrentPlayerItems(Items[] items) {
-        model.SetCurrentPlayerItems(items);
+        DB.SetCurrentPlayerItems(items);
     }
 
     // opponent
     public void SetCurrentOponent(Gegner gegner) {
-        model.SetCurrentOponent(gegner);
+        DB.SetCurrentOponent(gegner);
     }
     public void SetCurrentOponnentAttacks(Attacks[] attacks) {
-        model.SetCurrentOponnentAttacks(attacks);
+        DB.SetCurrentOponnentAttacks(attacks);
     }
     public void SetCurrentOponentEffects(Statuseffekte[] effects) {
-        model.SetCurrentOponentEffects(effects);
+        DB.SetCurrentOponentEffects(effects);
     }
     public void SetCurrentOponnentStats(int[] stats) {
-        model.SetCurrentOponnentStats(stats);
+        DB.SetCurrentOponnentStats(stats);
     }
 }

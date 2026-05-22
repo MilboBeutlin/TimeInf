@@ -68,8 +68,6 @@ public class GM : MonoBehaviour
             case Attacks.NULL:
                 break;
 
-            case Attacks.Donnerschock:
-                break;
 
             default:
                 Debug.Log("Gooner");
