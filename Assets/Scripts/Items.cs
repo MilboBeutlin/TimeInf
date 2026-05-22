@@ -2,5 +2,9 @@ using UnityEngine;
 
 public enum Items
 {
-    NULL, MagischerApfel, Heiltrank, GroßerHeiltrank, HeiligesKreuz, Phoenixfeder, Bier, Giftmolotov, Schriftrolle, BöseSchriftrolle, Münzen, Spiegelfragment, Zeigelstein, Feuerzeug, Ritualschwert, KomischerSchlüssel, Kristall, Schaufel, Angelrute,
+    NULL, MagischerApfel, Heiltrank, GroßerHeiltrank,
+    HeiligesKreuz, Phoenixfeder, Bier, Giftmolotov, Schriftrolle, BöseSchriftrolle,
+    Münzen, Spiegelfragment, Ziegelstein, Feuerzeug, Ritualschwert, KomischerSchlüssel, Kristall, Schaufel, Angelrute,
+
+    //neue Items hier hin und bitte die Reihenfolge nicht mehr verändern:
 }

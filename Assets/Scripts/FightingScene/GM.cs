@@ -74,8 +74,9 @@ public class GM : MonoBehaviour
         }
 
         OponentTurn();
-        playerturn = true;
-        bM.TurnChange(true);
+
+        //playerturn = true;
+        //bM.TurnChange(true);
         
     }
 
@@ -89,6 +90,10 @@ public class GM : MonoBehaviour
         return playerturn;
     }
 
+    public Items[] giveCurrentPlayerItems()
+    {
+        return currentPlayerItems;
+    }
 
     public void OponentTurn()
     {

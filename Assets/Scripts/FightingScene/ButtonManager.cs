@@ -12,6 +12,8 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject itemButtons;
     [SerializeField] private Transform canvas;
 
+    [SerializeField] private GameObject[] Itembuttons;
+
     private void Start()
     {
         MainButton();

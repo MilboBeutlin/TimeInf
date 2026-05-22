@@ -20,12 +20,16 @@ public class MainButtonScript : MonoBehaviour
     [SerializeField] private GameObject ItemButtons;
     [SerializeField] private GameObject FleeButtons;
 
+    
+
 
 
     void Start()
     {
         bM = GetComponentInParent<ButtonManager>();
         GM = FindAnyObjectByType<GM>();
+
+        
     }
 
 
@@ -82,4 +86,6 @@ public class MainButtonScript : MonoBehaviour
     {
         GM.DoAttack(5);
     }
+
+    
 }
