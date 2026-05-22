@@ -6,14 +6,13 @@ public class Datenbank : MonoBehaviour
 
     //Alle Stats im Game
     private Attacks[] currentPlayerAttacks;
-    private int currentPlayerHealth;
-    private Statuseffekte[] currentPlayerStat;
+    private int[] currentPlayerStats;
+    private Statuseffekte[] currentPlayerEffects;
     private Items[] currentPlayerItems;
 
     private Gegner currentOponent;
     private Attacks[] currentOponnentAttacks;
-    private int currentOponnentHealth;
-    private Statuseffekte[] currentOponentStats;
+    private Statuseffekte[] currentOponentEffects;
     private int[] currentOponnentStats; //health, attack, armor, speed, dk
 
 
@@ -41,44 +40,71 @@ public class Datenbank : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
     //Alle Satas im Game
-    public Attacks[] GetCurrentAttacks()
-    {
+    //player
+    public Attacks[] GetCurrentPlayerAttacks() {
         return currentPlayerAttacks;
     }
 
-    public int GetCurrentPlayerHealth()
-    {
-        return currentPlayerHealth;
+    public void SetCurrentPlayerAttacks(Attacks[] currentPlayerAttacks) {
+        this.currentPlayerAttacks = currentPlayerAttacks;
     }
 
-    public Statuseffekte[] GetCurrentPlayetStats()
-    {
-        return currentPlayerStat;
+    public int[] GetCurrentPlayerStats() {
+        return currentPlayerStats;
     }
 
-    public Items[] GetCurrentPlayeritems()
-    {
+    public void SetCurrentPlayerStats(int[] currentPlayerStats) {
+        this.currentPlayerStats = currentPlayerStats;
+    }
+
+    public Statuseffekte[] GetCurrentPlayerEffects() {
+        return currentPlayerEffects;
+    }
+
+    public void SetCurrentPlayerEffects(Statuseffekte[] currentPlayerEffects) {
+        this.currentPlayerEffects = currentPlayerEffects;
+    }
+
+    public Items[] GetCurrentPlayerItems() {
         return currentPlayerItems;
     }
 
-    public Attacks[] GetCurrentOponnentAttacks()
-    {
+    public void SetCurrentPlayerItems(Items[] currentPlayerItems) {
+        this.currentPlayerItems = currentPlayerItems;
+    }
+
+    // opponent
+
+    public Gegner GetCurrentOponent() {
+        return currentOponent;
+    }
+
+    public void SetCurrentOponent(Gegner currentOponent) {
+        this.currentOponent = currentOponent;
+    }
+
+    public Attacks[] GetCurrentOponnentAttacks() {
         return currentOponnentAttacks;
     }
 
-    public int GetCurrentOponnentStats()
-    {
-        return currentOponnentStats[5];
+    public void SetCurrentOponnentAttacks(Attacks[] currentOponnentAttacks) {
+        this.currentOponnentAttacks = currentOponnentAttacks;
     }
 
-    public void SetCurrentOpponentAttacks(Attacks[] attacks)
-    {
-        currentOponnentAttacks = attacks;
+    public Statuseffekte[] GetCurrentOponentEffects() {
+        return currentOponentEffects;
     }
 
-    public void SetCurrentOpponentStats(int[] stats)
-    {
-        currentOponnentStats = stats;
+    public void SetCurrentOponentEffects(Statuseffekte[] currentOponentEffects) {
+        this.currentOponentEffects = currentOponentEffects;
+    }
+
+    public int[] GetCurrentOponnentStats() {
+        return currentOponnentStats;
+    }
+
+    public void SetCurrentOponnentStats(int[] currentOponnentStats) {
+        this.currentOponnentStats = currentOponnentStats;
     }
 
 
