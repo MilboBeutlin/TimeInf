@@ -108,39 +108,7 @@ void OnTriggerEnter2D(Collider2D other)
                 break;
         }
         SceneManager.LoadScene("Fight");
-    }else if (other.CompareTag("door")) //going through doors:
-        {
-
-            if (input.x != 0)
-            {
-                if (input.x > 0)
-                {
-                    body.position = new Vector2(body.position.x + 2, body.position.y);
-
-                }
-                else
-                {
-                    body.position = new Vector2(body.position.x - 2, body.position.y);
-
-                }
-            }
-
-            if (input.y != 0)
-            {
-                if (input.y > 0)
-                {
-                    body.position = new Vector2(body.position.x, body.position.y + 2);
-                    location = "R1";
-                }
-
-                else
-                {
-                    body.position = new Vector2(body.position.x, body.position.y - 2);
-                    location = "R0";
-                }
-                
-            }
-        }
+    }
 }
 
     private void EnemyLoading(Gegner type, int lp, int atk, int armor, int speed, int dk) 
@@ -171,8 +139,12 @@ void OnTriggerEnter2D(Collider2D other)
     controller.SetCurrentOponnentStats(new int[]{lp, atk, armor, speed, dk});
 }
 
-    public string Location() //location for camera
+    public string GetLocation() //location for camera
     {
         return location;
+    }
+    public void SetLocation(string location) //location for camera
+    {
+        this.location = location;
     }
 }

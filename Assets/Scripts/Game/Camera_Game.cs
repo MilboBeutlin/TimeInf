@@ -13,7 +13,7 @@ public class Camera_Game : MonoBehaviour
 
     void Update()
     {
-        playerLocation = player.Location();
+        playerLocation = player.GetLocation();
         char type = playerLocation[0];
         int index = int.Parse(playerLocation.Substring(1));
 
