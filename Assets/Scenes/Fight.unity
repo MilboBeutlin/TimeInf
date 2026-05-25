@@ -235,6 +235,7 @@ GameObject:
   - component: {fileID: 59309209}
   - component: {fileID: 59309208}
   - component: {fileID: 59309207}
+  - component: {fileID: 59309210}
   m_Layer: 5
   m_Name: Item12
   m_TagString: Untagged
@@ -344,6 +345,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 59309205}
   m_CullTransparentMesh: 1
+--- !u!114 &59309210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59309205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 12
+  ItemButtonText: {fileID: 1040494245}
 --- !u!1 &68863097
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +380,7 @@ GameObject:
   - component: {fileID: 68863101}
   - component: {fileID: 68863100}
   - component: {fileID: 68863099}
+  - component: {fileID: 68863102}
   m_Layer: 5
   m_Name: Item7
   m_TagString: Untagged
@@ -465,6 +490,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 68863097}
   m_CullTransparentMesh: 1
+--- !u!114 &68863102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68863097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 7
+  ItemButtonText: {fileID: 850033168}
 --- !u!1 &163253923
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,6 +662,7 @@ GameObject:
   - component: {fileID: 229924748}
   - component: {fileID: 229924747}
   - component: {fileID: 229924746}
+  - component: {fileID: 229924749}
   m_Layer: 5
   m_Name: Item10
   m_TagString: Untagged
@@ -723,6 +772,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229924744}
   m_CullTransparentMesh: 1
+--- !u!114 &229924749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 229924744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 10
+  ItemButtonText: {fileID: 1234992764}
 --- !u!1 &246914006
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,6 +944,7 @@ GameObject:
   - component: {fileID: 299522369}
   - component: {fileID: 299522368}
   - component: {fileID: 299522367}
+  - component: {fileID: 299522370}
   m_Layer: 5
   m_Name: Item6
   m_TagString: Untagged
@@ -981,6 +1054,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299522365}
   m_CullTransparentMesh: 1
+--- !u!114 &299522370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299522365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 6
+  ItemButtonText: {fileID: 918656521}
 --- !u!1 &370500738
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,6 +1089,7 @@ GameObject:
   - component: {fileID: 370500742}
   - component: {fileID: 370500741}
   - component: {fileID: 370500740}
+  - component: {fileID: 370500743}
   m_Layer: 5
   m_Name: Item14
   m_TagString: Untagged
@@ -1102,6 +1199,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370500738}
   m_CullTransparentMesh: 1
+--- !u!114 &370500743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370500738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 14
+  ItemButtonText: {fileID: 1369499549}
 --- !u!1 &417454995
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,7 +1911,7 @@ MonoBehaviour:
   playerturn: 0
   currentPlayerAttacks: 
   currentplayerStats: 
-  currentPlayerItems: 
+  currentPlayerItems: 0100000000000000020000000a000000
   currentPlayerEffects: 
   currentopponentStats: 
   currentOponnentAttacks: 
@@ -2160,6 +2280,7 @@ GameObject:
   - component: {fileID: 564976586}
   - component: {fileID: 564976585}
   - component: {fileID: 564976584}
+  - component: {fileID: 564976587}
   m_Layer: 5
   m_Name: Item16
   m_TagString: Untagged
@@ -2269,6 +2390,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564976582}
   m_CullTransparentMesh: 1
+--- !u!114 &564976587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564976582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 16
+  ItemButtonText: {fileID: 734514836}
 --- !u!1 &567332247
 GameObject:
   m_ObjectHideFlags: 0
@@ -2281,6 +2425,7 @@ GameObject:
   - component: {fileID: 567332251}
   - component: {fileID: 567332250}
   - component: {fileID: 567332249}
+  - component: {fileID: 567332252}
   m_Layer: 5
   m_Name: Item8
   m_TagString: Untagged
@@ -2390,6 +2535,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 567332247}
   m_CullTransparentMesh: 1
+--- !u!114 &567332252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 567332247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 8
+  ItemButtonText: {fileID: 246914008}
 --- !u!1 &581570671
 GameObject:
   m_ObjectHideFlags: 0
@@ -2402,6 +2570,7 @@ GameObject:
   - component: {fileID: 581570675}
   - component: {fileID: 581570674}
   - component: {fileID: 581570673}
+  - component: {fileID: 581570676}
   m_Layer: 5
   m_Name: Item5
   m_TagString: Untagged
@@ -2511,6 +2680,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 581570671}
   m_CullTransparentMesh: 1
+--- !u!114 &581570676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581570671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 5
+  ItemButtonText: {fileID: 1891711748}
 --- !u!1 &619863708
 GameObject:
   m_ObjectHideFlags: 0
@@ -2523,6 +2715,7 @@ GameObject:
   - component: {fileID: 619863712}
   - component: {fileID: 619863711}
   - component: {fileID: 619863710}
+  - component: {fileID: 619863713}
   m_Layer: 5
   m_Name: Item9
   m_TagString: Untagged
@@ -2632,6 +2825,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 619863708}
   m_CullTransparentMesh: 1
+--- !u!114 &619863713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619863708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 9
+  ItemButtonText: {fileID: 1140462203}
 --- !u!1 &626512287
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,7 +2901,7 @@ MonoBehaviour:
   attackButtons: {fileID: 6519929126861542700}
   itemButtons: {fileID: 781221810330387296}
   canvas: {fileID: 28046685}
-  Itembuttons:
+  ItembuttonsList:
   - {fileID: 1820446406}
   - {fileID: 675063129}
   - {fileID: 2050090867}
@@ -2716,6 +2932,7 @@ GameObject:
   - component: {fileID: 675063133}
   - component: {fileID: 675063132}
   - component: {fileID: 675063131}
+  - component: {fileID: 675063134}
   m_Layer: 5
   m_Name: Item2
   m_TagString: Untagged
@@ -2825,6 +3042,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675063129}
   m_CullTransparentMesh: 1
+--- !u!114 &675063134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675063129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 2
+  ItemButtonText: {fileID: 163253925}
 --- !u!1 &734514834
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,6 +3736,7 @@ GameObject:
   - component: {fileID: 1014619486}
   - component: {fileID: 1014619485}
   - component: {fileID: 1014619484}
+  - component: {fileID: 1014619487}
   m_Layer: 5
   m_Name: Item17
   m_TagString: Untagged
@@ -3605,6 +3846,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014619482}
   m_CullTransparentMesh: 1
+--- !u!114 &1014619487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014619482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 17
+  ItemButtonText: {fileID: 512833960}
 --- !u!1 &1033772003
 GameObject:
   m_ObjectHideFlags: 0
@@ -4189,6 +4453,7 @@ GameObject:
   - component: {fileID: 1149633227}
   - component: {fileID: 1149633226}
   - component: {fileID: 1149633225}
+  - component: {fileID: 1149633228}
   m_Layer: 5
   m_Name: Item15
   m_TagString: Untagged
@@ -4298,6 +4563,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149633223}
   m_CullTransparentMesh: 1
+--- !u!114 &1149633228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1149633223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 15
+  ItemButtonText: {fileID: 912759390}
 --- !u!1 &1234992762
 GameObject:
   m_ObjectHideFlags: 0
@@ -4721,6 +5009,7 @@ GameObject:
   - component: {fileID: 1378552145}
   - component: {fileID: 1378552144}
   - component: {fileID: 1378552143}
+  - component: {fileID: 1378552146}
   m_Layer: 5
   m_Name: Item18
   m_TagString: Untagged
@@ -4830,6 +5119,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1378552141}
   m_CullTransparentMesh: 1
+--- !u!114 &1378552146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1378552141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 18
+  ItemButtonText: {fileID: 541523436}
 --- !u!1 &1383510817
 GameObject:
   m_ObjectHideFlags: 0
@@ -4842,6 +5154,7 @@ GameObject:
   - component: {fileID: 1383510821}
   - component: {fileID: 1383510820}
   - component: {fileID: 1383510819}
+  - component: {fileID: 1383510822}
   m_Layer: 5
   m_Name: Item11
   m_TagString: Untagged
@@ -4951,6 +5264,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1383510817}
   m_CullTransparentMesh: 1
+--- !u!114 &1383510822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1383510817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 11
+  ItemButtonText: {fileID: 1243644957}
 --- !u!1 &1538353667
 GameObject:
   m_ObjectHideFlags: 0
@@ -4963,6 +5299,7 @@ GameObject:
   - component: {fileID: 1538353671}
   - component: {fileID: 1538353670}
   - component: {fileID: 1538353669}
+  - component: {fileID: 1538353672}
   m_Layer: 5
   m_Name: Item4
   m_TagString: Untagged
@@ -5072,6 +5409,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538353667}
   m_CullTransparentMesh: 1
+--- !u!114 &1538353672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538353667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 4
+  ItemButtonText: {fileID: 417454997}
 --- !u!1 &1564805700
 GameObject:
   m_ObjectHideFlags: 0
@@ -5257,6 +5617,7 @@ GameObject:
   - component: {fileID: 1749942290}
   - component: {fileID: 1749942289}
   - component: {fileID: 1749942288}
+  - component: {fileID: 1749942291}
   m_Layer: 5
   m_Name: Item13
   m_TagString: Untagged
@@ -5366,6 +5727,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749942286}
   m_CullTransparentMesh: 1
+--- !u!114 &1749942291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749942286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 13
+  ItemButtonText: {fileID: 480946536}
 --- !u!1 &1820446406
 GameObject:
   m_ObjectHideFlags: 0
@@ -5378,6 +5762,7 @@ GameObject:
   - component: {fileID: 1820446410}
   - component: {fileID: 1820446409}
   - component: {fileID: 1820446408}
+  - component: {fileID: 1820446411}
   m_Layer: 5
   m_Name: Item1
   m_TagString: Untagged
@@ -5487,6 +5872,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820446406}
   m_CullTransparentMesh: 1
+--- !u!114 &1820446411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1820446406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 1
+  ItemButtonText: {fileID: 427731175}
 --- !u!1 &1891711746
 GameObject:
   m_ObjectHideFlags: 0
@@ -5863,6 +6271,7 @@ GameObject:
   - component: {fileID: 2050090871}
   - component: {fileID: 2050090870}
   - component: {fileID: 2050090869}
+  - component: {fileID: 2050090872}
   m_Layer: 5
   m_Name: Item3
   m_TagString: Untagged
@@ -5972,6 +6381,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2050090867}
   m_CullTransparentMesh: 1
+--- !u!114 &2050090872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050090867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+  Attack5: {fileID: 0}
+  Attack6: {fileID: 0}
+  AttackButtons: {fileID: 0}
+  ItemButtons: {fileID: 0}
+  FleeButtons: {fileID: 0}
+  ButtonType: 3
+  ItemButtonText: {fileID: 1580067794}
 --- !u!224 &19542774202339374
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7531,6 +7963,8 @@ MonoBehaviour:
   AttackButtons: {fileID: 6415744845476019005}
   ItemButtons: {fileID: 5849749325415115937}
   FleeButtons: {fileID: 6589397305435170930}
+  ButtonType: 0
+  ItemButtonText: {fileID: 0}
 --- !u!222 &4127769195901996009
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7728,6 +8162,8 @@ MonoBehaviour:
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
+  ButtonType: 0
+  ItemButtonText: {fileID: 0}
 --- !u!114 &4567662098652578411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7749,6 +8185,8 @@ MonoBehaviour:
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
+  ButtonType: 0
+  ItemButtonText: {fileID: 0}
 --- !u!222 &4607729944561407404
 CanvasRenderer:
   m_ObjectHideFlags: 0

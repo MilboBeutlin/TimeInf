@@ -20,6 +20,9 @@ public class MainButtonScript : MonoBehaviour
     [SerializeField] private GameObject ItemButtons;
     [SerializeField] private GameObject FleeButtons;
 
+    [SerializeField] private Items ButtonType;
+    [SerializeField] private TMP_Text ItemButtonText;
+
     
 
 
@@ -28,8 +31,6 @@ public class MainButtonScript : MonoBehaviour
     {
         bM = GetComponentInParent<ButtonManager>();
         GM = FindAnyObjectByType<GM>();
-
-        
     }
 
 
@@ -45,7 +46,22 @@ public class MainButtonScript : MonoBehaviour
             Attack6.GetComponent<TMP_Text>().text = GM.givePlayerAttack(5).ToString();
             
         }
-        
+        if (ItemButtonText != null)
+        {
+            ItemButtonText.text = ButtonType.ToString();
+            
+            
+            
+        }
+    }
+
+    public Items giveItemButtonType()
+    {
+        return ButtonType;
+    }
+    public void setItemButtonType(Items i)
+    {
+        i = ButtonType;
     }
     public void SetMainButtonActive(bool active)
     {
