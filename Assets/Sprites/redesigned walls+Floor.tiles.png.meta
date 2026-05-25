@@ -1,0 +1,990 @@
+fileFormatVersion: 2
+guid: 09df53ae7c8994b43aed6347dcc15968
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1927494643475688929
+    second: redesigned walls+Floor.tiles_0
+  - first:
+      213: -3251049564624210668
+    second: redesigned walls+Floor.tiles_1
+  - first:
+      213: -7211537499865177826
+    second: redesigned walls+Floor.tiles_2
+  - first:
+      213: -4115082424834972672
+    second: redesigned walls+Floor.tiles_3
+  - first:
+      213: -6924348572136746620
+    second: redesigned walls+Floor.tiles_4
+  - first:
+      213: -2454753488107153053
+    second: redesigned walls+Floor.tiles_5
+  - first:
+      213: -8904737877627663154
+    second: redesigned walls+Floor.tiles_6
+  - first:
+      213: -9153842027653805439
+    second: redesigned walls+Floor.tiles_7
+  - first:
+      213: -3061461717129347095
+    second: redesigned walls+Floor.tiles_8
+  - first:
+      213: -4291181880311103794
+    second: redesigned walls+Floor.tiles_9
+  - first:
+      213: -3643334101153753813
+    second: redesigned walls+Floor.tiles_10
+  - first:
+      213: 664225523651715926
+    second: redesigned walls+Floor.tiles_11
+  - first:
+      213: -7810201976496070406
+    second: redesigned walls+Floor.tiles_12
+  - first:
+      213: -8660853773411862089
+    second: redesigned walls+Floor.tiles_13
+  - first:
+      213: -7064731985546738157
+    second: redesigned walls+Floor.tiles_14
+  - first:
+      213: 6119845126205119019
+    second: redesigned walls+Floor.tiles_15
+  - first:
+      213: -2747562030632601602
+    second: redesigned walls+Floor.tiles_16
+  - first:
+      213: 1006207869833871239
+    second: redesigned walls+Floor.tiles_17
+  - first:
+      213: 5023161894374815757
+    second: redesigned walls+Floor.tiles_18
+  - first:
+      213: -7752200369636006572
+    second: redesigned walls+Floor.tiles_19
+  - first:
+      213: -6408845790956005120
+    second: redesigned walls+Floor.tiles_20
+  - first:
+      213: 8866228466085355113
+    second: redesigned walls+Floor.tiles_21
+  - first:
+      213: -2662890172266106379
+    second: redesigned walls+Floor.tiles_22
+  - first:
+      213: 883756436536032262
+    second: redesigned walls+Floor.tiles_23
+  - first:
+      213: 7106449635598141454
+    second: redesigned walls+Floor.tiles_24
+  - first:
+      213: 1136698748855758805
+    second: redesigned walls+Floor.tiles_25
+  - first:
+      213: -2159293662517433298
+    second: redesigned walls+Floor.tiles_26
+  - first:
+      213: -6071379300966593106
+    second: redesigned walls+Floor.tiles_27
+  - first:
+      213: 2268552763810271895
+    second: redesigned walls+Floor.tiles_28
+  - first:
+      213: 9185929352184924860
+    second: redesigned walls+Floor.tiles_29
+  - first:
+      213: -5115991437379600949
+    second: redesigned walls+Floor.tiles_30
+  - first:
+      213: -5238307096297459595
+    second: redesigned walls+Floor.tiles_31
+  - first:
+      213: -7212914141121156857
+    second: redesigned walls+Floor.tiles_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 58
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_0
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 580
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ed26da7a26dfba10800000000000000
+      internalID: 1927494643475688929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_1
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 580
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 415b26155a3f1e2d0800000000000000
+      internalID: -3251049564624210668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_2
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 579
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e11a02c2ad87beb90800000000000000
+      internalID: -7211537499865177826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_3
+      rect:
+        serializedVersion: 2
+        x: 348
+        y: 579
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0042246565a44e6c0800000000000000
+      internalID: -4115082424834972672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_4
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 506
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4815ec019a5c7ef90800000000000000
+      internalID: -6924348572136746620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_5
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 506
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 369d83a55b6feedd0800000000000000
+      internalID: -2454753488107153053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_6
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 506
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecc890264140c6480800000000000000
+      internalID: -8904737877627663154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_7
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 506
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18a47abcc2507f080800000000000000
+      internalID: -9153842027653805439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_8
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 414
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ef3c01e9c08385d0800000000000000
+      internalID: -3061461717129347095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_9
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 414
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eceb675c0d8a274c0800000000000000
+      internalID: -4291181880311103794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_10
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 414
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b25d9ae20f6407dc0800000000000000
+      internalID: -3643334101153753813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_11
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 414
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6532204389dc73900800000000000000
+      internalID: 664225523651715926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_12
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 344
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af0e5eebea69c9390800000000000000
+      internalID: -7810201976496070406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_13
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 346
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b93f2851677ec780800000000000000
+      internalID: -8660853773411862089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_14
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 346
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 316852090b705fd90800000000000000
+      internalID: -7064731985546738157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_15
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 346
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2a9cdbc7be0ee450800000000000000
+      internalID: 6119845126205119019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_16
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 244
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef7facde3e2bed9d0800000000000000
+      internalID: -2747562030632601602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_17
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 244
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78f76abf9b4c6fd00800000000000000
+      internalID: 1006207869833871239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_18
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 243
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d083d7b012bd5b540800000000000000
+      internalID: 5023161894374815757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_19
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 243
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 455a13436d6aa6490800000000000000
+      internalID: -7752200369636006572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_20
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 240
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0095fc965b43f07a0800000000000000
+      internalID: -6408845790956005120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_21
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 240
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96e597a80db2b0b70800000000000000
+      internalID: 8866228466085355113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_22
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 243
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f133363f738b0bd0800000000000000
+      internalID: -2662890172266106379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_23
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 241
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60cf1b3fbcbb34c00800000000000000
+      internalID: 883756436536032262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_24
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 169
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e080800ca4e2f9260800000000000000
+      internalID: 7106449635598141454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_25
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 171
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dfad265d7d56cf00800000000000000
+      internalID: 1136698748855758805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_26
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 169
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2c65e7bad5a802e0800000000000000
+      internalID: -2159293662517433298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_27
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 168
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ead0a3d71b02ebba0800000000000000
+      internalID: -6071379300966593106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_28
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 166
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 792542928b48b7f10800000000000000
+      internalID: 2268552763810271895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_29
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 75
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cba01d0a31afa7f70800000000000000
+      internalID: 9185929352184924860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_30
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 75
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcd7c05b4e85009b0800000000000000
+      internalID: -5115991437379600949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_31
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 7
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57038cc137bcd47b0800000000000000
+      internalID: -5238307096297459595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: redesigned walls+Floor.tiles_32
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 7
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 709e417edc496eb90800000000000000
+      internalID: -7212914141121156857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 47e9afadd6b39604a83e6dc9a889b2d1
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      redesigned walls+Floor.tiles_0: 1927494643475688929
+      redesigned walls+Floor.tiles_1: -3251049564624210668
+      redesigned walls+Floor.tiles_10: -3643334101153753813
+      redesigned walls+Floor.tiles_11: 664225523651715926
+      redesigned walls+Floor.tiles_12: -7810201976496070406
+      redesigned walls+Floor.tiles_13: -8660853773411862089
+      redesigned walls+Floor.tiles_14: -7064731985546738157
+      redesigned walls+Floor.tiles_15: 6119845126205119019
+      redesigned walls+Floor.tiles_16: -2747562030632601602
+      redesigned walls+Floor.tiles_17: 1006207869833871239
+      redesigned walls+Floor.tiles_18: 5023161894374815757
+      redesigned walls+Floor.tiles_19: -7752200369636006572
+      redesigned walls+Floor.tiles_2: -7211537499865177826
+      redesigned walls+Floor.tiles_20: -6408845790956005120
+      redesigned walls+Floor.tiles_21: 8866228466085355113
+      redesigned walls+Floor.tiles_22: -2662890172266106379
+      redesigned walls+Floor.tiles_23: 883756436536032262
+      redesigned walls+Floor.tiles_24: 7106449635598141454
+      redesigned walls+Floor.tiles_25: 1136698748855758805
+      redesigned walls+Floor.tiles_26: -2159293662517433298
+      redesigned walls+Floor.tiles_27: -6071379300966593106
+      redesigned walls+Floor.tiles_28: 2268552763810271895
+      redesigned walls+Floor.tiles_29: 9185929352184924860
+      redesigned walls+Floor.tiles_3: -4115082424834972672
+      redesigned walls+Floor.tiles_30: -5115991437379600949
+      redesigned walls+Floor.tiles_31: -5238307096297459595
+      redesigned walls+Floor.tiles_32: -7212914141121156857
+      redesigned walls+Floor.tiles_4: -6924348572136746620
+      redesigned walls+Floor.tiles_5: -2454753488107153053
+      redesigned walls+Floor.tiles_6: -8904737877627663154
+      redesigned walls+Floor.tiles_7: -9153842027653805439
+      redesigned walls+Floor.tiles_8: -3061461717129347095
+      redesigned walls+Floor.tiles_9: -4291181880311103794
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
