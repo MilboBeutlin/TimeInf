@@ -5,6 +5,7 @@ public class Camera_Game : MonoBehaviour
     [SerializeField] private Player_Game player;
     [SerializeField] private Transform[] rooms; //empty object for the postion
     [SerializeField] private Transform[] corridors; //empty object for the postion
+    [SerializeField] private Transform[] hallway; //empty object for the postion
     private string playerLocation;
     void Start()
     {
@@ -28,7 +29,7 @@ public class Camera_Game : MonoBehaviour
             break;
 
             case 'G': //horizontal
-            transform.position = new Vector2(player.transform.position.x, corridors[index].position.y);
+            transform.position = new Vector2(player.transform.position.x, hallway[index].position.y);
             break;
         }
     }
