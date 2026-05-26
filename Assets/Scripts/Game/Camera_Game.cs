@@ -31,6 +31,6 @@ public class Camera_Game : MonoBehaviour
             case 'G': //horizontal
             transform.position = new Vector2(player.transform.position.x, hallway[index].position.y);
             break;
-        }
+        }    
     }
 }
