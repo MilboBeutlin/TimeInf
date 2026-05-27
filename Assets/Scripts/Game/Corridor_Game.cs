@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Corridor_Game : MonoBehaviour
 {
-    /*[SerializeField] private string leadsTo;
+    [SerializeField] private string leadsTo;
     [SerializeField] private string leadsFrom;
     [SerializeField] private bool vertical;
 
@@ -13,20 +13,20 @@ public class Corridor_Game : MonoBehaviour
             Player_Game player = other.GetComponent<Player_Game>();
             if (vertical) //in which direction leads the corridor/hallway
             {
-                if (transform.position.y > other.transform.position.y) //player comes from down
+                if (transform.position.y > other.transform.position.y) //player leaves to down
                 {
                     player.SetLocation(leadsTo); 
-                }else                                                  //player comes from up
+                }else                                                  //player leaves to up
                 {
                     player.SetLocation(leadsFrom);
                 }
             }
             else
             {
-                if (transform.position.x > other.transform.position.x) //player comes from left
+                if (transform.position.x > other.transform.position.x) //player leaves to left
                 {
                     player.SetLocation(leadsTo);
-                }else                                                 //player comes from right
+                }else                                                 //player leaves to right
                 {
                     player.SetLocation(leadsFrom);
                 }
@@ -34,5 +34,34 @@ public class Corridor_Game : MonoBehaviour
             
             
         }
-    }*/
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Player_Game player = other.GetComponent<Player_Game>();
+            if (vertical) //in which direction leads the corridor/hallway
+            {
+                if (transform.position.y < other.transform.position.y) //player leaves to down
+                {
+                    player.SetLocation(leadsTo); 
+                }else                                                  //player leaves to up
+                {
+                    player.SetLocation(leadsFrom);
+                }
+            }
+            else
+            {
+                if (transform.position.x < other.transform.position.x) //player leaves to right
+                {
+                    player.SetLocation(leadsTo);
+                }else                                                 //player leaves to left
+                {
+                    player.SetLocation(leadsFrom);
+                }
+            }
+            
+            
+        }
+    }
 }

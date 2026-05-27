@@ -11,7 +11,7 @@ public class Player_Game : MonoBehaviour
 [SerializeField] private SpriteRenderer sR;
 private Controller controller;
 private Vector2 input;
-private string location = "K0";
+private string location = "K1";
 void Start()
 {
         controller = FindAnyObjectByType<Controller>();
