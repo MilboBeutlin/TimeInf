@@ -16,6 +16,7 @@ public class GM : MonoBehaviour
 
     [SerializeField] private int[] currentopponentStats; //health, attack, armor, speed, dk
     [SerializeField] private Attacks[] currentOponnentAttacks;
+    [SerializeField] private Statuseffekte[] currentOponentEffects;
 
     private int timer;
     
@@ -51,6 +52,7 @@ public class GM : MonoBehaviour
         currentPlayerEffects = model.GetCurrentPlayerEffects();
 
         currentOponnentAttacks = model.GetCurrentOponnentAttacks();
+        currentOponentEffects = model.GetCurrentOponentEffects();
     }
 
 
@@ -109,6 +111,89 @@ public class GM : MonoBehaviour
         {
             case Attacks.NULL:
             break;
+
+        }
+    }
+
+    // k == true; PlayerEffect || k == false; OponnentEffect
+    public void SetEffect(Statuseffekte j , bool k)
+    {
+        if(k == true)
+        {
+            for (int i = 0; i < currentPlayerEffects.Length; i++)
+            {
+                if (currentPlayerEffects[i] != Statuseffekte.NULL)
+                {
+                    currentPlayerEffects[i] = j;
+                    return;
+                }
+            }
+            Statuseffekte[] temp = new Statuseffekte[currentPlayerEffects.Length + 1];
+            temp[temp.Length] = j;
+            currentPlayerEffects = temp;
+        } else
+        {
+            for (int i = 0; i < currentOponentEffects.Length; i++)
+            {
+                if (currentOponentEffects[i] != Statuseffekte.NULL)
+                {
+                    currentOponentEffects[i] = j;
+                    return;
+                }
+            }
+            Statuseffekte[] temp = new Statuseffekte[currentOponentEffects.Length + 1];
+            temp[temp.Length] = j;
+            currentPlayerEffects = temp;
+        }
+    }
+
+    public void DoUseItem(Items item)
+    {
+        int randInt = Random.Range(0, 10);
+        switch (item)
+        {
+            case Items.NULL:
+                break;
+
+            case Items.Bier:
+                //wütend
+                SetEffect(Statuseffekte.Wütend, true);
+
+                //30% Chance auf vergifted
+                
+                if(randInt <= 3)
+                {
+                    SetEffect(Statuseffekte.Vergiftet, true);
+                }
+                break;
+
+            case Items.Giftmolotov:
+                SetEffect(Statuseffekte.Vergiftet, false);
+
+                //20% Chance auf wütend
+                if(randInt >= 2)
+                {
+                    SetEffect(Statuseffekte.Wütend, false);
+                }
+                break;
+
+            case Items.Heiltrank:
+                currentplayerStats[0] += 40;
+                if(currentplayerStats[0] >= 101)
+                {
+                    currentplayerStats[0] = 100;
+                }
+                break;
+
+            case Items.GroßerHeiltrank:
+                currentplayerStats[0] += 70;
+                if (currentplayerStats[0] >= 101)
+                {
+                    currentplayerStats[0] = 100;
+                }
+                break;
+                
+            
 
         }
     }
