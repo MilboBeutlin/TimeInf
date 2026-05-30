@@ -25,16 +25,28 @@ public class Controller : MonoBehaviour
         DB.SetCurrentPlayerAttacks(attacks);
     }
 
-    public void SetCurrentPlayerStats(int[] stats) {
-        DB.SetCurrentPlayerStats(stats);
+    public void IncreasePlayerLp(int amount) {
+        DB.SetCurrentPlayerStats(0, amount);
+    }
+    public void IncreasePlayerAtk(int amount) {
+        DB.SetCurrentPlayerStats(1, amount);
+    }
+    public void IncreasePlayerArmor(int amount) {
+        DB.SetCurrentPlayerStats(2, amount);
+    }
+    public void IncreasePlayerSpeed(int amount) {
+        DB.SetCurrentPlayerStats(3, amount);
+    }
+    public void IncreasePlayerDk(int amount) {
+        DB.SetCurrentPlayerStats(4, amount);
     }
 
     public void SetCurrentPlayerEffects(Statuseffekte[] effects) {
         DB.SetCurrentPlayerEffects(effects);
     }
 
-    public void SetCurrentPlayerItems(Items[] items) {
-        DB.SetCurrentPlayerItems(items);
+    public void AddItem(Items item, int amount) {
+        DB.AddItem(item, amount);
     }
 
     // opponent

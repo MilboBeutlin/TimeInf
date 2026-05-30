@@ -14,7 +14,7 @@ private Vector2 input;
 private string location = "K1";
 void Start()
 {
-        controller = FindAnyObjectByType<Controller>();
+    controller = FindAnyObjectByType<Controller>();
 }
 void Update()
 {
@@ -108,6 +108,11 @@ void OnTriggerEnter2D(Collider2D other)
                 break;
         }
         SceneManager.LoadScene("Fight");
+    }
+    else if (other.CompareTag("Death"))
+    {
+        controller.IncreasePlayerLp(-200);
+        Debug.Log("You are dead bitch");
     }
 }
 

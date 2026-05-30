@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class Model : MonoBehaviour
 {
 
@@ -25,10 +25,26 @@ public class Model : MonoBehaviour
     public int[] GetCurrentPlayerStats() {
         return DB.GetCurrentPlayerStats();
     }
+    public int GetCurrentPlayerLp() {
+        return DB.GetCurrentPlayerStat(0);
+    }
+    public int GetCurrentPlayerAtk() {
+        return DB.GetCurrentPlayerStat(1);
+    }
+    public int GetCurrentPlayerArmor() {
+        return DB.GetCurrentPlayerStat(2);
+    }
+    public int GetCurrentPlayerSpeed() {
+        return DB.GetCurrentPlayerStat(3);
+    }
+    public int GetCurrentPlayerDk() {
+        return DB.GetCurrentPlayerStat(4);
+    }
+
     public Statuseffekte[] GetCurrentPlayerEffects() {
         return DB.GetCurrentPlayerEffects();
     }
-    public Items[] GetCurrentPlayerItems() {
+    public Dictionary<Items, int> GetCurrentPlayerItems() {
         return DB.GetCurrentPlayerItems();
     }
     // opponent

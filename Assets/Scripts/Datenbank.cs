@@ -1,25 +1,26 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Datenbank : MonoBehaviour
 {
     private Model model;
 
     //Alle Stats im Game
+    //Player:
     private Attacks[] currentPlayerAttacks;
-    private int[] currentPlayerStats;
     private Statuseffekte[] currentPlayerEffects;
-    private Items[] currentPlayerItems;
+    private Dictionary<Items, int> playerItems = new Dictionary<Items, int>();
+    private int[] currentPlayerStats = new int[]{100,25,20,6,0}; //health, attack, armor, speed, dk
 
+    //Gegner:
     private Gegner currentOponent;
     private Attacks[] currentOponnentAttacks;
     private Statuseffekte[] currentOponentEffects;
     private int[] currentOponnentStats; //health, attack, armor, speed, dk
 
-
     private void Start()
     {
         model = FindAnyObjectByType<Model>();
-
         //Alle stats im Game
         currentPlayerAttacks = new Attacks[6];
         for (int i = 0; i < currentPlayerAttacks.Length; i++)
@@ -32,8 +33,7 @@ public class Datenbank : MonoBehaviour
         {
             currentOponnentAttacks[i] = Attacks.NULL;   
         }
-        
-
+    
     }
     private void Awake()
     {
@@ -49,12 +49,15 @@ public class Datenbank : MonoBehaviour
         this.currentPlayerAttacks = currentPlayerAttacks;
     }
 
+    public int GetCurrentPlayerStat(int index) {
+        return currentPlayerStats[index];
+    }
     public int[] GetCurrentPlayerStats() {
         return currentPlayerStats;
     }
 
-    public void SetCurrentPlayerStats(int[] currentPlayerStats) {
-        this.currentPlayerStats = currentPlayerStats;
+    public void SetCurrentPlayerStats(int index, int amount) {
+        this.currentPlayerStats[index] += amount;
     }
 
     public Statuseffekte[] GetCurrentPlayerEffects() {
@@ -65,12 +68,20 @@ public class Datenbank : MonoBehaviour
         this.currentPlayerEffects = currentPlayerEffects;
     }
 
-    public Items[] GetCurrentPlayerItems() {
-        return currentPlayerItems;
+    public Dictionary<Items, int> GetCurrentPlayerItems()
+    {
+        return playerItems;
     }
-
-    public void SetCurrentPlayerItems(Items[] currentPlayerItems) {
-        this.currentPlayerItems = currentPlayerItems;
+    public void AddItem(Items item, int amount)
+    {
+        if (playerItems.ContainsKey(item))
+        {
+            playerItems[item] += amount;
+        }
+        else
+        {
+            playerItems.Add(item, amount);
+        }
     }
 
     // opponent

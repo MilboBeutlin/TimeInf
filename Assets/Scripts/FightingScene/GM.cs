@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class GM : MonoBehaviour
 {
     private Model model;
@@ -11,7 +11,7 @@ public class GM : MonoBehaviour
     //Stats
     [SerializeField] private Attacks[] currentPlayerAttacks;
     [SerializeField] private int[] currentplayerStats;
-    [SerializeField] private Items[] currentPlayerItems;
+    [SerializeField] private Dictionary<Items, int> currentPlayerItems;
     [SerializeField] private Statuseffekte[] currentPlayerEffects;
 
     [SerializeField] private int[] currentopponentStats; //health, attack, armor, speed, dk
@@ -91,7 +91,7 @@ public class GM : MonoBehaviour
         return playerturn;
     }
 
-    public Items[] giveCurrentPlayerItems()
+    public Dictionary<Items, int> giveCurrentPlayerItems()
     {
         return currentPlayerItems;
     }

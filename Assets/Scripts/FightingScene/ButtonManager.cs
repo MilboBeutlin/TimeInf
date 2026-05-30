@@ -61,27 +61,11 @@ public class ButtonManager : MonoBehaviour
 
     public void CheckItems()
     {
-        // Alle Knöpfe deaktivieren, die NULL sind.
-        for (int j = 0; j < ItembuttonsList.Length; j++)
+        // Alle Knï¿½pfe deaktivieren, die NULL sind.
+        for (int i = 0; i < ItembuttonsList.Length; i++)
         {
-            
-            for (int i = 0; i < gm.giveCurrentPlayerItems().Length; i++)
-            {
-                if (ItembuttonsList[j].GetComponent<MainButtonScript>().giveItemButtonType() == gm.giveCurrentPlayerItems()[i] && gm.giveCurrentPlayerItems()[i] != Items.NULL)
-                {
-                    ItembuttonsList[j].SetActive(true);
-                    j++;
-                    i = 0;
-                } else 
-                {
-                    ItembuttonsList[j].SetActive(false);
-                }
-                
-                
-            }
-            
+            Items buttonItem = ItembuttonsList[i].GetComponent<MainButtonScript>().giveItemButtonType();
+            ItembuttonsList[i].SetActive(gm.giveCurrentPlayerItems().ContainsKey(buttonItem));
         }
-    }
-
-    
+    }    
 }
