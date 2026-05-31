@@ -1,0 +1,654 @@
+fileFormatVersion: 2
+guid: fbf79460130d21341b6f138ecd1ab082
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1009879770017384049
+    second: carpetTiles_0
+  - first:
+      213: -974692168948168677
+    second: carpetTiles_1
+  - first:
+      213: 8620757978440828642
+    second: carpetTiles_2
+  - first:
+      213: 594373023530585398
+    second: carpetTiles_3
+  - first:
+      213: 1104768092246560482
+    second: carpetTiles_4
+  - first:
+      213: -2456512906915725632
+    second: carpetTiles_5
+  - first:
+      213: -5282048304673505539
+    second: carpetTiles_6
+  - first:
+      213: 6211208080302283151
+    second: carpetTiles_7
+  - first:
+      213: -9054678616840939699
+    second: carpetTiles_8
+  - first:
+      213: 4356530099263867241
+    second: carpetTiles_9
+  - first:
+      213: 8997437856677828251
+    second: carpetTiles_10
+  - first:
+      213: -2057717975199394149
+    second: carpetTiles_11
+  - first:
+      213: 8033935960398236303
+    second: carpetTiles_12
+  - first:
+      213: 7864798437273296315
+    second: carpetTiles_13
+  - first:
+      213: -4110091165096937340
+    second: carpetTiles_14
+  - first:
+      213: 6425353745895405131
+    second: carpetTiles_15
+  - first:
+      213: 5200747994909429178
+    second: carpetTiles_16
+  - first:
+      213: 310651498664231982
+    second: carpetTiles_17
+  - first:
+      213: 2358590867320971255
+    second: carpetTiles_18
+  - first:
+      213: -1755686340586054115
+    second: carpetTiles_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 58
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: carpetTiles_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 263
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1764dbddc40d30e00800000000000000
+      internalID: 1009879770017384049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 261
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b184d70f2a23972f0800000000000000
+      internalID: -974692168948168677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_2
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 260
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e68497e4b513a770800000000000000
+      internalID: 8620757978440828642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_3
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 286
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63d8d93ad13af3800800000000000000
+      internalID: 594373023530585398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_4
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 197
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eeca810abce45f00800000000000000
+      internalID: 1104768092246560482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_5
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 195
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ce302db686b8edd0800000000000000
+      internalID: -2456512906915725632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_6
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 195
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfe3b796d0562b6b0800000000000000
+      internalID: -5282048304673505539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_7
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 219
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f89147437d4a23650800000000000000
+      internalID: 6211208080302283151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_8
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 136
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d47dedf85c1575280800000000000000
+      internalID: -9054678616840939699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_9
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 135
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9698beb1b01857c30800000000000000
+      internalID: 4356530099263867241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_10
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 135
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b961fe76f025ddc70800000000000000
+      internalID: 8997437856677828251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_11
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 153
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b96dd4067648173e0800000000000000
+      internalID: -2057717975199394149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_12
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 76
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8a06cbb0364e7f60800000000000000
+      internalID: 8033935960398236303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_13
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 75
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbdd8bb5280652d60800000000000000
+      internalID: 7864798437273296315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_14
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 75
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 488fced8cd506f6c0800000000000000
+      internalID: -4110091165096937340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_15
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 78
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b46325c50317b2950800000000000000
+      internalID: 6425353745895405131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_16
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 11
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abdc6e22fb4cc2840800000000000000
+      internalID: 5200747994909429178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_17
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 11
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2403d264e7af4400800000000000000
+      internalID: 310651498664231982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_18
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 8
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ff9521c5e56bb020800000000000000
+      internalID: 2358590867320971255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: carpetTiles_19
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 11
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1edc54439c82a7e0800000000000000
+      internalID: -1755686340586054115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 3664d4d37ba94cc49b53aad649945bb6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceOnImport
+        value: True
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":true,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      carpetTiles_0: 1009879770017384049
+      carpetTiles_1: -974692168948168677
+      carpetTiles_10: 8997437856677828251
+      carpetTiles_11: -2057717975199394149
+      carpetTiles_12: 8033935960398236303
+      carpetTiles_13: 7864798437273296315
+      carpetTiles_14: -4110091165096937340
+      carpetTiles_15: 6425353745895405131
+      carpetTiles_16: 5200747994909429178
+      carpetTiles_17: 310651498664231982
+      carpetTiles_18: 2358590867320971255
+      carpetTiles_19: -1755686340586054115
+      carpetTiles_2: 8620757978440828642
+      carpetTiles_3: 594373023530585398
+      carpetTiles_4: 1104768092246560482
+      carpetTiles_5: -2456512906915725632
+      carpetTiles_6: -5282048304673505539
+      carpetTiles_7: 6211208080302283151
+      carpetTiles_8: -9054678616840939699
+      carpetTiles_9: 4356530099263867241
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
