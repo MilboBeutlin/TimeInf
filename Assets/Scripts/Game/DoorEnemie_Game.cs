@@ -36,7 +36,7 @@ public class DoorEnemie_Game : MonoBehaviour
         Debug.Log("hi bitch");
         if (text.text == "You dare to exist?")
         {
-            transform.position = moveTo.position;
+            transform.position = moveTo.position;       //-31.833 empty stuff, -31.48667 door
             transform.eulerAngles = new Vector3(0, 0, 180);
         }
         else if (text.text == "This is our last meeting bitch")

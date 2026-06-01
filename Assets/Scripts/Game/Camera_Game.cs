@@ -21,7 +21,7 @@ public class Camera_Game : MonoBehaviour
         switch (type)
         {
             case 'R':
-            transform.position = rooms[index].position;
+            transform.position = rooms[index-1].position;
             break;
 
             case 'K': //vertical
