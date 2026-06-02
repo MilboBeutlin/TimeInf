@@ -8,7 +8,9 @@ public class PuzzleManager_Game : MonoBehaviour
     [SerializeField] private GameObject door;
     [SerializeField] private BoxCollider2D doorCollider;
     [SerializeField] private bool runePuzzle;
-    private bool IsSolved;    
+    [SerializeField] private Item_Game itemDrop;
+    private bool IsSolved;    //can be removed and coded cleaner, D will do it maybe sometime
+
 
     public void CheckRunen()
     {
@@ -23,7 +25,9 @@ public class PuzzleManager_Game : MonoBehaviour
             }
             else{
                 IsSolved = true;
-                Instantiate(door, transform.position, transform.rotation);
+                Item_Game item = Instantiate(itemDrop, Vector3.zero, Quaternion.identity);
+                item.item = Items.BöseSchriftrolle;
+                item.amount = 1;
             }
             
         }
