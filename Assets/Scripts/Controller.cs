@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class Controller : MonoBehaviour
 {
     private Datenbank DB;
@@ -41,12 +41,18 @@ public class Controller : MonoBehaviour
         DB.SetCurrentPlayerStats(4, amount);
     }
 
-    public void SetCurrentPlayerEffects(Statuseffekte[] effects) {
-        DB.SetCurrentPlayerEffects(effects);
+    public void AddPlayerEffects(Statuseffekte effect, int duration) {
+        DB.AddPlayerEffects(effect, duration);
     }
 
     public void AddItem(Items item, int amount) {
         DB.AddItem(item, amount);
+    }
+
+    // Bei Amount 0 werden alle entfernt
+    public void RemoveItem(Items item, int amount)
+    {
+        DB.RemoveItem(item, amount);
     }
 
     // opponent
@@ -56,10 +62,12 @@ public class Controller : MonoBehaviour
     public void SetCurrentOponnentAttacks(Attacks[] attacks) {
         DB.SetCurrentOponnentAttacks(attacks);
     }
-    public void SetCurrentOponentEffects(Statuseffekte[] effects) {
-        DB.SetCurrentOponentEffects(effects);
+    public void AddOpponentEffects(Statuseffekte effect, int duration) {
+        DB.AddOpponentEffects(effect, duration);
     }
     public void SetCurrentOponnentStats(int[] stats) {
         DB.SetCurrentOponnentStats(stats);
     }
+
+    
 }
