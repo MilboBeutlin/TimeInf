@@ -1683,11 +1683,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
---- !u!1 &430501584 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8798856524543916784, guid: d5619fa93aab4cb4f9d16933e43f120d, type: 3}
-  m_PrefabInstance: {fileID: 224644118}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &494276152
 GameObject:
   m_ObjectHideFlags: 0
@@ -107501,7 +107496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::R8Hitbox_Game
   R8text: {fileID: 717385028}
-  "R8T\xFCr": {fileID: 430501584}
+  R8Tuer: {fileID: 0}
 --- !u!1 &1928738567
 GameObject:
   m_ObjectHideFlags: 0
