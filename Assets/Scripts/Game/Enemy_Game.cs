@@ -3,18 +3,14 @@ using UnityEngine;
 public class Enemy_Game : MonoBehaviour
 {
     [SerializeField] public Gegner type;
-    [SerializeField] public gameObject darkness;
-    [SerializeField] public gameObject torches;
-    [SerializeField] public Model model;
 
-    void OnBecameVisible()
+
+    void OnTriggerEnter2D(Collider2D other)
     {
-        if(type = Gegner.ShadowEnemy && model.GetCurrentPlayerItems.ContainsKey(Items.Feuerzeug))
+        if (other.CompareTag("Player"))
         {
-            darkness.SetActive(false);
-            torches.SetActive(true);
+            transform.position = other.gameObject.transform.position;
         }
     }
-
 
 }

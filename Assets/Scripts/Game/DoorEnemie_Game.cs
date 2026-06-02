@@ -6,7 +6,7 @@ public class DoorEnemie_Game : MonoBehaviour
 {
     [SerializeField] private Transform moveTo;
     [SerializeField] private GameObject TextObject;
-    [SerializeField] private Text text;
+    [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private GameObject enemy;
     [SerializeField] private Transform player;
 
@@ -33,7 +33,6 @@ public class DoorEnemie_Game : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        Debug.Log("hi bitch");
         if (text.text == "You dare to exist?")
         {
             transform.position = moveTo.position;       //-31.833 empty stuff, -31.48667 door

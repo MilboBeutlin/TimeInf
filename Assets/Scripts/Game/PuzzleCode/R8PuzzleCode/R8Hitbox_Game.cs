@@ -6,19 +6,17 @@ public class R8Hitbox_Game : MonoBehaviour
 {
 
     
-     private Model db;
-    private Controller c;
-    [SerializeField] private GameObject R8text;
+    [SerializeField] private Model db;
+    [SerializeField] private Controller c;
+    [SerializeField] private GameObject textFeld;
+    [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private GameObject R8Tuer;
     private bool istOffen = false;
     private bool isColliding = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-        db = FindAnyObjectByType<Model>();
-        c = FindAnyObjectByType<Controller>();
-        R8text.SetActive(false);
+        textFeld.SetActive(false);
         R8Tuer.SetActive(false);
     }
 
@@ -29,7 +27,7 @@ public class R8Hitbox_Game : MonoBehaviour
         {
             c.RemoveItem(Items.Bombe, 1);
             R8Tuer.SetActive(true);
-            R8text.SetActive(false);
+            textFeld.SetActive(false);
             istOffen = true;
         }
     }
@@ -41,7 +39,8 @@ public class R8Hitbox_Game : MonoBehaviour
             
             if(istOffen == false)
             {
-                R8text.SetActive(true);
+                text.text = "Press E to use Bomb";
+                textFeld.SetActive(true);
             }
             isColliding = true;
         }
@@ -51,7 +50,7 @@ public class R8Hitbox_Game : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            R8text.SetActive(false);
+            textFeld.SetActive(false);
         }
         isColliding = false;
     }

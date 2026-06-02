@@ -6,15 +6,26 @@ public class PuzzleManager_Game : MonoBehaviour
     [SerializeField] private Camera camera;
     [SerializeField] private Runen_Game[] runes;
     [SerializeField] private GameObject door;
-    [SerializeField] private BoxCollider2D doorCollider;    
+    [SerializeField] private BoxCollider2D doorCollider;
+    [SerializeField] private bool runePuzzle;
+    private bool IsSolved;    
 
     public void CheckRunen()
     {
-        if(runes[0].IsCorrect() && runes[1].IsCorrect() && runes[2].IsCorrect() && runes[3].IsCorrect())    //code correct? with delay:
+        if(runes[0].IsCorrect() && runes[1].IsCorrect() && runes[2].IsCorrect() && runes[3].IsCorrect() && !IsSolved)    //code correct? with delay:
         {
-            StartCoroutine(SetRuneInactive(1, 2, 0.5f));                                                     //remove runes
-            StartCoroutine(SetRuneInactive(3, 0, 1));
-            StartCoroutine(MoveDoor(door.transform.position + new Vector3(3f, 0f, 0f)));                    //door appears slowly
+            if (runePuzzle)
+            {
+                IsSolved = true;
+                StartCoroutine(SetRuneInactive(1, 2, 0.5f));                                                     //remove runes
+                StartCoroutine(SetRuneInactive(3, 0, 1));
+                StartCoroutine(MoveDoor(door.transform.position + new Vector3(3f, 0f, 0f)));                    //door appears slowly
+            }
+            else{
+                IsSolved = true;
+                Instantiate(door, transform.position, transform.rotation);
+            }
+            
         }
     }
     void OnTriggerEnter2D(Collider2D other)
