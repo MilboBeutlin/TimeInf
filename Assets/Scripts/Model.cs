@@ -41,8 +41,8 @@ public class Model : MonoBehaviour
         return DB.GetCurrentPlayerStat(4);
     }
 
-    public Statuseffekte[] GetCurrentPlayerEffects() {
-        return DB.GetCurrentPlayerEffects();
+    public Dictionary<Statuseffekte, int> GetPlayerEffects() {
+        return DB.GetPlayerEffects();
     }
     public Dictionary<Items, int> GetCurrentPlayerItems() {
         return DB.GetCurrentPlayerItems();
@@ -55,8 +55,8 @@ public class Model : MonoBehaviour
     public Attacks[] GetCurrentOponnentAttacks() {
         return DB.GetCurrentOponnentAttacks();
     }
-    public Statuseffekte[] GetCurrentOponentEffects() {
-        return DB.GetCurrentOponentEffects();
+    public Dictionary<Statuseffekte, int> GetOpponentEffects() {
+        return DB.GetOpponentEffects();
     }
     public int[] GetCurrentOponnentStats() {
         return DB.GetCurrentOponnentStats();

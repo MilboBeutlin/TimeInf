@@ -8,14 +8,15 @@ public class Datenbank : MonoBehaviour
     //Alle Stats im Game
     //Player:
     private Attacks[] currentPlayerAttacks;
-    private Statuseffekte[] currentPlayerEffects;
+    //private Statuseffekte[] currentPlayerEffects;
+    private Dictionary<Statuseffekte, int> playerEffects = new Dictionary<Statuseffekte, int>();
     private Dictionary<Items, int> playerItems = new Dictionary<Items, int>();
     private int[] currentPlayerStats = new int[]{100,25,20,6,0}; //health, attack, armor, speed, dk
 
     //Gegner:
     private Gegner currentOponent;
     private Attacks[] currentOponnentAttacks;
-    private Statuseffekte[] currentOponentEffects;
+    private Dictionary<Statuseffekte, int> oponentEffects = new Dictionary<Statuseffekte, int>();
     private int[] currentOponnentStats; //health, attack, armor, speed, dk
 
     private void Start()
@@ -60,12 +61,19 @@ public class Datenbank : MonoBehaviour
         this.currentPlayerStats[index] += amount;
     }
 
-    public Statuseffekte[] GetCurrentPlayerEffects() {
-        return currentPlayerEffects;
+    public Dictionary<Statuseffekte, int> GetPlayerEffects() {
+        return playerEffects;
     }
 
-    public void SetCurrentPlayerEffects(Statuseffekte[] currentPlayerEffects) {
-        this.currentPlayerEffects = currentPlayerEffects;
+    public void AddPlayerEffects(Statuseffekte effect, int duration) {
+        if (playerEffects.ContainsKey(effect))
+        {
+            playerEffects[effect] = duration;
+        }
+        else
+        {
+            playerEffects.Add(effect, duration);
+        }
     }
 
     public Dictionary<Items, int> GetCurrentPlayerItems()
@@ -102,12 +110,19 @@ public class Datenbank : MonoBehaviour
         this.currentOponnentAttacks = currentOponnentAttacks;
     }
 
-    public Statuseffekte[] GetCurrentOponentEffects() {
-        return currentOponentEffects;
+    public Dictionary<Statuseffekte, int> GetOpponentEffects() {
+        return oponentEffects;
     }
 
-    public void SetCurrentOponentEffects(Statuseffekte[] currentOponentEffects) {
-        this.currentOponentEffects = currentOponentEffects;
+    public void AddOpponentEffects(Statuseffekte effect, int duration) {
+        if (oponentEffects.ContainsKey(effect))
+        {
+            oponentEffects[effect] = duration;
+        }
+        else
+        {
+            oponentEffects.Add(effect, duration);
+        }
     }
 
     public int[] GetCurrentOponnentStats() {
