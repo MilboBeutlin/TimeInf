@@ -19,6 +19,8 @@ public class GM : MonoBehaviour
     [SerializeField] private Attacks[] currentOponnentAttacks;
     [SerializeField] private Dictionary<Statuseffekte, int> currentOpponentEffects;
 
+    private int GegnerDamageLastRound; //nur relevant für Item Spiegelfragment!!
+
     private int timer;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -54,6 +56,7 @@ public class GM : MonoBehaviour
 
         currentOponnentAttacks = model.GetCurrentOponnentAttacks();
         currentOpponentEffects = model.GetOpponentEffects();
+        currentopponentStats = model.GetCurrentOponnentStats();
     }
 
 
@@ -169,8 +172,13 @@ public class GM : MonoBehaviour
             }
         }
     }
-        public void DoUseItem(Items item)
+    public void DoUseItem(Items item)
     {
+        if(currentPlayerItems.ContainsKey(item) == false)
+        {
+            Debug.Log("Der Spieler hat ein Item benutzt, welches nicht im Inventar ist. >:( grrr");
+            return;
+        }
         int randInt = Random.Range(0, 10);
         switch (item)
         {
@@ -179,30 +187,30 @@ public class GM : MonoBehaviour
 
             case Items.Bier:
                 //wütend
-                SetEffect(Statuseffekte.Wütend,2, true);                //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
+                SetEffect(Statuseffekte.Wütend, 2, true);                //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
 
 
                 //30% Chance auf vergifted
-                
-                if(randInt <= 3)
+
+                if (randInt <= 3)
                 {
-                    SetEffect(Statuseffekte.Vergiftet,2, true);         //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
+                    SetEffect(Statuseffekte.Vergiftet, 2, true);         //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
                 }
                 break;
 
             case Items.Giftmolotov:
-                SetEffect(Statuseffekte.Vergiftet,2, false);            //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
+                SetEffect(Statuseffekte.Vergiftet, 2, false);            //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
 
                 //20% Chance auf wütend
-                if(randInt >= 2)
+                if (randInt >= 2)
                 {
-                    SetEffect(Statuseffekte.Wütend,2, false);           //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
+                    SetEffect(Statuseffekte.Wütend, 2, false);           //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
                 }
                 break;
 
             case Items.Heiltrank:
                 currentplayerStats[0] += 40;
-                if(currentplayerStats[0] >= 101)
+                if (currentplayerStats[0] >= 101)
                 {
                     currentplayerStats[0] = 100;
                 }
@@ -217,9 +225,30 @@ public class GM : MonoBehaviour
                 break;
 
             case Items.HeiligesKreuz:
-                current
+                SetEffect(Statuseffekte.Gesegnet, 999, true);
+                break;
+
+            case Items.Phoenixfeder:
+                if (currentPlayerEffects.ContainsKey(Statuseffekte.Verflucht))
+                {
+                    SetEffect(Statuseffekte.Verflucht, 0, true);
+                }
+                break;
+
+            case Items.Münzen:
+                currentopponentStats[0] -= 1;
+                break;
+
+            case Items.Spiegelfragment:
+                currentopponentStats[0] -= GegnerDamageLastRound;
+                break;
+
+            case Items.Ziegelstein:
+                currentopponentStats[0] -= 40;
+                SetEffect(Statuseffekte.Gelähmt, 1, false);
                 break;
 
         }
+            currentPlayerItems[item] -= 1;
     }
 }
