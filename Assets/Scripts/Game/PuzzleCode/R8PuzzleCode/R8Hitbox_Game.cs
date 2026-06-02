@@ -9,7 +9,7 @@ public class R8Hitbox_Game : MonoBehaviour
      private Model db;
     private Controller c;
     [SerializeField] private GameObject R8text;
-    [SerializeField] private GameObject R8Tür;
+    [SerializeField] private GameObject R8Tuer;
     private bool istOffen = false;
     private bool isColliding = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,7 +19,7 @@ public class R8Hitbox_Game : MonoBehaviour
         db = FindAnyObjectByType<Model>();
         c = FindAnyObjectByType<Controller>();
         R8text.SetActive(false);
-        R8Tür.SetActive(false);
+        R8Tuer.SetActive(false);
     }
 
     // Update is called once per frame
@@ -28,7 +28,7 @@ public class R8Hitbox_Game : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && db.GetCurrentPlayerItems().ContainsKey(Items.Bombe) && isColliding == true)
         {
             c.RemoveItem(Items.Bombe, 1);
-            R8Tür.SetActive(true);
+            R8Tuer.SetActive(true);
             R8text.SetActive(false);
             istOffen = true;
         }
