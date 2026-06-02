@@ -192,8 +192,10 @@ public class GM : MonoBehaviour
                     currentplayerStats[0] = 100;
                 }
                 break;
-                
-            
+
+            case Items.HeiligesKreuz:
+                current
+                break;
 
         }
     }
