@@ -10,7 +10,8 @@ public class Datenbank : MonoBehaviour
     private Attacks[] currentPlayerAttacks;
     //private Statuseffekte[] currentPlayerEffects;
     private Dictionary<Statuseffekte, int> playerEffects = new Dictionary<Statuseffekte, int>();
-    private Dictionary<Items, int> playerItems = new Dictionary<Items, int>();
+
+    [SerializeField] private Dictionary<Items, int> playerItems = new Dictionary<Items, int>();
     private int[] currentPlayerStats = new int[]{100,25,20,6,0}; //health, attack, armor, speed, dk
 
     //Gegner:
@@ -89,6 +90,26 @@ public class Datenbank : MonoBehaviour
         else
         {
             playerItems.Add(item, amount);
+        }
+    }
+
+    public void RemoveItem(Items item, int amount)
+    {
+        if (playerItems.ContainsKey(item) == false)
+        {
+            Debug.Log("Item nicht vorhanden|| Fehler aus Datenbank");
+        }
+        if (amount == 0)
+        {
+            playerItems.Remove(item);
+        }
+        else if (amount > 0)
+        {
+            playerItems[item] -= amount;
+            if (playerItems[item] <= 0)
+            {
+                playerItems.Remove(item);
+            }
         }
     }
 

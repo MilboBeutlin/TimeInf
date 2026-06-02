@@ -49,6 +49,12 @@ public class Controller : MonoBehaviour
         DB.AddItem(item, amount);
     }
 
+    // Bei Amount 0 werden alle entfernt
+    public void RemoveItem(Items item, int amount)
+    {
+        DB.RemoveItem(item, amount);
+    }
+
     // opponent
     public void SetCurrentOponent(Gegner gegner) {
         DB.SetCurrentOponent(gegner);
@@ -62,4 +68,6 @@ public class Controller : MonoBehaviour
     public void SetCurrentOponnentStats(int[] stats) {
         DB.SetCurrentOponnentStats(stats);
     }
+
+    
 }
