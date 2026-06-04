@@ -6,17 +6,16 @@ public class R8Hitbox_Game : MonoBehaviour
 {
 
     
-    [SerializeField] private Model db;
-    [SerializeField] private Controller c;
     [SerializeField] private GameObject textFeld;
-    [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private GameObject boulder;
     [SerializeField] private BoxCollider2D doorCollider;
+    [SerializeField] private GM_Game gm;
     private bool istOffen = false;
     private bool isColliding = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        gm = FindAnyObjectByType<GM_Game>();
         textFeld.SetActive(false);
         doorCollider.enabled = false;
     }
@@ -24,11 +23,10 @@ public class R8Hitbox_Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && db.GetCurrentPlayerItems().ContainsKey(Items.Bombe) && isColliding == true)
+        if (Input.GetKeyDown(KeyCode.E) && gm.giveCurrentPlayerItems().ContainsKey(Items.Bombe) && isColliding == true)
         {
-            c.RemoveItem(Items.Bombe, 1);
+            gm.RemoveItem(Items.Bombe, 1);
             doorCollider.enabled = true;
-            textFeld.SetActive(false);
             boulder.SetActive(false);
             istOffen = true;
         }
@@ -41,8 +39,8 @@ public class R8Hitbox_Game : MonoBehaviour
             
             if(istOffen == false)
             {
-                text.text = "Press E to use Bomb";
-                textFeld.SetActive(true);
+                gm.ChangeText("Press E to use Bombe");
+                gm.ShowText(true);
             }
             isColliding = true;
         }
@@ -52,8 +50,9 @@ public class R8Hitbox_Game : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            textFeld.SetActive(false);
+            gm.ShowText(false);
+            isColliding = false;
         }
-        isColliding = false;
+        
     }
 }

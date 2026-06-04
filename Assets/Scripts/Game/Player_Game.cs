@@ -12,6 +12,8 @@ public class Player_Game : MonoBehaviour
 private Controller controller;
 private Vector2 input;
 private string location = "K1";
+
+
 void Start()
 {
     controller = FindAnyObjectByType<Controller>();

@@ -5,30 +5,36 @@ using UnityEngine.UI;
 public class DoorEnemie_Game : MonoBehaviour
 {
     [SerializeField] private Transform moveTo;
-    [SerializeField] private GameObject TextObject;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private GameObject enemy;
     [SerializeField] private Transform player;
+    private GM_Game gm;
 
-
+    public void Start()
+    {
+        gm = FindAnyObjectByType<GM_Game>();
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(transform.position != moveTo.position)
         {
             text.text = "You dare to exist?";
-            TextObject.SetActive(true);
+            gm.ShowText(true);
+            
         }
         else
         {
             text.text = "This is our last meeting bitch";
-            TextObject.SetActive(true);
+            gm.ShowText(true);
+            
         }
 
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        TextObject.SetActive(false);
+        gm.ShowText(false);
+        
     }
 
     private void OnBecameInvisible()
