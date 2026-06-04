@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
 public class ButtonManager : MonoBehaviour
@@ -15,6 +16,14 @@ public class ButtonManager : MonoBehaviour
 
     [SerializeField] private GameObject[] ItembuttonsList;
 
+    [SerializeField] private GameObject Statuseffekt_Verflucht;
+    [SerializeField] private GameObject Statuseffekt_Rage;
+    [SerializeField] private GameObject Statuseffekt_Stun;
+    [SerializeField] private GameObject Statuseffekt_Holy;
+    [SerializeField] private GameObject Statuseffekt_Blutend;
+    [SerializeField] private GameObject Statuseffekt_Vergifted;
+    [SerializeField] private GameObject Statuseffekt_Verbrannt;
+
 
 
     private void Start()
@@ -23,6 +32,67 @@ public class ButtonManager : MonoBehaviour
         gm = FindAnyObjectByType<GM>();
 
         CheckItems();
+    }
+
+    public void Update()
+    {
+        
+        if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Blutend))
+        {
+            Statuseffekt_Blutend.SetActive(true);
+        } else
+        {
+            Statuseffekt_Blutend.SetActive(false);
+        }
+        if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Brennend))
+        {
+            Statuseffekt_Verbrannt.SetActive(true);
+        }
+        else
+        {
+            Statuseffekt_Verbrannt.SetActive(false);
+        }
+        if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Gelähmt))
+        {
+            Statuseffekt_Stun.SetActive(true);
+        }
+        else
+        {
+            Statuseffekt_Stun.SetActive(false);
+        }
+        if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Gesegnet))
+        {
+            Statuseffekt_Holy.SetActive(true);
+        }
+        else
+        {
+            Statuseffekt_Holy.SetActive(false);
+        }
+        if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Verflucht))
+        {
+            Statuseffekt_Verflucht.SetActive(true);
+        }
+        else
+        {
+            Statuseffekt_Verflucht.SetActive(false);
+        }
+        if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Vergiftet))
+        {
+            Statuseffekt_Vergifted.SetActive(true);
+        }
+        else
+        {
+            Statuseffekt_Vergifted.SetActive(false);
+        }
+        if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Wütend))
+        {
+            Statuseffekt_Rage.SetActive(true);
+        }
+        else
+        {
+            Statuseffekt_Rage.SetActive(false);
+        }
+
     }
 
     public void MainButton()
@@ -45,12 +115,6 @@ public class ButtonManager : MonoBehaviour
         
         
     }
-
-    private void Update()
-    {
-
-    }
-
 
 
     public void TurnChange(bool i)

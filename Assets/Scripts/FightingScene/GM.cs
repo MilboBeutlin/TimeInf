@@ -101,6 +101,10 @@ public class GM : MonoBehaviour
     {
         return currentPlayerItems;
     }
+    public Dictionary<Statuseffekte, int> giveCurrentPlayerEffects()
+    {
+        return currentPlayerEffects;
+    }
 
     public void OponentTurn()
     {
