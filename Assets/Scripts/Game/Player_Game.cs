@@ -75,7 +75,7 @@ void FixedUpdate() //movement
     }
 
     body.linearVelocity = move.normalized * speed;
-        Debug.Log(input.x = Input.GetAxisRaw("Horizontal"));
+        //Debug.Log(input.x = Input.GetAxisRaw("Horizontal"));
 }
 void OnTriggerEnter2D(Collider2D other)
 {

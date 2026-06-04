@@ -5,7 +5,8 @@ using UnityEngine;
 public class GM_Game : MonoBehaviour
 {
 
-    [SerializeField] private GameObject text;
+    [SerializeField] private GameObject textFeld;
+    [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private Model model;
     [SerializeField] private Controller con;
     
@@ -14,7 +15,7 @@ public class GM_Game : MonoBehaviour
     {
         model = FindAnyObjectByType<Model>();
         con = FindAnyObjectByType<Controller>();
-        text.SetActive(false);
+        textFeld.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,17 +25,18 @@ public class GM_Game : MonoBehaviour
     }
     public void ChangeText(string Itext)
     {
-        text.GetComponent<TMP_Text>().text = Itext;
+        //text.GetComponent<TMP_Text>().text = Itext;
+        text.text = Itext;
     }
     public void ShowText(bool i)
     {
         if( i == true)
         {
-            text.SetActive(true);
+            textFeld.SetActive(true);
         }
         else
         {
-            text.SetActive(false);
+            textFeld.SetActive(false);
         }
     }
 

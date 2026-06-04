@@ -16,7 +16,6 @@ public class R8Hitbox_Game : MonoBehaviour
     void Start()
     {
         gm = FindAnyObjectByType<GM_Game>();
-        textFeld.SetActive(false);
         doorCollider.enabled = false;
     }
 

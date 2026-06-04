@@ -24,12 +24,13 @@ public class R4_puzzel_Game : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.CompareTag("Player"))
+        {  
             isColliding = true;
             gm.ChangeText("Press E to use Ritualschwert and Enter");
             gm.ShowText(true);
-            Debug.Log("67");
-        
+            Debug.Log("you are stupid");
+        }
         
     }
 

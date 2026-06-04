@@ -4,20 +4,15 @@ public class ClosedEntry_Game : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private GameObject wall;
-    private GM_Game gm;
+    [SerializeField] private GM_Game gameMaster;
     private bool isColliding = false;
 
 
-    void Start()
-    {
-        gm = FindAnyObjectByType<GM_Game>();
-    }
-
     void Update()
     {
-        if(text.text == "Press E to use Key" && isColliding == true && Input.GetKeyDown(KeyCode.E) && gm.giveCurrentPlayerItems().ContainsKey(Items.KomischerSchlüssel))
+        if(text.text == "Press E to use Key" && isColliding == true && Input.GetKeyDown(KeyCode.E) && gameMaster.giveCurrentPlayerItems().ContainsKey(Items.KomischerSchlüssel))
         {
-            gm.RemoveItem(Items.KomischerSchlüssel, 1);
+            gameMaster.RemoveItem(Items.KomischerSchlüssel, 1);
             wall.SetActive(false);
         }
     }
@@ -26,8 +21,8 @@ public class ClosedEntry_Game : MonoBehaviour
     {
         if(wall.activeSelf)
         {
-            gm.ChangeText("Press E to use Key");
-            gm.ShowText(true);
+            gameMaster.ChangeText("Press E to use Key");
+            gameMaster.ShowText(true);
             isColliding = true;
         }
         
@@ -36,6 +31,6 @@ public class ClosedEntry_Game : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         isColliding = false;
-        gm.ShowText(false);
+        gameMaster.ShowText(false);
     }
 }

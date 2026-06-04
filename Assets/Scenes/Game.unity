@@ -4893,7 +4893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &717385029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4914,7 +4914,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press E to use Bomb
+  m_text: hi
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5005,8 +5005,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1705923741}
+  m_Children: []
   m_Father: {fileID: 1916028434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -55045,7 +55044,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorEnemie_Game
   moveTo: {fileID: 1233229338}
-  TextObject: {fileID: 1916028433}
   text: {fileID: 717385029}
   enemy: {fileID: 8336979724331090836, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
   player: {fileID: 560590465}
@@ -57548,6 +57546,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ClosedEntry_Game
   text: {fileID: 717385029}
   wall: {fileID: 483008162}
+  gameMaster: {fileID: 1988482979}
 --- !u!4 &1146693660
 Transform:
   m_ObjectHideFlags: 0
@@ -69793,11 +69792,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 717385031}
+  m_Father: {fileID: 1916028434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 130.90706, y: -75.390045}
+  m_AnchoredPosition: {x: -0.092941284, y: -424.3901}
   m_SizeDelta: {x: 1977.1, y: 200.79}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1705923742
@@ -70124,7 +70123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243773f83fcb8eb49a0406b205027770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::R4_puzzel_Game
-  gm: {fileID: 0}
+  gm: {fileID: 1988482979}
   door: {fileID: 348286954}
 --- !u!1 &1713716836
 GameObject:
@@ -111922,7 +111921,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1916028434
 RectTransform:
   m_ObjectHideFlags: 0
@@ -111935,6 +111934,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1705923741}
   - {fileID: 717385031}
   m_Father: {fileID: 1845581993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -112207,7 +112207,7 @@ GameObject:
   - component: {fileID: 1988482980}
   - component: {fileID: 1988482979}
   m_Layer: 0
-  m_Name: GameMAster
+  m_Name: GameMaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112225,9 +112225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99c2cc797b4902148af263d87744ae23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GM_Game
-  text: {fileID: 717385028}
-  model: {fileID: 0}
-  con: {fileID: 0}
+  textFeld: {fileID: 1916028433}
+  text: {fileID: 717385029}
+  model: {fileID: 1706314854}
+  con: {fileID: 1706314857}
 --- !u!4 &1988482980
 Transform:
   m_ObjectHideFlags: 0

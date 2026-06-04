@@ -16,19 +16,19 @@ public class DoorEnemie_Game : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(transform.position != moveTo.position)
+        if (other.CompareTag("Player"))
         {
-            text.text = "You dare to exist?";
-            gm.ShowText(true);
-            
+            if(transform.position != moveTo.position)
+            {
+                text.text = "You dare to exist?";
+                gm.ShowText(true);
+            }
+            else
+            {
+                text.text = "This is our last meeting bitch";
+                gm.ShowText(true);
+            }
         }
-        else
-        {
-            text.text = "This is our last meeting bitch";
-            gm.ShowText(true);
-            
-        }
-
     }
 
     private void OnTriggerExit2D(Collider2D other)
