@@ -8,6 +8,7 @@ public class GM : MonoBehaviour
     //Fight logic
     [SerializeField] private bool playerturn;
 
+
     //Stats
     //player
     [SerializeField] private Attacks[] currentPlayerAttacks;
@@ -58,35 +59,6 @@ public class GM : MonoBehaviour
         currentOpponentEffects = model.GetOpponentEffects();
         currentopponentStats = model.GetCurrentOponnentStats();
     }
-
-
-    public void DoAttack(int y)
-    {
-        playerturn = false;
-        bM.TurnChange(false);
-
-        Attacks i = currentPlayerAttacks[y];
-        //Hier hin, alles irgendwie außerhalb von Attacken passiert: z.B. Jeden Zug gift schaden.
-
-        //Hier ALLE Attacen für NUR Spieler rein.
-        switch (i)
-        {
-            case Attacks.NULL:
-                break;
-
-
-            default:
-                Debug.Log("Gooner");
-                break;
-        }
-
-        OponentTurn();
-
-        //playerturn = true;
-        //bM.TurnChange(true);
-        
-    }
-
     public Attacks givePlayerAttack(int attack)
     {
         return currentPlayerAttacks[attack];
@@ -105,54 +77,9 @@ public class GM : MonoBehaviour
     {
         return currentPlayerEffects;
     }
-
-    public void OponentTurn()
-    {
-        Attacks i;
-
-        //hier entscheiden welche Attacke gew�hlt wird.
-        
-
-        i = currentOponnentAttacks[0];
-        //Hier ALLE Attacken für NUR jeden Gegner.
-        switch(i)
-        {
-            case Attacks.NULL:
-            break;
-
-        }
-    }
-
-    // k == true; PlayerEffect || k == false; OponnentEffect
+    // k == true; PlayerEffect || k == false; OponnentEffect || setzt Effecte von Spieler oder Gegner.
     public void SetEffect(Statuseffekte effect, int duration, bool isPlayer)
     {
-        /*if(k == true)
-        {
-            for (int i = 0; i < currentPlayerEffects.Length; i++)
-            {
-                if (currentPlayerEffects[i] != Statuseffekte.NULL)
-                {
-                    currentPlayerEffects[i] = j;
-                    return;
-                }
-            }
-            Statuseffekte[] temp = new Statuseffekte[currentPlayerEffects.Length + 1];
-            temp[temp.Length] = j;
-            currentPlayerEffects = temp;
-        } else
-        {
-            for (int i = 0; i < currentOponentEffects.Length; i++)
-            {
-                if (currentOponentEffects[i] != Statuseffekte.NULL)
-                {
-                    currentOponentEffects[i] = j;
-                    return;
-                }
-            }
-            Statuseffekte[] temp = new Statuseffekte[currentOponentEffects.Length + 1];
-            temp[temp.Length] = j;
-            currentPlayerEffects = temp;
-        }*/
         if (isPlayer)
         {
             if (currentPlayerEffects.ContainsKey(effect))
@@ -176,8 +103,116 @@ public class GM : MonoBehaviour
             }
         }
     }
+
+    //Alle Dinge die sich immer wieder holen und ehh gemacht werden müssen, egal ob ein Item oder eine Attacke benutzt wird.
+    public void Turn()
+    {
+        playerturn = false;
+        bM.TurnChange(false);
+
+        //hier werden die Effekte die noch vorhanden sind abgehandelt.
+
+        if(currentOpponentEffects.ContainsKey(Statuseffekte.Vergiftet)) {
+            currentopponentStats[0] -= 10; // Gift macht jede Runde 10 damage
+            currentOpponentEffects[Statuseffekte.Vergiftet] -= 1;
+            if (currentOpponentEffects[Statuseffekte.Vergiftet] == 0)
+            {
+                currentOpponentEffects.Remove(Statuseffekte.Vergiftet);
+            }
+        } else if (currentPlayerEffects.ContainsKey(Statuseffekte.Vergiftet))
+        {
+            currentplayerStats[0] -= 10;
+            currentPlayerEffects[Statuseffekte.Vergiftet] -= 1;
+            if(currentPlayerEffects[Statuseffekte.Vergiftet] == 0)
+            {
+                currentPlayerEffects.Remove(Statuseffekte.Vergiftet);
+            }
+        }
+
+  
+    }
+
+    public void DoAttack(int y)
+    {
+        Turn();
+        Attacks i = currentPlayerAttacks[y];
+        //Hier ALLE Attacen für NUR Spieler rein.
+        switch (i)
+        {
+            case Attacks.NULL:
+                break;
+
+
+            default:
+                Debug.Log("Gooner");
+                break;
+        }
+
+        OponentTurn();
+        
+    }
+
+    
+
+    public void OponentTurn()
+    {
+        Attacks i;
+        //Hier timer, der bissl stallt.
+
+        //hier entscheiden welche Attacke gew�hlt wird.
+        int r = Random.Range(0, 10);
+
+        if (currentopponentStats[4] == 5)
+        {
+            if(r >= 5)
+            {
+                i = currentOponnentAttacks[0];
+            } else
+            {
+                i = currentOponnentAttacks[1];
+            }
+        }
+        else if (currentopponentStats[4] == 30){
+            if(r >= 3)
+            {
+                i = currentOponnentAttacks[0];
+            } else
+            {
+                i = currentOponnentAttacks[1];
+            }
+
+        }
+        else
+        {
+            //Nur damit die switch schleife unten nicht rumjammert. :P
+            i = Attacks.NULL;
+        }
+
+
+            //Hier ALLE Attacken für NUR jeden Gegner.
+            switch (i)
+            {
+                case Attacks.NULL:
+                    break;
+
+                case Attacks.BasicAttack:
+                    currentplayerStats[0] -= 15;
+                    break;
+                case Attacks.KleinerAttack:
+                    currentplayerStats[0] -= 5;
+                    break;
+
+            }
+
+        playerturn = true;
+        bM.TurnChange(true);
+    }
+
+    
     public void DoUseItem(Items item)
     {
+        Turn();
+
         if(currentPlayerItems.ContainsKey(item) == false)
         {
             Debug.Log("Der Spieler hat ein Item benutzt, welches nicht im Inventar ist. >:( grrr");
@@ -254,5 +289,11 @@ public class GM : MonoBehaviour
 
         }
             currentPlayerItems[item] -= 1;
+        if (currentPlayerItems[item] == 0)
+        {
+            currentPlayerItems.Remove(item);
+        }
+
+        OponentTurn();
     }
 }

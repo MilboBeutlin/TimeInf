@@ -7,4 +7,6 @@ public enum Attacks
     Schutz, Hammer, Verstümmelung, Schlag, Giftdolch, Feuerball, Dämpfer, Vergeltung, Graben, LichtderHoffnung, Erlösungsschlag, Reinigung, Leidensstoß, Erleuchtung, Schwimmen, 
     //AttackenK�nig
     DunklerSchnitt, Giftwurf, KronederVerdammnis, Daemonensphaere, ChaosLanze, Block, DunkleResonanz, KingsBreaker, EndloseDunkelheit,
+    //AttackenNormalerGegner
+    BasicAttack, KleinerAttack,
 }
