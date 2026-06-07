@@ -122,7 +122,7 @@ void OnTriggerEnter2D(Collider2D other)
 {
     if (type == Gegner.Endboss)
     {
-        controller.SetCurrentOponent(type);
+        //endboss attacken
         controller.SetCurrentOponnentAttacks(new Attacks[]
         {
             Attacks.DunklerSchnitt,
@@ -138,11 +138,17 @@ void OnTriggerEnter2D(Collider2D other)
     }
     else
     {
+        //gegner attacken
         controller.SetCurrentOponnentAttacks(new Attacks[]
         {
-            //gegner attacken
+            Attacks.BasicAttack,
+            Attacks.KleinerAttack,
+            Attacks.Debuff,         //depends on the enemy which debuff
+            Attacks.BuffSteal,
+            Attacks.AttackBlock
         });
     }
+    controller.SetCurrentOponent(type);
     controller.SetCurrentOponnentStats(new int[]{lp, atk, armor, speed, dk});
 }
 
