@@ -92,6 +92,10 @@ public class Datenbank : MonoBehaviour
             playerItems.Add(item, amount);
         }
     }
+    public void SetPlayerItems(Dictionary<Items, int> items)
+    {
+        playerItems = items;
+    }
 
     public void RemoveItem(Items item, int amount)
     {

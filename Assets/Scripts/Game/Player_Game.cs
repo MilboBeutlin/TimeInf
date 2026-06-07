@@ -113,8 +113,7 @@ void OnTriggerEnter2D(Collider2D other)
     }
     else if (other.CompareTag("Death"))
     {
-        controller.IncreasePlayerLp(-200);
-        Debug.Log("You are dead bitch");
+        Dead();
     }
 }
 
@@ -153,5 +152,10 @@ void OnTriggerEnter2D(Collider2D other)
     public void SetLocation(string location) //location for camera
     {
         this.location = location;
+    }
+    public void Dead()
+    {
+        Debug.Log("You are dead bitch");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

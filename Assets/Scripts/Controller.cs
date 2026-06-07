@@ -45,6 +45,9 @@ public class Controller : MonoBehaviour
         DB.AddPlayerEffects(effect, duration);
     }
 
+    public void SetPlayerItems(Dictionary<Items, int> items) {
+        DB.SetPlayerItems(items);
+    }
     public void AddItem(Items item, int amount) {
         DB.AddItem(item, amount);
     }

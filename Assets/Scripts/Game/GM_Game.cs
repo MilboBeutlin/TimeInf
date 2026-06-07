@@ -9,6 +9,7 @@ public class GM_Game : MonoBehaviour
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private Model model;
     [SerializeField] private Controller con;
+    [SerializeField] private GameObject player;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,6 +17,9 @@ public class GM_Game : MonoBehaviour
         model = FindAnyObjectByType<Model>();
         con = FindAnyObjectByType<Controller>();
         textFeld.SetActive(false);
+
+        player.transform.position = SpawnPoint_Game.Instance.spawnPosition;
+        con.SetPlayerItems(new Dictionary<Items, int>(SpawnPoint_Game.Instance.savedItems));
     }
 
     // Update is called once per frame
