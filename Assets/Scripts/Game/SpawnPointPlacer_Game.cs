@@ -3,13 +3,18 @@ using UnityEngine.Tilemaps;
 
 public class SpawnPointPlacer_Game : MonoBehaviour
 {
-    [SerializeField] private GameObject spawnPoint;
+    private SpawnPoint_Game spawnPoint;
+
     [SerializeField] private Tilemap floorTilemap;
     private float holdTimer = 0f;
     private float holdDuration = 0.5f;    // how long to press q to place spawnPoint
     [SerializeField] private Model model;
+    [SerializeField] private Player_Game player;
 
-    
+    void Start()
+    {
+        spawnPoint = SpawnPoint_Game.Instance;
+    }
     void Update()
     {
         if(Input.GetKey(KeyCode.Q))
@@ -20,7 +25,7 @@ public class SpawnPointPlacer_Game : MonoBehaviour
                 PlacespawnPoint(transform.position);
             }
         }
-        if (Input.GetKeyUp(KeyCode.Q))
+        /*if (Input.GetKeyUp(KeyCode.Q))
         {
                 Vector3Int direction = GetArrowDirection();
                 if (direction != Vector3Int.zero)
@@ -29,7 +34,7 @@ public class SpawnPointPlacer_Game : MonoBehaviour
                     Vector3Int targetTile = floorTilemap.WorldToCell(transform.position) + direction * 2;
                     PlacespawnPoint(floorTilemap.GetCellCenterWorld(targetTile));
                 }
-        }
+        }*/
     }
 
     private Vector3Int GetArrowDirection()
@@ -58,7 +63,8 @@ public class SpawnPointPlacer_Game : MonoBehaviour
             return;
         }
 
-        spawnPoint.transform.position = safePosition.Value;
+        //spawnPoint.transform.position = safePosition.Value;
+        spawnPoint.moveSpawnPoint(safePosition.Value, player.GetLocation());
 
         SpawnPoint_Game.Instance.spawnPosition = safePosition.Value;
         SpawnPoint_Game.Instance.savedItems = model.GetCurrentPlayerItems();

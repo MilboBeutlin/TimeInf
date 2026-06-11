@@ -14,12 +14,13 @@ public class GM_Game : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        model = FindAnyObjectByType<Model>();
-        con = FindAnyObjectByType<Controller>();
+        /*model = FindAnyObjectByType<Model>();
+        con = FindAnyObjectByType<Controller>();*/
         textFeld.SetActive(false);
 
         player.transform.position = SpawnPoint_Game.Instance.spawnPosition;
         con.SetPlayerItems(new Dictionary<Items, int>(SpawnPoint_Game.Instance.savedItems));
+        player.GetComponent<Player_Game>().SetLocation(SpawnPoint_Game.Instance.playerLocation);
     }
 
     // Update is called once per frame

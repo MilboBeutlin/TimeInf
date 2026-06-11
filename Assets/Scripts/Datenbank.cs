@@ -37,10 +37,11 @@ public class Datenbank : MonoBehaviour
         }
     
     }
-    private void Awake()
+    /*private void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-    }
+    }*/
+    
     //Alle Satas im Game
     //player
     public Attacks[] GetCurrentPlayerAttacks() {

@@ -310,6 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPoint_Game
   spawnPosition: {x: 0.48, y: -3.5, z: 0}
+  playerLocation: K1
 --- !u!114 &11600497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3816,9 +3817,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc763dfd8e7fc3499c366568e7f4bb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPointPlacer_Game
-  spawnPoint: {fileID: 11600495}
   floorTilemap: {fileID: 1834762100}
   model: {fileID: 1706314854}
+  player: {fileID: 560590464}
 --- !u!1 &569672451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8798856524543916784, guid: d5619fa93aab4cb4f9d16933e43f120d, type: 3}

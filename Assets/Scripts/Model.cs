@@ -73,8 +73,8 @@ public class Model : MonoBehaviour
 
     }
 
-    public void Awake()
+    /*public void Awake()
     {
         DontDestroyOnLoad(gameObject);
-    }
+    }*/
 }

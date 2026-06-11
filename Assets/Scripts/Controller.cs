@@ -15,10 +15,10 @@ public class Controller : MonoBehaviour
         
     }
 
-    public void Awake()
+    /*public void Awake()
     {
         DontDestroyOnLoad(gameObject);
-    }
+    }*/
 
     // player
     public void SetCurrentPlayerAttacks(Attacks[] attacks) {

@@ -9,7 +9,7 @@ public class R4_puzzel_Game : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        gm = FindAnyObjectByType<GM_Game>();
+        //gm = FindAnyObjectByType<GM_Game>();
         door.SetActive(false);
     }
 
