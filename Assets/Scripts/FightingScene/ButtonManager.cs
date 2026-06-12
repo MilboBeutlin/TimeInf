@@ -94,6 +94,17 @@ public class ButtonManager : MonoBehaviour
         }
 
     }
+    //refactor idea statt deiner update, wird immer aufgerufen wenn actually effekte sich ändern:
+    public void UpdateStatusffekt(Dictionary<Statuseffekte, int> StatusEffekte)
+    {
+        Statuseffekt_Blutend.SetActive(StatusEffekte.ContainsKey(Statuseffekte.Blutend));
+        Statuseffekt_Verbrannt.SetActive(StatusEffekte.ContainsKey(Statuseffekte.Brennend));
+        Statuseffekt_Stun.SetActive(StatusEffekte.ContainsKey(Statuseffekte.Gelähmt));
+        Statuseffekt_Holy.SetActive(StatusEffekte.ContainsKey(Statuseffekte.Gesegnet));
+        Statuseffekt_Verflucht.SetActive(StatusEffekte.ContainsKey(Statuseffekte.Verflucht));
+        Statuseffekt_Vergifted.SetActive(StatusEffekte.ContainsKey(Statuseffekte.Vergiftet));
+        Statuseffekt_Rage.SetActive(StatusEffekte.ContainsKey(Statuseffekte.Wütend));
+    }
 
     public void MainButton()
     {

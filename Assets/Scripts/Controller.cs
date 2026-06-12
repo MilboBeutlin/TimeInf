@@ -2,11 +2,11 @@ using UnityEngine;
 using System.Collections.Generic;
 public class Controller : MonoBehaviour
 {
-    private Datenbank DB;
+    [SerializeField] private Datenbank DB;
 
     void Start()
     {
-        DB = FindAnyObjectByType<Datenbank>();
+       // DB = FindAnyObjectByType<Datenbank>();
     }
 
     // Update is called once per frame
@@ -48,6 +48,9 @@ public class Controller : MonoBehaviour
     public void SetPlayerItems(Dictionary<Items, int> items) {
         DB.SetPlayerItems(items);
     }
+    public void SetSavePlayerItems(Dictionary<Items, int> items) {
+        DB.SetSavePlayerItems(items);
+    }
     public void AddItem(Items item, int amount) {
         DB.AddItem(item, amount);
     }
@@ -56,6 +59,10 @@ public class Controller : MonoBehaviour
     public void RemoveItem(Items item, int amount)
     {
         DB.RemoveItem(item, amount);
+    }
+    public void SetPlayerLocation(string playerLocation)
+    {
+        DB.SetPlayerLocation(playerLocation);
     }
 
     // opponent
@@ -72,5 +79,11 @@ public class Controller : MonoBehaviour
         DB.SetCurrentOponnentStats(stats);
     }
 
+    //other things
+
+    public void SetSpawnPosition(Vector3 spawnPosition)
+    {
+        DB.SetSpawnPosition(spawnPosition);
+    }
     
 }

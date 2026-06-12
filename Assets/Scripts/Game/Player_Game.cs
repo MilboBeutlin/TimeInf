@@ -9,14 +9,14 @@ public class Player_Game : MonoBehaviour
 [SerializeField] private LayerMask wallLayer;
 [SerializeField] private Sprite[] sprites;
 [SerializeField] private SpriteRenderer sR;
-private Controller controller;
+[SrializeField] private Controller controller;
+[SerializeField] private GM_Game gameMaster;
 private Vector2 input;
-private string location = "K1";
 
 
 void Start()
 {
-    controller = FindAnyObjectByType<Controller>();
+    //controller = FindAnyObjectByType<Controller>();
 }
 void Update()
 {
@@ -113,7 +113,7 @@ void OnTriggerEnter2D(Collider2D other)
     }
     else if (other.CompareTag("Death"))
     {
-        Dead();
+        gameMaster.PlayerDeath();
     }
 }
 
@@ -144,18 +144,4 @@ void OnTriggerEnter2D(Collider2D other)
     }
     controller.SetCurrentOponnentStats(new int[]{lp, atk, armor, speed, dk});
 }
-
-    public string GetLocation() //location for camera
-    {
-        return location;
-    }
-    public void SetLocation(string location) //location for camera
-    {
-        this.location = location;
-    }
-    public void Dead()
-    {
-        Debug.Log("You are dead bitch");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
 }

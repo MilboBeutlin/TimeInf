@@ -4,14 +4,14 @@ using System.Collections.Generic;
 public class SpawnPoint_Game : MonoBehaviour
 {
 
-    public static SpawnPoint_Game Instance;
-    public Vector3 spawnPosition;
-    public Dictionary<Items, int> savedItems = new Dictionary<Items, int>();
-    public string playerLocation;
+    /*public static SpawnPoint_Game Instance;
+    private Vector3 spawnPosition;
+    private Dictionary<Items, int> savedItems = new Dictionary<Items, int>();
     //[SerializeField] private Player_Game player;
     void Start()
     {
         //player = FindAnyObjectByType<Player_Game>();
+        //i was here, and bye
     }
 
     public void moveSpawnPoint(Vector3 newPosition, string playerLocation) {
@@ -19,16 +19,10 @@ public class SpawnPoint_Game : MonoBehaviour
         transform.position = spawnPosition;
         this.playerLocation = playerLocation;
     }
-    private void Awake()
+    public void saveItems(Dictionary<Items, int> items)
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }
+        controller.SetSavePlayerItems(items);
+    }*/
+    
 }
 

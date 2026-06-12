@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 public class Datenbank : MonoBehaviour
 {
-    private Model model;
-
+    //private Model model;
+    public static Datenbank Instance;
     //Alle Stats im Game
     //Player:
     private Attacks[] currentPlayerAttacks;
@@ -12,7 +12,9 @@ public class Datenbank : MonoBehaviour
     private Dictionary<Statuseffekte, int> playerEffects = new Dictionary<Statuseffekte, int>();
 
     [SerializeField] private Dictionary<Items, int> playerItems = new Dictionary<Items, int>();
+    private Dictionary<Items, int> savedPlayerItems = new Dictionary<Items, int>();
     private int[] currentPlayerStats = new int[]{100,25,20,6,0}; //health, attack, armor, speed, dk
+    private string playerLocation = "K1";
 
     //Gegner:
     private Gegner currentOponent;
@@ -20,9 +22,12 @@ public class Datenbank : MonoBehaviour
     private Dictionary<Statuseffekte, int> oponentEffects = new Dictionary<Statuseffekte, int>();
     private int[] currentOponnentStats; //health, attack, armor, speed, dk
 
+    //other stuff:
+    private Vector3 spawnPosition;
+
     private void Start()
     {
-        model = FindAnyObjectByType<Model>();
+       // model = FindAnyObjectByType<Model>();
         //Alle stats im Game
         currentPlayerAttacks = new Attacks[6];
         for (int i = 0; i < currentPlayerAttacks.Length; i++)
@@ -37,12 +42,20 @@ public class Datenbank : MonoBehaviour
         }
     
     }
-    /*private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }*/
     
-    //Alle Satas im Game
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+    
+    //Alle Stats im Game
     //player
     public Attacks[] GetCurrentPlayerAttacks() {
         return currentPlayerAttacks;
@@ -97,6 +110,14 @@ public class Datenbank : MonoBehaviour
     {
         playerItems = items;
     }
+    public void SetSavePlayerItems(Dictionary<Items, int> items)
+    {
+        savedPlayerItems = items;
+    }
+    public Dictionary<Items, int> GetSavedPlayerItems()
+    {
+        return savedPlayerItems;
+    }
 
     public void RemoveItem(Items item, int amount)
     {
@@ -116,6 +137,14 @@ public class Datenbank : MonoBehaviour
                 playerItems.Remove(item);
             }
         }
+    }
+    public string GetPlayerLocation()
+    {
+        return playerLocation;
+    }
+    public void SetPlayerLocation(string playerLocation)
+    {
+        this.playerLocation = playerLocation;
     }
 
     // opponent
@@ -159,5 +188,14 @@ public class Datenbank : MonoBehaviour
         this.currentOponnentStats = currentOponnentStats;
     }
 
+    //other things:
+    public Vector3 GetSpawnPosition()
+    {
+        return spawnPosition;
+    }
+    public void SetSpawnPosition(Vector3 spawnPosition)
+    {
+        this.spawnPosition = spawnPosition;
+    }
 
 }

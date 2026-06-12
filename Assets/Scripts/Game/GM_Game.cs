@@ -8,19 +8,18 @@ public class GM_Game : MonoBehaviour
     [SerializeField] private GameObject textFeld;
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private Model model;
-    [SerializeField] private Controller con;
+    [SerializeField] private Controller controller;
     [SerializeField] private GameObject player;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         /*model = FindAnyObjectByType<Model>();
-        con = FindAnyObjectByType<Controller>();*/
+        controller = FindAnyObjectByType<Controller>();*/
         textFeld.SetActive(false);
 
-        player.transform.position = SpawnPoint_Game.Instance.spawnPosition;
-        con.SetPlayerItems(new Dictionary<Items, int>(SpawnPoint_Game.Instance.savedItems));
-        player.GetComponent<Player_Game>().SetLocation(SpawnPoint_Game.Instance.playerLocation);
+        player.transform.position = model.GetSpawnPosition();
+        controller.SetPlayerItems(model.GetSavedPlayerItems());
     }
 
     // Update is called once per frame
@@ -52,7 +51,13 @@ public class GM_Game : MonoBehaviour
 
     public void RemoveItem(Items item, int amount)
     {
-        con.RemoveItem(item,amount);
+        controller.RemoveItem(item,amount);
+    }
+
+    public void PlayerDeath()
+    {
+        Debug.Log("You are dead bitch");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }

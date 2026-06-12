@@ -3,17 +3,17 @@ using UnityEngine.Tilemaps;
 
 public class SpawnPointPlacer_Game : MonoBehaviour
 {
-    private SpawnPoint_Game spawnPoint;
+    [SerializeField] private GameObject spawnPoint;
 
     [SerializeField] private Tilemap floorTilemap;
     private float holdTimer = 0f;
     private float holdDuration = 0.5f;    // how long to press q to place spawnPoint
     [SerializeField] private Model model;
-    [SerializeField] private Player_Game player;
+    [SerializeField] private Controller controller;
 
     void Start()
     {
-        spawnPoint = SpawnPoint_Game.Instance;
+        
     }
     void Update()
     {
@@ -64,10 +64,12 @@ public class SpawnPointPlacer_Game : MonoBehaviour
         }
 
         //spawnPoint.transform.position = safePosition.Value;
-        spawnPoint.moveSpawnPoint(safePosition.Value, player.GetLocation());
+        //spawnPoint.moveSpawnPoint(safePosition.Value, model.GetLocation());
+        spawnPoint.transform.position = safePosition.Value;
 
-        SpawnPoint_Game.Instance.spawnPosition = safePosition.Value;
-        SpawnPoint_Game.Instance.savedItems = model.GetCurrentPlayerItems();
+        //SpawnPoint_Game.Instance.spawnPosition = safePosition.Value;
+        controller.SetSpawnPosition(safePosition.Value);
+        controller.SetSavePlayerItems(model.GetCurrentPlayerItems());
         Debug.Log("Spawn point is placed");
     }
     private Vector3? FindSafeTile(Vector3Int tile)

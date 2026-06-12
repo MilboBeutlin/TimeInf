@@ -5,6 +5,7 @@ public class Corridor_Game : MonoBehaviour
     [SerializeField] private string leadsTo;
     [SerializeField] private string leadsFrom;
     [SerializeField] private bool vertical;
+    [SerializeField] private Camera_Game camera;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -15,20 +16,20 @@ public class Corridor_Game : MonoBehaviour
             {
                 if (transform.position.y > other.transform.position.y) //player leaves to down
                 {
-                    player.SetLocation(leadsTo); 
+                    camera.UpdateCamera(leadsTo); 
                 }else                                                  //player leaves to up
                 {
-                    player.SetLocation(leadsFrom);
+                    camera.UpdateCamera(leadsFrom);
                 }
             }
             else
             {
                 if (transform.position.x > other.transform.position.x) //player leaves to left
                 {
-                    player.SetLocation(leadsTo);
+                    camera.UpdateCamera(leadsTo);
                 }else                                                 //player leaves to right
                 {
-                    player.SetLocation(leadsFrom);
+                    camera.UpdateCamera(leadsFrom);
                 }
             }
             
