@@ -12,6 +12,7 @@ public class GM_Game : MonoBehaviour
     [SerializeField] private Controller controller;
     [SerializeField] private GameObject player;
     [SerializeField] private Camera_Game camera;
+    [SerializeField] private GameObject pauseMenu;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,6 +20,7 @@ public class GM_Game : MonoBehaviour
         /*model = FindAnyObjectByType<Model>();
         controller = FindAnyObjectByType<Controller>();*/
         textFeld.SetActive(false);
+        pauseMenu.SetActive(false);
         
         player.transform.position = model.GetSpawnPosition();
         camera.UpdateCamera(model.GetSavePlayerLocation());

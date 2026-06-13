@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ButtonScript : MonoBehaviour
 {
-    [SerializeField] private GameObject settings;
+    [SerializeField] private GameObject pauseMenu;
      public void LoadNewScene(string sceneName) //start oder return button
     {
         SceneManager.LoadScene(sceneName);
@@ -17,7 +17,8 @@ public class ButtonScript : MonoBehaviour
     }
     public void OpenSetting()
     {
-        settings.SetActive(!settings.activeSelf);
-        Time.timeScale = settings.activeSelf? 0:1;
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+        Time.timeScale = pauseMenu.activeSelf? 0:1;
     }
+
 }
