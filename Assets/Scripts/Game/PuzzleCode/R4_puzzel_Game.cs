@@ -35,12 +35,11 @@ public class R4_puzzel_Game : MonoBehaviour
     }
 
     private void OnTriggerExit2D(Collider2D collision)
-    {
-        
-       
+    {        
+        if (collision.CompareTag("Player"))
+        {
             isColliding = false;
             gm.ShowText(false);
-        
-        
+        }
     }
 }

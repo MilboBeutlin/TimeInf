@@ -309,8 +309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9b7b8823e86f5408ca2a66aa49f4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPoint_Game
-  spawnPosition: {x: 0.48, y: -3.5, z: 0}
-  playerLocation: K1
 --- !u!114 &11600497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3714,6 +3712,8 @@ MonoBehaviour:
   - {fileID: 1860697117484159275, guid: a64e2347ce623d548a4de8d45b9b4917, type: 3}
   - {fileID: 8906683400441685385, guid: a64e2347ce623d548a4de8d45b9b4917, type: 3}
   sR: {fileID: 1713716838}
+  controller: {fileID: 1706314857}
+  gameMaster: {fileID: 1988482979}
 --- !u!4 &560590465
 Transform:
   m_ObjectHideFlags: 0
@@ -3817,9 +3817,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bc763dfd8e7fc3499c366568e7f4bb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpawnPointPlacer_Game
+  spawnPoint: {fileID: 11600495}
   floorTilemap: {fileID: 1834762100}
   model: {fileID: 1706314854}
-  player: {fileID: 560590464}
+  controller: {fileID: 1706314857}
 --- !u!1 &569672451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8798856524543916784, guid: d5619fa93aab4cb4f9d16933e43f120d, type: 3}
@@ -69856,6 +69857,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1614803047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1614803048}
+  m_Layer: 0
+  m_Name: K1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1614803048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614803047}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -3.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1623596490
 GameObject:
   m_ObjectHideFlags: 0
@@ -70551,7 +70583,7 @@ GameObject:
   - component: {fileID: 1706314854}
   - component: {fileID: 1706314857}
   m_Layer: 0
-  m_Name: K1_ScriptObjektDMC
+  m_Name: ScriptObjektDMC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70569,6 +70601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef0d63917a71fa64f9a334d09da17f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Model
+  DB: {fileID: 1706314855}
 --- !u!114 &1706314855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70608,6 +70641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6900e791e8767a46a82b4e3c73dc71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Controller
+  DB: {fileID: 1706314855}
 --- !u!1001 &1708424374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112725,7 +112759,7 @@ Transform:
   m_GameObject: {fileID: 1912863485}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.82, y: 1.69, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -112801,11 +112835,13 @@ MonoBehaviour:
   - {fileID: 293934383}
   corridors:
   - {fileID: 1674290236}
-  - {fileID: 1706314856}
+  - {fileID: 1614803048}
   - {fileID: 1173934542}
   hallway:
   - {fileID: 1846208248}
   - {fileID: 728573153}
+  controller: {fileID: 1706314857}
+  model: {fileID: 1706314854}
 --- !u!1 &1916028433
 GameObject:
   m_ObjectHideFlags: 0
@@ -113212,8 +113248,10 @@ MonoBehaviour:
   textFeld: {fileID: 1916028433}
   text: {fileID: 717385029}
   model: {fileID: 1706314854}
-  con: {fileID: 1706314857}
+  controller: {fileID: 1706314857}
   player: {fileID: 560590463}
+  spawnPoint: {fileID: 11600495}
+  camera: {fileID: 1912863490}
 --- !u!4 &1988482980
 Transform:
   m_ObjectHideFlags: 0
@@ -115125,11 +115163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9093451476988527040, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.26
+      value: 5.65625
       objectReference: {fileID: 0}
     - target: {fileID: 9093451476988527040, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.73
+      value: 14.34375
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -115384,6 +115422,7 @@ SceneRoots:
   - {fileID: 1912863488}
   - {fileID: 560590465}
   - {fileID: 1188866139}
+  - {fileID: 1614803048}
   - {fileID: 625388702}
   - {fileID: 773078604}
   - {fileID: 856565995}

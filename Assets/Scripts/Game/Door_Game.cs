@@ -8,7 +8,12 @@ public class Door_Game : MonoBehaviour
     [SerializeField] private GameObject darkness;
     //[SerializeField] private GameObject torches;
     [SerializeField] private Model model;
-    [SerializeField] private Camera_Game camera;
+    private Camera_Game camera;
+    
+    private void Start()
+    {
+        camera = FindAnyObjectByType<Camera_Game>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

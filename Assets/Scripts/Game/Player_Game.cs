@@ -9,7 +9,7 @@ public class Player_Game : MonoBehaviour
 [SerializeField] private LayerMask wallLayer;
 [SerializeField] private Sprite[] sprites;
 [SerializeField] private SpriteRenderer sR;
-[SrializeField] private Controller controller;
+[SerializeField] private Controller controller;
 [SerializeField] private GM_Game gameMaster;
 private Vector2 input;
 

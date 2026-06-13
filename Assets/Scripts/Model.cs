@@ -3,7 +3,8 @@ using System.Collections.Generic;
 public class Model : MonoBehaviour
 {
 
-    [SerializeField] private Datenbank DB;
+    //[SerializeField] private Datenbank DB;
+    private Datenbank DB => Datenbank.Instance;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -53,6 +54,10 @@ public class Model : MonoBehaviour
     public string GetPlayerLocation()
     {
         return DB.GetPlayerLocation();
+    }
+    public string GetSavePlayerLocation()
+    {
+        return DB.GetSavePlayerLocation();
     }
 
     // opponent

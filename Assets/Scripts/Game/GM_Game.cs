@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GM_Game : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GM_Game : MonoBehaviour
     [SerializeField] private Model model;
     [SerializeField] private Controller controller;
     [SerializeField] private GameObject player;
+    [SerializeField] private Camera_Game camera;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,9 +19,12 @@ public class GM_Game : MonoBehaviour
         /*model = FindAnyObjectByType<Model>();
         controller = FindAnyObjectByType<Controller>();*/
         textFeld.SetActive(false);
-
+        
         player.transform.position = model.GetSpawnPosition();
+        camera.UpdateCamera(model.GetSavePlayerLocation());
         controller.SetPlayerItems(model.GetSavedPlayerItems());
+        Debug.Log(model.GetSpawnPosition());
+        Debug.Log(model.GetSavePlayerLocation());
     }
 
     // Update is called once per frame

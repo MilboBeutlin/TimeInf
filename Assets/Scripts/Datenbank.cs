@@ -15,6 +15,7 @@ public class Datenbank : MonoBehaviour
     private Dictionary<Items, int> savedPlayerItems = new Dictionary<Items, int>();
     private int[] currentPlayerStats = new int[]{100,25,20,6,0}; //health, attack, armor, speed, dk
     private string playerLocation = "K1";
+    private string savePlayerLocation;
 
     //Gegner:
     private Gegner currentOponent;
@@ -40,7 +41,6 @@ public class Datenbank : MonoBehaviour
         {
             currentOponnentAttacks[i] = Attacks.NULL;   
         }
-    
     }
     
     private void Awake()
@@ -145,6 +145,14 @@ public class Datenbank : MonoBehaviour
     public void SetPlayerLocation(string playerLocation)
     {
         this.playerLocation = playerLocation;
+    }
+    public string GetSavePlayerLocation()
+    {
+        return savePlayerLocation;
+    }
+    public void SetSavePlayerLocation(string savePlayerLocation)
+    {
+        this.savePlayerLocation = savePlayerLocation;
     }
 
     // opponent

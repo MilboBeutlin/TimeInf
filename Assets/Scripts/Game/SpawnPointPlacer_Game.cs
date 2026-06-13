@@ -13,7 +13,7 @@ public class SpawnPointPlacer_Game : MonoBehaviour
 
     void Start()
     {
-        
+        spawnPoint.transform.position = model.GetSpawnPosition();
     }
     void Update()
     {
@@ -69,8 +69,10 @@ public class SpawnPointPlacer_Game : MonoBehaviour
 
         //SpawnPoint_Game.Instance.spawnPosition = safePosition.Value;
         controller.SetSpawnPosition(safePosition.Value);
+        controller.SetSavePlayerLocation(model.GetPlayerLocation());
         controller.SetSavePlayerItems(model.GetCurrentPlayerItems());
-        Debug.Log("Spawn point is placed");
+        Debug.Log(model.GetSpawnPosition());
+        Debug.Log(model.GetSavePlayerLocation());
     }
     private Vector3? FindSafeTile(Vector3Int tile)
     {

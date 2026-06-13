@@ -2,7 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 public class Controller : MonoBehaviour
 {
-    [SerializeField] private Datenbank DB;
+    //[SerializeField] private Datenbank DB;
+    private Datenbank DB => Datenbank.Instance;
 
     void Start()
     {
@@ -63,6 +64,10 @@ public class Controller : MonoBehaviour
     public void SetPlayerLocation(string playerLocation)
     {
         DB.SetPlayerLocation(playerLocation);
+    }
+    public void SetSavePlayerLocation(string savePlayerLocation)
+    {
+        DB.SetSavePlayerLocation(savePlayerLocation);
     }
 
     // opponent

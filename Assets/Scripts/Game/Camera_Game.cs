@@ -7,18 +7,29 @@ public class Camera_Game : MonoBehaviour
     [SerializeField] private Transform[] corridors; //empty object for the postion
     [SerializeField] private Transform[] hallway; //empty object for the postion
     [SerializeField] private Controller controller;
+    [SerializeField] private Model model;
+    private string newLocation;
     void Start()
     {
-        
+    }
+    public void UpdateCamera(string location)
+    {
+        if(location == null)
+        {
+            newLocation = "K1";
+        }
+        else
+        {
+            newLocation = location;
+        }
+        controller.SetPlayerLocation(newLocation);
     }
 
-    public void UpdateCamera(string leadsTo) //i could use enums but to much work for now
+    void Update() //i could use enums but to much work for now
     {
-        controller.SetPlayerLocation(leadsTo);
-        char type = leadsTo[0];
-        int index = int.Parse(leadsTo.Substring(1));
+        int index = int.Parse(newLocation.Substring(1));
 
-        switch (type)
+        switch (newLocation[0]) //what kind of location is it?: room, vertical hallway or horizontal hallway
         {
             case 'R': //rooms
             transform.position = rooms[index-1].position;
