@@ -5,9 +5,10 @@ using UnityEngine.UI;
 public class ButtonScript : MonoBehaviour
 {
     [SerializeField] private GameObject settings;
-     public void LoadNewScene(string sceneName) //start button
+     public void LoadNewScene(string sceneName) //start oder return button
     {
         SceneManager.LoadScene(sceneName);
+        Time.timeScale = 1f;
     }
 
     public void ExitGame()
@@ -17,5 +18,6 @@ public class ButtonScript : MonoBehaviour
     public void OpenSetting()
     {
         settings.SetActive(!settings.activeSelf);
+        Time.timeScale = settings.activeSelf? 0:1;
     }
 }
