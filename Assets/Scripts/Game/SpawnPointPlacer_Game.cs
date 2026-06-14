@@ -63,11 +63,8 @@ public class SpawnPointPlacer_Game : MonoBehaviour
             return;
         }
 
-        //spawnPoint.transform.position = safePosition.Value;
-        //spawnPoint.moveSpawnPoint(safePosition.Value, model.GetLocation());
         spawnPoint.transform.position = safePosition.Value;
 
-        //SpawnPoint_Game.Instance.spawnPosition = safePosition.Value;
         controller.SetSpawnPosition(safePosition.Value);
         controller.SetSavePlayerLocation(model.GetPlayerLocation());
         controller.SetSavePlayerItems(model.GetCurrentPlayerItems());

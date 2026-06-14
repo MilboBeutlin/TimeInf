@@ -23,6 +23,6 @@ public class PauseMenu : MonoBehaviour
         {
             pauseMenu.SetActive(!pauseMenu.activeSelf); //UI menu an/aus
             Time.timeScale = pauseMenu.activeSelf ? 0f : 1f; //Zeit anhalten/fortsetzen
-        }
+        } 
     }
 }
