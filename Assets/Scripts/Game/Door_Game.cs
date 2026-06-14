@@ -26,6 +26,11 @@ public class Door_Game : MonoBehaviour
                     darkness.SetActive(false);
                     //torches.SetActive(true);
                 }
+                /*if(leadsTo == "R2" && model.GetCurrentPlayerAttacks()(Attacks.Schwimmen))
+                {
+                    wasserCollider.SetActive(false);
+                    //torches.SetActive(true);
+                }*/
                 other.transform.position = targetDoorSP.position; //moves Player to other door
             }
             
