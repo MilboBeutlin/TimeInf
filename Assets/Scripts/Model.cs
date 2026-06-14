@@ -20,7 +20,7 @@ public class Model : MonoBehaviour
     }
     // player
 
-    public Attacks[] GetCurrentPlayerAttacks() {
+    public List<Attacks> GetCurrentPlayerAttacks() {
         return DB.GetCurrentPlayerAttacks();
     }
     public int[] GetCurrentPlayerStats() {

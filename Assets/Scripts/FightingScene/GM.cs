@@ -11,7 +11,7 @@ public class GM : MonoBehaviour
 
     //Stats
     //player
-    [SerializeField] private Attacks[] currentPlayerAttacks;
+    [SerializeField] private List<Attacks> currentPlayerAttacks;
     [SerializeField] private int[] currentplayerStats;
     [SerializeField] private Dictionary<Items, int> currentPlayerItems;
     [SerializeField] private Dictionary<Statuseffekte, int> currentPlayerEffects;
@@ -34,7 +34,8 @@ public class GM : MonoBehaviour
         playerturn = true;
 
         //Stats
-        currentPlayerAttacks = new Attacks[6];
+        currentPlayerAttacks = new List<Attacks>();
+
         currentOponnentAttacks = new Attacks[6];
         DoLoad();
 
@@ -61,6 +62,11 @@ public class GM : MonoBehaviour
     }
     public Attacks givePlayerAttack(int attack)
     {
+        if(attack >= currentPlayerAttacks.Count)
+        {
+            Debug.Log("Der Spieler hat versucht eine Attacke zu benutzen, die er nicht hat. >:( grrr");
+            return Attacks.NULL;
+        }
         return currentPlayerAttacks[attack];
     }
 
@@ -135,21 +141,32 @@ public class GM : MonoBehaviour
     public void DoAttack(int y)
     {
         Turn();
-        Attacks i = currentPlayerAttacks[y];
+
+        Attacks selectedAttack;
+
+        if(y >= currentPlayerAttacks.Count)
+        {
+            Debug.Log("Der Spieler hat versucht eine Attacke zu benutzen, die er nicht hat. >:( grrr");
+            selectedAttack = Attacks.NULL;
+        }
+        else
+        {
+            selectedAttack = currentPlayerAttacks[y];
+        }
+        
         //Hier ALLE Attacen für NUR Spieler rein.
-        switch (i)
+        switch (selectedAttack)
         {
             case Attacks.NULL:
                 break;
 
 
             default:
-                Debug.Log("Gooner");
+                Debug.Log("Error M10");
                 break;
         }
 
         OponentTurn();
-        
     }
 
     

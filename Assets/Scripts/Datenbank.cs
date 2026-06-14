@@ -7,8 +7,7 @@ public class Datenbank : MonoBehaviour
     public static Datenbank Instance;
     //Alle Stats im Game
     //Player:
-    private Attacks[] currentPlayerAttacks;
-    //private Statuseffekte[] currentPlayerEffects;
+    private List<Attacks> playerAttacks = new List<Attacks>();
     private Dictionary<Statuseffekte, int> playerEffects = new Dictionary<Statuseffekte, int>();
 
     [SerializeField] private Dictionary<Items, int> playerItems = new Dictionary<Items, int>();
@@ -30,11 +29,7 @@ public class Datenbank : MonoBehaviour
     {
        // model = FindAnyObjectByType<Model>();
         //Alle stats im Game
-        currentPlayerAttacks = new Attacks[6];
-        for (int i = 0; i < currentPlayerAttacks.Length; i++)
-        {
-            currentPlayerAttacks[i] = Attacks.NULL;
-        }
+        playerAttacks = new List<Attacks>();
 
         currentOponnentAttacks = new Attacks[6];
         for (int i = 0; i <currentOponnentAttacks.Length; i++)
@@ -57,12 +52,12 @@ public class Datenbank : MonoBehaviour
     
     //Alle Stats im Game
     //player
-    public Attacks[] GetCurrentPlayerAttacks() {
-        return currentPlayerAttacks;
+    public List<Attacks> GetCurrentPlayerAttacks() {
+        return playerAttacks;
     }
 
-    public void SetCurrentPlayerAttacks(Attacks[] currentPlayerAttacks) {
-        this.currentPlayerAttacks = currentPlayerAttacks;
+    public void SetCurrentPlayerAttacks(List<Attacks> playerAttacks) {
+        this.playerAttacks = playerAttacks;
     }
 
     public int GetCurrentPlayerStat(int index) {

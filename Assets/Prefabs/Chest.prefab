@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5401070039773527561}
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7579436163883728332, guid: 8c0ce19bd37f25a4f975dc67097b2b1b, type: 3}
+  m_Sprite: {fileID: 674121210626561721, guid: e652bda3a9377a14bb84e13c9cc0569d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,7 +119,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 151.42, y: 35.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5751270246125377656}
@@ -139,8 +139,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Chest_Game
   item: 2
   amount: 2
-  openChest: {fileID: -649818275125398595, guid: 8c0ce19bd37f25a4f975dc67097b2b1b, type: 3}
+  openChest: {fileID: 7637999256408339966, guid: e652bda3a9377a14bb84e13c9cc0569d, type: 3}
   sR: {fileID: 5131296763214240038}
+  gm: {fileID: 0}
 --- !u!61 &6183094562322934776
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -175,7 +176,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.012123108, y: 0.0044078827}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -185,5 +186,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0022125, y: 0.7708092}
   m_EdgeRadius: 0

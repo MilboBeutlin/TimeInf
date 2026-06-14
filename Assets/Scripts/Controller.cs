@@ -22,7 +22,7 @@ public class Controller : MonoBehaviour
     }*/
 
     // player
-    public void SetCurrentPlayerAttacks(Attacks[] attacks) {
+    public void SetCurrentPlayerAttacks(List<Attacks> attacks) {
         DB.SetCurrentPlayerAttacks(attacks);
     }
 

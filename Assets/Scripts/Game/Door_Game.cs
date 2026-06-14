@@ -8,6 +8,7 @@ public class Door_Game : MonoBehaviour
     [SerializeField] private GameObject darkness;
     //[SerializeField] private GameObject torches;
     [SerializeField] private Model model;
+    [SerializeField] private BoxCollider2D waterCollider;
     private Camera_Game camera;
     
     private void Start()
@@ -26,11 +27,10 @@ public class Door_Game : MonoBehaviour
                     darkness.SetActive(false);
                     //torches.SetActive(true);
                 }
-                /*if(leadsTo == "R2" && model.GetCurrentPlayerAttacks()(Attacks.Schwimmen))
+                if(leadsTo == "R2" && model.GetCurrentPlayerAttacks().Contains(Attacks.Schwimmen))
                 {
-                    wasserCollider.SetActive(false);
-                    //torches.SetActive(true);
-                }*/
+                    waterCollider.enabled = false;
+                }
                 other.transform.position = targetDoorSP.position; //moves Player to other door
             }
             
