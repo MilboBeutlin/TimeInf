@@ -11,7 +11,7 @@ public class GM : MonoBehaviour
 
     //Stats
     //player
-    [SerializeField] private Attacks[] currentPlayerAttacks;
+    [SerializeField] private List<Attacks> currentPlayerAttacks;
     [SerializeField] private int[] currentplayerStats;
     [SerializeField] private Dictionary<Items, int> currentPlayerItems;
     [SerializeField] private Dictionary<Statuseffekte, int> currentPlayerEffects;
@@ -23,6 +23,8 @@ public class GM : MonoBehaviour
     private int GegnerDamageLastRound; //nur relevant für Item Spiegelfragment!!
 
     private int timer;
+
+    private int dk = 10;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,7 +36,8 @@ public class GM : MonoBehaviour
         playerturn = true;
 
         //Stats
-        currentPlayerAttacks = new Attacks[6];
+        currentPlayerAttacks = new List<Attacks>();
+
         currentOponnentAttacks = new Attacks[6];
         DoLoad();
 
@@ -61,6 +64,11 @@ public class GM : MonoBehaviour
     }
     public Attacks givePlayerAttack(int attack)
     {
+        if(attack >= currentPlayerAttacks.Count)
+        {
+            Debug.Log("Der Spieler hat versucht eine Attacke zu benutzen, die er nicht hat. >:( grrr");
+            return Attacks.NULL;
+        }
         return currentPlayerAttacks[attack];
     }
 
@@ -113,7 +121,7 @@ public class GM : MonoBehaviour
         //hier werden die Effekte die noch vorhanden sind abgehandelt.
 
         if(currentOpponentEffects.ContainsKey(Statuseffekte.Vergiftet)) {
-            currentopponentStats[0] -= 10 / currentopponentStats[4]/10; // grundschaden 10 / resistenz dk
+           currentopponentStats[0] -= 10 / currentopponentStats[4]/dk; // grundschaden 10 / resistenz
             currentOpponentEffects[Statuseffekte.Vergiftet] -= 1;
             if (currentOpponentEffects[Statuseffekte.Vergiftet] == 0)
             {
@@ -129,9 +137,8 @@ public class GM : MonoBehaviour
             }
         }
 
-
-        if(currentOpponentEffects.ContainsKey(Statuseffekte.Blutend)) {
-            currentopponentStats[0] -= currentopponentStats[0] / 10 / currentopponentStats[4]/10; // 10% schaden / resistenz
+         if(currentOpponentEffects.ContainsKey(Statuseffekte.Blutend)) {
+            currentopponentStats[0] -= currentopponentStats[0] / 10 / currentopponentStats[4]/dk; // 10% schaden / resistenz
             currentOpponentEffects[Statuseffekte.Blutend] -= 1;
             if (currentOpponentEffects[Statuseffekte.Blutend] == 0)
             {
@@ -149,7 +156,7 @@ public class GM : MonoBehaviour
 
 
         if(currentOpponentEffects.ContainsKey(Statuseffekte.Brennend)) {
-            currentopponentStats[0] -= currentopponentStats[0] / 13 / currentopponentStats[4]/10;
+            currentopponentStats[0] -= currentopponentStats[0] / 13 / currentopponentStats[4]/dk;
             currentplayerStats[1] = currentplayerStats[1] * (9/10);
             currentOpponentEffects[Statuseffekte.Brennend] -= 1;
             if (currentOpponentEffects[Statuseffekte.Brennend] == 0)
@@ -181,21 +188,20 @@ public class GM : MonoBehaviour
         }
 
 
-        if (currentPlayerEffects.ContainsKey(Statuseffekte.Geschützt)) // nur 1 runde
+         if (currentPlayerEffects.ContainsKey(Statuseffekte.Geschützt)) // nur 1 runde
         {
           
             if(currentPlayerEffects[Statuseffekte.Geschützt] == 0)
             {
                 currentplayerStats[2] -= 100000;
-                currentPlayerEffects.Remove(Statuseffekte.Hoffnungsvoll);
+                currentPlayerEffects.Remove(Statuseffekte.Geschützt);
             } else {
             currentplayerStats[2] += 100000;
-            currentPlayerEffects[Statuseffekte.Hoffnungsvoll] = 0;
+            currentPlayerEffects[Statuseffekte.Geschützt] = 0;
             }
         }
 
-        
-       if(currentOpponentEffects.ContainsKey(Statuseffekte.Wütend)) {
+         if(currentOpponentEffects.ContainsKey(Statuseffekte.Wütend)) {
             currentopponentStats[1] += 20;
             currentOpponentEffects[Statuseffekte.Wütend] -= 1;
             if (currentOpponentEffects[Statuseffekte.Wütend] == 0)
@@ -215,37 +221,47 @@ public class GM : MonoBehaviour
 
         if(currentOpponentEffects.ContainsKey(Statuseffekte.Gesegnet)) {
             currentopponentStats[1] -= 20;
-            currentOpponentEffects[Statuseffekte.Wütend] -= 1;
-            if (currentOpponentEffects[Statuseffekte.Wütend] == 0)
+            currentOpponentEffects[Statuseffekte.Gesegnet] -= 1;
+            if (currentOpponentEffects[Statuseffekte.Gesegnet] == 0)
             {
-                currentOpponentEffects.Remove(Statuseffekte.Wütend);
+                currentOpponentEffects.Remove(Statuseffekte.Gesegnet);
             }
-        } else if (currentPlayerEffects.ContainsKey(Statuseffekte.Wütend))
+        } else if (currentPlayerEffects.ContainsKey(Statuseffekte.Gesegnet))
         {
             currentplayerStats[1] += 15;
-            currentPlayerEffects[Statuseffekte.Wütend] -= 1;
-            if(currentPlayerEffects[Statuseffekte.Wütend] == 0)
+            currentPlayerEffects[Statuseffekte.Gesegnet] -= 1;
+            if(currentPlayerEffects[Statuseffekte.Gesegnet] == 0)
             {
-                currentPlayerEffects.Remove(Statuseffekte.Wütend);
+                currentPlayerEffects.Remove(Statuseffekte.Gesegnet);
+            currentPlayerEffects[Statuseffekte.Gesegnet] = 0;
             }
         }
-
-
+  
     }
 
     public void DoAttack(int y)
     {
         Turn();
-     
-        Attacks i = currentPlayerAttacks[y];
+
+        Attacks selectedAttack;
+
+        if(y >= currentPlayerAttacks.Count)
+        {
+            Debug.Log("Der Spieler hat versucht eine Attacke zu benutzen, die er nicht hat. >:( grrr");
+            selectedAttack = Attacks.NULL;
+        }
+        else
+        {
+            selectedAttack = currentPlayerAttacks[y];
+        }
+        
         //Hier ALLE Attacen für NUR Spieler rein.
-        switch (i)
+        switch (selectedAttack)
         {
             case Attacks.NULL:
                 break;
 
-
-            case Attacks.Schutz:
+             case Attacks.Schutz:
                 SetEffect(Statuseffekte.Geschützt, 1, true);
                 break;
 
@@ -343,13 +359,14 @@ public class GM : MonoBehaviour
             break;
 
 
+
+
             default:
-                Debug.Log("Gooner");
-            break;
+                Debug.Log("Error M10");
+                break;
         }
 
         OponentTurn();
-        
     }
 
     
