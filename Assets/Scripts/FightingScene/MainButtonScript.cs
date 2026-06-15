@@ -23,6 +23,9 @@ public class MainButtonScript : MonoBehaviour
     [SerializeField] private Items ButtonType;
     [SerializeField] private TMP_Text ItemButtonText;
 
+    private bool FirstAttackPage = true;
+    
+
     
 
 
@@ -38,20 +41,41 @@ public class MainButtonScript : MonoBehaviour
     {
         if(Attack1 != null)
         {
-            Attack1.GetComponent<TMP_Text>().text = GM.givePlayerAttack(0).ToString();
-            Attack2.GetComponent<TMP_Text>().text = GM.givePlayerAttack(1).ToString();
-            Attack3.GetComponent<TMP_Text>().text = GM.givePlayerAttack(2).ToString();
-            Attack4.GetComponent<TMP_Text>().text = GM.givePlayerAttack(3).ToString();
-            Attack5.GetComponent<TMP_Text>().text = GM.givePlayerAttack(4).ToString();
-            Attack6.GetComponent<TMP_Text>().text = GM.givePlayerAttack(5).ToString();
+            
+            
+            
+            if(GM.givePlayerAttack(7) != Attacks.NULL && FirstAttackPage == false)
+            {
+                Attack6.GetComponent<TMP_Text>().text = "NEXT";
+                Attack1.GetComponent<TMP_Text>().text = GM.givePlayerAttack(5).ToString();
+                Attack2.GetComponent<TMP_Text>().text = GM.givePlayerAttack(6).ToString();
+                Attack3.GetComponent<TMP_Text>().text = GM.givePlayerAttack(7).ToString();
+                Attack4.GetComponent<TMP_Text>().text = GM.givePlayerAttack(8).ToString();
+                Attack5.GetComponent<TMP_Text>().text = GM.givePlayerAttack(9).ToString();
+
+            } else if(GM.givePlayerAttack(7) != Attacks.NULL && FirstAttackPage == true)
+            {
+                Attack6.GetComponent<TMP_Text>().text = "NEXT";
+                Attack1.GetComponent<TMP_Text>().text = GM.givePlayerAttack(0).ToString();
+                Attack2.GetComponent<TMP_Text>().text = GM.givePlayerAttack(1).ToString();
+                Attack3.GetComponent<TMP_Text>().text = GM.givePlayerAttack(2).ToString();
+                Attack4.GetComponent<TMP_Text>().text = GM.givePlayerAttack(3).ToString();
+                Attack5.GetComponent<TMP_Text>().text = GM.givePlayerAttack(4).ToString();
+
+            } else 
+            {
+                Attack1.GetComponent<TMP_Text>().text = GM.givePlayerAttack(0).ToString();
+                Attack2.GetComponent<TMP_Text>().text = GM.givePlayerAttack(1).ToString();
+                Attack3.GetComponent<TMP_Text>().text = GM.givePlayerAttack(2).ToString();
+                Attack4.GetComponent<TMP_Text>().text = GM.givePlayerAttack(3).ToString();
+                Attack5.GetComponent<TMP_Text>().text = GM.givePlayerAttack(4).ToString();
+                Attack6.GetComponent<TMP_Text>().text = GM.givePlayerAttack(5).ToString();
+            }
             
         }
         if (ItemButtonText != null)
         {
             ItemButtonText.text = ButtonType.ToString();
-            
-            
-            
         }
     }
 
@@ -59,10 +83,12 @@ public class MainButtonScript : MonoBehaviour
     {
         return ButtonType;
     }
+
     public void setItemButtonType(Items i)
     {
         i = ButtonType;
     }
+
     public void SetMainButtonActive(bool active)
     {
         if(active == true)
@@ -78,30 +104,33 @@ public class MainButtonScript : MonoBehaviour
         }
     }
 
-    public void DoAttack_ONE()
+    // Für Unity Buttons, um Attacken auszuführen
+    public void DoAttack(int i)
     {
-        GM.DoAttack(0);
-    }
-    public void DoAttack_TWO()
-    {
-        GM.DoAttack(1);
-    }
-    public void DoAttack_THREE()
-    {
-        GM.DoAttack(2);
-    }
-    public void DoAttack_FOUR()
-    {
-        GM.DoAttack(3);
-    }
-    public void DoAttack_FIVE()
-    {
-        GM.DoAttack(4);
-    }
-    public void DoAttack_SIX()
-    {
-        GM.DoAttack(5);
+        if (i == 5 && Attack6.GetComponent<TMP_Text>().text == "NEXT")
+        {
+            FirstAttackPage = !FirstAttackPage;
+        } else if (FirstAttackPage == false && GM.givePlayerAttack(7) != Attacks.NULL)
+        {
+            GM.DoAttack(i +5);
+        } else {
+            GM.DoAttack(i);
+        }
     }
 
-    
+    public void SwitchAttackPages()
+    {
+        if(FirstAttackPage == true)
+        {
+            FirstAttackPage = false;
+        } else
+        {
+            FirstAttackPage = true;
+        }
+    }
+
+    public void DoItem(Items i)
+    {
+        GM.DoUseItem(i);
+    }
 }
