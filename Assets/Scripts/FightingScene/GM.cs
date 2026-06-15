@@ -24,7 +24,9 @@ public class GM : MonoBehaviour
 
     private int timer;
 
-    private int dk = 10;
+  
+   // private int rüstungGegner;
+   //health, attack, armor, speed, dk
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -121,7 +123,7 @@ public class GM : MonoBehaviour
         //hier werden die Effekte die noch vorhanden sind abgehandelt.
 
         if(currentOpponentEffects.ContainsKey(Statuseffekte.Vergiftet)) {
-           currentopponentStats[0] -= 10 / currentopponentStats[4]/dk; // grundschaden 10 / resistenz
+           currentopponentStats[0] -= 10 / (currentopponentStats[4]/10); // grundschaden 10 / resistenz
             currentOpponentEffects[Statuseffekte.Vergiftet] -= 1;
             if (currentOpponentEffects[Statuseffekte.Vergiftet] == 0)
             {
@@ -138,7 +140,7 @@ public class GM : MonoBehaviour
         }
 
          if(currentOpponentEffects.ContainsKey(Statuseffekte.Blutend)) {
-            currentopponentStats[0] -= currentopponentStats[0] / 10 / currentopponentStats[4]/dk; // 10% schaden / resistenz
+            currentopponentStats[0] -= currentopponentStats[0] / 10 / (currentopponentStats[4]/10); // 10% schaden / resistenz
             currentOpponentEffects[Statuseffekte.Blutend] -= 1;
             if (currentOpponentEffects[Statuseffekte.Blutend] == 0)
             {
@@ -156,7 +158,7 @@ public class GM : MonoBehaviour
 
 
         if(currentOpponentEffects.ContainsKey(Statuseffekte.Brennend)) {
-            currentopponentStats[0] -= currentopponentStats[0] / 13 / currentopponentStats[4]/dk;
+            currentopponentStats[0] -= currentopponentStats[0] / 13 / (currentopponentStats[4]/10);
             currentplayerStats[1] = currentplayerStats[1] * (9/10);
             currentOpponentEffects[Statuseffekte.Brennend] -= 1;
             if (currentOpponentEffects[Statuseffekte.Brennend] == 0)
@@ -266,12 +268,12 @@ public class GM : MonoBehaviour
                 break;
 
             case Attacks.Hammer:
-                 currentopponentStats[0] -= 50 / currentopponentStats[2]/100; // 50 schaden / rüstung
+                 currentopponentStats[0] -= 50 / (currentopponentStats[2]/100); // 50 schaden / rüstung
                 break;
 
 
             case Attacks.Verstümmelung:
-                currentopponentStats[0] -= 80 / currentopponentStats[2]/100;
+                currentopponentStats[0] -= 80 / (currentopponentStats[2]/100);
                 int random1 = Random.Range(0, 100);
                 if (random1 <= 10)
                 {
@@ -281,7 +283,7 @@ public class GM : MonoBehaviour
 
 
              case Attacks.Schlag:
-                currentopponentStats[0] -= 35 / currentopponentStats[2]/100;
+                currentopponentStats[0] -= 35 / (currentopponentStats[2]/100);
                 int random2 = Random.Range(0, 100);
                 if (random2 <= 45)
                 {
@@ -290,7 +292,7 @@ public class GM : MonoBehaviour
             break;
 
             case Attacks.Giftdolch:
-                currentopponentStats[0] -= 15 / currentopponentStats[2]/100;
+                currentopponentStats[0] -= 15 / (currentopponentStats[2]/100);
                 SetEffect(Statuseffekte.Vergiftet, 3, false);
                 int random3 = Random.Range(0, 100);
                 if (random3 <= 15)
@@ -300,7 +302,7 @@ public class GM : MonoBehaviour
                 break;
 
             case Attacks.Feuerball:
-                currentopponentStats[0] -= 45 / currentplayerStats[2]/100;
+                currentopponentStats[0] -= 45 / (currentplayerStats[2]/100);
                 SetEffect(Statuseffekte.Brennend, 1, false);
             break;
 
@@ -310,7 +312,7 @@ public class GM : MonoBehaviour
 
             case Attacks.Vergeltung:
                 int random4 = Random.Range(30, 100);
-                currentopponentStats[0] -= random4 / currentopponentStats[0]/100;
+                currentopponentStats[0] -= random4 / (currentopponentStats[2]/100);
                 break;
 
             case Attacks.Graben:
@@ -332,10 +334,7 @@ public class GM : MonoBehaviour
             break;
 
             case Attacks.Reinigung:
-                        currentPlayerEffects.Remove(Statuseffekte.Vergiftet);
-                        //etc
-                        //etc
-                        //e
+                        currentPlayerEffects.Clear();
             break;
 
             case Attacks.Leidensstoß:
@@ -413,11 +412,44 @@ public class GM : MonoBehaviour
                     break;
 
                 case Attacks.BasicAttack:
-                    currentplayerStats[0] -= 15;
+                    currentplayerStats[0] -= 25 / (currentplayerStats[2]/100);
                     break;
+
                 case Attacks.KleinerAttack:
-                    currentplayerStats[0] -= 5;
+                    currentplayerStats[0] -= 10 / (currentplayerStats[2]/100);
                     break;
+
+                case Attacks.Debuff1:
+                    SetEffect(Statuseffekte.Verflucht, 2, true);
+                    break;
+
+                case Attacks.Debuff2:
+                    SetEffect(Statuseffekte.Vergiftet, 4, true);
+                    break;
+
+                case Attacks.Debuff3:
+                    SetEffect(Statuseffekte.Blutend, 2, true);
+                    SetEffect(Statuseffekte.Gelähmt, 1, true);
+                    break;
+
+                    case Attacks.Debuff4:
+                    SetEffect(Statuseffekte.Brennend, 3, true);
+                    break;
+
+                case Attacks.BuffSteal:
+                    foreach (var effekt in currentPlayerEffects.Keys)
+                    {
+                        if (IstBuff(effekt))
+                        {
+                        currentOpponentEffects[effekt] = currentPlayerEffects[effekt];
+                        }
+                    }
+                    break;
+
+                case Attacks.AttackBlock:
+                    SetEffect(Statuseffekte.Geschützt, 1, false);
+                    break;
+                
 
             }
 
@@ -513,4 +545,19 @@ public class GM : MonoBehaviour
 
         OponentTurn();
     }
+
+     private bool IstBuff(Statuseffekte effekt)
+    {
+        switch (effekt)
+        {
+            case Statuseffekte.Gesegnet: 
+            case Statuseffekte.Geschützt:
+                return true;
+
+            default:
+                return false;
+        }
+    }
+
+
 }
