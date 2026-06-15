@@ -419,7 +419,7 @@ public class GM : MonoBehaviour
                     currentplayerStats[0] -= 10 / (currentplayerStats[2]/100);
                     break;
 
-                case Attacks.Debuff1:
+                case Attacks.Debuff:
                     SetEffect(Statuseffekte.Verflucht, 2, true);
                     break;
 
