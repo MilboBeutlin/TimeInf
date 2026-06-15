@@ -18,8 +18,8 @@ public class Ritual_Game : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.E))
             {
+                //controller = FindAnyObjectByType<Controller>();
             controller.RemoveItem(Items.Ritualschwert, 1);
-           controller = FindAnyObjectByType<Controller>();
             controller.AddItem(Items.Phoenixfeder, 1);
             Debug.Log("+1 feder");
             schwertEingesetzt = true;
@@ -30,7 +30,7 @@ public class Ritual_Game : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.F))
             {
-                 schwertEingesetzt = true;
+                schwertEingesetzt = true;
                 Instantiate(gegner, player.transform.position, Quaternion.identity);
 
             }
@@ -58,7 +58,8 @@ public class Ritual_Game : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             kollidiert = false;
-            gm.ShowText(false);
+            gm?.ShowText(false);
+            
         }
     }
    

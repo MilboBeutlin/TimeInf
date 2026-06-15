@@ -113462,7 +113462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9913da55f9cdcd0429fddfe4daa82fc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ritual_Game
-  gm: {fileID: 0}
+  gm: {fileID: 1988482979}
+  gegner: {fileID: 8336979724331090836, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
 --- !u!61 &1943960654
 BoxCollider2D:
   m_ObjectHideFlags: 0
