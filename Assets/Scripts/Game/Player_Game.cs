@@ -9,14 +9,14 @@ public class Player_Game : MonoBehaviour
 [SerializeField] private LayerMask wallLayer;
 [SerializeField] private Sprite[] sprites;
 [SerializeField] private SpriteRenderer sR;
-private Controller controller;
+[SerializeField] private Controller controller;
+[SerializeField] private GM_Game gameMaster;
 private Vector2 input;
-private string location = "K1";
 
 
 void Start()
 {
-    controller = FindAnyObjectByType<Controller>();
+    //controller = FindAnyObjectByType<Controller>();
 }
 void Update()
 {
@@ -113,8 +113,7 @@ void OnTriggerEnter2D(Collider2D other)
     }
     else if (other.CompareTag("Death"))
     {
-        controller.IncreasePlayerLp(-200);
-        Debug.Log("You are dead bitch");
+        gameMaster.PlayerDeath();
     }
 }
 
@@ -122,7 +121,7 @@ void OnTriggerEnter2D(Collider2D other)
 {
     if (type == Gegner.Endboss)
     {
-        controller.SetCurrentOponent(type);
+        //endboss attacken
         controller.SetCurrentOponnentAttacks(new Attacks[]
         {
             Attacks.DunklerSchnitt,
@@ -138,20 +137,17 @@ void OnTriggerEnter2D(Collider2D other)
     }
     else
     {
+        //gegner attacken
         controller.SetCurrentOponnentAttacks(new Attacks[]
         {
-            //gegner attacken
+            Attacks.BasicAttack,
+            Attacks.KleinerAttack,
+            Attacks.Debuff,         //depends on the enemy which debuff
+            Attacks.BuffSteal,
+            Attacks.AttackBlock
         });
     }
+    controller.SetCurrentOponent(type);
     controller.SetCurrentOponnentStats(new int[]{lp, atk, armor, speed, dk});
 }
-
-    public string GetLocation() //location for camera
-    {
-        return location;
-    }
-    public void SetLocation(string location) //location for camera
-    {
-        this.location = location;
-    }
 }

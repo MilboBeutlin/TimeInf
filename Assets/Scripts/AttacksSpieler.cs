@@ -8,5 +8,5 @@ public enum Attacks
     //AttackenK�nig
     DunklerSchnitt, Giftwurf, KronederVerdammnis, Daemonensphaere, ChaosLanze, Block, DunkleResonanz, KingsBreaker, EndloseDunkelheit,
     //AttackenNormalerGegner
-    BasicAttack, KleinerAttack,
+    BasicAttack, KleinerAttack, Debuff, Debuff2, Debuff3, Debuff4, BuffSteal, AttackBlock
 }

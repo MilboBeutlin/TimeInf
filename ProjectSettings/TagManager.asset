@@ -44,5 +44,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Altar
+    uniqueID: 3619351059
+    locked: 0
   m_RenderingLayers:
   - Default

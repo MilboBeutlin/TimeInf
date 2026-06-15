@@ -3,16 +3,18 @@ using System.Collections.Generic;
 
 public class Datenbank : MonoBehaviour
 {
-    private Model model;
-
+    //private Model model;
+    public static Datenbank Instance;
     //Alle Stats im Game
     //Player:
-    private Attacks[] currentPlayerAttacks;
-    //private Statuseffekte[] currentPlayerEffects;
+    private List<Attacks> playerAttacks = new List<Attacks>();
     private Dictionary<Statuseffekte, int> playerEffects = new Dictionary<Statuseffekte, int>();
 
     [SerializeField] private Dictionary<Items, int> playerItems = new Dictionary<Items, int>();
+    private Dictionary<Items, int> savedPlayerItems = new Dictionary<Items, int>();
     private int[] currentPlayerStats = new int[]{100,25,20,6,0}; //health, attack, armor, speed, dk
+    private string playerLocation = "K1";
+    private string savePlayerLocation;
 
     //Gegner:
     private Gegner currentOponent;
@@ -20,35 +22,42 @@ public class Datenbank : MonoBehaviour
     private Dictionary<Statuseffekte, int> oponentEffects = new Dictionary<Statuseffekte, int>();
     private int[] currentOponnentStats; //health, attack, armor, speed, dk
 
+    //other stuff:
+    private Vector3 spawnPosition;
+
     private void Start()
     {
-        model = FindAnyObjectByType<Model>();
+       // model = FindAnyObjectByType<Model>();
         //Alle stats im Game
-        currentPlayerAttacks = new Attacks[6];
-        for (int i = 0; i < currentPlayerAttacks.Length; i++)
-        {
-            currentPlayerAttacks[i] = Attacks.NULL;
-        }
+        playerAttacks = new List<Attacks>();
 
         currentOponnentAttacks = new Attacks[6];
         for (int i = 0; i <currentOponnentAttacks.Length; i++)
         {
             currentOponnentAttacks[i] = Attacks.NULL;   
         }
-    
     }
+    
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
-    //Alle Satas im Game
+    
+    //Alle Stats im Game
     //player
-    public Attacks[] GetCurrentPlayerAttacks() {
-        return currentPlayerAttacks;
+    public List<Attacks> GetCurrentPlayerAttacks() {
+        return playerAttacks;
     }
 
-    public void SetCurrentPlayerAttacks(Attacks[] currentPlayerAttacks) {
-        this.currentPlayerAttacks = currentPlayerAttacks;
+    public void SetCurrentPlayerAttacks(List<Attacks> playerAttacks) {
+        this.playerAttacks = playerAttacks;
     }
 
     public int GetCurrentPlayerStat(int index) {
@@ -92,6 +101,18 @@ public class Datenbank : MonoBehaviour
             playerItems.Add(item, amount);
         }
     }
+    public void SetPlayerItems(Dictionary<Items, int> items)
+    {
+        playerItems = items;
+    }
+    public void SetSavePlayerItems(Dictionary<Items, int> items)
+    {
+        savedPlayerItems = items;
+    }
+    public Dictionary<Items, int> GetSavedPlayerItems()
+    {
+        return savedPlayerItems;
+    }
 
     public void RemoveItem(Items item, int amount)
     {
@@ -111,6 +132,22 @@ public class Datenbank : MonoBehaviour
                 playerItems.Remove(item);
             }
         }
+    }
+    public string GetPlayerLocation()
+    {
+        return playerLocation;
+    }
+    public void SetPlayerLocation(string playerLocation)
+    {
+        this.playerLocation = playerLocation;
+    }
+    public string GetSavePlayerLocation()
+    {
+        return savePlayerLocation;
+    }
+    public void SetSavePlayerLocation(string savePlayerLocation)
+    {
+        this.savePlayerLocation = savePlayerLocation;
     }
 
     // opponent
@@ -154,5 +191,14 @@ public class Datenbank : MonoBehaviour
         this.currentOponnentStats = currentOponnentStats;
     }
 
+    //other things:
+    public Vector3 GetSpawnPosition()
+    {
+        return spawnPosition;
+    }
+    public void SetSpawnPosition(Vector3 spawnPosition)
+    {
+        this.spawnPosition = spawnPosition;
+    }
 
 }

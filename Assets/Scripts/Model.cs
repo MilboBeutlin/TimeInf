@@ -3,12 +3,13 @@ using System.Collections.Generic;
 public class Model : MonoBehaviour
 {
 
-    private Datenbank DB;
+    //[SerializeField] private Datenbank DB;
+    private Datenbank DB => Datenbank.Instance;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        DB = FindAnyObjectByType<Datenbank>();
+        //DB = FindAnyObjectByType<Datenbank>();
 
     }
 
@@ -19,7 +20,7 @@ public class Model : MonoBehaviour
     }
     // player
 
-    public Attacks[] GetCurrentPlayerAttacks() {
+    public List<Attacks> GetCurrentPlayerAttacks() {
         return DB.GetCurrentPlayerAttacks();
     }
     public int[] GetCurrentPlayerStats() {
@@ -47,6 +48,18 @@ public class Model : MonoBehaviour
     public Dictionary<Items, int> GetCurrentPlayerItems() {
         return DB.GetCurrentPlayerItems();
     }
+    public Dictionary<Items, int> GetSavedPlayerItems() {
+        return DB.GetSavedPlayerItems();
+    }
+    public string GetPlayerLocation()
+    {
+        return DB.GetPlayerLocation();
+    }
+    public string GetSavePlayerLocation()
+    {
+        return DB.GetSavePlayerLocation();
+    }
+
     // opponent
 
     public Gegner GetCurrentOponent() {
@@ -62,6 +75,13 @@ public class Model : MonoBehaviour
         return DB.GetCurrentOponnentStats();
     }
 
+    //other things
+
+    public Vector3 GetSpawnPosition()
+    {
+        return DB.GetSpawnPosition();
+    }
+
     //idk what:
     public void UpdateFightViews()
     {
@@ -73,8 +93,8 @@ public class Model : MonoBehaviour
 
     }
 
-    public void Awake()
+    /*public void Awake()
     {
         DontDestroyOnLoad(gameObject);
-    }
+    }*/
 }

@@ -36,8 +36,15 @@ public class ButtonManager : MonoBehaviour
 
     public void Update()
     {
-        
-        if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Blutend))
+        Statuseffekt_Blutend.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Blutend));
+        Statuseffekt_Verbrannt.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Brennend));
+        Statuseffekt_Stun.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Gelähmt));
+        Statuseffekt_Holy.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Gesegnet));
+        Statuseffekt_Verflucht.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Verflucht));
+        Statuseffekt_Vergifted.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Vergiftet));
+        Statuseffekt_Rage.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Wütend));
+
+        /*if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Blutend))
         {
             Statuseffekt_Blutend.SetActive(true);
         } else
@@ -91,7 +98,7 @@ public class ButtonManager : MonoBehaviour
         else
         {
             Statuseffekt_Rage.SetActive(false);
-        }
+        }*/
 
     }
 

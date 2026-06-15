@@ -11,7 +11,7 @@ public class GM : MonoBehaviour
 
     //Stats
     //player
-    [SerializeField] private Attacks[] currentPlayerAttacks;
+    [SerializeField] private List<Attacks> currentPlayerAttacks;
     [SerializeField] private int[] currentplayerStats;
     [SerializeField] private Dictionary<Items, int> currentPlayerItems;
     [SerializeField] private Dictionary<Statuseffekte, int> currentPlayerEffects;
@@ -23,6 +23,10 @@ public class GM : MonoBehaviour
     private int GegnerDamageLastRound; //nur relevant für Item Spiegelfragment!!
 
     private int timer;
+
+  
+   // private int rüstungGegner;
+   //health, attack, armor, speed, dk
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,7 +38,8 @@ public class GM : MonoBehaviour
         playerturn = true;
 
         //Stats
-        currentPlayerAttacks = new Attacks[6];
+        currentPlayerAttacks = new List<Attacks>();
+
         currentOponnentAttacks = new Attacks[6];
         DoLoad();
 
@@ -61,6 +66,11 @@ public class GM : MonoBehaviour
     }
     public Attacks givePlayerAttack(int attack)
     {
+        if(attack >= currentPlayerAttacks.Count)
+        {
+            Debug.Log("Der Spieler hat versucht eine Attacke zu benutzen, die er nicht hat. >:( grrr");
+            return Attacks.NULL;
+        }
         return currentPlayerAttacks[attack];
     }
 
@@ -113,7 +123,7 @@ public class GM : MonoBehaviour
         //hier werden die Effekte die noch vorhanden sind abgehandelt.
 
         if(currentOpponentEffects.ContainsKey(Statuseffekte.Vergiftet)) {
-            currentopponentStats[0] -= 10; // Gift macht jede Runde 10 damage
+           currentopponentStats[0] -= 10 / (currentopponentStats[4]/10); // grundschaden 10 / resistenz
             currentOpponentEffects[Statuseffekte.Vergiftet] -= 1;
             if (currentOpponentEffects[Statuseffekte.Vergiftet] == 0)
             {
@@ -129,27 +139,233 @@ public class GM : MonoBehaviour
             }
         }
 
+         if(currentOpponentEffects.ContainsKey(Statuseffekte.Blutend)) {
+            currentopponentStats[0] -= currentopponentStats[0] / 10 / (currentopponentStats[4]/10); // 10% schaden / resistenz
+            currentOpponentEffects[Statuseffekte.Blutend] -= 1;
+            if (currentOpponentEffects[Statuseffekte.Blutend] == 0)
+            {
+                currentOpponentEffects.Remove(Statuseffekte.Blutend);
+            }
+        } else if (currentPlayerEffects.ContainsKey(Statuseffekte.Blutend))
+        {
+            currentplayerStats[0] = currentplayerStats[0] * (9/10);
+            currentPlayerEffects[Statuseffekte.Blutend] -= 1;
+            if(currentPlayerEffects[Statuseffekte.Blutend] == 0)
+            {
+                currentPlayerEffects.Remove(Statuseffekte.Blutend);
+            }
+        }
+
+
+        if(currentOpponentEffects.ContainsKey(Statuseffekte.Brennend)) {
+            currentopponentStats[0] -= currentopponentStats[0] / 13 / (currentopponentStats[4]/10);
+            currentplayerStats[1] = currentplayerStats[1] * (9/10);
+            currentOpponentEffects[Statuseffekte.Brennend] -= 1;
+            if (currentOpponentEffects[Statuseffekte.Brennend] == 0)
+            {
+                currentOpponentEffects.Remove(Statuseffekte.Brennend);
+            }
+        } else if (currentPlayerEffects.ContainsKey(Statuseffekte.Brennend))
+        {
+            currentplayerStats[0] = currentplayerStats[0] * (92/100);
+            currentPlayerEffects[Statuseffekte.Brennend] -= 1;
+            if(currentPlayerEffects[Statuseffekte.Brennend] == 0)
+            {
+                currentPlayerEffects.Remove(Statuseffekte.Brennend);
+            }
+        }
+
+  
+        if (currentPlayerEffects.ContainsKey(Statuseffekte.Hoffnungsvoll)) // nur 1 runde
+        {
+          
+            if(currentPlayerEffects[Statuseffekte.Hoffnungsvoll] == 0)
+            {
+                currentopponentStats[1] = currentplayerStats[1] * 2;
+                currentPlayerEffects.Remove(Statuseffekte.Hoffnungsvoll);
+            } else {
+            currentplayerStats[1] = currentplayerStats[1] / 2; 
+            currentPlayerEffects[Statuseffekte.Hoffnungsvoll] = 0;
+            }
+        }
+
+
+         if (currentPlayerEffects.ContainsKey(Statuseffekte.Geschützt)) // nur 1 runde
+        {
+          
+            if(currentPlayerEffects[Statuseffekte.Geschützt] == 0)
+            {
+                currentplayerStats[2] -= 100000;
+                currentPlayerEffects.Remove(Statuseffekte.Geschützt);
+            } else {
+            currentplayerStats[2] += 100000;
+            currentPlayerEffects[Statuseffekte.Geschützt] = 0;
+            }
+        }
+
+         if(currentOpponentEffects.ContainsKey(Statuseffekte.Wütend)) {
+            currentopponentStats[1] += 20;
+            currentOpponentEffects[Statuseffekte.Wütend] -= 1;
+            if (currentOpponentEffects[Statuseffekte.Wütend] == 0)
+            {
+                currentOpponentEffects.Remove(Statuseffekte.Wütend);
+            }
+        } else if (currentPlayerEffects.ContainsKey(Statuseffekte.Wütend))
+        {
+            currentplayerStats[1] += 20;
+            currentPlayerEffects[Statuseffekte.Wütend] -= 1;
+            if(currentPlayerEffects[Statuseffekte.Wütend] == 0)
+            {
+                currentPlayerEffects.Remove(Statuseffekte.Wütend);
+            }
+        }
+
+
+        if(currentOpponentEffects.ContainsKey(Statuseffekte.Gesegnet)) {
+            currentopponentStats[1] -= 20;
+            currentOpponentEffects[Statuseffekte.Gesegnet] -= 1;
+            if (currentOpponentEffects[Statuseffekte.Gesegnet] == 0)
+            {
+                currentOpponentEffects.Remove(Statuseffekte.Gesegnet);
+            }
+        } else if (currentPlayerEffects.ContainsKey(Statuseffekte.Gesegnet))
+        {
+            currentplayerStats[1] += 15;
+            currentPlayerEffects[Statuseffekte.Gesegnet] -= 1;
+            if(currentPlayerEffects[Statuseffekte.Gesegnet] == 0)
+            {
+                currentPlayerEffects.Remove(Statuseffekte.Gesegnet);
+            currentPlayerEffects[Statuseffekte.Gesegnet] = 0;
+            }
+        }
   
     }
 
     public void DoAttack(int y)
     {
         Turn();
-        Attacks i = currentPlayerAttacks[y];
+
+        Attacks selectedAttack;
+
+        if(y >= currentPlayerAttacks.Count)
+        {
+            Debug.Log("Der Spieler hat versucht eine Attacke zu benutzen, die er nicht hat. >:( grrr");
+            selectedAttack = Attacks.NULL;
+        }
+        else
+        {
+            selectedAttack = currentPlayerAttacks[y];
+        }
+        
         //Hier ALLE Attacen für NUR Spieler rein.
-        switch (i)
+        switch (selectedAttack)
         {
             case Attacks.NULL:
                 break;
 
+             case Attacks.Schutz:
+                SetEffect(Statuseffekte.Geschützt, 1, true);
+                break;
+
+            case Attacks.Hammer:
+                 currentopponentStats[0] -= 50 / (currentopponentStats[2]/100); // 50 schaden / rüstung
+                break;
+
+
+            case Attacks.Verstümmelung:
+                currentopponentStats[0] -= 80 / (currentopponentStats[2]/100);
+                int random1 = Random.Range(0, 100);
+                if (random1 <= 10)
+                {
+                SetEffect(Statuseffekte.Blutend, 3, false);
+                }
+                break;
+
+
+             case Attacks.Schlag:
+                currentopponentStats[0] -= 35 / (currentopponentStats[2]/100);
+                int random2 = Random.Range(0, 100);
+                if (random2 <= 45)
+                {
+                SetEffect(Statuseffekte.Gelähmt, 1, false);
+                }
+            break;
+
+            case Attacks.Giftdolch:
+                currentopponentStats[0] -= 15 / (currentopponentStats[2]/100);
+                SetEffect(Statuseffekte.Vergiftet, 3, false);
+                int random3 = Random.Range(0, 100);
+                if (random3 <= 15)
+                {
+                 SetEffect(Statuseffekte.Blutend, 3, false);
+                 }
+                break;
+
+            case Attacks.Feuerball:
+                currentopponentStats[0] -= 45 / (currentplayerStats[2]/100);
+                SetEffect(Statuseffekte.Brennend, 1, false);
+            break;
+
+            case Attacks.Dämpfer:
+                currentopponentStats[1] = currentopponentStats[1] * (9/10);
+            break; 
+
+            case Attacks.Vergeltung:
+                int random4 = Random.Range(30, 100);
+                currentopponentStats[0] -= random4 / (currentopponentStats[2]/100);
+                break;
+
+            case Attacks.Graben:
+                currentopponentStats[0] -= 10; // ignoriert rüstung
+             break;
+
+             case Attacks.LichtderHoffnung:
+                SetEffect(Statuseffekte.Hoffnungsvoll, 1, true);
+            break;
+
+            case Attacks.Erlösungsschlag:
+                if(currentOpponentEffects.ContainsKey(Statuseffekte.Vergiftet))
+                {
+                    currentopponentStats[0] -= 85;
+                    currentOpponentEffects.Remove(Statuseffekte.Vergiftet);
+                } else {
+                currentopponentStats[0] -= 60;
+                }
+            break;
+
+            case Attacks.Reinigung:
+                        currentPlayerEffects.Clear();
+            break;
+
+            case Attacks.Leidensstoß:
+                if (currentplayerStats[0] * (8/10) > 0)
+                {
+                currentplayerStats[0] = currentplayerStats[0] * (8/10);
+                currentopponentStats[0] -= 90;
+                }
+                else Debug.Log("bitte nicht");
+            break;
+
+            case Attacks.Erleuchtung:
+                if (currentopponentStats[4] > 15)
+                {
+                     currentopponentStats[4] -= 15;
+                } else
+                {
+                    currentopponentStats[4] = 0;
+                }
+
+            break;
+
+
+
 
             default:
-                Debug.Log("Gooner");
+                Debug.Log("Error M10");
                 break;
         }
 
         OponentTurn();
-        
     }
 
     
@@ -196,11 +412,44 @@ public class GM : MonoBehaviour
                     break;
 
                 case Attacks.BasicAttack:
-                    currentplayerStats[0] -= 15;
+                    currentplayerStats[0] -= 25 / (currentplayerStats[2]/100);
                     break;
+
                 case Attacks.KleinerAttack:
-                    currentplayerStats[0] -= 5;
+                    currentplayerStats[0] -= 10 / (currentplayerStats[2]/100);
                     break;
+
+                case Attacks.Debuff:
+                    SetEffect(Statuseffekte.Verflucht, 2, true);
+                    break;
+
+                case Attacks.Debuff2:
+                    SetEffect(Statuseffekte.Vergiftet, 4, true);
+                    break;
+
+                case Attacks.Debuff3:
+                    SetEffect(Statuseffekte.Blutend, 2, true);
+                    SetEffect(Statuseffekte.Gelähmt, 1, true);
+                    break;
+
+                    case Attacks.Debuff4:
+                    SetEffect(Statuseffekte.Brennend, 3, true);
+                    break;
+
+                case Attacks.BuffSteal:
+                    foreach (var effekt in currentPlayerEffects.Keys)
+                    {
+                        if (IstBuff(effekt))
+                        {
+                        currentOpponentEffects[effekt] = currentPlayerEffects[effekt];
+                        }
+                    }
+                    break;
+
+                case Attacks.AttackBlock:
+                    SetEffect(Statuseffekte.Geschützt, 1, false);
+                    break;
+                
 
             }
 
@@ -296,4 +545,19 @@ public class GM : MonoBehaviour
 
         OponentTurn();
     }
+
+     private bool IstBuff(Statuseffekte effekt)
+    {
+        switch (effekt)
+        {
+            case Statuseffekte.Gesegnet: 
+            case Statuseffekte.Geschützt:
+                return true;
+
+            default:
+                return false;
+        }
+    }
+
+
 }

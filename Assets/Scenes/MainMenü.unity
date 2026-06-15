@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd74ed06dd3ffd4291cb2e977bbd422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
-  settings: {fileID: 1889648834}
+  pauseMenu: {fileID: 1889648834}
 --- !u!1 &36962111
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd74ed06dd3ffd4291cb2e977bbd422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
-  settings: {fileID: 1889648834}
+  pauseMenu: {fileID: 0}
 --- !u!114 &36962115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,51 +492,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &378150158
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 378150160}
-  - component: {fileID: 378150159}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &378150159
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378150158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcd74ed06dd3ffd4291cb2e977bbd422, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
-  settings: {fileID: 0}
---- !u!4 &378150160
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 378150158}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 590.9423, y: 233.4465, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &407531481
 GameObject:
   m_ObjectHideFlags: 0
@@ -683,7 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd74ed06dd3ffd4291cb2e977bbd422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
-  settings: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!1 &475601418
 GameObject:
   m_ObjectHideFlags: 0
@@ -1515,7 +1470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcd74ed06dd3ffd4291cb2e977bbd422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
-  settings: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!1 &1852630490
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,4 +1725,3 @@ SceneRoots:
   - {fileID: 1687211337}
   - {fileID: 1763695380}
   - {fileID: 200460867}
-  - {fileID: 378150160}
