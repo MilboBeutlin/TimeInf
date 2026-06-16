@@ -16,7 +16,7 @@ public class GM : MonoBehaviour
     [SerializeField] private Dictionary<Items, int> currentPlayerItems;
     [SerializeField] private Dictionary<Statuseffekte, int> currentPlayerEffects;
 
-    private Attacks[] currentplayerAttacksArray;
+    [SerializeField]  private Attacks[] currentPlayerAttacksArray;
     //gegner
     [SerializeField] private int[] currentopponentStats; //health, attack, armor, speed, dk
     [SerializeField] private Attacks[] currentOponnentAttacks;
@@ -58,6 +58,15 @@ public class GM : MonoBehaviour
     public void DoLoad()
     {
         currentPlayerAttacks = model.GetCurrentPlayerAttacks();
+        for(int i = 0; i < currentPlayerAttacks.Count; i++)
+        {
+            currentPlayerAttacksArray[i] = model.GetCurrentPlayerAttacks()[0];
+        }
+        for(int i = 0; i<10; i++)
+        {
+
+        }
+        
         currentplayerStats = model.GetCurrentPlayerStats();
         currentPlayerItems = model.GetCurrentPlayerItems();
         currentPlayerEffects = model.GetPlayerEffects();
