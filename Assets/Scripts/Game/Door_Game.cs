@@ -9,7 +9,6 @@ public class Door_Game : MonoBehaviour
     //[SerializeField] private GameObject torches;
     [SerializeField] private Model model;
     [SerializeField] private BoxCollider2D waterCollider;
-    [SerializeField] private bool verticalDoor;
     private Camera_Game camera;
     
     private void Start()
@@ -21,8 +20,7 @@ public class Door_Game : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
-            if(targetDoorSP != null && ((verticalDoor && rb.velocity.y != 0) || (!verticalDoor && rb.velocity.x != 0)))
+            if(targetDoorSP != null)
             {
                 if(leadsTo == "R6" && model.GetCurrentPlayerItems().ContainsKey(Items.Feuerzeug))
                 {
@@ -34,10 +32,9 @@ public class Door_Game : MonoBehaviour
                     waterCollider.enabled = false;
                 }
                 other.transform.position = targetDoorSP.position; //moves Player to other door
-                camera.UpdateCamera(leadsTo);
             }
             
-            
+            camera.UpdateCamera(leadsTo);
         }
     }
 
