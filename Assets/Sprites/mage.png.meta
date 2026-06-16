@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: e652bda3a9377a14bb84e13c9cc0569d
+guid: 1e6f0a9989add6b4496641459c393292
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 674121210626561721
-    second: chestPrototype_0
-  - first:
-      213: 8452626763816118892
-    second: chestPrototype_1
-  - first:
-      213: 7637999256408339966
-    second: chestPrototype_2
+      213: 2971653748508199937
+    second: mage_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 20
+  spritePixelsToUnits: 64
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,67 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chestPrototype_0
+      name: mage_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 23
-        width: 22
-        height: 17
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9b6d3fe5ba5fa5900800000000000000
-      internalID: 674121210626561721
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chestPrototype_1
-      rect:
-        serializedVersion: 2
-        x: 93
-        y: 23
-        width: 22
-        height: 19
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c6a283cf143cd4570800000000000000
-      internalID: 8452626763816118892
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chestPrototype_2
-      rect:
-        serializedVersion: 2
-        x: 163
-        y: 23
-        width: 22
-        height: 19
+        x: 39
+        y: 33
+        width: 33
+        height: 42
       alignment: 9
-      pivot: {x: 0.5000007, y: 0.44145465}
+      pivot: {x: 1.3857343, y: -0.36471975}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ef5bae81bdf9ff960800000000000000
-      internalID: 7637999256408339966
+      spriteID: 10c0a4bf65f6d3920800000000000000
+      internalID: 2971653748508199937
       vertices: []
       indices: 
       edges: []
@@ -175,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c8bf68a99df43c3459b4d67af3e5b5e1
+    spriteID: c0a3c8f986aae8245b00ce4e2d77cfaf
     internalID: 0
     vertices: []
     indices: 
@@ -187,9 +137,7 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      chestPrototype_0: 674121210626561721
-      chestPrototype_1: 8452626763816118892
-      chestPrototype_2: 7637999256408339966
+      mage_0: 2971653748508199937
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
