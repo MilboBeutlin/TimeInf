@@ -114740,20 +114740,14 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.5, y: 3.5}
   m_EdgeRadius: 0
-<<<<<<< Updated upstream
 --- !u!61 &1943960655
 BoxCollider2D:
-=======
---- !u!114 &1943960655
-MonoBehaviour:
->>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1943960650}
   m_Enabled: 1
-<<<<<<< Updated upstream
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -114792,7 +114786,6 @@ MonoBehaviour:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
-=======
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
   m_Name: 
@@ -114837,7 +114830,6 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
->>>>>>> Stashed changes
 --- !u!1 &1947148498
 GameObject:
   m_ObjectHideFlags: 0
