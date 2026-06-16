@@ -11,7 +11,6 @@ public class GM : MonoBehaviour
 
     //Stats
     //player
-    [SerializeField] private List<Attacks> currentPlayerAttacks;
     [SerializeField] private int[] currentplayerStats;
     [SerializeField] private Dictionary<Items, int> currentPlayerItems;
     [SerializeField] private Dictionary<Statuseffekte, int> currentPlayerEffects;
@@ -40,7 +39,7 @@ public class GM : MonoBehaviour
         playerturn = true;
 
         //Stats
-        currentPlayerAttacks = new List<Attacks>();
+        currentPlayerAttacksArray = new Attacks[9];
 
         currentOponnentAttacks = new Attacks[6];
         DoLoad();
@@ -57,14 +56,14 @@ public class GM : MonoBehaviour
 
     public void DoLoad()
     {
-        currentPlayerAttacks = model.GetCurrentPlayerAttacks();
-        for(int i = 0; i < currentPlayerAttacks.Count; i++)
+        
+        for(int i = 0; i < currentPlayerAttacksArray.Length;i++)
         {
-            currentPlayerAttacksArray[i] = model.GetCurrentPlayerAttacks()[0];
+            currentPlayerAttacksArray[i] = Attacks.NULL;
         }
-        for(int i = 0; i<10; i++)
+        for(int i = 0; i < model.GetCurrentPlayerAttacks().Count; i++)
         {
-
+            currentPlayerAttacksArray[i] = model.GetCurrentPlayerAttacks()[i];
         }
         
         currentplayerStats = model.GetCurrentPlayerStats();
@@ -77,12 +76,12 @@ public class GM : MonoBehaviour
     }
     public Attacks givePlayerAttack(int attack)
     {
-        if(attack >= currentPlayerAttacks.Count)
+        if(attack >= currentPlayerAttacksArray.Length)
         {
             Debug.Log("Der Spieler hat versucht eine Attacke zu benutzen, die er nicht hat. >:( grrr");
             return Attacks.NULL;
         }
-        return currentPlayerAttacks[attack];
+        return currentPlayerAttacksArray[attack];
     }
 
     public bool GetPlayerturn()
@@ -258,14 +257,14 @@ public class GM : MonoBehaviour
 
         Attacks selectedAttack;
 
-        if(y >= currentPlayerAttacks.Count)
+        if(y >= currentPlayerAttacksArray.Length)
         {
             Debug.Log("Der Spieler hat versucht eine Attacke zu benutzen, die er nicht hat. >:( grrr");
             selectedAttack = Attacks.NULL;
         }
         else
         {
-            selectedAttack = currentPlayerAttacks[y];
+            selectedAttack = currentPlayerAttacksArray[y];
         }
         
         //Hier ALLE Attacen für NUR Spieler rein.

@@ -42,9 +42,6 @@ public class MainButtonScript : MonoBehaviour
     {
         if(Attack1 != null)
         {
-            
-            
-            
             if(GM.givePlayerAttack(7) != Attacks.NULL && FirstAttackPage == false)
             {
                 Attack6.GetComponent<TMP_Text>().text = "NEXT";
@@ -108,7 +105,7 @@ public class MainButtonScript : MonoBehaviour
     // Für Unity Buttons, um Attacken auszuführen
     public void DoAttack(int i)
     {
-        if (i == 5 && Attack6.GetComponent<TMP_Text>().text == "NEXT")
+        if (i == 5 && GM.givePlayerAttack(7) != Attacks.NULL)
         {
             FirstAttackPage = !FirstAttackPage;
         } else if (FirstAttackPage == false && GM.givePlayerAttack(7) != Attacks.NULL)
