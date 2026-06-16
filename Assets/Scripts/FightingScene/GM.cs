@@ -15,6 +15,8 @@ public class GM : MonoBehaviour
     [SerializeField] private int[] currentplayerStats;
     [SerializeField] private Dictionary<Items, int> currentPlayerItems;
     [SerializeField] private Dictionary<Statuseffekte, int> currentPlayerEffects;
+
+    private Attacks[] currentplayerAttacksArray;
     //gegner
     [SerializeField] private int[] currentopponentStats; //health, attack, armor, speed, dk
     [SerializeField] private Attacks[] currentOponnentAttacks;
