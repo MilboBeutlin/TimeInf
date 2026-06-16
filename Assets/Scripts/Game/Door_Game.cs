@@ -37,4 +37,9 @@ public class Door_Game : MonoBehaviour
             camera.UpdateCamera(leadsTo);
         }
     }
+
+    private void Awake()
+{
+    camera = FindAnyObjectByType<Camera_Game>();
+}
 }
