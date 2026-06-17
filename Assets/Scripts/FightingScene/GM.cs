@@ -619,5 +619,9 @@ public class GM : MonoBehaviour
         }
     }
 
+    public Dictionary<Items, int> GiveCurrentPlayerItems()
+    {
+        return currentPlayerItems;
+    }
 
 }

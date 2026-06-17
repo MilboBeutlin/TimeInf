@@ -115,8 +115,9 @@ public class MainButtonScript : MonoBehaviour
             GM.DoAttack(i);
         }
     }
-    public void DoUseItem(Items i)
+    public void DoUseItem(int r)
     {
+        Items i = (Items)r;
         GM.DoUseItem(i);
     }
 
