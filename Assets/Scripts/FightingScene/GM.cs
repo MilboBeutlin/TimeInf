@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GM : MonoBehaviour
 {
     private Model model;
@@ -25,6 +27,9 @@ public class GM : MonoBehaviour
 
     private int timer;
 
+    [SerializeField] private GameObject SliderPlayerLife;
+    [SerializeField] private GameObject SliderGegnerLife;
+
   
    // private int rüstungGegner;
    //health, attack, armor, speed, dk
@@ -39,7 +44,7 @@ public class GM : MonoBehaviour
         playerturn = true;
 
         //Stats
-        currentPlayerAttacksArray = new Attacks[9];
+        currentPlayerAttacksArray = new Attacks[10];
 
         currentOponnentAttacks = new Attacks[6];
         DoLoad();
@@ -48,6 +53,9 @@ public class GM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        SliderPlayerLife.GetComponent<Slider>().value = currentplayerStats[0];
+        SliderGegnerLife.GetComponent<Slider>().value = currentopponentStats[0];
+        
         if(timer > 0)
         {
             timer--;
@@ -73,6 +81,7 @@ public class GM : MonoBehaviour
         currentOponnentAttacks = model.GetCurrentOponnentAttacks();
         currentOpponentEffects = model.GetOpponentEffects();
         currentopponentStats = model.GetCurrentOponnentStats();
+        SliderGegnerLife.GetComponent<Slider>().maxValue = currentopponentStats[0];
     }
     public Attacks givePlayerAttack(int attack)
     {
@@ -139,7 +148,8 @@ public class GM : MonoBehaviour
             {
                 currentOpponentEffects.Remove(Statuseffekte.Vergiftet);
             }
-        } else if (currentPlayerEffects.ContainsKey(Statuseffekte.Vergiftet))
+        }
+        if (currentPlayerEffects.ContainsKey(Statuseffekte.Vergiftet))
         {
             currentplayerStats[0] -= 10;
             currentPlayerEffects[Statuseffekte.Vergiftet] -= 1;
@@ -156,7 +166,8 @@ public class GM : MonoBehaviour
             {
                 currentOpponentEffects.Remove(Statuseffekte.Blutend);
             }
-        } else if (currentPlayerEffects.ContainsKey(Statuseffekte.Blutend))
+        }
+        if (currentPlayerEffects.ContainsKey(Statuseffekte.Blutend))
         {
             currentplayerStats[0] = currentplayerStats[0] * (9/10);
             currentPlayerEffects[Statuseffekte.Blutend] -= 1;
@@ -175,7 +186,8 @@ public class GM : MonoBehaviour
             {
                 currentOpponentEffects.Remove(Statuseffekte.Brennend);
             }
-        } else if (currentPlayerEffects.ContainsKey(Statuseffekte.Brennend))
+        }
+        if (currentPlayerEffects.ContainsKey(Statuseffekte.Brennend))
         {
             currentplayerStats[0] = currentplayerStats[0] * (92/100);
             currentPlayerEffects[Statuseffekte.Brennend] -= 1;
@@ -238,7 +250,8 @@ public class GM : MonoBehaviour
             {
                 currentOpponentEffects.Remove(Statuseffekte.Gesegnet);
             }
-        } else if (currentPlayerEffects.ContainsKey(Statuseffekte.Gesegnet))
+        }
+        if (currentPlayerEffects.ContainsKey(Statuseffekte.Gesegnet))
         {
             currentplayerStats[1] += 15;
             currentPlayerEffects[Statuseffekte.Gesegnet] -= 1;
@@ -278,12 +291,12 @@ public class GM : MonoBehaviour
                 break;
 
             case Attacks.Hammer:
-                 currentopponentStats[0] -= 50 / (currentopponentStats[2]/100); // 50 schaden / rüstung
+                 currentopponentStats[0] -= 50; // 50 schaden / rüstung
                 break;
 
 
             case Attacks.Verstümmelung:
-                currentopponentStats[0] -= 80 / (currentopponentStats[2]/100);
+                currentopponentStats[0] -= 80;
                 int random1 = Random.Range(0, 100);
                 if (random1 <= 10)
                 {
@@ -293,7 +306,7 @@ public class GM : MonoBehaviour
 
 
              case Attacks.Schlag:
-                currentopponentStats[0] -= 35 / (currentopponentStats[2]/100);
+                currentopponentStats[0] -= 35;
                 int random2 = Random.Range(0, 100);
                 if (random2 <= 45)
                 {
@@ -302,7 +315,7 @@ public class GM : MonoBehaviour
             break;
 
             case Attacks.Giftdolch:
-                currentopponentStats[0] -= 15 / (currentopponentStats[2]/100);
+                currentopponentStats[0] -= 15;
                 SetEffect(Statuseffekte.Vergiftet, 3, false);
                 int random3 = Random.Range(0, 100);
                 if (random3 <= 15)
@@ -312,7 +325,7 @@ public class GM : MonoBehaviour
                 break;
 
             case Attacks.Feuerball:
-                currentopponentStats[0] -= 45 / (currentplayerStats[2]/100);
+                currentopponentStats[0] -= 45;
                 SetEffect(Statuseffekte.Brennend, 1, false);
             break;
 
@@ -322,7 +335,7 @@ public class GM : MonoBehaviour
 
             case Attacks.Vergeltung:
                 int random4 = Random.Range(30, 100);
-                currentopponentStats[0] -= random4 / (currentopponentStats[2]/100);
+                currentopponentStats[0] -= random4;
                 break;
 
             case Attacks.Graben:
@@ -382,23 +395,60 @@ public class GM : MonoBehaviour
 
     public void OponentTurn()
     {
+        if (currentopponentStats[0] <= 0)
+        {
+            SceneManager.LoadScene("Game");
+        }
         Attacks i;
         //Hier timer, der bissl stallt.
 
         //hier entscheiden welche Attacke gew�hlt wird.
         int r = Random.Range(0, 10);
 
-        if (currentopponentStats[4] == 5)
+        if (currentopponentStats[4] <= 70)
         {
-            if(r >= 5)
-            {
-                i = currentOponnentAttacks[0];
-            } else
-            {
-                i = currentOponnentAttacks[1];
+            switch (r) {
+                case 1:
+                    i = Attacks.BasicAttack;
+                break;
+
+                case 2:
+                    i = Attacks.BasicAttack;
+                    break;
+                case 3:
+                    i = Attacks.KleinerAttack;
+                    break;
+                case 4:
+                    i= Attacks.KleinerAttack;
+                    break;
+                case 5:
+                    i = Attacks.KleinerAttack;
+                    break;
+                case 6:
+                    i = Attacks.BuffSteal;
+                    break;
+                case 7:
+                    i = Attacks.AttackBlock;
+                    break;
+                case 8:
+                    i = Attacks.BasicAttack;
+                    break;
+                case 9:
+                    i = Attacks.Debuff;
+                    break;
+                case 10:
+                    i = Attacks.Debuff;
+                    break;
+                case 0:
+                    i = Attacks.Debuff;
+                    break;
+                default:
+                    i = Attacks.NULL;
+                    break;
             }
+            Debug.Log("Attacks wird ausgeführt " + i);
         }
-        else if (currentopponentStats[4] == 30){
+        else if (currentopponentStats[4] >= 80){
             if(r >= 3)
             {
                 i = currentOponnentAttacks[0];
@@ -422,11 +472,11 @@ public class GM : MonoBehaviour
                     break;
 
                 case Attacks.BasicAttack:
-                    currentplayerStats[0] -= 25 / (currentplayerStats[2]/100);
+                    currentplayerStats[0] -= 20;
                     break;
 
                 case Attacks.KleinerAttack:
-                    currentplayerStats[0] -= 10 / (currentplayerStats[2]/100);
+                currentplayerStats[0] -= 10;
                     break;
 
                 case Attacks.Debuff:

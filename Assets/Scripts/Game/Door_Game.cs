@@ -22,7 +22,7 @@ public class Door_Game : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
-            if(targetDoorSP != null && ((verticalDoor && rb.velocity.y != 0) || (!verticalDoor && rb.velocity.x != 0)))
+            if(targetDoorSP != null && ((verticalDoor && rb.linearVelocity.y != 0) || (!verticalDoor && rb.linearVelocity.x != 0)))
             {
                 if(leadsTo == "R6" && model.GetCurrentPlayerItems().ContainsKey(Items.Feuerzeug))
                 {
