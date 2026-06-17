@@ -115,6 +115,10 @@ public class MainButtonScript : MonoBehaviour
             GM.DoAttack(i);
         }
     }
+    public void DoUseItem(Items i)
+    {
+        GM.DoUseItem(i);
+    }
 
     public void SwitchAttackPages()
     {
@@ -127,8 +131,5 @@ public class MainButtonScript : MonoBehaviour
         }
     }
 
-    public void DoItem(Items i)
-    {
-        GM.DoUseItem(i);
-    }
+    
 }
