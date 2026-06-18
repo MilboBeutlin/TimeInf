@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
+using Random = UnityEngine.Random;
 public class GM : MonoBehaviour
 {
     private Model model;
@@ -291,12 +293,12 @@ public class GM : MonoBehaviour
                 break;
 
             case Attacks.Hammer:
-                 currentopponentStats[0] -= 50; // 50 schaden / rüstung
+                 currentopponentStats[0] -= Math.Max(0, 50 - currentopponentStats[2]); // 50 schaden / rüstung
                 break;
 
 
             case Attacks.Verstümmelung:
-                currentopponentStats[0] -= 80;
+                currentopponentStats[0] -= Math.Max(0, 80 - currentopponentStats[2]);
                 int random1 = Random.Range(0, 100);
                 if (random1 <= 10)
                 {
@@ -306,7 +308,7 @@ public class GM : MonoBehaviour
 
 
              case Attacks.Schlag:
-                currentopponentStats[0] -= 35;
+                currentopponentStats[0] -= Math.Max(0, 35 - currentopponentStats[2]);
                 int random2 = Random.Range(0, 100);
                 if (random2 <= 45)
                 {
@@ -315,7 +317,7 @@ public class GM : MonoBehaviour
             break;
 
             case Attacks.Giftdolch:
-                currentopponentStats[0] -= 15;
+                currentopponentStats[0] -= Math.Max(0, 15 - currentopponentStats[2]);
                 SetEffect(Statuseffekte.Vergiftet, 3, false);
                 int random3 = Random.Range(0, 100);
                 if (random3 <= 15)
@@ -325,7 +327,7 @@ public class GM : MonoBehaviour
                 break;
 
             case Attacks.Feuerball:
-                currentopponentStats[0] -= 45;
+                currentopponentStats[0] -= Math.Max(0, 45 - currentopponentStats[2]);
                 SetEffect(Statuseffekte.Brennend, 1, false);
             break;
 
@@ -335,7 +337,7 @@ public class GM : MonoBehaviour
 
             case Attacks.Vergeltung:
                 int random4 = Random.Range(30, 100);
-                currentopponentStats[0] -= random4;
+                currentopponentStats[0] -= Math.Max(0, random4 - currentopponentStats[2]);
                 break;
 
             case Attacks.Graben:
@@ -349,10 +351,10 @@ public class GM : MonoBehaviour
             case Attacks.Erlösungsschlag:
                 if(currentOpponentEffects.ContainsKey(Statuseffekte.Vergiftet))
                 {
-                    currentopponentStats[0] -= 85;
+                    currentopponentStats[0] -= Math.Max(0, 85 - currentopponentStats[2]);
                     currentOpponentEffects.Remove(Statuseffekte.Vergiftet);
                 } else {
-                currentopponentStats[0] -= 60;
+                currentopponentStats[0] -= Math.Max(0, 60 - currentopponentStats[2]);
                 }
             break;
 
@@ -361,12 +363,12 @@ public class GM : MonoBehaviour
             break;
 
             case Attacks.Leidensstoß:
-                if (currentplayerStats[0] * (8/10) > 0)
-                {
-                currentplayerStats[0] = currentplayerStats[0] * (8/10);
-                currentopponentStats[0] -= 90;
-                }
-                else Debug.Log("bitte nicht");
+                //if (currentplayerStats[0] * (8/10) > 0)
+                //{
+                currentplayerStats[0] = Math.Max(1, currentplayerStats[0] * 8 / 10);
+                currentopponentStats[0] -= Math.Max(0, 90 - currentopponentStats[2]);
+                //}
+                //else Debug.Log("bitte nicht");
             break;
 
             case Attacks.Erleuchtung:
@@ -472,11 +474,11 @@ public class GM : MonoBehaviour
                     break;
 
                 case Attacks.BasicAttack:
-                    currentplayerStats[0] -= 20;
+                    currentplayerStats[0] -= 20;//Math.Max(0, 20 - currentopponentStats[2]);
                     break;
 
                 case Attacks.KleinerAttack:
-                currentplayerStats[0] -= 10;
+                currentplayerStats[0] -= 10; //Math.Max(0, 10 - currentopponentStats[2]);
                     break;
 
                 case Attacks.Debuff:
@@ -592,7 +594,7 @@ public class GM : MonoBehaviour
                 break;
 
             case Items.Ziegelstein:
-                currentopponentStats[0] -= 40;
+                currentopponentStats[0] -= Math.Max(0, 40 - currentopponentStats[2]);
                 SetEffect(Statuseffekte.Gelähmt, 1, false);
                 break;
 
