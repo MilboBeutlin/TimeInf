@@ -1,0 +1,353 @@
+fileFormatVersion: 2
+guid: 81cb40a1894ba044799c60337f303712
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5168601168768466247
+    second: slimeQueens_0
+  - first:
+      213: -2628646480417051672
+    second: slimeQueens_1
+  - first:
+      213: 1119848946123046663
+    second: slimeQueens_2
+  - first:
+      213: 2067706152005689314
+    second: slimeQueens_3
+  - first:
+      213: 5464817172283315976
+    second: slimeQueens_4
+  - first:
+      213: 7199037838190403937
+    second: slimeQueens_5
+  - first:
+      213: 5217956498146203336
+    second: slimeQueens_6
+  - first:
+      213: -6902930466540046022
+    second: slimeQueens_7
+  - first:
+      213: 2247643448171868413
+    second: slimeQueens_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 28
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: slimeQueens_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 73
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 1.2119739, y: 1.2659118}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74dfc1ae06f8ab740800000000000000
+      internalID: 5168601168768466247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeQueens_1
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 73
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 1.2659115, y: 1.2443371}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eb29a604fb258bd0800000000000000
+      internalID: -2628646480417051672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeQueens_2
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 73
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 1.2227615, y: 1.2227619}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70f72cbeea08a8f00800000000000000
+      internalID: 1119848946123046663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeQueens_3
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 43
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 1.2335489, y: 1.3090618}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ef50324ac7f1bc10800000000000000
+      internalID: 2067706152005689314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeQueens_4
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 43
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 1.2335489, y: 1.319849}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 807d66ca34ee6db40800000000000000
+      internalID: 5464817172283315976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeQueens_5
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 44
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 1.2335488, y: 1.2659118}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1616fed85ce18e360800000000000000
+      internalID: 7199037838190403937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeQueens_6
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 15
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 1.2551239, y: 1.3090618}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c612750ac7e96840800000000000000
+      internalID: 5217956498146203336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeQueens_7
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 15
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 1.2011865, y: 1.2982743}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a39b8a0605dd330a0800000000000000
+      internalID: -6902930466540046022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slimeQueens_8
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 15
+        width: 20
+        height: 20
+      alignment: 9
+      pivot: {x: 1.2011864, y: 1.2766993}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df0b40ebecb313f10800000000000000
+      internalID: 2247643448171868413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 31f7ff34dccf88f4fab6d26ea9b3e38b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      slimeQueens_0: 5168601168768466247
+      slimeQueens_1: -2628646480417051672
+      slimeQueens_2: 1119848946123046663
+      slimeQueens_3: 2067706152005689314
+      slimeQueens_4: 5464817172283315976
+      slimeQueens_5: 7199037838190403937
+      slimeQueens_6: 5217956498146203336
+      slimeQueens_7: -6902930466540046022
+      slimeQueens_8: 2247643448171868413
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
