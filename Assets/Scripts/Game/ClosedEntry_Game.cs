@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 public class ClosedEntry_Game : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private GameObject wall;
     [SerializeField] private GM_Game gameMaster;
     private bool isColliding = false;
@@ -10,7 +9,7 @@ public class ClosedEntry_Game : MonoBehaviour
 
     void Update()
     {
-        if(text.text == "Press E to use Key" && isColliding == true && Input.GetKeyDown(KeyCode.E) && gameMaster.giveCurrentPlayerItems().ContainsKey(Items.KomischerSchlüssel))
+        if(gameMaster.GetText() == "Press E to use Key" && isColliding == true && Input.GetKeyDown(KeyCode.E) && gameMaster.giveCurrentPlayerItems().ContainsKey(Items.KomischerSchlüssel))
         {
             gameMaster.RemoveItem(Items.KomischerSchlüssel, 1);
             wall.SetActive(false);

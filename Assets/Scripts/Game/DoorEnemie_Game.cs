@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class DoorEnemie_Game : MonoBehaviour
 {
     [SerializeField] private Transform moveTo;
-    [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private GameObject enemy;
     [SerializeField] private Transform player;
     private GM_Game gm;
@@ -20,12 +19,12 @@ public class DoorEnemie_Game : MonoBehaviour
         {
             if(transform.position != moveTo.position)
             {
-                text.text = "You dare to exist?";
+                gm.ChangeText("You dare to exist?");
                 gm.ShowText(true);
             }
             else
             {
-                text.text = "This is our last meeting bitch";
+                gm.ChangeText("This is our last meeting bitch");
                 gm.ShowText(true);
             }
         }
@@ -39,12 +38,12 @@ public class DoorEnemie_Game : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        if (text.text == "You dare to exist?")
+        if (gm?.GetText() == "You dare to exist?" && this.gameObject != null)
         {
             transform.position = moveTo.position;       //-31.833 empty stuff, -31.48667 door
             transform.eulerAngles = new Vector3(0, 0, 180);
         }
-        else if (text.text == "This is our last meeting bitch")
+        else if (gm?.GetText() == "This is our last meeting bitch" && this.gameObject != null)
         {
             Instantiate(enemy, player.position, Quaternion.identity);
             this.gameObject.SetActive(false);

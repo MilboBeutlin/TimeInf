@@ -2,12 +2,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GM_Game : MonoBehaviour
 {
 
     [SerializeField] private GameObject textFeld;
-    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private Text text;
     [SerializeField] private Model model;
     [SerializeField] private Controller controller;
     [SerializeField] private GameObject player;
@@ -37,6 +38,10 @@ public class GM_Game : MonoBehaviour
     {
         //text.GetComponent<TMP_Text>().text = Itext;
         text.text = Itext;
+    }
+    public string GetText()
+    {
+        return text.text;
     }
     public void ShowText(bool i)
     {
