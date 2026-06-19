@@ -80,7 +80,7 @@ public class GM : MonoBehaviour
         currentplayerStats = model.GetCurrentPlayerStats();
         currentPlayerItems = model.GetCurrentPlayerItems();
         currentPlayerEffects = model.GetPlayerEffects();
-
+        Debug.Log(currentPlayerItems.Count + " " + model.GetCurrentPlayerItems().Count);
         currentOponnentAttacks = model.GetCurrentOponnentAttacks();
         currentOpponentEffects = model.GetOpponentEffects();
         currentopponentStats = model.GetCurrentOponnentStats();

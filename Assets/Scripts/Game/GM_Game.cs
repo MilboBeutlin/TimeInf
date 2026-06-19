@@ -24,7 +24,6 @@ public class GM_Game : MonoBehaviour
         
         player.transform.position = model.GetSpawnPosition();
         camera.UpdateCamera(model.GetSavePlayerLocation());
-        controller.SetPlayerItems(model.GetSavedPlayerItems());
         Debug.Log(model.GetSpawnPosition());
         Debug.Log(model.GetSavePlayerLocation());
     }

@@ -36,6 +36,20 @@ public class Datenbank : MonoBehaviour
         {
             currentOponnentAttacks[i] = Attacks.NULL;   
         }
+        if (playerItems.Count == 0 && savedPlayerItems.Count == 0)
+        {
+            AddItem(Items.Münzen, 5);
+            AddItem(Items.Ziegelstein, 1);
+            AddItem(Items.Heiltrank, 1);
+            
+        }else{
+            playerItems = savedPlayerItems;
+        }
+        if(playerAttacks.Count == 0)
+        {
+            playerAttacks.Add(Attacks.Hammer);
+            playerAttacks.Add(Attacks.Schlag);
+        }
     }
     
     private void Awake()
