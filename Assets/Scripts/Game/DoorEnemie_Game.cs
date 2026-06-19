@@ -33,7 +33,7 @@ public class DoorEnemie_Game : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        gm.ShowText(false);
+        gm?.ShowText(false);
         
     }
 

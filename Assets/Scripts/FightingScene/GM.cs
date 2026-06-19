@@ -144,7 +144,7 @@ public class GM : MonoBehaviour
         //hier werden die Effekte die noch vorhanden sind abgehandelt.
 
         if(currentOpponentEffects.ContainsKey(Statuseffekte.Vergiftet)) {
-           currentopponentStats[0] -= 10 / (currentopponentStats[4]/10); // grundschaden 10 / resistenz
+           currentopponentStats[0] -= 10; // grundschaden 10 / resistenz
             currentOpponentEffects[Statuseffekte.Vergiftet] -= 1;
             if (currentOpponentEffects[Statuseffekte.Vergiftet] == 0)
             {
@@ -162,7 +162,7 @@ public class GM : MonoBehaviour
         }
 
          if(currentOpponentEffects.ContainsKey(Statuseffekte.Blutend)) {
-            currentopponentStats[0] -= currentopponentStats[0] / 10 / (currentopponentStats[4]/10); // 10% schaden / resistenz
+            currentopponentStats[0] -= currentopponentStats[0] / 10; // 10% schaden / resistenz
             currentOpponentEffects[Statuseffekte.Blutend] -= 1;
             if (currentOpponentEffects[Statuseffekte.Blutend] == 0)
             {
@@ -181,7 +181,7 @@ public class GM : MonoBehaviour
 
 
         if(currentOpponentEffects.ContainsKey(Statuseffekte.Brennend)) {
-            currentopponentStats[0] -= currentopponentStats[0] / 13 / (currentopponentStats[4]/10);
+            currentopponentStats[0] -= currentopponentStats[0] / 13;
             currentplayerStats[1] = currentplayerStats[1] * (9/10);
             currentOpponentEffects[Statuseffekte.Brennend] -= 1;
             if (currentOpponentEffects[Statuseffekte.Brennend] == 0)
@@ -407,7 +407,7 @@ public class GM : MonoBehaviour
         //hier entscheiden welche Attacke gew�hlt wird.
         int r = Random.Range(0, 10);
 
-        if (currentopponentStats[4] <= 70)
+        if (/*currentopponentStats[4] <= 70*/ model.GetCurrentOponent() != Gegner.MiniBoss && model.GetCurrentOponent() != Gegner.Endboss)
         {
             switch (r) {
                 case 1:
@@ -450,7 +450,7 @@ public class GM : MonoBehaviour
             }
             Debug.Log("Attacks wird ausgeführt " + i);
         }
-        else if (currentopponentStats[4] >= 80){
+        else if (model.GetCurrentOponent() == Gegner.MiniBoss && model.GetCurrentOponent() == Gegner.Endboss){
             if(r >= 3)
             {
                 i = currentOponnentAttacks[0];
@@ -534,6 +534,10 @@ public class GM : MonoBehaviour
         {
             case Items.NULL:
                 break;
+
+            case Items.MagischerApfel:
+                currentplayerStats[2] += 5;
+            break;
 
             case Items.Bier:
                 //wütend

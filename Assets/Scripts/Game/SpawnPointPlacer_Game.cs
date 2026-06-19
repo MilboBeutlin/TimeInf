@@ -6,8 +6,7 @@ public class SpawnPointPlacer_Game : MonoBehaviour
     [SerializeField] private GameObject spawnPoint;
 
     [SerializeField] private Tilemap floorTilemap;
-    private float holdTimer = 0f;
-    private float holdDuration = 0.5f;    // how long to press q to place spawnPoint
+
     [SerializeField] private Model model;
     [SerializeField] private Controller controller;
 
@@ -19,11 +18,7 @@ public class SpawnPointPlacer_Game : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.Q))
         {
-            holdTimer += Time.deltaTime;
-            if (holdTimer >= holdDuration)
-            {
-                PlacespawnPoint(transform.position);
-            }
+            PlacespawnPoint(transform.position);
         }
         /*if (Input.GetKeyUp(KeyCode.Q))
         {
