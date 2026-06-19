@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 using Random = UnityEngine.Random;
+using System.Linq;
 public class GM : MonoBehaviour
 {
     private Model model;
@@ -427,7 +428,16 @@ public class GM : MonoBehaviour
                     i = Attacks.KleinerAttack;
                     break;
                 case 6:
-                    i = Attacks.BuffSteal;
+                    //i = Attacks.BuffSteal; //sollte nur möglich sein, wenn der Spieler einen Buff hat!!!
+                    //habs so gemacht, liebe grüße DS
+                    if (currentPlayerEffects.Keys.Any(IstBuff))
+                    {
+                        i = Attacks.BuffSteal;
+                    }
+                    else
+                    {
+                        i = Attacks.BasicAttack;
+                    }
                     break;
                 case 7:
                     i = Attacks.AttackBlock;
@@ -482,6 +492,7 @@ public class GM : MonoBehaviour
                     break;
 
                 case Attacks.Debuff:
+                    /*!!!!!!Verflucht hat nur Miniboss!!!!!!!! muss geändert werden*/
                     SetEffect(Statuseffekte.Verflucht, 2, true);
                     break;
 
