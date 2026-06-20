@@ -688,6 +688,7 @@ GameObject:
   - component: {fileID: 473612488}
   - component: {fileID: 473612490}
   - component: {fileID: 473612489}
+  - component: {fileID: 473612491}
   m_Layer: 5
   m_Name: redMoon
   m_TagString: Untagged
@@ -752,6 +753,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 473612487}
   m_CullTransparentMesh: 1
+--- !u!114 &473612491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473612487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e635e4bc07a55c4a8ed7a5b51927ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::lights
+  lightSource: {fileID: 1688975240}
+  startIntensity: 6
+  variation: 3
+  speed: 0.8
 --- !u!1 &475601418
 GameObject:
   m_ObjectHideFlags: 0
@@ -6522,7 +6539,7 @@ GameObject:
   - component: {fileID: 1688975241}
   - component: {fileID: 1688975240}
   m_Layer: 0
-  m_Name: Spot Light 2D
+  m_Name: moonLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
