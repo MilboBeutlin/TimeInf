@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -5,6 +6,7 @@ using UnityEngine.UI;
 public class ButtonScript : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private Text Title;
      public void LoadNewScene(string sceneName) //start oder return button
     {
         SceneManager.LoadScene(sceneName);
@@ -19,6 +21,19 @@ public class ButtonScript : MonoBehaviour
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
         Time.timeScale = pauseMenu.activeSelf? 0:1;
+    }
+
+    public void Update()
+    {
+        //Secret Easter Egg lol
+        if(Title != null)
+        {
+            if (Input.GetKey(KeyCode.H) && Input.GetKey(KeyCode.U) && Input.GetKey(KeyCode.X) && Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.V))
+            {
+                Title.text = "Alle Sch";
+            }
+        }
+        
     }
 
 }

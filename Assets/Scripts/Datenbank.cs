@@ -63,6 +63,11 @@ public class Datenbank : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
+    public void Save()
+    {
+
+    }
     
     //Alle Stats im Game
     //player

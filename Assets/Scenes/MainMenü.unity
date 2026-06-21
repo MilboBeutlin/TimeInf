@@ -266,6 +266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
   pauseMenu: {fileID: 1889648834}
+  Title: {fileID: 0}
 --- !u!1 &36962111
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,6 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
   pauseMenu: {fileID: 0}
+  Title: {fileID: 0}
 --- !u!114 &36962115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,6 +679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
   pauseMenu: {fileID: 0}
+  Title: {fileID: 0}
 --- !u!1 &473612487
 GameObject:
   m_ObjectHideFlags: 0
@@ -6993,6 +6996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
   pauseMenu: {fileID: 0}
+  Title: {fileID: 2146182621}
 --- !u!1 &1852630490
 GameObject:
   m_ObjectHideFlags: 0
