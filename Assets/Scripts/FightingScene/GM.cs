@@ -693,10 +693,27 @@ public class GM : MonoBehaviour
         switch (geg)
         {
             case Gegner.PrisonGuard:
-                AnalyseText.text = "Dies ist der PRison Guard. Er hat wenig Leben, aber eine mächtige Rüstung!";
+                AnalyseText.text = "This is the Prison Guard. He HAs hight HEalth, but middle Armour!";
                 break;
 
-            case Gegner.StorageGuard
+            case Gegner.StorageGuard:
+                AnalyseText.text = "This is a simple Guard. He has litte HEalth, but a tuff Armour!";
+                break;
+            case Gegner.Insects:
+                AnalyseText.text = "These little Beasts, with little to no health or Armour, can be a real Nightmare!";
+                break;
+            case Gegner.MonsterPainting:
+                AnalyseText.text = "Just a Painting. (middle Health plus Armour)";
+                break;
+            case Gegner.Endboss:
+                AnalyseText.text = "HE CAN SEE YOU . . .";
+                break;
+            case Gegner.MiniBoss:
+                AnalyseText.text = "This fella protects the Foyer. He has high health, but no armour.";
+                break;
+            case Gegner.ShadowEnemy:
+                AnalyseText.text = "This Guy, with low healh, but middle Armour, can barely be seen.";
+                break;
         }
         timer = 180;
     }
