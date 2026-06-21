@@ -24,7 +24,7 @@ public class GemsTür_Game : MonoBehaviour
             if(gemsEingesetzt == false)
         {
             Debug.Log("E um Gems einzusetzen");
-            gm.ChangeText("E um Gems einzusetzen.");
+            gm.ChangeText("Press E to  insert Gems");
             gm.ShowText(true);
             kollidiert = true;
             }else

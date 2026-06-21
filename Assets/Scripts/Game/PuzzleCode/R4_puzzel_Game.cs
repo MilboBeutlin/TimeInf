@@ -16,7 +16,7 @@ public class R4_puzzel_Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isColliding && Input.GetKeyUp(KeyCode.E) && gm.giveCurrentPlayerItems().ContainsKey(Items.Ritualschwert))
+        if(isColliding && Input.GetKeyUp(KeyCode.E) && gm.giveCurrentPlayerItems().ContainsKey(Items.RitualSword))
         {
             door.SetActive(true);
         }
@@ -27,7 +27,7 @@ public class R4_puzzel_Game : MonoBehaviour
         if (collision.CompareTag("Player"))
         {  
             isColliding = true;
-            gm.ChangeText("Press E to use Ritualschwert and Enter");
+            gm.ChangeText("Press E to use RitualSword and Enter");
             gm.ShowText(true);
             Debug.Log("you are stupid");
         }

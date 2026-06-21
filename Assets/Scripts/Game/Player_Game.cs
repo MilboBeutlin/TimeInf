@@ -124,15 +124,15 @@ void OnTriggerEnter2D(Collider2D other)
         //endboss attacken
         controller.SetCurrentOponnentAttacks(new Attacks[]
         {
-            Attacks.DunklerSchnitt,
-            Attacks.Giftwurf,
-            Attacks.KronederVerdammnis,
-            Attacks.Daemonensphaere,
-            Attacks.ChaosLanze,
-            Attacks.Block,
-            Attacks.DunkleResonanz,
+            Attacks.DarkSlash,
+            Attacks.PoisonThrow,
+            Attacks.CrownOfDamnation,
+            Attacks.DemonSphere,
+            Attacks.ChaosLance,
+            Attacks.EvilBlock,
+            Attacks.DarkResonance,
             Attacks.KingsBreaker,
-            Attacks.EndloseDunkelheit
+            Attacks.EndlessDarkness
         });
     }
     else
@@ -141,7 +141,7 @@ void OnTriggerEnter2D(Collider2D other)
         controller.SetCurrentOponnentAttacks(new Attacks[]
         {
             Attacks.BasicAttack,
-            Attacks.KleinerAttack,
+            Attacks.MinorAttack,
             Attacks.Debuff,         //depends on the enemy which debuff
             Attacks.BuffSteal,
             Attacks.AttackBlock

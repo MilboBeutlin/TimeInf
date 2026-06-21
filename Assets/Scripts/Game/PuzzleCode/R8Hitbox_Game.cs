@@ -22,9 +22,9 @@ public class R8Hitbox_Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && gm.giveCurrentPlayerItems().ContainsKey(Items.Bombe) && isColliding == true)
+        if (Input.GetKeyDown(KeyCode.E) && gm.giveCurrentPlayerItems().ContainsKey(Items.Bomb) && isColliding == true)
         {
-            gm.RemoveItem(Items.Bombe, 1);
+            gm.RemoveItem(Items.Bomb, 1);
             doorCollider.enabled = true;
             boulder.SetActive(false);
             istOffen = true;
@@ -38,7 +38,7 @@ public class R8Hitbox_Game : MonoBehaviour
             
             if(istOffen == false)
             {
-                gm.ChangeText("Press E to use Bombe");
+                gm.ChangeText("Press E to use Bomb");
                 gm.ShowText(true);
             }
             isColliding = true;

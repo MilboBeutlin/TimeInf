@@ -4,9 +4,9 @@ public enum Attacks
 {
     NULL,
     //AttackenSpieler
-    Schutz, Hammer, Verstümmelung, Schlag, Giftdolch, Feuerball, Dämpfer, Vergeltung, Graben, LichtderHoffnung, Erlösungsschlag, Reinigung, Leidensstoß, Erleuchtung, Schwimmen, 
+    Protection, Hammer, Mutilation, Strike, PoisonDagger, Fireball, Dampen, Vengeance , Dig, LightOfHope, RedeemingStrike, Cleansing, AgonyStrike, Enlightenment, Swim, 
     //AttackenK�nig
-    DunklerSchnitt, Giftwurf, KronederVerdammnis, Daemonensphaere, ChaosLanze, Block, DunkleResonanz, KingsBreaker, EndloseDunkelheit,
+     DarkSlash, PoisonThrow, CrownOfDamnation, DemonSphere, ChaosLance, EvilBlock, DarkResonance, KingsBreaker, EndlessDarkness,
     //AttackenNormalerGegner
-    BasicAttack, KleinerAttack, Debuff, Debuff2, Debuff3, Debuff4, BuffSteal, AttackBlock
+    BasicAttack, MinorAttack, Debuff, Debuff2, Debuff3, Debuff4, BuffSteal, AttackBlock
 }

@@ -307,7 +307,7 @@ public class GM : MonoBehaviour
             case Attacks.NULL:
                 break;
 
-             case Attacks.Schutz:
+             case Attacks.Protection:
                 SetEffect(Statuseffekte.Geschützt, 1, true);
                 break;
 
@@ -316,7 +316,7 @@ public class GM : MonoBehaviour
                 break;
 
 
-            case Attacks.Verstümmelung:
+            case Attacks.Mutilation:
                 currentopponentStats[0] -= Math.Max(0, 80 - currentopponentStats[2]);
                 int random1 = Random.Range(0, 100);
                 if (random1 <= 10)
@@ -326,7 +326,7 @@ public class GM : MonoBehaviour
                 break;
 
 
-             case Attacks.Schlag:
+             case Attacks.Strike:
                 currentopponentStats[0] -= Math.Max(0, 35 - currentopponentStats[2]);
                 int random2 = Random.Range(0, 100);
                 if (random2 <= 45)
@@ -335,7 +335,7 @@ public class GM : MonoBehaviour
                 }
             break;
 
-            case Attacks.Giftdolch:
+            case Attacks.PoisonDagger:
                 currentopponentStats[0] -= Math.Max(0, 15 - currentopponentStats[2]);
                 SetEffect(Statuseffekte.Vergiftet, 3, false);
                 int random3 = Random.Range(0, 100);
@@ -345,29 +345,29 @@ public class GM : MonoBehaviour
                  }
                 break;
 
-            case Attacks.Feuerball:
+            case Attacks.Fireball:
                 currentopponentStats[0] -= Math.Max(0, 45 - currentopponentStats[2]);
                 SetEffect(Statuseffekte.Brennend, 1, false);
             break;
 
-            case Attacks.Dämpfer:
+            case Attacks.Dampen:
                 currentopponentStats[1] = currentopponentStats[1] * (9/10);
             break; 
 
-            case Attacks.Vergeltung:
+            case Attacks.Vengeance:
                 int random4 = Random.Range(30, 100);
                 currentopponentStats[0] -= Math.Max(0, random4 - currentopponentStats[2]);
                 break;
 
-            case Attacks.Graben:
+            case Attacks.Dig:
                 currentopponentStats[0] -= 10; // ignoriert rüstung
              break;
 
-             case Attacks.LichtderHoffnung:
+             case Attacks.LightOfHope:
                 SetEffect(Statuseffekte.Hoffnungsvoll, 1, true);
             break;
 
-            case Attacks.Erlösungsschlag:
+            case Attacks.RedeemingStrike:
                 if(currentOpponentEffects.ContainsKey(Statuseffekte.Vergiftet))
                 {
                     currentopponentStats[0] -= Math.Max(0, 85 - currentopponentStats[2]);
@@ -377,11 +377,11 @@ public class GM : MonoBehaviour
                 }
             break;
 
-            case Attacks.Reinigung:
+            case Attacks.Cleansing:
                         currentPlayerEffects.Clear();
             break;
 
-            case Attacks.Leidensstoß:
+            case Attacks.AgonyStrike:
                 //if (currentplayerStats[0] * (8/10) > 0)
                 //{
                 currentplayerStats[0] = Math.Max(1, currentplayerStats[0] * 8 / 10);
@@ -390,7 +390,7 @@ public class GM : MonoBehaviour
                 //else Debug.Log("bitte nicht");
             break;
 
-            case Attacks.Erleuchtung:
+            case Attacks.Enlightenment:
                 if (currentopponentStats[4] > 15)
                 {
                      currentopponentStats[4] -= 15;
@@ -438,13 +438,13 @@ public class GM : MonoBehaviour
                     i = Attacks.BasicAttack;
                     break;
                 case 3:
-                    i = Attacks.KleinerAttack;
+                    i = Attacks.MinorAttack;
                     break;
                 case 4:
-                    i= Attacks.KleinerAttack;
+                    i= Attacks.MinorAttack;
                     break;
                 case 5:
-                    i = Attacks.KleinerAttack;
+                    i = Attacks.MinorAttack;
                     break;
                 case 6:
                     //i = Attacks.BuffSteal; //sollte nur möglich sein, wenn der Spieler einen Buff hat!!!
@@ -507,10 +507,16 @@ public class GM : MonoBehaviour
                     OponentFeedbackText.text = "Oponent hit you";
                     break;
 
+<<<<<<< Updated upstream
                 case Attacks.KleinerAttack:
                 currentplayerStats[0] -= 10; //Math.Max(0, 10 - currentopponentStats[2]);
                 OponentFeedbackText.text = "Oponent hit your leg";
                 break;
+=======
+                case Attacks.MinorAttack:
+                    currentplayerStats[0] -= 10; //Math.Max(0, 10 - currentopponentStats[2]);
+                    break;
+>>>>>>> Stashed changes
 
                 case Attacks.Debuff:
                     /*!!!!!!Verflucht hat nur Miniboss!!!!!!!! muss geändert werden*/
@@ -574,11 +580,11 @@ public class GM : MonoBehaviour
             case Items.NULL:
                 break;
 
-            case Items.MagischerApfel:
+            case Items.MagicApple:
                 currentplayerStats[2] += 5;
             break;
 
-            case Items.Bier:
+            case Items.Beer:
                 //wütend
                 SetEffect(Statuseffekte.Wütend, 2, true);                //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
 
@@ -591,7 +597,7 @@ public class GM : MonoBehaviour
                 }
                 break;
 
-            case Items.Giftmolotov:
+            case Items.PoisonMolotov:
                 SetEffect(Statuseffekte.Vergiftet, 2, false);            //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
 
                 //20% Chance auf wütend
@@ -601,7 +607,7 @@ public class GM : MonoBehaviour
                 }
                 break;
 
-            case Items.Heiltrank:
+            case Items.HealingPotion:
                 currentplayerStats[0] += 40;
                 if (currentplayerStats[0] >= 101)
                 {
@@ -609,7 +615,7 @@ public class GM : MonoBehaviour
                 }
                 break;
 
-            case Items.GroßerHeiltrank:
+            case Items.GreaterHealingPotion:
                 currentplayerStats[0] += 70;
                 if (currentplayerStats[0] >= 101)
                 {
@@ -617,26 +623,26 @@ public class GM : MonoBehaviour
                 }
                 break;
 
-            case Items.HeiligesKreuz:
+            case Items.HolyCross:
                 SetEffect(Statuseffekte.Gesegnet, 999, true);
                 break;
 
-            case Items.Phoenixfeder:
+            case Items.PhoenixFeather:
                 if (currentPlayerEffects.ContainsKey(Statuseffekte.Verflucht))
                 {
                     SetEffect(Statuseffekte.Verflucht, 0, true);
                 }
                 break;
 
-            case Items.Münzen:
+            case Items.Coins:
                 currentopponentStats[0] -= 1;
                 break;
 
-            case Items.Spiegelfragment:
+            case Items.MirrorShard:
                 currentopponentStats[0] -= GegnerDamageLastRound;
                 break;
 
-            case Items.Ziegelstein:
+            case Items.Brick:
                 currentopponentStats[0] -= Math.Max(0, 40 - currentopponentStats[2]);
                 SetEffect(Statuseffekte.Gelähmt, 1, false);
                 break;

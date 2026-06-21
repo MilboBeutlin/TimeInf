@@ -25,9 +25,9 @@ public class Lake_Game : MonoBehaviour
         if (isColliding && !didFish && Input.GetKeyDown(KeyCode.E))
         {
             controller = FindAnyObjectByType<Controller>();
-            controller.AddItem(Items.Schriftrolle, 1);
-            gm.ItemsGot(Items.Schriftrolle, 1);
-            Debug.Log("You gained: " + "Schriftrolle");
+            controller.AddItem(Items.Scroll, 1);
+            gm.ItemsGot(Items.Scroll, 1);
+            Debug.Log("You gained: " + "Scroll");
             didFish = true;
             gm.ShowText(false);
         }
@@ -62,7 +62,7 @@ public class Lake_Game : MonoBehaviour
     }
         private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player") && gm.giveCurrentPlayerItems().ContainsKey(Items.Angelrute))
+        if(other.CompareTag("Player") && gm.giveCurrentPlayerItems().ContainsKey(Items.FishingRod))
         {
             isColliding = true;
             gm.ChangeText("Press E to fish");

@@ -12,17 +12,17 @@ public class Ritual_Game : MonoBehaviour
 
    void Update()
     {
-        if(kollidiert && !schwertEingesetzt && gm.giveCurrentPlayerItems().ContainsKey(Items.Ritualschwert))
+        if(kollidiert && !schwertEingesetzt && gm.giveCurrentPlayerItems().ContainsKey(Items.RitualSword))
         {
 
 
             if(Input.GetKeyDown(KeyCode.E))
             {
                 //controller = FindAnyObjectByType<Controller>();
-            controller.RemoveItem(Items.Ritualschwert, 1);
-            controller.AddItem(Items.Phoenixfeder, 1);
-            gm.ItemsGot(Items.Phoenixfeder, 1);
-            Debug.Log("+1 feder");
+            controller.RemoveItem(Items.RitualSword, 1);
+            controller.AddItem(Items.PhoenixFeather, 1);
+            gm.ItemsGot(Items.PhoenixFeather, 1);
+            Debug.Log("+1 feather");
             schwertEingesetzt = true;
             gm.ShowText(false);
 
@@ -44,10 +44,10 @@ public class Ritual_Game : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
    
-      if(other.CompareTag("Player") && gm.giveCurrentPlayerItems().ContainsKey(Items.Ritualschwert) && !schwertEingesetzt)
+      if(other.CompareTag("Player") && gm.giveCurrentPlayerItems().ContainsKey(Items.RitualSword) && !schwertEingesetzt)
         {
             kollidiert = true;
-            gm.ChangeText("E um das Ritual zu stoppen. F um es zu beenden.");
+            gm.ChangeText("Press E to stop the ritual. Press F to finish it.");
             gm.ShowText(true);
 
         }
