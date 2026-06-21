@@ -3,6 +3,7 @@ using UnityEngine;
 public class R5_Cage_Game : MonoBehaviour
 {
     private GM_Game GM;
+    private Model model;
     [SerializeField] private Sprite cage_broken;
     [SerializeField] private GameObject NPC;
 
@@ -13,6 +14,7 @@ public class R5_Cage_Game : MonoBehaviour
     void Start()
     {
         GM = FindAnyObjectByType<GM_Game>();
+        model = FindAnyObjectByType<Model>();
     }
 
     // Update is called once per frame
@@ -20,7 +22,7 @@ public class R5_Cage_Game : MonoBehaviour
     {
         if(isTrigger && !isOpen)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && model.GetCurrentPlayerItems().ContainsKey(Items.Bomb))
             {
                 gameObject.GetComponent<SpriteRenderer>().sprite = cage_broken;
                 FindAnyObjectByType<NPC_R9_Game>().Cagebroken();
@@ -36,7 +38,7 @@ public class R5_Cage_Game : MonoBehaviour
         if(!isOpen)
         {
             GM.ShowText(true);
-            GM.ChangeText("Press E to use hammer oder shaufel");
+            GM.ChangeText("Press E to use Bomb");
             isTrigger = true;
         }
         
