@@ -507,16 +507,9 @@ public class GM : MonoBehaviour
                     OponentFeedbackText.text = "Oponent hit you";
                     break;
 
-<<<<<<< Updated upstream
-                case Attacks.KleinerAttack:
-                currentplayerStats[0] -= 10; //Math.Max(0, 10 - currentopponentStats[2]);
-                OponentFeedbackText.text = "Oponent hit your leg";
-                break;
-=======
                 case Attacks.MinorAttack:
                     currentplayerStats[0] -= 10; //Math.Max(0, 10 - currentopponentStats[2]);
                     break;
->>>>>>> Stashed changes
 
                 case Attacks.Debuff:
                     /*!!!!!!Verflucht hat nur Miniboss!!!!!!!! muss geändert werden*/
