@@ -24,7 +24,6 @@ public class ButtonScript : MonoBehaviour
     {
         SceneManager.LoadScene(1);
         string savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
-        string json = " ";
         File.WriteAllText(savePath, null);
         
     }
