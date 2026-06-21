@@ -77,8 +77,18 @@ public class Datenbank : MonoBehaviour
     public int GetCurrentPlayerStat(int index) {
         return currentPlayerStats[index];
     }
+    //Falls man den gesammten Array gleichzeitig setzten möchte:
+    public void SetCurrentPlayerFULLStats(int[] i )
+    {
+        currentPlayerStats = i;
+    }
     public int[] GetCurrentPlayerStats() {
         return currentPlayerStats;
+    }
+
+    public void SetPlayerEffects(Dictionary<Statuseffekte, int> i)
+    {
+        playerEffects = i;
     }
 
     public void SetCurrentPlayerStats(int index, int amount) {

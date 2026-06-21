@@ -53,6 +53,16 @@ public class Controller : MonoBehaviour
     public void SetSavePlayerItems(Dictionary<Items, int> items) {
         DB.SetSavePlayerItems(items);
     }
+
+    public void SetPlayerEffects(Dictionary<Statuseffekte, int> i)
+    {
+        DB.SetPlayerEffects(i);
+    }
+
+    public void SetCurrentPlayerStats(int[] i)
+    {
+        DB.SetCurrentPlayerFULLStats(i);
+    }
     public void AddItem(Items item, int amount) {
         DB.AddItem(item, amount);
     }

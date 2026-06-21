@@ -9,6 +9,7 @@ using TMPro;
 public class GM : MonoBehaviour
 {
     private Model model;
+    private Controller controller;
     private ButtonManager bM;
 
     //Fight logic
@@ -44,6 +45,7 @@ public class GM : MonoBehaviour
     {
         bM = FindAnyObjectByType<ButtonManager>();
         model = FindAnyObjectByType<Model>();
+        controller = FindAnyObjectByType<Controller>();
 
         //Fight Logic
         playerturn = true;
@@ -89,6 +91,18 @@ public class GM : MonoBehaviour
         currentOpponentEffects = model.GetOpponentEffects();
         currentopponentStats = model.GetCurrentOponnentStats();
         SliderGegnerLife.GetComponent<Slider>().maxValue = currentopponentStats[0];
+    }
+
+    public void DoSave()
+    {
+
+        controller.SetCurrentPlayerStats(currentplayerStats);
+        controller.SetPlayerItems(currentPlayerItems);
+        controller.SetPlayerEffects(currentPlayerEffects);
+
+        controller.SetCurrentOponnentStats(currentopponentStats);
+        
+        
     }
     public Attacks givePlayerAttack(int attack)
     {
@@ -404,6 +418,7 @@ public class GM : MonoBehaviour
     {
         if (currentopponentStats[0] <= 0)
         {
+            DoSave();
             SceneManager.LoadScene("Game");
         }
         Attacks i;
