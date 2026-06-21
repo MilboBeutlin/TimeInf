@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class DoorEnemie_Game : MonoBehaviour
 {
     [SerializeField] private Transform moveTo;
-    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private Sprite enemySprite;
     [SerializeField] private Transform player;
     private GM_Game gm;
 
@@ -45,7 +46,8 @@ public class DoorEnemie_Game : MonoBehaviour
         }
         else if (gm?.GetText() == "This is our last meeting bitch" && this.gameObject != null)
         {
-            Instantiate(enemy, player.position, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefab, player.transform.position, Quaternion.identity);
+            enemy.GetComponent<Enemy_Game>().Creation(Gegner.MonsterPainting, enemySprite);
             this.gameObject.SetActive(false);
         }
     }

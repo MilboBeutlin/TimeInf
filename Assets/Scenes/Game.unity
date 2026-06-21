@@ -6126,6 +6126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
   pauseMenu: {fileID: 1072750494}
+  Title: {fileID: 0}
 --- !u!114 &418298490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59937,7 +59938,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoorEnemie_Game
   moveTo: {fileID: 1233229338}
-  enemy: {fileID: 8336979724331090836, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
+  enemyPrefab: {fileID: 8336979724331090836, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
+  enemySprite: {fileID: 6568282740990932248, guid: 8c0ce19bd37f25a4f975dc67097b2b1b, type: 3}
   player: {fileID: 560590465}
 --- !u!61 &856565994
 BoxCollider2D:
@@ -60489,6 +60491,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5912156545089785288, guid: 02fd9920c96c8b24ea7086be922a0a1e, type: 3}
     - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
       propertyPath: m_LocalPosition.x
       value: -40.71
       objectReference: {fileID: 0}
@@ -60904,6 +60914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
   pauseMenu: {fileID: 0}
+  Title: {fileID: 0}
 --- !u!114 &1070045625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61066,6 +61077,14 @@ PrefabInstance:
     - target: {fileID: -8570967242335860533, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
       propertyPath: type
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
       propertyPath: m_LocalPosition.x
@@ -64199,6 +64218,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -8351347535252559082, guid: 02fd9920c96c8b24ea7086be922a0a1e, type: 3}
+    - target: {fileID: 4104285001476093348, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -64209,11 +64232,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58.27
+      value: -58.4
       objectReference: {fileID: 0}
     - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.16
+      value: 24.22
       objectReference: {fileID: 0}
     - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
       propertyPath: m_LocalPosition.z
@@ -64273,11 +64296,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7246932517765842591, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
       propertyPath: m_Offset.x
-      value: -0.05602646
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7246932517765842591, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
       propertyPath: m_Offset.y
-      value: 0.11575508
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8336979724331090836, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
       propertyPath: m_Name
@@ -81984,6 +82007,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -584107746081064667, guid: 02fd9920c96c8b24ea7086be922a0a1e, type: 3}
+    - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
       propertyPath: m_LocalPosition.x
       value: -36.21
@@ -121181,7 +121212,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Ritual_Game
   gm: {fileID: 1988482979}
-  gegner: {fileID: 8336979724331090836, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
+  enemyPrefab: {fileID: 8336979724331090836, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
+  enemySprite: {fileID: -5888771334027895074, guid: 02fd9920c96c8b24ea7086be922a0a1e, type: 3}
 --- !u!61 &1943960654
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123699,6 +123731,14 @@ PrefabInstance:
     - target: {fileID: 3277135389652285016, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
       propertyPath: m_SortingOrder
       value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 4970733685821353385, guid: 63af1d30888a21b469a5b285d6abb4be, type: 3}
       propertyPath: m_LocalPosition.x

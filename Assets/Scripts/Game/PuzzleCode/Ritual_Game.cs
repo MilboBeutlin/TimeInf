@@ -6,7 +6,8 @@ public class Ritual_Game : MonoBehaviour
     private Controller controller;
     private bool schwertEingesetzt = false;
     private bool kollidiert;
-    [SerializeField] private GameObject gegner;
+    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private Sprite enemySprite;
     private GameObject player;
     private Vector2 pos;
 
@@ -32,8 +33,8 @@ public class Ritual_Game : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.F))
             {
                 schwertEingesetzt = true;
-                Instantiate(gegner, player.transform.position, Quaternion.identity);
-
+                GameObject enemy = Instantiate(enemyPrefab, player.transform.position, Quaternion.identity);
+                enemy.GetComponent<Enemy_Game>().Creation(Gegner.MiniBoss, enemySprite);
             }
 
          
