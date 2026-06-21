@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System;
 
 public class Datenbank : MonoBehaviour
 {
@@ -73,6 +74,11 @@ public class Datenbank : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void OnApplicationQuit()
+    {
+        Save();
+    }
+
     //Für Das Speichern
     public void Save()
     {
@@ -113,6 +119,24 @@ public class Datenbank : MonoBehaviour
             spawnPosition.x = data.spawnPointlocation[0];
             spawnPosition.y = data.spawnPointlocation[1];
             spawnPosition.z = data.spawnPointlocation[2];
+
+            for (int i = 0; i < data.Attacks.Length; i++)
+            {
+                if (Enum.TryParse<Attacks>(data.Attacks[i], out Attacks result))
+                {
+                    playerAttacks.Add(Enum.Parse<Attacks>(data.Attacks[i]));
+                }
+            }
+
+            for (int i = 0; i < data.Items.Length; i++)
+            {
+
+                if (Enum.TryParse<Items>(data.Items[i], out  Items result)) {
+                    playerItems.Add(Enum.Parse<Items>(data.Items[i]), data.ItemLenght[i]);
+
+            }
+            }
+
         }
         
     }
