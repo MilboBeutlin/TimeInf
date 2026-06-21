@@ -24,12 +24,12 @@ public class Door_Game : MonoBehaviour
             Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
             if(targetDoorSP != null && ((verticalDoor && rb.linearVelocity.y != 0) || (!verticalDoor && rb.linearVelocity.x != 0)))
             {
-                if(leadsTo == "R6" && model.GetCurrentPlayerItems().ContainsKey(Items.Feuerzeug))
+                if(leadsTo == "R6" && model.GetCurrentPlayerItems().ContainsKey(Items.Lighter))
                 {
                     darkness.SetActive(false);
                     //torches.SetActive(true);
                 }
-                if(leadsTo == "R2" && model.GetCurrentPlayerAttacks().Contains(Attacks.Schwimmen))
+                if(leadsTo == "R2" && model.GetCurrentPlayerAttacks().Contains(Attacks.Swim))
                 {
                     waterCollider.enabled = false;
                 }

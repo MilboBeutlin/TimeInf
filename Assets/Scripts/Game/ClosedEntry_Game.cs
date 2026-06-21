@@ -9,9 +9,9 @@ public class ClosedEntry_Game : MonoBehaviour
 
     void Update()
     {
-        if(gameMaster.GetText() == "Press E to use Key" && isColliding == true && Input.GetKeyDown(KeyCode.E) && gameMaster.giveCurrentPlayerItems().ContainsKey(Items.KomischerSchlüssel))
+        if(gameMaster.GetText() == "Press E to use Key" && isColliding == true && Input.GetKeyDown(KeyCode.E) && gameMaster.giveCurrentPlayerItems().ContainsKey(Items.StrangeKey))
         {
-            gameMaster.RemoveItem(Items.KomischerSchlüssel, 1);
+            gameMaster.RemoveItem(Items.StrangeKey, 1);
             wall.SetActive(false);
         }
     }

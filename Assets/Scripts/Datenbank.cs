@@ -38,9 +38,9 @@ public class Datenbank : MonoBehaviour
         }
         if (playerItems.Count == 0 && savedPlayerItems.Count == 0)
         {
-            AddItem(Items.Münzen, 5);
-            AddItem(Items.Ziegelstein, 1);
-            AddItem(Items.Heiltrank, 1);
+            AddItem(Items.Coins, 5);
+            AddItem(Items.Brick, 1);
+            AddItem(Items.HealingPotion, 1);
             
         }else{
             playerItems = savedPlayerItems;
@@ -48,7 +48,7 @@ public class Datenbank : MonoBehaviour
         if(playerAttacks.Count == 0)
         {
             playerAttacks.Add(Attacks.Hammer);
-            playerAttacks.Add(Attacks.Schlag);
+            playerAttacks.Add(Attacks.Strike);
         }
     }
     
