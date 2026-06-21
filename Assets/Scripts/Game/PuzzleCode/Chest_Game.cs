@@ -36,6 +36,7 @@ public class Chest_Game : MonoBehaviour
             sR.sprite = openChest; //Grafik Chest offen
             controller = FindAnyObjectByType<Controller>();
             controller.AddItem(item, amount);
+            gm.ItemsGot(item, amount);
             Debug.Log("You gained: " + item);
             status = true;
             gm.ShowText(false);

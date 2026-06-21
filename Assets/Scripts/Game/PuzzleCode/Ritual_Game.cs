@@ -21,6 +21,7 @@ public class Ritual_Game : MonoBehaviour
                 //controller = FindAnyObjectByType<Controller>();
             controller.RemoveItem(Items.Ritualschwert, 1);
             controller.AddItem(Items.Phoenixfeder, 1);
+            gm.ItemsGot(Items.Phoenixfeder, 1);
             Debug.Log("+1 feder");
             schwertEingesetzt = true;
             gm.ShowText(false);

@@ -14,6 +14,10 @@ public class GM_Game : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private Camera_Game camera;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject itemGotMssg;
+    
+    [SerializeField] private Text textItem;
+    
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -70,5 +74,14 @@ public class GM_Game : MonoBehaviour
         Debug.Log("You are dead bitch");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
+    public void ItemsGot(Items item, int amount)
+    {
+        itemGotMssg.SetActive(true);
+        textItem.text = "You got " + amount + " " + item;
+        Invoke("Deactivation", 1f);
+    }
+    private void Deactivation()
+    {
+        itemGotMssg.SetActive(false);
+    }
 }

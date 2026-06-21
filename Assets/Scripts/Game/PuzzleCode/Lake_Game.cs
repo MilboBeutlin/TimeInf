@@ -26,6 +26,7 @@ public class Lake_Game : MonoBehaviour
         {
             controller = FindAnyObjectByType<Controller>();
             controller.AddItem(Items.Schriftrolle, 1);
+            gm.ItemsGot(Items.Schriftrolle, 1);
             Debug.Log("You gained: " + "Schriftrolle");
             didFish = true;
             gm.ShowText(false);

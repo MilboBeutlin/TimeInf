@@ -4,6 +4,7 @@ public class Controller : MonoBehaviour
 {
     //[SerializeField] private Datenbank DB;
     private Datenbank DB => Datenbank.Instance;
+    [SerializeField] private GM_Game gm;
 
     void Start()
     {
