@@ -42,7 +42,7 @@ public class ButtonScript : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.H) && Input.GetKey(KeyCode.U) && Input.GetKey(KeyCode.X) && Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.V))
             {
-                Title.text = "Alle Sch";
+                Title.text = "Alles gute zum Vatertag Leon";
             }
         }
         

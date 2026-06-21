@@ -32,7 +32,8 @@ public class Datenbank : MonoBehaviour
 
     private void Start()
     {
-       // model = FindAnyObjectByType<Model>();
+        savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
+        // model = FindAnyObjectByType<Model>();
         //Alle stats im Game
         playerAttacks = new List<Attacks>();
 
@@ -41,25 +42,24 @@ public class Datenbank : MonoBehaviour
         {
             currentOponnentAttacks[i] = Attacks.NULL;   
         }
+
+        Load();
         if (playerItems.Count == 0 && savedPlayerItems.Count == 0)
         {
             AddItem(Items.Coins, 5);
             AddItem(Items.Brick, 1);
             AddItem(Items.HealingPotion, 1);
             
-        }else{
-            playerItems = savedPlayerItems;
         }
-        if(playerAttacks.Count == 0)
+        /*else{
+            playerItems = savedPlayerItems;
+        } */
+
+        if (playerAttacks.Count == 0)
         {
             playerAttacks.Add(Attacks.Hammer);
             playerAttacks.Add(Attacks.Strike);
         }
-
-
-        savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
-
-        Load();
     }
     
     private void Awake()
@@ -108,7 +108,7 @@ public class Datenbank : MonoBehaviour
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(savePath, json);
 
-        Debug.Log(playerLocation);
+        
     }
 
     public void Load()
@@ -142,7 +142,7 @@ public class Datenbank : MonoBehaviour
 
             currentPlayerStats = data.Stats;
             playerLocation = data.Location;
-            Debug.Log(playerLocation);
+            
 
         }
         

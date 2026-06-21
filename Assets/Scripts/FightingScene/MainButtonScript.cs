@@ -131,6 +131,7 @@ public class MainButtonScript : MonoBehaviour
     public void Analyse()
     {
         GM.Analyse();
+        
     }
     
 }

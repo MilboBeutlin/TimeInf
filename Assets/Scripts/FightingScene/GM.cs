@@ -35,9 +35,9 @@ public class GM : MonoBehaviour
     [SerializeField] private GameObject SliderPlayerLife;
     [SerializeField] private GameObject SliderGegnerLife;
 
-    [SerializeField] private TMP_Text OponentFeedbackText;
-    [SerializeField] private TMP_Text AnalyseText;
-    // private int rüstungGegner;
+    [SerializeField] private Text OponentFeedbackText;
+    [SerializeField] private Text AnalyseText;
+
     //health, attack, armor, speed, dk
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -438,7 +438,7 @@ public class GM : MonoBehaviour
         //hier entscheiden welche Attacke gew�hlt wird.
         int r = Random.Range(0, 10);
 
-        if (/*currentopponentStats[4] <= 70*/ model.GetCurrentOponent() != Gegner.MiniBoss && model.GetCurrentOponent() != Gegner.Endboss)
+        if (model.GetCurrentOponent() != Gegner.MiniBoss && model.GetCurrentOponent() != Gegner.Endboss)
         {
             switch (r) {
                 case 1:
@@ -569,7 +569,7 @@ public class GM : MonoBehaviour
                 
 
             }
-        timer = 80;
+        timer = 100;
         playerturn = true;
         bM.TurnChange(true);
     }
@@ -688,12 +688,11 @@ public class GM : MonoBehaviour
 
     // Die Funktion Analyse:
     public void Analyse()
-    {
-        Gegner geg = model.GetCurrentOponent();
-        switch (geg)
+    { 
+        switch (model.GetCurrentOponent())
         {
             case Gegner.PrisonGuard:
-                AnalyseText.text = "This is the Prison Guard. He HAs hight HEalth, but middle Armour!";
+                AnalyseText.text = "This is the Prison Guard. He Has hight Health, but middle Armour!";
                 break;
 
             case Gegner.StorageGuard:
@@ -703,7 +702,7 @@ public class GM : MonoBehaviour
                 AnalyseText.text = "These little Beasts, with little to no health or Armour, can be a real Nightmare!";
                 break;
             case Gegner.MonsterPainting:
-                AnalyseText.text = "Just a Painting. (middle Health plus Armour)";
+                AnalyseText.text = "Just a Painting. (middle Health and Armour)";
                 break;
             case Gegner.Endboss:
                 AnalyseText.text = "HE CAN SEE YOU . . .";
