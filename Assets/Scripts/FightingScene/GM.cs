@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using System;
 using Random = UnityEngine.Random;
 using System.Linq;
+using TMPro;
 public class GM : MonoBehaviour
 {
     private Model model;
@@ -33,6 +34,7 @@ public class GM : MonoBehaviour
     [SerializeField] private GameObject SliderPlayerLife;
     [SerializeField] private GameObject SliderGegnerLife;
 
+    [SerializeField] private TMP_Text OponentFeedbackText;
   
    // private int rüstungGegner;
    //health, attack, armor, speed, dk
@@ -51,7 +53,7 @@ public class GM : MonoBehaviour
 
         currentOponnentAttacks = new Attacks[6];
         DoLoad();
-
+        OponentFeedbackText.text = " ";
     }
     // Update is called once per frame
     void Update()
@@ -62,6 +64,9 @@ public class GM : MonoBehaviour
         if(timer > 0)
         {
             timer--;
+        } else
+        {
+            OponentFeedbackText.text = " ";
         }
     }
 
@@ -484,29 +489,36 @@ public class GM : MonoBehaviour
 
                 case Attacks.BasicAttack:
                     currentplayerStats[0] -= 20;//Math.Max(0, 20 - currentopponentStats[2]);
+                    OponentFeedbackText.text = "Oponent hit you";
                     break;
 
                 case Attacks.KleinerAttack:
                 currentplayerStats[0] -= 10; //Math.Max(0, 10 - currentopponentStats[2]);
-                    break;
+                OponentFeedbackText.text = "Oponent hit your leg";
+                break;
 
                 case Attacks.Debuff:
                     /*!!!!!!Verflucht hat nur Miniboss!!!!!!!! muss geändert werden*/
                     SetEffect(Statuseffekte.Verflucht, 2, true);
-                    break;
+                OponentFeedbackText.text = "Oponent cursed you";
+                break;
 
                 case Attacks.Debuff2:
                     SetEffect(Statuseffekte.Vergiftet, 4, true);
-                    break;
+                OponentFeedbackText.text = "Oponent sprayed poison on you";
+
+                break;
 
                 case Attacks.Debuff3:
                     SetEffect(Statuseffekte.Blutend, 2, true);
                     SetEffect(Statuseffekte.Gelähmt, 1, true);
-                    break;
+                OponentFeedbackText.text = "Oponent stunned you. Your bleeding";
+                break;
 
                     case Attacks.Debuff4:
                     SetEffect(Statuseffekte.Brennend, 3, true);
-                    break;
+                OponentFeedbackText.text = "Oponent set you in flames";
+                break;
 
                 case Attacks.BuffSteal:
                     foreach (var effekt in currentPlayerEffects.Keys)
@@ -516,15 +528,17 @@ public class GM : MonoBehaviour
                         currentOpponentEffects[effekt] = currentPlayerEffects[effekt];
                         }
                     }
-                    break;
+                OponentFeedbackText.text = "Oponent removed you buff";
+                break;
 
                 case Attacks.AttackBlock:
                     SetEffect(Statuseffekte.Geschützt, 1, false);
-                    break;
+                OponentFeedbackText.text = "Oponent BLOCKED";
+                break;
                 
 
             }
-
+        timer = 80;
         playerturn = true;
         bM.TurnChange(true);
     }

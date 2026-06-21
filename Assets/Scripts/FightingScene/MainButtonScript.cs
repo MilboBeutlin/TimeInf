@@ -25,11 +25,6 @@ public class MainButtonScript : MonoBehaviour
 
     private bool FirstAttackPage = true;
     
-    
-
-    
-
-
 
     void Start()
     {
