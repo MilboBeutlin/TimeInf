@@ -43,63 +43,6 @@ public class ButtonManager : MonoBehaviour
         Statuseffekt_Verflucht.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Verflucht));
         Statuseffekt_Vergifted.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Vergiftet));
         Statuseffekt_Rage.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Wütend));
-
-        /*if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Blutend))
-        {
-            Statuseffekt_Blutend.SetActive(true);
-        } else
-        {
-            Statuseffekt_Blutend.SetActive(false);
-        }
-        if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Brennend))
-        {
-            Statuseffekt_Verbrannt.SetActive(true);
-        }
-        else
-        {
-            Statuseffekt_Verbrannt.SetActive(false);
-        }
-        if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Gelähmt))
-        {
-            Statuseffekt_Stun.SetActive(true);
-        }
-        else
-        {
-            Statuseffekt_Stun.SetActive(false);
-        }
-        if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Gesegnet))
-        {
-            Statuseffekt_Holy.SetActive(true);
-        }
-        else
-        {
-            Statuseffekt_Holy.SetActive(false);
-        }
-        if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Verflucht))
-        {
-            Statuseffekt_Verflucht.SetActive(true);
-        }
-        else
-        {
-            Statuseffekt_Verflucht.SetActive(false);
-        }
-        if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Vergiftet))
-        {
-            Statuseffekt_Vergifted.SetActive(true);
-        }
-        else
-        {
-            Statuseffekt_Vergifted.SetActive(false);
-        }
-        if (gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Wütend))
-        {
-            Statuseffekt_Rage.SetActive(true);
-        }
-        else
-        {
-            Statuseffekt_Rage.SetActive(false);
-        }*/
-
     }
 
     public void MainButton()

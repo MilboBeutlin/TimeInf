@@ -36,10 +36,10 @@ public class GM : MonoBehaviour
     [SerializeField] private GameObject SliderGegnerLife;
 
     [SerializeField] private TMP_Text OponentFeedbackText;
-  
-   // private int rüstungGegner;
-   //health, attack, armor, speed, dk
-    
+    [SerializeField] private TMP_Text AnalyseText;
+    // private int rüstungGegner;
+    //health, attack, armor, speed, dk
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -69,9 +69,18 @@ public class GM : MonoBehaviour
         } else
         {
             OponentFeedbackText.text = " ";
+            AnalyseText.text = " ";
+        }
+
+        // wenn PlayerHP == 0, dann
+        if (currentplayerStats[0] <= 0)
+        {
+            model.Save();
+            Application.Quit();
         }
     }
 
+    //Läd alle relevanten Daten aus der DB in diese Klasse
     public void DoLoad()
     {
         
@@ -92,6 +101,8 @@ public class GM : MonoBehaviour
         currentopponentStats = model.GetCurrentOponnentStats();
         SliderGegnerLife.GetComponent<Slider>().maxValue = currentopponentStats[0];
     }
+
+    // Speichert alle Relevanten Daten aus dieser Klasse in die DB
 
     public void DoSave()
     {
@@ -495,7 +506,7 @@ public class GM : MonoBehaviour
             i = Attacks.NULL;
         }
 
-
+        Gegner geg = model.GetCurrentOponent();
             //Hier ALLE Attacken für NUR jeden Gegner.
             switch (i)
             {
@@ -509,30 +520,36 @@ public class GM : MonoBehaviour
 
                 case Attacks.MinorAttack:
                     currentplayerStats[0] -= 10; //Math.Max(0, 10 - currentopponentStats[2]);
-                    break;
+                OponentFeedbackText.text = "Oponent almost missed you";
+                break;
 
                 case Attacks.Debuff:
-                    /*!!!!!!Verflucht hat nur Miniboss!!!!!!!! muss geändert werden*/
-                    SetEffect(Statuseffekte.Verflucht, 2, true);
-                OponentFeedbackText.text = "Oponent cursed you";
-                break;
+                   if(geg == Gegner.MonsterPainting || geg == Gegner.PrisonGuard)
+                   {
+                        SetEffect(Statuseffekte.Brennend, 3, true);
+                        OponentFeedbackText.text = "Oponent set you in flames";
+                   } else if(geg == Gegner.ShadowEnemy)
+                   {
+                        SetEffect(Statuseffekte.Blutend, 2, true);
+                        SetEffect(Statuseffekte.Gelähmt, 1, true);
+                        OponentFeedbackText.text = "Oponent stunned you. Your bleeding";
+                   }else if(geg == Gegner.Insects) 
+                   {
+                        SetEffect(Statuseffekte.Vergiftet, 4, true);
+                        OponentFeedbackText.text = "Oponent sprayed poison on you";
 
-                case Attacks.Debuff2:
-                    SetEffect(Statuseffekte.Vergiftet, 4, true);
-                OponentFeedbackText.text = "Oponent sprayed poison on you";
+                   } else if(geg == Gegner.MiniBoss ||geg == Gegner.Endboss)
+                   {
+                        SetEffect(Statuseffekte.Verflucht, 2, true);
+                        OponentFeedbackText.text = "Oponent cursed you";
+                   } else
+                {
+                    currentplayerStats[0] -= 10; //Math.Max(0, 10 - currentopponentStats[2]);
+                    OponentFeedbackText.text = "Oponent almost missed you";
+                }
 
-                break;
+                    break;
 
-                case Attacks.Debuff3:
-                    SetEffect(Statuseffekte.Blutend, 2, true);
-                    SetEffect(Statuseffekte.Gelähmt, 1, true);
-                OponentFeedbackText.text = "Oponent stunned you. Your bleeding";
-                break;
-
-                    case Attacks.Debuff4:
-                    SetEffect(Statuseffekte.Brennend, 3, true);
-                OponentFeedbackText.text = "Oponent set you in flames";
-                break;
 
                 case Attacks.BuffSteal:
                     foreach (var effekt in currentPlayerEffects.Keys)
@@ -565,6 +582,7 @@ public class GM : MonoBehaviour
         if(currentPlayerItems.ContainsKey(item) == false)
         {
             Debug.Log("Der Spieler hat ein Item benutzt, welches nicht im Inventar ist. >:( grrr");
+            OponentTurn();
             return;
         }
         int randInt = Random.Range(0, 10);
@@ -646,7 +664,7 @@ public class GM : MonoBehaviour
         {
             currentPlayerItems.Remove(item);
         }
-
+        bM.CheckItems();
         OponentTurn();
     }
 
@@ -668,4 +686,18 @@ public class GM : MonoBehaviour
         return currentPlayerItems;
     }
 
+    // Die Funktion Analyse:
+    public void Analyse()
+    {
+        Gegner geg = model.GetCurrentOponent();
+        switch (geg)
+        {
+            case Gegner.PrisonGuard:
+                AnalyseText.text = "Dies ist der PRison Guard. Er hat wenig Leben, aber eine mächtige Rüstung!";
+                break;
+
+            case Gegner.StorageGuard
+        }
+        timer = 180;
+    }
 }

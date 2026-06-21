@@ -97,4 +97,9 @@ public class Model : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
     }*/
+
+    public void Save()
+    {
+        DB.Save();
+    }
 }
