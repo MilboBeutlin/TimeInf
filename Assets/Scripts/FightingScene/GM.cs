@@ -75,8 +75,14 @@ public class GM : MonoBehaviour
         // wenn PlayerHP == 0, dann
         if (currentplayerStats[0] <= 0)
         {
-            model.Save();
-            Application.Quit();
+            if (currentPlayerItems.ContainsKey(Items.PhoenixFeather)) {
+                currentplayerStats[0] = 30;
+                currentPlayerItems[Items.PhoenixFeather] -= 1;
+            } else
+            {
+                model.Save();
+                SceneManager.LoadScene(0);
+            }
         }
     }
 
