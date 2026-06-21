@@ -102,11 +102,13 @@ public class Datenbank : MonoBehaviour
         }
 
         data.ItemLenght = playerItems.Values.ToArray<int>();
-        data.Location = savePlayerLocation;
+        data.Location = playerLocation;
         data.Stats = currentPlayerStats;
 
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(savePath, json);
+
+        Debug.Log(playerLocation);
     }
 
     public void Load()
@@ -135,11 +137,12 @@ public class Datenbank : MonoBehaviour
                 if (Enum.TryParse<Items>(data.Items[i], out  Items result)) {
                     playerItems.Add(Enum.Parse<Items>(data.Items[i]), data.ItemLenght[i]);
 
-            }
+                }
             }
 
             currentPlayerStats = data.Stats;
-            savePlayerLocation = data.Location;
+            playerLocation = data.Location;
+            Debug.Log(playerLocation);
 
         }
         

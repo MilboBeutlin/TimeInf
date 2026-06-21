@@ -715,6 +715,6 @@ public class GM : MonoBehaviour
                 AnalyseText.text = "This Guy, with low healh, but middle Armour, can barely be seen.";
                 break;
         }
-        timer = 180;
+        timer = 300;
     }
 }

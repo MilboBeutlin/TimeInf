@@ -1,4 +1,6 @@
+using System.IO;
 using TMPro;
+using UnityEditor.Overlays;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,6 +19,16 @@ public class ButtonScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void NewGame()
+    {
+        SceneManager.LoadScene(1);
+        string savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
+        string json = " ";
+        File.WriteAllText(savePath, null);
+        
+    }
+
     public void OpenSetting()
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
