@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 public class Datenbank : MonoBehaviour
 {
@@ -24,6 +26,8 @@ public class Datenbank : MonoBehaviour
 
     //other stuff:
     private Vector3 spawnPosition;
+
+    private string savePath;
 
     private void Start()
     {
@@ -50,6 +54,11 @@ public class Datenbank : MonoBehaviour
             playerAttacks.Add(Attacks.Hammer);
             playerAttacks.Add(Attacks.Strike);
         }
+
+
+        savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
+
+        Load();
     }
     
     private void Awake()
@@ -64,11 +73,52 @@ public class Datenbank : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    //Für Das Speichern
     public void Save()
     {
+        GameData data = new GameData();
 
+        data.spawnPointlocation = new float[3];
+        data.spawnPointlocation[0] = spawnPosition.x;
+        data.spawnPointlocation[1] = spawnPosition.y;
+        data.spawnPointlocation[2] = spawnPosition.z;
+
+        data.Attacks = new string[playerAttacks.Count];
+        for(int i = 0; i<playerAttacks.Count; i++)
+        {
+            data.Attacks[i] = playerAttacks[i].ToString();
+        }
+
+        data.Items = new string[playerItems.Count];
+        for(int i = 0; i <playerItems.Count; i++)
+        {
+            data.Items[i] = playerItems.ElementAt(i).ToString();
+        }
+
+        data.ItemLenght = playerItems.Values.ToArray<int>();
+
+
+        string json = JsonUtility.ToJson(data, true);
+        File.WriteAllText(savePath, json);
     }
+
+    public void Load()
+    {
+        if (File.Exists(savePath))
+        {
+            string json = File.ReadAllText(savePath);
+
+            GameData data = JsonUtility.FromJson<GameData>(json);
+
+            spawnPosition.x = data.spawnPointlocation[0];
+            spawnPosition.y = data.spawnPointlocation[1];
+            spawnPosition.z = data.spawnPointlocation[2];
+        }
+        
+    }
+
     
+
     //Alle Stats im Game
     //player
     public List<Attacks> GetCurrentPlayerAttacks() {
