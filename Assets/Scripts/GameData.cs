@@ -9,4 +9,8 @@ public class GameData
     public int[] ItemLenght;
 
     public float[] spawnPointlocation;
+
+    public int[] Stats;
+
+    public string Location;
 }
