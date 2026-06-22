@@ -144,6 +144,9 @@ public class Datenbank : MonoBehaviour
             playerLocation = data.Location;
             
 
+        } else
+        {
+            currentPlayerStats[0] = 100;
         }
         
     }
