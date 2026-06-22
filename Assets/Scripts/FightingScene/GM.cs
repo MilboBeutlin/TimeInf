@@ -80,6 +80,7 @@ public class GM : MonoBehaviour
                 currentPlayerItems[Items.PhoenixFeather] -= 1;
             } else
             {
+                currentplayerStats[0] = 100;
                 model.Save();
                 SceneManager.LoadScene(0);
             }
