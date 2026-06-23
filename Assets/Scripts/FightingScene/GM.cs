@@ -222,7 +222,7 @@ public class GM : MonoBehaviour
 
         if(currentOpponentEffects.ContainsKey(Statuseffekte.Brennend)) {
             currentopponentStats[0] -= currentopponentStats[0] / 13;
-            currentplayerStats[1] = currentplayerStats[1] * (9/10); // was macht das hier?!??!??!
+            currentplayerStats[1] = currentplayerStats[1] * (9/10);
             currentOpponentEffects[Statuseffekte.Brennend] -= 1;
             if (currentOpponentEffects[Statuseffekte.Brennend] == 0)
             {
