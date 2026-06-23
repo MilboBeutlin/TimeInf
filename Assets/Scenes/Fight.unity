@@ -198,8 +198,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -675616237
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &28046685
 RectTransform:
@@ -221,13 +221,13 @@ RectTransform:
   - {fileID: 2244719663710355330}
   - {fileID: 4875658241825939545}
   - {fileID: 1133609427}
-  - {fileID: 1162448417}
   - {fileID: 1686887190}
   - {fileID: 317260152}
   - {fileID: 997359861}
   - {fileID: 1500981758}
   - {fileID: 644646815}
   - {fileID: 1676130839}
+  - {fileID: 1162448417}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -11991,7 +11991,16 @@ MonoBehaviour:
   SliderPlayerLife: {fileID: 997359860}
   SliderGegnerLife: {fileID: 317260151}
   OponentFeedbackText: {fileID: 247510133}
-  AnalyseText: {fileID: 743613737}
+  AnalyseText: {fileID: 1429636722}
+  enemyRenderer: {fileID: 1274510177}
+  enemySprites:
+  - {fileID: -8351347535252559082, guid: 02fd9920c96c8b24ea7086be922a0a1e, type: 3}
+  - {fileID: 6568282740990932248, guid: 8c0ce19bd37f25a4f975dc67097b2b1b, type: 3}
+  - {fileID: -3824189757571998379, guid: 02fd9920c96c8b24ea7086be922a0a1e, type: 3}
+  - {fileID: 5912156545089785288, guid: 02fd9920c96c8b24ea7086be922a0a1e, type: 3}
+  - {fileID: -4638377531857172706, guid: 02fd9920c96c8b24ea7086be922a0a1e, type: 3}
+  - {fileID: -5888771334027895074, guid: 02fd9920c96c8b24ea7086be922a0a1e, type: 3}
+  - {fileID: -6789192577655408507, guid: 02fd9920c96c8b24ea7086be922a0a1e, type: 3}
 --- !u!4 &531401903
 Transform:
   m_ObjectHideFlags: 0
@@ -20921,7 +20930,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162448416}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -92}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22228,7 +22237,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 24
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 1
@@ -22238,7 +22247,7 @@ MonoBehaviour:
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
-    m_LineSpacing: 0.7
+    m_LineSpacing: 0.72
   m_Text: hi
 --- !u!222 &1429636723
 CanvasRenderer:
@@ -22873,8 +22882,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 304, y: 16}
-  m_SizeDelta: {x: 100, y: 90}
+  m_AnchoredPosition: {x: 307.21, y: 17.61}
+  m_SizeDelta: {x: 106.42, y: 93.21}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1686887189
 GameObject:

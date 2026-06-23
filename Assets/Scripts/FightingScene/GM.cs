@@ -37,6 +37,8 @@ public class GM : MonoBehaviour
 
     [SerializeField] private Text OponentFeedbackText;
     [SerializeField] private Text AnalyseText;
+    [SerializeField] private SpriteRenderer enemyRenderer;
+    [SerializeField] private Sprite[] enemySprites;
 
     //health, attack, armor, speed, dk
 
@@ -56,6 +58,7 @@ public class GM : MonoBehaviour
         currentOponnentAttacks = new Attacks[6];
         DoLoad();
         OponentFeedbackText.text = " ";
+        enemyRenderer.sprite = enemySprites[(int)model.GetCurrentOponent() - 1];
     }
     // Update is called once per frame
     void Update()
@@ -69,7 +72,7 @@ public class GM : MonoBehaviour
         } else
         {
             OponentFeedbackText.text = " ";
-            AnalyseText.text = " ";
+            //AnalyseText.text = " ";
         }
 
         // wenn PlayerHP == 0, dann
@@ -219,7 +222,7 @@ public class GM : MonoBehaviour
 
         if(currentOpponentEffects.ContainsKey(Statuseffekte.Brennend)) {
             currentopponentStats[0] -= currentopponentStats[0] / 13;
-            currentplayerStats[1] = currentplayerStats[1] * (9/10);
+            currentplayerStats[1] = currentplayerStats[1] * (9/10); // was macht das hier?!??!??!
             currentOpponentEffects[Statuseffekte.Brennend] -= 1;
             if (currentOpponentEffects[Statuseffekte.Brennend] == 0)
             {
@@ -228,7 +231,7 @@ public class GM : MonoBehaviour
         }
         if (currentPlayerEffects.ContainsKey(Statuseffekte.Brennend))
         {
-            currentplayerStats[0] = currentplayerStats[0] * (92/100);
+            currentplayerStats[0] = (int)(currentplayerStats[0] * 0.92f);
             currentPlayerEffects[Statuseffekte.Brennend] -= 1;
             if(currentPlayerEffects[Statuseffekte.Brennend] == 0)
             {
@@ -721,6 +724,6 @@ public class GM : MonoBehaviour
                 AnalyseText.text = "This Guy, with low healh, but middle Armour, can barely be seen.";
                 break;
         }
-        timer = 300;
+        //timer = 300;
     }
 }

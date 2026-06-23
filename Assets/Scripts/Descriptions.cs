@@ -12,7 +12,7 @@ public class Description : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        descriptionPanel.SetActive(true); 
+        //descriptionPanel.SetActive(true); 
         if(ownText == null)
         {
             descriptionText.text = description;
@@ -21,21 +21,21 @@ public class Description : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         {
             descriptionText.text = result switch
             {
-            Attacks.Protection => "Deals 50 damage",
-            Attacks.Hammer => "Deals 500 damage",
-            Attacks.Mutilation => "Deals 5 damage",
-            Attacks.Strike => "Deals 6 damage",
-            Attacks.PoisonDagger => "Deals 9 damage",
-            Attacks.Fireball => "Deals 20 damage",
-            Attacks.Dampen => "Deals 55 damage",
-            Attacks.Vengeance => "Deals 250 damage",
-            Attacks.Dig => "Deals 1 damage",
-            Attacks.LightOfHope => "Deals 500 damage",
-            Attacks.RedeemingStrike => "Deals 500 damage",
-            Attacks.Cleansing => "Deals 500 damage",
-            Attacks.AgonyStrike => "Deals 500 damage",
-            Attacks.Enlightenment => "Deals 500 damage",
-            Attacks.Swim => "Deals 500 damage",
+            Attacks.Protection => "Protects you for a turn",
+            Attacks.Hammer => "Deals medium damage",
+            Attacks.Mutilation => "Deals high damage. Small chance to inflict bleeding",
+            Attacks.Strike => "Deals small damage. Medium Chance to stun",
+            Attacks.PoisonDagger => "Deals small damage. Inflicts poison. Small chance to inflict bleeding",
+            Attacks.Fireball => "Deals medium damage. Inflict burning",
+            Attacks.Dampen => "Weakens the enemy",
+            Attacks.Vengeance => "Can deal between small and very high damage.",
+            Attacks.Dig => "Deals small damage. Ignores Armor.",
+            Attacks.LightOfHope => "You gain the buff hopefull",
+            Attacks.RedeemingStrike => "Deals medium damage. Removes poison and inflicts extra small damage",
+            Attacks.Cleansing => "Removes all Debuffs from you",
+            Attacks.AgonyStrike => "Sacrifice LP to deal high damage",
+            Attacks.Enlightenment => "You will see the end of the fight. A void",
+            Attacks.Swim => "There is no water so don't try to swim",
             Attacks.NULL => "You don't have that attack yet",
             _ => "error"
             };
@@ -44,11 +44,13 @@ public class Description : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        descriptionPanel.SetActive(false);
+        //descriptionPanel.SetActive(false);
+        descriptionText.text = "";
     }
     private void OnDisable()
     {
-        descriptionPanel.SetActive(false);
+        //descriptionPanel.SetActive(false);
+        descriptionText.text = "";
     }
    /* void OnMouseEnter()
     {
