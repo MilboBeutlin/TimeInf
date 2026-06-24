@@ -17,6 +17,7 @@ public class GM_Game : MonoBehaviour
     [SerializeField] private GameObject itemGotMssg;
     
     [SerializeField] private Text textItem;
+    [SerializeField] private GameObject spawnPoint;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,16 +29,12 @@ public class GM_Game : MonoBehaviour
         pauseMenu.SetActive(false);
         
         player.transform.position = model.GetSpawnPosition();
+        spawnPoint.transform.position = model.GetSpawnPosition();
         camera.UpdateCamera(model.GetSavePlayerLocation());
         Debug.Log(model.GetSpawnPosition());
         Debug.Log(model.GetSavePlayerLocation());
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     public void ChangeText(string Itext)
     {
         //text.GetComponent<TMP_Text>().text = Itext;

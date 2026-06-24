@@ -12,8 +12,8 @@ public class Description : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //descriptionPanel.SetActive(true); 
-        if(ownText == null)
+        descriptionPanel.SetActive(true); 
+        if(ownText == null || ownText.text  == "")
         {
             descriptionText.text = description;
         }
@@ -44,13 +44,13 @@ public class Description : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        //descriptionPanel.SetActive(false);
-        descriptionText.text = "";
+        descriptionPanel.SetActive(false);
+        //descriptionText.text = "";
     }
     private void OnDisable()
     {
-        //descriptionPanel.SetActive(false);
-        descriptionText.text = "";
+        descriptionPanel.SetActive(false);
+        //descriptionText.text = "";
     }
    /* void OnMouseEnter()
     {

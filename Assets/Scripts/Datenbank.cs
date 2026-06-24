@@ -102,7 +102,7 @@ public class Datenbank : MonoBehaviour
         }
 
         data.ItemLenght = playerItems.Values.ToArray<int>();
-        data.Location = playerLocation;
+        data.Location = savePlayerLocation;
         data.Stats = currentPlayerStats;
 
         string json = JsonUtility.ToJson(data, true);
@@ -141,7 +141,7 @@ public class Datenbank : MonoBehaviour
             }
 
             currentPlayerStats = data.Stats;
-            playerLocation = data.Location;
+            savePlayerLocation = data.Location;
             
 
         } else

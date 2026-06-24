@@ -39,6 +39,8 @@ public class GM : MonoBehaviour
     [SerializeField] private Text AnalyseText;
     [SerializeField] private SpriteRenderer enemyRenderer;
     [SerializeField] private Sprite[] enemySprites;
+    [SerializeField] private GameObject analysisPanel;
+    [SerializeField] private GameObject opponentFeedbackPanel;
 
     //health, attack, armor, speed, dk
 
@@ -58,6 +60,7 @@ public class GM : MonoBehaviour
         currentOponnentAttacks = new Attacks[6];
         DoLoad();
         OponentFeedbackText.text = " ";
+        opponentFeedbackPanel.SetActive(false);
         enemyRenderer.sprite = enemySprites[(int)model.GetCurrentOponent() - 1];
     }
     // Update is called once per frame
@@ -72,6 +75,7 @@ public class GM : MonoBehaviour
         } else
         {
             OponentFeedbackText.text = " ";
+            opponentFeedbackPanel.SetActive(false);
             //AnalyseText.text = " ";
         }
 
@@ -221,8 +225,8 @@ public class GM : MonoBehaviour
 
 
         if(currentOpponentEffects.ContainsKey(Statuseffekte.Brennend)) {
-            currentopponentStats[0] -= currentopponentStats[0] / 13;
-            currentplayerStats[1] = currentplayerStats[1] * (9/10);
+            currentopponentStats[0] -= (int)(currentopponentStats[0] * 0.92f);
+            //currentplayerStats[1] = currentplayerStats[1] * (9/10);// wird es resettet?
             currentOpponentEffects[Statuseffekte.Brennend] -= 1;
             if (currentOpponentEffects[Statuseffekte.Brennend] == 0)
             {
@@ -579,6 +583,7 @@ public class GM : MonoBehaviour
                 
 
             }
+        opponentFeedbackPanel.SetActive(true);
         timer = 100;
         playerturn = true;
         bM.TurnChange(true);
@@ -699,6 +704,7 @@ public class GM : MonoBehaviour
     // Die Funktion Analyse:
     public void Analyse()
     { 
+        analysisPanel.SetActive(true);
         switch (model.GetCurrentOponent())
         {
             case Gegner.PrisonGuard:

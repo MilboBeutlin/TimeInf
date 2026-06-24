@@ -122096,6 +122096,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 1072750494}
   itemGotMssg: {fileID: 1415678821}
   textItem: {fileID: 2002095417}
+  spawnPoint: {fileID: 11600495}
 --- !u!4 &1988482980
 Transform:
   m_ObjectHideFlags: 0
