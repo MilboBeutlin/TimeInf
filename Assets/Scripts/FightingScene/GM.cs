@@ -41,6 +41,7 @@ public class GM : MonoBehaviour
     [SerializeField] private Sprite[] enemySprites;
     [SerializeField] private GameObject analysisPanel;
     [SerializeField] private GameObject opponentFeedbackPanel;
+    private string[] enemyFeedbackTexts = new string[]{"Eye beam", "Horn attack","Flaming strike", "Heabutt", "Void edge", "Shadow touch", "Hellish Bite", "Leg lunge", "Volcanic Slam", "Magma Burst", "Eclipse", "Phantasma wave"};
 
     //health, attack, armor, speed, dk
 
@@ -520,7 +521,7 @@ public class GM : MonoBehaviour
             i = Attacks.NULL;
         }
 
-        Gegner geg = model.GetCurrentOponent();
+        Gegner enemy = model.GetCurrentOponent();
             //Hier ALLE Attacken für NUR jeden Gegner.
             switch (i)
             {
@@ -528,38 +529,38 @@ public class GM : MonoBehaviour
                     break;
 
                 case Attacks.BasicAttack:
-                    currentplayerStats[0] -= 20;//Math.Max(0, 20 - currentopponentStats[2]);
-                    OponentFeedbackText.text = "Oponent hit you";
+                    currentplayerStats[0] -= Math.Max(0, 40 - currentplayerStats[2]);
+                    OponentFeedbackText.text = "Enemy uses " + enemyFeedbackTexts[((int)enemy-1)*2];
                     break;
 
                 case Attacks.MinorAttack:
-                    currentplayerStats[0] -= 10; //Math.Max(0, 10 - currentopponentStats[2]);
-                OponentFeedbackText.text = "Oponent almost missed you";
+                    currentplayerStats[0] -= Math.Max(0, 30 - currentplayerStats[2]);
+                OponentFeedbackText.text = "Enemy uses " + enemyFeedbackTexts[((int)enemy-1)*2+1];
                 break;
 
                 case Attacks.Debuff:
-                   if(geg == Gegner.MonsterPainting || geg == Gegner.PrisonGuard)
+                   if(enemy == Gegner.MonsterPainting || enemy == Gegner.PrisonGuard)
                    {
                         SetEffect(Statuseffekte.Brennend, 3, true);
-                        OponentFeedbackText.text = "Oponent set you in flames";
-                   } else if(geg == Gegner.ShadowEnemy)
+                        OponentFeedbackText.text = "Enemy set you in flames";
+                   } else if(enemy == Gegner.ShadowEnemy)
                    {
                         SetEffect(Statuseffekte.Blutend, 2, true);
                         SetEffect(Statuseffekte.Gelähmt, 1, true);
-                        OponentFeedbackText.text = "Oponent stunned you. Your bleeding";
-                   }else if(geg == Gegner.Insects) 
+                        OponentFeedbackText.text = "Enemy stunned you. You are bleeding";
+                   }else if(enemy == Gegner.Insects) 
                    {
                         SetEffect(Statuseffekte.Vergiftet, 4, true);
-                        OponentFeedbackText.text = "Oponent sprayed poison on you";
+                        OponentFeedbackText.text = "Enemy sprayed poison on you";
 
-                   } else if(geg == Gegner.MiniBoss ||geg == Gegner.Endboss)
+                   } else if(enemy == Gegner.MiniBoss ||enemy == Gegner.Endboss)
                    {
                         SetEffect(Statuseffekte.Verflucht, 2, true);
-                        OponentFeedbackText.text = "Oponent cursed you";
+                        OponentFeedbackText.text = "Enemy cursed you";
                    } else
                 {
                     currentplayerStats[0] -= 10; //Math.Max(0, 10 - currentopponentStats[2]);
-                    OponentFeedbackText.text = "Oponent almost missed you";
+                    OponentFeedbackText.text = "Enemy uses " + enemyFeedbackTexts[(int)enemy*2+1];
                 }
 
                     break;
@@ -573,12 +574,12 @@ public class GM : MonoBehaviour
                         currentOpponentEffects[effekt] = currentPlayerEffects[effekt];
                         }
                     }
-                OponentFeedbackText.text = "Oponent removed you buff";
+                OponentFeedbackText.text = "Enemy removed you buff";
                 break;
 
                 case Attacks.AttackBlock:
                     SetEffect(Statuseffekte.Geschützt, 1, false);
-                OponentFeedbackText.text = "Oponent BLOCKED";
+                OponentFeedbackText.text = "Enemy BLOCKED";
                 break;
                 
 
@@ -627,7 +628,7 @@ public class GM : MonoBehaviour
                 SetEffect(Statuseffekte.Vergiftet, 2, false);            //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
 
                 //20% Chance auf wütend
-                if (randInt >= 2)
+                if (randInt <= 2)
                 {
                     SetEffect(Statuseffekte.Wütend, 2, false);           //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
                 }

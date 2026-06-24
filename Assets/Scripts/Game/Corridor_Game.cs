@@ -6,6 +6,7 @@ public class Corridor_Game : MonoBehaviour
     [SerializeField] private string leadsFrom;
     [SerializeField] private bool vertical;
     private Camera_Game camera;
+    private bool enteredFromLeft;
 
     private void Start()
     {
@@ -68,4 +69,29 @@ public class Corridor_Game : MonoBehaviour
             
         }
     }
+    /*private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player")){
+            enteredFromLeft = other.transform.position.x < transform.position.x;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            bool exitedToRight = other.transform.position.x > transform.position.x;
+
+            if (enteredFromLeft && exitedToRight)
+            {
+                // fully walked through
+                camera.UpdateCamera(leadsTo);
+            }
+            else if (!enteredFromLeft && !exitedToRight)
+            {
+                // walked back
+                camera.UpdateCamera(leadsFrom);
+            }
+        }
+    }*/
 }

@@ -151,5 +151,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92a13a84cb607a41964973b09ec8660, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item_Game
-  item: 2
+  item: 20
   amount: 1

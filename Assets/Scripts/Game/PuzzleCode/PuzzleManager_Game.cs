@@ -8,7 +8,7 @@ public class PuzzleManager_Game : MonoBehaviour
     [SerializeField] private GameObject door;
     [SerializeField] private BoxCollider2D doorCollider;
     [SerializeField] private bool runePuzzle;
-    [SerializeField] private Item_Game itemDrop;
+    [SerializeField] private GameObject chest;
     private bool IsSolved;    //can be removed and coded cleaner, D will do it maybe sometime
 
 
@@ -25,9 +25,7 @@ public class PuzzleManager_Game : MonoBehaviour
             }
             else{
                 IsSolved = true;
-                Item_Game item = Instantiate(itemDrop, Vector3.zero, Quaternion.identity);
-                item.item = Items.EvilScroll;
-                item.amount = 1;
+                chest.SetActive(true);
             }
             
         }
