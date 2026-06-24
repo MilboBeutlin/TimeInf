@@ -22,17 +22,19 @@ public class GemsTür_Game : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
             if(gemsEingesetzt == false)
-        {
-            gm.ChangeText("Press E to  insert Gems");
-            gm.ShowText(true);
-            kollidiert = true;
-            }else
+                {
+                    gm.ChangeText("Press E to  insert Gems and open Door");
+                    gm.ShowText(true);
+                    kollidiert = true;
+                }
+            else if(targetDoorSP != null && rb.linearVelocity.y != 0)
             {
-                pos = targetDoorSP.position;
-                pos += new Vector2(0, 5);
-                other.transform.position = pos;
-                camera.UpdateCamera("R10");
+                    pos = targetDoorSP.position;
+                    pos += new Vector2(0, 5);
+                    other.transform.position = pos;
+                    camera.UpdateCamera("R10");
             }
         }
     }
@@ -52,7 +54,7 @@ public class GemsTür_Game : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         kollidiert = false;
-        gm.ShowText(false);
+        gm?.ShowText(false);
     }
 
     
