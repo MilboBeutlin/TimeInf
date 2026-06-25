@@ -13,7 +13,7 @@ public class bookTutorial_Game : MonoBehaviour
     private bool playerInRange = false;
     private bool mausGedrueckt = false;
 
-    private void OnTriggerEnter2D(Collider2D other) 
+    /*private void OnTriggerEnter2D(Collider2D other) 
     {
       
         if(other.CompareTag("Player"))
@@ -29,7 +29,7 @@ public class bookTutorial_Game : MonoBehaviour
         {
             playerInRange = false;
         }
-    }
+    }*/
 
      private void OnMouseDown()
     {
@@ -43,7 +43,7 @@ public class bookTutorial_Game : MonoBehaviour
 
     private void Update()
     {
-        if(playerInRange && mausGedrueckt)
+        if(/*playerInRange &&*/ mausGedrueckt)
         {
             TextAnzeigen();
         }
@@ -53,10 +53,12 @@ public class bookTutorial_Game : MonoBehaviour
     {
         bookPanel.SetActive(true);
         textFeld.text = buchText;
+        Time.timeScale = 0f;
     }
 
     public void TextSchliessen()
     {
         bookPanel.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
