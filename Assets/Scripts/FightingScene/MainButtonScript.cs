@@ -24,7 +24,9 @@ public class MainButtonScript : MonoBehaviour
 
 void Awake()
 {
-    AttacksArray = attackButtonsParent.GetComponentsInChildren<Text>(true);
+    if(attackButtonsParent != null){
+        AttacksArray = attackButtonsParent.GetComponentsInChildren<Text>(true);
+    }
 }
 
     void Start()
@@ -36,6 +38,7 @@ void Awake()
 
     public void Update()
     {
+        if(attackButtonsParent != null){
             if(GM.givePlayerAttack(7) != Attacks.NULL && FirstAttackPage == false)
             {
                 
@@ -99,7 +102,7 @@ void Awake()
         }
 
         
-        
+        }
         if (ItemButtonText != null)
         {
             ItemButtonText.text = ButtonType.ToString();
