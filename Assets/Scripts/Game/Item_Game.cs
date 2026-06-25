@@ -4,6 +4,7 @@ public class Item_Game : MonoBehaviour
 {
     [SerializeField] public Items item;
     [SerializeField] public int amount;
+    [SerializeField] private Attacks attack;
     private GM_Game gm;
     private Controller controller;
 
@@ -13,6 +14,10 @@ public class Item_Game : MonoBehaviour
         {
             controller = FindAnyObjectByType<Controller>();
             controller.AddItem(item, amount);
+            if (attack != null)
+            {
+                controller.AddAttack(attack);
+            }
             gm = FindAnyObjectByType<GM_Game>();
             gm.ItemsGot(item, amount);
             Destroy(gameObject);
