@@ -14,7 +14,7 @@ public class Item_Game : MonoBehaviour
         {
             controller = FindAnyObjectByType<Controller>();
             controller.AddItem(item, amount);
-            if (attack != null)
+            if (attack != Attacks.NULL && FindAnyObjectByType<Model>().GetCurrentPlayerAttacks().Count < 10)
             {
                 controller.AddAttack(attack);
             }
