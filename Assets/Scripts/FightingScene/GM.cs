@@ -441,6 +441,7 @@ public class GM : MonoBehaviour
 
     public void OponentTurn()
     {
+        Gegner enemy = model.GetCurrentOponent();
         if (currentopponentStats[0] <= 0)
         {
             DoSave();
@@ -451,8 +452,15 @@ public class GM : MonoBehaviour
 
         //hier entscheiden welche Attacke gew�hlt wird.
         int r = Random.Range(0, 10);
+        if(enemy == Gegner.MiniBoss)
+        {
+            if(Random.Range(0, 3) == 3)
+            {
+                r = 9;
+            }
+        }
 
-        if (model.GetCurrentOponent() != Gegner.MiniBoss && model.GetCurrentOponent() != Gegner.Endboss)
+        if (enemy != Gegner.Endboss)
         {
             switch (r) {
                 case 1:
@@ -504,15 +512,9 @@ public class GM : MonoBehaviour
             }
             Debug.Log("Attacks wird ausgeführt " + i);
         }
-        else if (model.GetCurrentOponent() == Gegner.MiniBoss && model.GetCurrentOponent() == Gegner.Endboss){
-            if(r >= 3)
-            {
-                i = currentOponnentAttacks[0];
-            } else
-            {
-                i = currentOponnentAttacks[1];
-            }
-
+        else if (model.GetCurrentOponent() == Gegner.Endboss){
+            // Placeholder
+            i = Attacks.NULL;
         }
         else
         {
@@ -520,7 +522,7 @@ public class GM : MonoBehaviour
             i = Attacks.NULL;
         }
 
-        Gegner enemy = model.GetCurrentOponent();
+        
             //Hier ALLE Attacken für NUR jeden Gegner.
             switch (i)
             {
@@ -552,15 +554,15 @@ public class GM : MonoBehaviour
                         SetEffect(Statuseffekte.Vergiftet, 4, true);
                         OponentFeedbackText.text = "Enemy sprayed poison on you";
 
-                   } else if(enemy == Gegner.MiniBoss ||enemy == Gegner.Endboss)
+                   } else if(enemy == Gegner.MiniBoss ||enemy == Gegner.Endboss || enemy == Gegner.MiniBoss)
                    {
-                        SetEffect(Statuseffekte.Verflucht, 2, true);
+                        SetEffect(Statuseffekte.Verflucht, 9999, true);
                         OponentFeedbackText.text = "Enemy cursed you";
                    } else
-                {
+                    {
                     currentplayerStats[0] -= 10; //Math.Max(0, 10 - currentopponentStats[2]);
                     OponentFeedbackText.text = "Enemy uses " + enemyFeedbackTexts[(int)enemy*2+1];
-                }
+                    }
 
                     break;
 

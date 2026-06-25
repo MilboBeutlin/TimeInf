@@ -382,12 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -556,12 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -1052,12 +1042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -1384,12 +1369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -6630,12 +6610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -12529,12 +12504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -12703,12 +12673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -12956,12 +12921,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -13329,12 +13289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -13620,12 +13575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -19943,12 +19893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -20880,12 +20825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -21803,12 +21743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -21977,12 +21912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -22496,12 +22426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -23201,12 +23126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -23523,12 +23443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -24322,12 +24237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray: []
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
@@ -24648,7 +24558,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2244719663710355330}
-  - component: {fileID: 4567662098652578411}
   m_Layer: 5
   m_Name: ItemButtons
   m_TagString: Untagged
@@ -25392,12 +25301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 4008905002684027985}
-  Attack2: {fileID: 3341905841469105148}
-  Attack3: {fileID: 8545632937906221613}
-  Attack4: {fileID: 834594886106279231}
-  Attack5: {fileID: 2488481230586442011}
-  Attack6: {fileID: 4416726574291354625}
+  AttacksArray: []
   AttackButtons: {fileID: 6415744845476019005}
   ItemButtons: {fileID: 5849749325415115937}
   FleeButtons: {fileID: 6589397305435170930}
@@ -25500,35 +25404,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 4008905002684027985}
-  Attack2: {fileID: 3341905841469105148}
-  Attack3: {fileID: 8545632937906221613}
-  Attack4: {fileID: 834594886106279231}
-  Attack5: {fileID: 2488481230586442011}
-  Attack6: {fileID: 4416726574291354625}
-  AttackButtons: {fileID: 0}
-  ItemButtons: {fileID: 0}
-  FleeButtons: {fileID: 0}
-  ButtonType: 0
-  ItemButtonText: {fileID: 0}
---- !u!114 &4567662098652578411
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781221810330387296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  Attack1: {fileID: 0}
-  Attack2: {fileID: 0}
-  Attack3: {fileID: 0}
-  Attack4: {fileID: 0}
-  Attack5: {fileID: 0}
-  Attack6: {fileID: 0}
+  AttacksArray:
+  - {fileID: 5742583580380228570}
+  - {fileID: 3747446422457173879}
+  - {fileID: 235317812869379690}
+  - {fileID: 3482975917061427516}
+  - {fileID: 4352899420655162788}
+  - {fileID: 5203736008636143002}
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}

@@ -9,12 +9,7 @@ public class MainButtonScript : MonoBehaviour
     private ButtonManager bM;
     private GM GM;
 
-    [SerializeField] private GameObject Attack1;
-    [SerializeField] private GameObject Attack2;
-    [SerializeField] private GameObject Attack3;
-    [SerializeField] private GameObject Attack4;
-    [SerializeField] private GameObject Attack5;
-    [SerializeField] private GameObject Attack6;
+    [SerializeField] private GameObject[] AttacksArray;
 
     [SerializeField] private GameObject AttackButtons;
     [SerializeField] private GameObject ItemButtons;
@@ -35,37 +30,60 @@ public class MainButtonScript : MonoBehaviour
 
     public void Update()
     {
-        if(Attack1 != null)
-        {
+        
             if(GM.givePlayerAttack(7) != Attacks.NULL && FirstAttackPage == false)
             {
-                Attack6.GetComponent<Text>().text = "NEXT";
-                Attack1.GetComponent<Text>().text = GM.givePlayerAttack(5).ToString();
-                Attack2.GetComponent<Text>().text = GM.givePlayerAttack(6).ToString();
-                Attack3.GetComponent<Text>().text = GM.givePlayerAttack(7).ToString();
-                Attack4.GetComponent<Text>().text = GM.givePlayerAttack(8).ToString();
-                Attack5.GetComponent<Text>().text = GM.givePlayerAttack(9).ToString();
+                
+                AttacksArray[0].GetComponent<Text>().text = GM.givePlayerAttack(5).ToString();
+                AttacksArray[1].GetComponent<Text>().text = GM.givePlayerAttack(6).ToString();
+                AttacksArray[2].GetComponent<Text>().text = GM.givePlayerAttack(7).ToString();
+                AttacksArray[3].GetComponent<Text>().text = GM.givePlayerAttack(8).ToString();
+                AttacksArray[4].GetComponent<Text>().text = GM.givePlayerAttack(9).ToString();
+                AttacksArray[5].GetComponent<Text>().text = "NEXT";
 
             } else if(GM.givePlayerAttack(7) != Attacks.NULL && FirstAttackPage == true)
             {
-                Attack6.GetComponent<Text>().text = "NEXT";
-                Attack1.GetComponent<Text>().text = GM.givePlayerAttack(0).ToString();
-                Attack2.GetComponent<Text>().text = GM.givePlayerAttack(1).ToString();
-                Attack3.GetComponent<Text>().text = GM.givePlayerAttack(2).ToString();
-                Attack4.GetComponent<Text>().text = GM.givePlayerAttack(3).ToString();
-                Attack5.GetComponent<Text>().text = GM.givePlayerAttack(4).ToString();
+                
+                AttacksArray[0].GetComponent<Text>().text = GM.givePlayerAttack(0).ToString();
+                AttacksArray[1].GetComponent<Text>().text = GM.givePlayerAttack(1).ToString();
+                AttacksArray[2].GetComponent<Text>().text = GM.givePlayerAttack(2).ToString();
+                AttacksArray[3].GetComponent<Text>().text = GM.givePlayerAttack(3).ToString();
+                AttacksArray[4].GetComponent<Text>().text = GM.givePlayerAttack(4).ToString();
+                AttacksArray[5].GetComponent<Text>().text = "NEXT";
 
             } else 
             {
-                Attack1.GetComponent<Text>().text = GM.givePlayerAttack(0).ToString();
-                Attack2.GetComponent<Text>().text = GM.givePlayerAttack(1).ToString();
-                Attack3.GetComponent<Text>().text = GM.givePlayerAttack(2).ToString();
-                Attack4.GetComponent<Text>().text = GM.givePlayerAttack(3).ToString();
-                Attack5.GetComponent<Text>().text = GM.givePlayerAttack(4).ToString();
-                Attack6.GetComponent<Text>().text = GM.givePlayerAttack(5).ToString();
+                AttacksArray[0].GetComponent<Text>().text = GM.givePlayerAttack(0).ToString();
+                AttacksArray[1].GetComponent<Text>().text = GM.givePlayerAttack(1).ToString();
+                AttacksArray[2].GetComponent<Text>().text = GM.givePlayerAttack(2).ToString();
+                AttacksArray[3].GetComponent<Text>().text = GM.givePlayerAttack(3).ToString();
+                AttacksArray[4].GetComponent<Text>().text = GM.givePlayerAttack(4).ToString();
+                AttacksArray[5].GetComponent<Text>().text = GM.givePlayerAttack(5).ToString();
             }
-            
+        
+        for (int g = 0; g < AttacksArray.Length; g++) 
+        {
+            if (g >= 5)
+            {
+                g -= 5;
+            }
+            if (GM.givePlayerAttack(g) == Attacks.NULL) 
+            {
+
+                AttacksArray[g].SetActive(false);
+            } else
+            {
+
+                AttacksArray[g].SetActive(true);
+            }
+            if (g >= 5)
+            {
+                g += 5;
+            }
         }
+
+        
+        
         if (ItemButtonText != null)
         {
             ItemButtonText.text = ButtonType.ToString();
