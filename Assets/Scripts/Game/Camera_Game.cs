@@ -27,7 +27,7 @@ public class Camera_Game : MonoBehaviour
 
     void Update() //i could use enums but to much work for now
     {
-        int index = int.Parse(newLocation.Substring(1));
+        int index = int.Parse(newLocation.Substring(1)); //index to big or whatever
 
         switch (newLocation[0]) //what kind of location is it?: room, vertical hallway or horizontal hallway
         {

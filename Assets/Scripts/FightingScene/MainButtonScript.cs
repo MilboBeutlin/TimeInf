@@ -9,7 +9,7 @@ public class MainButtonScript : MonoBehaviour
     private ButtonManager bM;
     private GM GM;
 
-    [SerializeField] private GameObject[] AttacksArray;
+    [SerializeField] private Text[] AttacksArray;
 
     [SerializeField] private GameObject AttackButtons;
     [SerializeField] private GameObject ItemButtons;
@@ -19,7 +19,13 @@ public class MainButtonScript : MonoBehaviour
     [SerializeField] private Text ItemButtonText;
 
     private bool FirstAttackPage = true;
-    
+    [SerializeField] private Transform attackButtonsParent;
+//private TextMeshProUGUI[] AttacksArray;
+
+void Awake()
+{
+    AttacksArray = attackButtonsParent.GetComponentsInChildren<Text>(true);
+}
 
     void Start()
     {
@@ -30,38 +36,37 @@ public class MainButtonScript : MonoBehaviour
 
     public void Update()
     {
-        
             if(GM.givePlayerAttack(7) != Attacks.NULL && FirstAttackPage == false)
             {
                 
-                AttacksArray[0].GetComponent<Text>().text = GM.givePlayerAttack(5).ToString();
-                AttacksArray[1].GetComponent<Text>().text = GM.givePlayerAttack(6).ToString();
-                AttacksArray[2].GetComponent<Text>().text = GM.givePlayerAttack(7).ToString();
-                AttacksArray[3].GetComponent<Text>().text = GM.givePlayerAttack(8).ToString();
-                AttacksArray[4].GetComponent<Text>().text = GM.givePlayerAttack(9).ToString();
-                AttacksArray[5].GetComponent<Text>().text = "NEXT";
+                AttacksArray[0].text = GM.givePlayerAttack(5).ToString();
+                AttacksArray[1].text = GM.givePlayerAttack(6).ToString();
+                AttacksArray[2].text = GM.givePlayerAttack(7).ToString();
+                AttacksArray[3].text = GM.givePlayerAttack(8).ToString();
+                AttacksArray[4].text = GM.givePlayerAttack(9).ToString();
+                AttacksArray[5].text = "NEXT";
 
             } else if(GM.givePlayerAttack(7) != Attacks.NULL && FirstAttackPage == true)
             {
                 
-                AttacksArray[0].GetComponent<Text>().text = GM.givePlayerAttack(0).ToString();
-                AttacksArray[1].GetComponent<Text>().text = GM.givePlayerAttack(1).ToString();
-                AttacksArray[2].GetComponent<Text>().text = GM.givePlayerAttack(2).ToString();
-                AttacksArray[3].GetComponent<Text>().text = GM.givePlayerAttack(3).ToString();
-                AttacksArray[4].GetComponent<Text>().text = GM.givePlayerAttack(4).ToString();
-                AttacksArray[5].GetComponent<Text>().text = "NEXT";
+                AttacksArray[0].text = GM.givePlayerAttack(0).ToString();
+                AttacksArray[1].text = GM.givePlayerAttack(1).ToString();
+                AttacksArray[2].text = GM.givePlayerAttack(2).ToString();
+                AttacksArray[3].text = GM.givePlayerAttack(3).ToString();
+                AttacksArray[4].text = GM.givePlayerAttack(4).ToString();
+                AttacksArray[5].text = "NEXT";
 
             } else 
             {
-                AttacksArray[0].GetComponent<Text>().text = GM.givePlayerAttack(0).ToString();
-                AttacksArray[1].GetComponent<Text>().text = GM.givePlayerAttack(1).ToString();
-                AttacksArray[2].GetComponent<Text>().text = GM.givePlayerAttack(2).ToString();
-                AttacksArray[3].GetComponent<Text>().text = GM.givePlayerAttack(3).ToString();
-                AttacksArray[4].GetComponent<Text>().text = GM.givePlayerAttack(4).ToString();
-                AttacksArray[5].GetComponent<Text>().text = GM.givePlayerAttack(5).ToString();
+                AttacksArray[0].text = GM.givePlayerAttack(0).ToString();
+                AttacksArray[1].text = GM.givePlayerAttack(1).ToString();
+                AttacksArray[2].text = GM.givePlayerAttack(2).ToString();
+                AttacksArray[3].text = GM.givePlayerAttack(3).ToString();
+                AttacksArray[4].text = GM.givePlayerAttack(4).ToString();
+                AttacksArray[5].text = GM.givePlayerAttack(5).ToString();
             }
         
-        for (int g = 0; g < AttacksArray.Length; g++) 
+        /*for (int g = 0; g < AttacksArray.Length; g++) //endlos schleife
         {
             if (g >= 5)
             {
@@ -79,6 +84,17 @@ public class MainButtonScript : MonoBehaviour
             if (g >= 5)
             {
                 g += 5;
+            }
+        }*/
+        for (int g = 0; g < AttacksArray.Length; g++)
+        {
+            if (GM.givePlayerAttack(g) == Attacks.NULL)
+            {
+                AttacksArray[g].transform.parent.gameObject.SetActive(false);
+            }
+            else
+            {
+                AttacksArray[g].transform.parent.gameObject.SetActive(true);
             }
         }
 

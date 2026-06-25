@@ -388,6 +388,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 12
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &59309211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,6 +558,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 7
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &68863103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,6 +1050,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 10
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &229924750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1375,6 +1378,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 6
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &299522371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6616,6 +6620,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 14
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &370500744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12510,6 +12515,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 16
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &564976588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12679,6 +12685,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 8
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &567332253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12927,6 +12934,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 5
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &581570677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13295,6 +13303,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 9
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &619863714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13581,6 +13590,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 2
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &675063135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19899,6 +19909,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 17
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &1014619488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20831,6 +20842,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 15
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &1149633229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21749,6 +21761,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 18
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &1378552147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21918,6 +21931,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 11
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &1383510823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22432,6 +22446,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 4
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &1538353673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23132,6 +23147,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 13
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &1749942292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23449,6 +23465,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 1
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &1820446412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23953,6 +23970,47 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992368405}
   m_CullTransparentMesh: 1
+--- !u!1 &2021984434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2021984435}
+  m_Layer: 5
+  m_Name: attacksParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2021984435
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021984434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1116126363714967712}
+  - {fileID: 6731695434163175737}
+  - {fileID: 3309465332258363056}
+  - {fileID: 3664879910105423801}
+  - {fileID: 4219870609728731532}
+  - {fileID: 5371715212393831036}
+  m_Father: {fileID: 4875658241825939545}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2032151079
 GameObject:
   m_ObjectHideFlags: 0
@@ -24243,6 +24301,7 @@ MonoBehaviour:
   FleeButtons: {fileID: 0}
   ButtonType: 3
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!114 &2050090873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24577,7 +24636,7 @@ GameObject:
   - component: {fileID: 4715618671006384707}
   - component: {fileID: 4715618671006384708}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: text4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24674,13 +24733,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5742583580380228570}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4675438726108935517}
-  m_Father: {fileID: 4875658241825939545}
+  m_Father: {fileID: 2021984435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -24902,7 +24961,7 @@ GameObject:
   - component: {fileID: 8094423594754781202}
   - component: {fileID: 8094423594754781203}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: text5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24984,13 +25043,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 235317812869379690}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2217699571063014599}
-  m_Father: {fileID: 4875658241825939545}
+  m_Father: {fileID: 2021984435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -25009,7 +25068,7 @@ GameObject:
   - component: {fileID: 3598246114070802993}
   - component: {fileID: 3679345378591115101}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: text2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25136,13 +25195,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3482975917061427516}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4623631154689801292}
-  m_Father: {fileID: 4875658241825939545}
+  m_Father: {fileID: 2021984435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -25283,7 +25342,7 @@ GameObject:
   - component: {fileID: 8347416951569641279}
   - component: {fileID: 8347416951569641280}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: text1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25301,12 +25360,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a91222a3a7dd8854cb4e9a9027297de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
-  AttacksArray: []
+  AttacksArray:
+  - {fileID: 5742583580380228570}
+  - {fileID: 3747446422457173879}
+  - {fileID: 235317812869379690}
+  - {fileID: 3482975917061427516}
+  - {fileID: 4352899420655162788}
+  - {fileID: 5203736008636143002}
   AttackButtons: {fileID: 6415744845476019005}
   ItemButtons: {fileID: 5849749325415115937}
   FleeButtons: {fileID: 6589397305435170930}
   ButtonType: 0
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 0}
 --- !u!222 &4127769195901996009
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25322,13 +25388,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4352899420655162788}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6086645958495873792}
-  m_Father: {fileID: 4875658241825939545}
+  m_Father: {fileID: 2021984435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -25367,7 +25433,7 @@ GameObject:
   - component: {fileID: 6214250863006713987}
   - component: {fileID: 9187750905524916988}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: text6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25405,17 +25471,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainButtonScript
   AttacksArray:
-  - {fileID: 5742583580380228570}
-  - {fileID: 3747446422457173879}
-  - {fileID: 235317812869379690}
-  - {fileID: 3482975917061427516}
-  - {fileID: 4352899420655162788}
-  - {fileID: 5203736008636143002}
+  - {fileID: 8545632937906221613}
+  - {fileID: 4416726574291354625}
+  - {fileID: 3341905841469105148}
+  - {fileID: 2488481230586442011}
+  - {fileID: 4008905002684027985}
+  - {fileID: 834594886106279231}
   AttackButtons: {fileID: 0}
   ItemButtons: {fileID: 0}
   FleeButtons: {fileID: 0}
   ButtonType: 0
   ItemButtonText: {fileID: 0}
+  attackButtonsParent: {fileID: 2021984435}
 --- !u!222 &4607729944561407404
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -25597,12 +25664,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1962978762461696747}
-  - {fileID: 3309465332258363056}
-  - {fileID: 5371715212393831036}
-  - {fileID: 6731695434163175737}
-  - {fileID: 4219870609728731532}
-  - {fileID: 1116126363714967712}
-  - {fileID: 3664879910105423801}
+  - {fileID: 2021984435}
   m_Father: {fileID: 28046685}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -25702,13 +25764,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5203736008636143002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9187750905524916987}
-  m_Father: {fileID: 4875658241825939545}
+  m_Father: {fileID: 2021984435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -26066,7 +26128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &6589397305435170930
 GameObject:
   m_ObjectHideFlags: 0
@@ -26219,13 +26281,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3747446422457173879}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3679345378591115100}
-  m_Father: {fileID: 4875658241825939545}
+  m_Father: {fileID: 2021984435}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -26698,7 +26760,7 @@ GameObject:
   - component: {fileID: 1802376968157248367}
   - component: {fileID: 8545632937906221614}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
