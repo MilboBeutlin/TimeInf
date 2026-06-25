@@ -199,6 +199,11 @@ public class Datenbank : MonoBehaviour
         }
     }
 
+    public void AddPlayerAttack(Attacks attack)
+    {
+        playerAttacks.Add(attack);
+    }
+
     public Dictionary<Items, int> GetCurrentPlayerItems()
     {
         return playerItems;

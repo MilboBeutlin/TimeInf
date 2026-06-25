@@ -67,6 +67,12 @@ public class Controller : MonoBehaviour
         DB.AddItem(item, amount);
     }
 
+    public void AddAttack(Attacks attack)
+    {
+        DB.AddPlayerAttack(attack);
+    }
+
+
     // Bei Amount 0 werden alle entfernt
     public void RemoveItem(Items item, int amount)
     {

@@ -128,7 +128,6 @@ public class GM : MonoBehaviour
 
         controller.SetCurrentOponnentStats(currentopponentStats);
         
-        
     }
     public Attacks givePlayerAttack(int attack)
     {
