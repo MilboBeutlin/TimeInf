@@ -4,7 +4,8 @@ public class R5_Cage_Game : MonoBehaviour
 {
     private GM_Game GM;
     private Model model;
-    [SerializeField] private Sprite cage_broken;
+    //[SerializeField] private Sprite cage_broken;
+    [SerializeField] private GameObject cage;
     [SerializeField] private GameObject NPC;
 
     private bool isTrigger = false;
@@ -24,7 +25,8 @@ public class R5_Cage_Game : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && model.GetCurrentPlayerItems().ContainsKey(Items.Bomb))
             {
-                gameObject.GetComponent<SpriteRenderer>().sprite = cage_broken;
+                //gameObject.GetComponent<SpriteRenderer>().sprite = cage_broken;
+                cage.SetActive(false);
                 FindAnyObjectByType<NPC_R9_Game>().Cagebroken();
                 isOpen = true;
                 isTrigger = false;

@@ -206,7 +206,7 @@ public class GM : MonoBehaviour
         }
 
          if(currentOpponentEffects.ContainsKey(Statuseffekte.Blutend)) {
-            currentopponentStats[0] -= currentopponentStats[0] / 10; // 10% schaden / resistenz
+            currentopponentStats[0] -= (int)(currentopponentStats[0] * 0.9f); // 10% schaden
             currentOpponentEffects[Statuseffekte.Blutend] -= 1;
             if (currentOpponentEffects[Statuseffekte.Blutend] == 0)
             {
@@ -215,7 +215,7 @@ public class GM : MonoBehaviour
         }
         if (currentPlayerEffects.ContainsKey(Statuseffekte.Blutend))
         {
-            currentplayerStats[0] = currentplayerStats[0] * (9/10);
+            currentplayerStats[0] = (int)(currentplayerStats[0] * 0.9f);
             currentPlayerEffects[Statuseffekte.Blutend] -= 1;
             if(currentPlayerEffects[Statuseffekte.Blutend] == 0)
             {
@@ -338,6 +338,7 @@ public class GM : MonoBehaviour
 
             case Attacks.Hammer:
                  currentopponentStats[0] -= Math.Max(0, 50 - currentopponentStats[2]); // 50 schaden / rüstung
+                 Debug.Log("Hammer");
                 break;
 
 
