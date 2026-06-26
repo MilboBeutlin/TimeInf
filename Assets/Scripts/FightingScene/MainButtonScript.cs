@@ -69,26 +69,6 @@ void Awake()
                 AttacksArray[5].text = GM.givePlayerAttack(5).ToString();
             }
         
-        /*for (int g = 0; g < AttacksArray.Length; g++) //endlos schleife
-        {
-            if (g >= 5)
-            {
-                g -= 5;
-            }
-            if (GM.givePlayerAttack(g) == Attacks.NULL) 
-            {
-
-                AttacksArray[g].SetActive(false);
-            } else
-            {
-
-                AttacksArray[g].SetActive(true);
-            }
-            if (g >= 5)
-            {
-                g += 5;
-            }
-        }*/
         for (int g = 0; g < AttacksArray.Length; g++)
         {
             if (GM.givePlayerAttack(g) == Attacks.NULL)

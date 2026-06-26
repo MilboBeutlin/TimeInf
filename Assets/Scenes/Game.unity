@@ -65826,7 +65826,7 @@ PrefabInstance:
       value: 'Mirrorfragment will return the damage you took last turn to the enemy.
         0 can also be returned.
 
-        
+
 
 '
       objectReference: {fileID: 0}
@@ -124357,6 +124357,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5401070039773527561, guid: f66dba6cf652616488ebff9fda5fb1d8, type: 3}
   m_PrefabInstance: {fileID: 657796043}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1887707727
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2037597565359953405, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
+      propertyPath: item
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2037597565359953405, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
+      propertyPath: attack
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503436815177081858, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.0745082
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503436815177081858, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.22133183
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503436815177081858, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503436815177081858, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503436815177081858, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503436815177081858, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503436815177081858, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503436815177081858, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503436815177081858, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503436815177081858, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4819060923416796024, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
+      propertyPath: m_Name
+      value: Item
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6af1a193d7f9bfe45a5a063e9ca33033, type: 3}
 --- !u!4 &1895907544 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8002345130069840544, guid: d5c68df9438fc874cad1308d2bf78ad8, type: 3}
@@ -127865,3 +127930,4 @@ SceneRoots:
   - {fileID: 636600935}
   - {fileID: 1779443217}
   - {fileID: 1072180617}
+  - {fileID: 1887707727}

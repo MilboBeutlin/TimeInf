@@ -445,8 +445,9 @@ public class GM : MonoBehaviour
         if (currentopponentStats[0] <= 0)
         {
             DoSave();
-            SceneManager.LoadScene("Game");
-        }
+            SceneManager.LoadScene("Game"); 
+            
+        }else{
         Attacks i;
         //Hier timer, der bissl stallt.
 
@@ -589,6 +590,7 @@ public class GM : MonoBehaviour
         timer = 100;
         playerturn = true;
         bM.TurnChange(true);
+        }
     }
 
     

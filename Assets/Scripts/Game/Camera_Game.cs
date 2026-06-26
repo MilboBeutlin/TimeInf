@@ -14,7 +14,7 @@ public class Camera_Game : MonoBehaviour
     }
     public void UpdateCamera(string location)
     {
-        if(location == null)
+        if(location == null || location == "")
         {
             newLocation = "K1";
         }

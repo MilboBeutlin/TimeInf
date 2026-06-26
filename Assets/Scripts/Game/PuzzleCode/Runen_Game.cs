@@ -4,7 +4,7 @@ public class Runen_Game : MonoBehaviour
 {
     private int currentRotation = 0;
     [SerializeField] private int correctRotation;
-    [SerializeField] private PuzzleManager_Game puzzleManager;
+    [SerializeField] private RunenStatuePuzzle_Game puzzleManager;
     [SerializeField] private Sprite[] statueSprite;
 
     [SerializeField] private SpriteRenderer spriteRenderer;

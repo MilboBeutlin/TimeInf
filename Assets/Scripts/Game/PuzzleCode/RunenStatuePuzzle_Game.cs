@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class PuzzleManager_Game : MonoBehaviour
+public class RunenStatuePuzzle_Game : MonoBehaviour
 {
     [SerializeField] private Camera camera;
     [SerializeField] private Runen_Game[] runes;
