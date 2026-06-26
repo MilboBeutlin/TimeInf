@@ -206,7 +206,7 @@ public class GM : MonoBehaviour
         }
 
          if(currentOpponentEffects.ContainsKey(Statuseffekte.Blutend)) {
-            currentopponentStats[0] -= (int)(currentopponentStats[0] * 0.9f); // 10% schaden
+            currentopponentStats[0] = (int)(currentopponentStats[0] * 0.9f); // 10% schaden
             currentOpponentEffects[Statuseffekte.Blutend] -= 1;
             if (currentOpponentEffects[Statuseffekte.Blutend] == 0)
             {
@@ -225,7 +225,7 @@ public class GM : MonoBehaviour
 
 
         if(currentOpponentEffects.ContainsKey(Statuseffekte.Brennend)) {
-            currentopponentStats[0] -= (int)(currentopponentStats[0] * 0.92f);
+            currentopponentStats[0] = (int)(currentopponentStats[0] * 0.92f);
             //currentplayerStats[1] = currentplayerStats[1] * (9/10);// wird es resettet?
             currentOpponentEffects[Statuseffekte.Brennend] -= 1;
             if (currentOpponentEffects[Statuseffekte.Brennend] == 0)
@@ -249,7 +249,7 @@ public class GM : MonoBehaviour
           
             if(currentPlayerEffects[Statuseffekte.Hoffnungsvoll] == 0)
             {
-                currentopponentStats[1] = currentplayerStats[1] * 2;
+                currentplayerStats[1] = currentplayerStats[1] * 2;
                 currentPlayerEffects.Remove(Statuseffekte.Hoffnungsvoll);
             } else {
             currentplayerStats[1] = currentplayerStats[1] / 2; 
@@ -278,7 +278,8 @@ public class GM : MonoBehaviour
             {
                 currentOpponentEffects.Remove(Statuseffekte.Wütend);
             }
-        } else if (currentPlayerEffects.ContainsKey(Statuseffekte.Wütend))
+        }
+        if (currentPlayerEffects.ContainsKey(Statuseffekte.Wütend))
         {
             currentplayerStats[1] += 20;
             currentPlayerEffects[Statuseffekte.Wütend] -= 1;

@@ -72,7 +72,7 @@ public class Model : MonoBehaviour
         return DB.GetOpponentEffects();
     }
     public int[] GetCurrentOponnentStats() {
-        return DB.GetCurrentOponnentStats();
+        return DB.GetCurrentOpponentStats();
     }
 
     //other things

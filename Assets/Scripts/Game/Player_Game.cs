@@ -82,33 +82,34 @@ void OnTriggerEnter2D(Collider2D other)
     if (other.CompareTag("Enemy")) //loading enemie on collision
     {
         Enemy_Game enemyScript = other.gameObject.GetComponent<Enemy_Game>();
-         switch (enemyScript.type)
+         /*switch (enemyScript.type)
         {
             case Gegner.StorageGuard:
-            EnemyLoading(Gegner.StorageGuard, 15, 30, 100, 3, 5);
+            EnemyLoading(Gegner.StorageGuard);
             break;
             case Gegner.MonsterPainting:
-            EnemyLoading(Gegner.MonsterPainting, 30, 35, 40, 9, 30);
+            EnemyLoading(Gegner.MonsterPainting);
             break;
             case Gegner.ShadowEnemy:
-            EnemyLoading(Gegner.ShadowEnemy, 10, 50, 60, 7, 90); //Verflucht
+            EnemyLoading(Gegner.ShadowEnemy); //Verflucht
             break;
             case Gegner.Insects:
-            EnemyLoading(Gegner.Insects, 25, 25, 0, 4, 55); // Vergiftet
+            EnemyLoading(Gegner.Insects); // Vergiftet
             break;
             case Gegner.PrisonGuard:
-            EnemyLoading(Gegner.PrisonGuard, 100, 55, 30, 5, 35); // blutend
+            EnemyLoading(Gegner.PrisonGuard); // blutend
             break;
             case Gegner.MiniBoss:
-            EnemyLoading(Gegner.MiniBoss, 160, 75, 10, 8, 100); // verbrennen
+            EnemyLoading(Gegner.MiniBoss); // verbrennen
             break;
             case Gegner.Endboss:
-            EnemyLoading(Gegner.Endboss, 300, 90, 30, (int)speed, 120); //speed = player speed
+            EnemyLoading(Gegner.Endboss); //speed = player speed
             break;
             default:
                 Debug.Log("I am useless");
                 break;
-        }
+        }*/
+        EnemyLoading(enemyScript.type);
         SceneManager.LoadScene("Fight");
     }
     else if (other.CompareTag("Death"))
@@ -117,7 +118,7 @@ void OnTriggerEnter2D(Collider2D other)
     }
 }
 
-    private void EnemyLoading(Gegner type, int lp, int atk, int armor, int speed, int dk) 
+    private void EnemyLoading(Gegner type) 
 {
     if (type == Gegner.Endboss)
     {
@@ -148,6 +149,6 @@ void OnTriggerEnter2D(Collider2D other)
         });
     }
     controller.SetCurrentOponent(type);
-    controller.SetCurrentOponnentStats(new int[]{lp, atk, armor, speed, dk});
+    //controller.SetCurrentOponnentStats(new int[]{lp, atk, armor, speed, dk});
 }
 }

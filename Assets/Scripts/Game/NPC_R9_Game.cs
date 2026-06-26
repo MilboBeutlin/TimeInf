@@ -40,7 +40,7 @@ public class NPC_R9_Game : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-            NPC_Trapped_Text.SetActive(false);
+            NPC_Trapped_Text?.SetActive(false);
     }
 
     public void Cagebroken()
