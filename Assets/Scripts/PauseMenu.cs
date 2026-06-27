@@ -1,28 +1,16 @@
 using UnityEngine;
-
+//made by dominik
+// de/activates the pauseMenu
 public class PauseMenu : MonoBehaviour
 {
-    //public static PauseManager Instance;
     [SerializeField] private GameObject pauseMenu;
-
-    /*private void Awake()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-    }*/
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseMenu.SetActive(!pauseMenu.activeSelf); //UI menu an/aus
-            Time.timeScale = pauseMenu.activeSelf ? 0f : 1f; //Zeit anhalten/fortsetzen
+            pauseMenu.SetActive(!pauseMenu.activeSelf); //pauseMenu on/off based on its current state
+            Time.timeScale = pauseMenu.activeSelf ? 0f : 1f; //time flow off / normal speed based on the current state of pauseMenu
         } 
     }
 }

@@ -12964,7 +12964,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PressurePlate_Game
   arrow: {fileID: 2057876128846367676, guid: 50ccc0f0cfad8494f82c79d5f11c16b7, type: 3}
-  spawnPoint: {fileID: 1899687523}
+  arrowSpawnPoint: {fileID: 1899687523}
 --- !u!4 &681893900
 Transform:
   m_ObjectHideFlags: 0
@@ -123247,7 +123247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1899687523}
   m_Layer: 0
-  m_Name: SpawnPointArrows
+  m_Name: ArrowSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123504,7 +123504,6 @@ MonoBehaviour:
   - {fileID: 1846208248}
   - {fileID: 728573153}
   controller: {fileID: 1706314857}
-  model: {fileID: 1706314854}
 --- !u!1001 &1913282576
 PrefabInstance:
   m_ObjectHideFlags: 0

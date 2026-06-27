@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-
+//made by Dominik
+//player class for movement and collison with enemy and objects that kills the player
 public class Player_Game : MonoBehaviour
 {
 [SerializeField] private float speed = 5f;
@@ -13,15 +14,12 @@ public class Player_Game : MonoBehaviour
 [SerializeField] private GM_Game gameMaster;
 private Vector2 input;
 
-
-void Start()
-{
-    //controller = FindAnyObjectByType<Controller>();
-}
 void Update()
 {
+    //input wasd/arrow keys
     input.x = Input.GetAxisRaw("Horizontal");
     input.y = Input.GetAxisRaw("Vertical");
+
     //player.sprite change
     if (input.x != 0)
     {
@@ -29,11 +27,11 @@ void Update()
 
         if (input.x < 0)
         {
-            sR.sprite = sprites[0]; // left
+            sR.sprite = sprites[0]; // facing left
         }
         else
         {
-            sR.sprite = sprites[1]; // right
+            sR.sprite = sprites[1]; // facing right
         }
             
     }
@@ -41,18 +39,18 @@ void Update()
     {
         if (input.y < 0)
         {
-            sR.sprite = sprites[2]; // down
+            sR.sprite = sprites[2]; // facing down
         }
         else
         {
-            sR.sprite = sprites[3]; // up
+            sR.sprite = sprites[3]; // facing up
         }          
     }
 
     
 }
 
-void FixedUpdate() //movement
+void FixedUpdate() //movement with raycasts to block walking at walls + only movement along each axis
 {
     Vector2 move = input;
 
@@ -75,41 +73,12 @@ void FixedUpdate() //movement
     }
 
     body.linearVelocity = move.normalized * speed;
-        //Debug.Log(input.x = Input.GetAxisRaw("Horizontal"));
 }
 void OnTriggerEnter2D(Collider2D other)
 {
     if (other.CompareTag("Enemy")) //loading enemie on collision
     {
-        Enemy_Game enemyScript = other.gameObject.GetComponent<Enemy_Game>();
-         /*switch (enemyScript.type)
-        {
-            case Gegner.StorageGuard:
-            EnemyLoading(Gegner.StorageGuard);
-            break;
-            case Gegner.MonsterPainting:
-            EnemyLoading(Gegner.MonsterPainting);
-            break;
-            case Gegner.ShadowEnemy:
-            EnemyLoading(Gegner.ShadowEnemy); //Verflucht
-            break;
-            case Gegner.Insects:
-            EnemyLoading(Gegner.Insects); // Vergiftet
-            break;
-            case Gegner.PrisonGuard:
-            EnemyLoading(Gegner.PrisonGuard); // blutend
-            break;
-            case Gegner.MiniBoss:
-            EnemyLoading(Gegner.MiniBoss); // verbrennen
-            break;
-            case Gegner.Endboss:
-            EnemyLoading(Gegner.Endboss); //speed = player speed
-            break;
-            default:
-                Debug.Log("I am useless");
-                break;
-        }*/
-        EnemyLoading(enemyScript.type);
+        EnemyLoading(other.gameObject.GetComponent<Enemy_Game>().type);
         SceneManager.LoadScene("Fight");
     }
     else if (other.CompareTag("Death"))
@@ -118,11 +87,11 @@ void OnTriggerEnter2D(Collider2D other)
     }
 }
 
-    private void EnemyLoading(Gegner type) 
+private void EnemyLoading(Gegner type) 
 {
     if (type == Gegner.Endboss)
     {
-        //endboss attacken
+        //setting endboss attacks
         controller.SetCurrentOponnentAttacks(new Attacks[]
         {
             Attacks.DarkSlash,
@@ -138,7 +107,7 @@ void OnTriggerEnter2D(Collider2D other)
     }
     else
     {
-        //gegner attacken
+        //setting attacks for opponents
         controller.SetCurrentOponnentAttacks(new Attacks[]
         {
             Attacks.BasicAttack,
@@ -149,6 +118,5 @@ void OnTriggerEnter2D(Collider2D other)
         });
     }
     controller.SetCurrentOponent(type);
-    //controller.SetCurrentOponnentStats(new int[]{lp, atk, armor, speed, dk});
 }
 }

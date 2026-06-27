@@ -10,7 +10,7 @@ public class bookTutorial_Game : MonoBehaviour
     [SerializeField] private GameObject bookPanel;
     [SerializeField] private Text textFeld;
 
-    private bool playerInRange = false;
+    //private bool playerInRange = false;
     private bool mausGedrueckt = false;
 
     /*private void OnTriggerEnter2D(Collider2D other) 

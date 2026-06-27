@@ -1,18 +1,18 @@
 using UnityEngine;
-
+//made by Vivien & Dominik
+//teleports the player between two doors
 public class Door_Game : MonoBehaviour
 {
 
     [SerializeField] private Transform targetDoorSP;
     [SerializeField] private string leadsTo;
     [SerializeField] private GameObject darkness;
-    //[SerializeField] private GameObject torches;
     [SerializeField] private Model model;
     [SerializeField] private BoxCollider2D waterCollider;
-    [SerializeField] private bool verticalDoor;
+    [SerializeField] private bool verticalDoor; // decides whether this door can only be entered vertically or horizontally
     private Camera_Game camera;
     
-    private void Start()
+    private void Awake()
     {
         camera = FindAnyObjectByType<Camera_Game>();
     }
@@ -22,27 +22,22 @@ public class Door_Game : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+            // Door only works if the player enters from the correct direction.
             if(targetDoorSP != null && ((verticalDoor && rb.linearVelocity.y != 0) || (!verticalDoor && rb.linearVelocity.x != 0)))
             {
-                if(leadsTo == "R6" && model.GetCurrentPlayerItems().ContainsKey(Items.Lighter))
+                if(leadsTo == "R6" && model.GetCurrentPlayerItems().ContainsKey(Items.Lighter)) // Remove the darkness if the player owns the lighter.
                 {
                     darkness.SetActive(false);
-                    //torches.SetActive(true);
                 }
-                if(leadsTo == "R2" && model.GetCurrentPlayerAttacks().Contains(Attacks.Swim))
+                if(leadsTo == "R2" && model.GetCurrentPlayerAttacks().Contains(Attacks.Swim))  // Remove the water obstacle if the player has learned Swim.
                 {
                     waterCollider.enabled = false;
                 }
-                other.transform.position = targetDoorSP.position; //moves Player to other door
+                other.transform.position = targetDoorSP.position; //teleports the Player to other door
                 camera.UpdateCamera(leadsTo);
             }
             
             
         }
     }
-
-    private void Awake()
-{
-    camera = FindAnyObjectByType<Camera_Game>();
-}
 }

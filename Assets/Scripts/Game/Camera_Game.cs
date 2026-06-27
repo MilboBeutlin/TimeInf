@@ -1,5 +1,6 @@
 using UnityEngine;
-
+//made by Dominik
+// Positions the camera based on the player's current location.
 public class Camera_Game : MonoBehaviour
 {
     [SerializeField] private Player_Game player;
@@ -7,14 +8,13 @@ public class Camera_Game : MonoBehaviour
     [SerializeField] private Transform[] corridors; //empty object for the postion
     [SerializeField] private Transform[] hallway; //empty object for the postion
     [SerializeField] private Controller controller;
-    [SerializeField] private Model model;
     private string newLocation;
     void Start()
     {
     }
-    public void UpdateCamera(string location)
+    public void UpdateCamera(string location) 
     {
-        if(location == null || location == "")
+        if(string.IsNullOrEmpty(location)) //Default spawn location
         {
             newLocation = "K1";
         }
@@ -25,11 +25,11 @@ public class Camera_Game : MonoBehaviour
         controller.SetPlayerLocation(newLocation);
     }
 
-    void Update() //i could use enums but to much work for now
+    void Update()
     {
-        int index = int.Parse(newLocation.Substring(1)); //index to big or whatever
+        int index = int.Parse(newLocation.Substring(1)); // Gets the location index (e.g. "R3" -> 3)
 
-        switch (newLocation[0]) //what kind of location is it?: room, vertical hallway or horizontal hallway
+        switch (newLocation[0]) // First character of location is the location type.
         {
             case 'R': //rooms
             transform.position = rooms[index-1].position;

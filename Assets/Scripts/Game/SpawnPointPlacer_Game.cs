@@ -1,54 +1,29 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
-
+//made by Dominik
+// Handles placing and saving the player's spawn point.
 public class SpawnPointPlacer_Game : MonoBehaviour
 {
     [SerializeField] private GameObject spawnPoint;
 
-    [SerializeField] private Tilemap floorTilemap;
+    [SerializeField] private Tilemap floorTilemap; //floorTiles are the only Tiles that are safe for the spawnPoint to be placeed on
 
     [SerializeField] private Model model;
     [SerializeField] private Controller controller;
 
     void Start()
     {
-        spawnPoint.transform.position = model.GetSpawnPosition();
+        spawnPoint.transform.position = model.GetSpawnPosition(); // restores the previous saved spawnPoint position
     }
     void Update()
     {
         if(Input.GetKey(KeyCode.Q))
         {
-            PlacespawnPoint(transform.position);
+            PlaceSpawnPoint(transform.position);
         }
-        /*if (Input.GetKeyUp(KeyCode.Q))
-        {
-                Vector3Int direction = GetArrowDirection();
-                if (direction != Vector3Int.zero)
-                {
-                    holdTimer = 0f;
-                    Vector3Int targetTile = floorTilemap.WorldToCell(transform.position) + direction * 2;
-                    PlacespawnPoint(floorTilemap.GetCellCenterWorld(targetTile));
-                }
-        }*/
     }
-
-    private Vector3Int GetArrowDirection()
-    {
-        if (Input.GetKey(KeyCode.UpArrow)){
-            return Vector3Int.up;
-        }
-        if (Input.GetKey(KeyCode.DownArrow)){
-            return Vector3Int.down;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow)){
-            return Vector3Int.left;
-        }
-        if (Input.GetKey(KeyCode.RightArrow)){
-            return Vector3Int.right;
-        }   
-        return Vector3Int.zero;
-    }
-    private void PlacespawnPoint(Vector3 desiredPos)
+    // Places the spawn point on the nearest safe floor tile.
+    private void PlaceSpawnPoint(Vector3 desiredPos)
     {
         Vector3Int tile = floorTilemap.WorldToCell(desiredPos);
         Vector3? safePosition = FindSafeTile(tile);
@@ -59,11 +34,12 @@ public class SpawnPointPlacer_Game : MonoBehaviour
         }
 
         spawnPoint.transform.position = safePosition.Value;
-
+        // Saves the new spawn point and the player's current position:
         controller.SetSpawnPosition(safePosition.Value);
         controller.SetSavePlayerLocation(model.GetPlayerLocation());
         controller.SetSavePlayerItems(model.GetCurrentPlayerItems());
     }
+    // Searches the current tile and its neighboring tiles for a safe position.
     private Vector3? FindSafeTile(Vector3Int tile)
     {
         Vector3Int[] TileArea = {tile, tile + Vector3Int.up, tile + Vector3Int.down, tile + Vector3Int.left, tile + Vector3Int.right};
@@ -76,14 +52,10 @@ public class SpawnPointPlacer_Game : MonoBehaviour
         }
         return null;
     }
+    // Checks whether the given tile exists on the floor tilemap.
     private bool IsSafe(Vector3Int tile)
     {
-        if (!floorTilemap.HasTile(tile)){ 
-            return false;
-        }else
-        {
-            return true;
-        }
+        return floorTilemap.HasTile(tile);
     }
 
 }

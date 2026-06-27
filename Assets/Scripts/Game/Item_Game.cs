@@ -1,5 +1,6 @@
 using UnityEngine;
-
+//made by Dominik
+//items will be collected if the player touches them
 public class Item_Game : MonoBehaviour
 {
     [SerializeField] public Items item;
@@ -14,7 +15,7 @@ public class Item_Game : MonoBehaviour
         {
             controller = FindAnyObjectByType<Controller>();
             controller.AddItem(item, amount);
-            if (attack != Attacks.NULL && FindAnyObjectByType<Model>().GetCurrentPlayerAttacks().Count < 10)
+            if (attack != Attacks.NULL && FindAnyObjectByType<Model>().GetCurrentPlayerAttacks().Count < 10) //checks if you can collect this attacks and if you have enough space
             {
                 controller.AddAttack(attack);
             }

@@ -1,15 +1,18 @@
 using UnityEngine;
 using TMPro;
+//made by Dominik
+// Handles a closed entry that can be opened with a specific key.
 public class ClosedEntry_Game : MonoBehaviour
 {
     [SerializeField] private GameObject wall;
     [SerializeField] private GM_Game gameMaster;
-    private bool isColliding = false;
+    private bool isColliding = false; //checks if the player is near enough to open
 
 
     void Update()
     {
-        if(gameMaster.GetText() == "Press E to use Key" && isColliding == true && Input.GetKeyDown(KeyCode.E) && gameMaster.giveCurrentPlayerItems().ContainsKey(Items.StrangeKey))
+        // Open the passage when the player interacts while carrying the required key.
+        if(gameMaster.GetText() == "Press E to use Key" && isColliding && Input.GetKeyDown(KeyCode.E) && gameMaster.giveCurrentPlayerItems().ContainsKey(Items.StrangeKey))
         {
             gameMaster.RemoveItem(Items.StrangeKey, 1);
             wall.SetActive(false);
@@ -18,7 +21,7 @@ public class ClosedEntry_Game : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(wall.activeSelf)
+        if(wall.activeSelf && other.CompareTag("Player"))
         {
             gameMaster.ChangeText("Press E to use Key");
             gameMaster.ShowText(true);
@@ -29,7 +32,10 @@ public class ClosedEntry_Game : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        isColliding = false;
-        gameMaster.ShowText(false);
+        if (other.CompareTag("Player"))
+        {
+            isColliding = false;
+            gameMaster.ShowText(false);
+        }
     }
 }
