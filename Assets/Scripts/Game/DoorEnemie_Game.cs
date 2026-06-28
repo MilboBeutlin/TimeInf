@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-//made by Dominik
+
 //Controls the enemy that blocks the door and spawns it to fight the player on the second meeting
 public class DoorEnemie_Game : MonoBehaviour
 {

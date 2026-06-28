@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
-//made by Dominik
+
 // Handles placing and saving the player's spawn point.
 public class SpawnPointPlacer_Game : MonoBehaviour
 {

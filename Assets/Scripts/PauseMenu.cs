@@ -1,5 +1,5 @@
 using UnityEngine;
-//made by dominik
+
 // de/activates the pauseMenu
 public class PauseMenu : MonoBehaviour
 {

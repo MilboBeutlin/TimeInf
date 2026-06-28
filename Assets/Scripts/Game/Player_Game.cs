@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-//made by Dominik
+
 //player class for movement and collison with enemy and objects that kills the player
 public class Player_Game : MonoBehaviour
 {

@@ -1,5 +1,5 @@
 using UnityEngine;
-//made by Dominik
+
 //spwans arrows if stepped on
 public class PressurePlate_Game : MonoBehaviour
 {

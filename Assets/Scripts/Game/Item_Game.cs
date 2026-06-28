@@ -1,5 +1,5 @@
 using UnityEngine;
-//made by Dominik
+
 //items will be collected if the player touches them
 public class Item_Game : MonoBehaviour
 {

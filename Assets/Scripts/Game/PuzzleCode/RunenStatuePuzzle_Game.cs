@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-//made by Dominik
+
 //Manages the rune/statue puzzle and triggers the reward when it is solved.
 public class RunenStatuePuzzle_Game : MonoBehaviour
 {

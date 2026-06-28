@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-//made by Dominik
+
 // Displays a description when the user hovers over a UI element.
 public class Description : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {

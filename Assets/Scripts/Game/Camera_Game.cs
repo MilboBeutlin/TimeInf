@@ -1,5 +1,5 @@
 using UnityEngine;
-//made by Dominik
+
 // Positions the camera based on the player's current location.
 public class Camera_Game : MonoBehaviour
 {

@@ -1,5 +1,5 @@
 using UnityEngine;
-//made by Vivien & Dominik
+
 //teleports the player between two doors
 public class Door_Game : MonoBehaviour
 {

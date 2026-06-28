@@ -1,5 +1,5 @@
 using UnityEngine;
-//made by Dominik
+
 //moves projectile to the left
 public class projectile : MonoBehaviour
 {

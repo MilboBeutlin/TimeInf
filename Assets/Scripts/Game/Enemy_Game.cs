@@ -1,5 +1,5 @@
 using UnityEngine;
-//made by Dominik
+
 //enemy script that saves the type and allows changes to the sprite
 public class Enemy_Game : MonoBehaviour
 {

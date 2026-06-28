@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-//made by Dominik
+
 //changes the light levels for a visual animation
 public class lights : MonoBehaviour
 {

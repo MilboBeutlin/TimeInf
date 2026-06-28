@@ -1,5 +1,5 @@
 using UnityEngine;
-//made by Dominik
+
 // Handles a single rune/statue of the rotation puzzle.
 public class Runen_Game : MonoBehaviour
 {

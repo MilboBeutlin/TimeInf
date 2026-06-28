@@ -1,5 +1,5 @@
 using UnityEngine;
-//made by Dominik
+
 //Updates the camera location when the player leaves a corridor.
 public class Corridor_Game : MonoBehaviour
 {

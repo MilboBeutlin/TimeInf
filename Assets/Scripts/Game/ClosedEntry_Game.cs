@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-//made by Dominik
+
 // Handles a closed entry that can be opened with a specific key.
 public class ClosedEntry_Game : MonoBehaviour
 {
