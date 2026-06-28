@@ -473,10 +473,9 @@ public class GM : MonoBehaviour
                 }
             }
 
-        if (enemy != Gegner.Endboss)
+        
+            switch (r)
             {
-                switch (r)
-                {
                     case 1:
                         i = Attacks.BasicAttack;
                         break;
@@ -523,14 +522,8 @@ public class GM : MonoBehaviour
                     default:
                         i = Attacks.NULL;
                         break;
-                }
-                Debug.Log("Attacks wird ausgeführt " + i);
             }
-            else
-            {
-                //Nur damit die switch schleife unten nicht rumjammert. :P
-                i = Attacks.NULL;
-            }
+            Debug.Log("Attacks wird ausgeführt " + i);
 
         
             //Hier ALLE Attacken für NUR jeden Gegner.
