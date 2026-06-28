@@ -1,10 +1,10 @@
 using UnityEngine;
 //made by Dominik
-//Updates the camera location when the player enters or leaves a place.
+//Updates the camera location when the player leaves a corridor.
 public class Corridor_Game : MonoBehaviour
 {
-    [SerializeField] private string leadsTo;
-    [SerializeField] private string leadsFrom;
+    [SerializeField] private string leadsTo; //to where it leads: the place on the right to the collider
+    [SerializeField] private string leadsFrom; //from where it leads: the place on the left to the collider
     [SerializeField] private bool vertical; // decides whether this is a vertical or horizontal corridor.
     private Camera_Game camera;
 
@@ -12,61 +12,31 @@ public class Corridor_Game : MonoBehaviour
     {
         camera = FindAnyObjectByType<Camera_Game>();
     }
+    private void OnTriggerExit2D(Collider2D other) // checks if the player goes into the new location or turns around 
+    {
+        Rigidbody2D rb = other.attachedRigidbody;
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        if (vertical)
         {
-            if (vertical) //in which direction leads the corridor/hallway
+            if (rb.linearVelocity.y > 0) //checks if the player moves up or down and Update Camera accordingly
             {
-                if (transform.position.y > other.transform.position.y) //player enters from below
-                {
-                    camera.UpdateCamera(leadsTo); 
-                }else                                                  //player enters from above
-                {
-                    camera.UpdateCamera(leadsFrom);
-                }
+                camera.UpdateCamera(leadsTo);
             }
             else
             {
-                if (transform.position.x > other.transform.position.x) //player enters from the left
-                {
-                    camera.UpdateCamera(leadsTo);
-                }else                                                 //player enters from the right
-                {
-                    camera.UpdateCamera(leadsFrom);
-                }
+                camera.UpdateCamera(leadsFrom);
             }
-            
-            
         }
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        else
         {
-            if (vertical) //in which direction leads the corridor/hallway
+            if (rb.linearVelocity.x > 0) //checks if the player moves left or right and Update Camera accordingly
             {
-                if (transform.position.y < other.transform.position.y) //player leaves upwards
-                {
-                    camera.UpdateCamera(leadsTo); 
-                }else                                                  //player leaves downwards
-                {
-                    camera.UpdateCamera(leadsFrom);
-                }
+                camera.UpdateCamera(leadsTo);
             }
             else
             {
-                if (transform.position.x < other.transform.position.x) //player leaves to right
-                {
-                    camera.UpdateCamera(leadsTo);
-                }else                                                 //player leaves to left
-                {
-                    camera.UpdateCamera(leadsFrom);
-                }
+                camera.UpdateCamera(leadsFrom);
             }
-            
-            
         }
     }
 }

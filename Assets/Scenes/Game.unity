@@ -13671,9 +13671,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Lake_Game
   gm: {fileID: 1988482979}
-  fishes: []
-  leftPoint: 0
-  rightPoint: 0
+  fishes:
+  - {fileID: 770316907}
+  - {fileID: 1805980700}
+  - {fileID: 2025543174}
+  leftPoint: 205
+  rightPoint: 219
 --- !u!61 &700194055
 BoxCollider2D:
   m_ObjectHideFlags: 0
