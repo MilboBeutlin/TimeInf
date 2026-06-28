@@ -14,6 +14,7 @@ public class GM : MonoBehaviour
 
     //Fight logic
     [SerializeField] private bool playerturn;
+    private bool coinUsed = false;
 
 
     //Stats
@@ -461,69 +462,75 @@ public class GM : MonoBehaviour
             {
                 r = 9;
             }
-        }
+        } else if(enemy == Gegner.Endboss)
+            {
+                if(r == 3 || r==4||r==5)
+                {
+                    r = 6;
+                } else if(Random.Range(0,2) ==2)
+                {
+                    r = 0;
+                }
+            }
 
         if (enemy != Gegner.Endboss)
-        {
-            switch (r) {
-                case 1:
-                    i = Attacks.BasicAttack;
-                break;
-
-                case 2:
-                    i = Attacks.BasicAttack;
-                    break;
-                case 3:
-                    i = Attacks.MinorAttack;
-                    break;
-                case 4:
-                    i= Attacks.MinorAttack;
-                    break;
-                case 5:
-                    i = Attacks.MinorAttack;
-                    break;
-                case 6:
-                    //i = Attacks.BuffSteal; //sollte nur möglich sein, wenn der Spieler einen Buff hat!!!
-                    //habs so gemacht, liebe grüße DS
-                    if (currentPlayerEffects.Keys.Any(IstBuff))
-                    {
-                        i = Attacks.BuffSteal;
-                    }
-                    else
-                    {
+            {
+                switch (r)
+                {
+                    case 1:
                         i = Attacks.BasicAttack;
-                    }
-                    break;
-                case 7:
-                    i = Attacks.AttackBlock;
-                    break;
-                case 8:
-                    i = Attacks.BasicAttack;
-                    break;
-                case 9:
-                    i = Attacks.Debuff;
-                    break;
-                case 10:
-                    i = Attacks.Debuff;
-                    break;
-                case 0:
-                    i = Attacks.Debuff;
-                    break;
-                default:
-                    i = Attacks.NULL;
-                    break;
+                        break;
+
+                    case 2:
+                        i = Attacks.BasicAttack;
+                        break;
+                    case 3:
+                        i = Attacks.MinorAttack;
+                        break;
+                    case 4:
+                        i = Attacks.MinorAttack;
+                        break;
+                    case 5:
+                        i = Attacks.MinorAttack;
+                        break;
+                    case 6:
+                        //i = Attacks.BuffSteal; //sollte nur möglich sein, wenn der Spieler einen Buff hat!!!
+                        //habs so gemacht, liebe grüße DS
+                        if (currentPlayerEffects.Keys.Any(IstBuff))
+                        {
+                            i = Attacks.BuffSteal;
+                        }
+                        else
+                        {
+                            i = Attacks.BasicAttack;
+                        }
+                        break;
+                    case 7:
+                        i = Attacks.AttackBlock;
+                        break;
+                    case 8:
+                        i = Attacks.BasicAttack;
+                        break;
+                    case 9:
+                        i = Attacks.Debuff;
+                        break;
+                    case 10:
+                        i = Attacks.Debuff;
+                        break;
+                    case 0:
+                        i = Attacks.Debuff;
+                        break;
+                    default:
+                        i = Attacks.NULL;
+                        break;
+                }
+                Debug.Log("Attacks wird ausgeführt " + i);
             }
-            Debug.Log("Attacks wird ausgeführt " + i);
-        }
-        else if (model.GetCurrentOponent() == Gegner.Endboss){
-            // Placeholder
-            i = Attacks.NULL;
-        }
-        else
-        {
-            //Nur damit die switch schleife unten nicht rumjammert. :P
-            i = Attacks.NULL;
-        }
+            else
+            {
+                //Nur damit die switch schleife unten nicht rumjammert. :P
+                i = Attacks.NULL;
+            }
 
         
             //Hier ALLE Attacken für NUR jeden Gegner.
@@ -668,6 +675,7 @@ public class GM : MonoBehaviour
 
             case Items.Coins:
                 currentopponentStats[0] -= 1;
+
                 break;
 
             case Items.MirrorShard:
@@ -686,7 +694,16 @@ public class GM : MonoBehaviour
             currentPlayerItems.Remove(item);
         }
         bM.CheckItems();
-        OponentTurn();
+        if(coinUsed == false)
+        {
+            OponentTurn();
+            coinUsed = false;
+        } else
+        {
+            playerturn = true;
+            bM.TurnChange(true);
+            
+        }
     }
 
      private bool IstBuff(Statuseffekte effekt)
