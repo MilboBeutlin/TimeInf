@@ -309,6 +309,15 @@ public class GM : MonoBehaviour
             currentPlayerEffects[Statuseffekte.Gesegnet] = 0;
             }
         }
+        if (currentOpponentEffects.ContainsKey(Statuseffekte.Gelähmt))
+        {
+            coinUsed = true;
+            if (currentOpponentEffects[Statuseffekte.Gelähmt] == 0)
+            {
+                currentOpponentEffects.Remove(Statuseffekte.Gelähmt);
+            }
+        }
+
   
     }
 
@@ -695,6 +704,7 @@ public class GM : MonoBehaviour
         {
             playerturn = true;
             bM.TurnChange(true);
+            coinUsed = false;
             
         }
     }
