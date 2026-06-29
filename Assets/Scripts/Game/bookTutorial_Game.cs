@@ -9,27 +9,8 @@ public class bookTutorial_Game : MonoBehaviour
 
     [SerializeField] private GameObject bookPanel;
     [SerializeField] private Text textFeld;
-
-    //private bool playerInRange = false;
     private bool mausGedrueckt = false;
 
-    /*private void OnTriggerEnter2D(Collider2D other) 
-    {
-      
-        if(other.CompareTag("Player"))
-        {
-            playerInRange = true;
-        }
-    }
-    
-  
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            playerInRange = false;
-        }
-    }*/
 
      private void OnMouseDown()
     {
@@ -43,7 +24,7 @@ public class bookTutorial_Game : MonoBehaviour
 
     private void Update()
     {
-        if(/*playerInRange &&*/ mausGedrueckt)
+        if(mausGedrueckt)
         {
             TextAnzeigen();
         }

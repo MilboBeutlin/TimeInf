@@ -5,7 +5,8 @@ public class GemsTür_Game : MonoBehaviour
 {
 
      [SerializeField] private GM_Game gm;
-     [SerializeField] private GameObject wall;
+     [SerializeField] private GameObject emptyGemSlot;
+     [SerializeField] private GameObject fullGemSlot;
     [SerializeField] private Transform targetDoorSP;
     private bool kollidiert = false;
   private bool gemsEingesetzt = false;
@@ -18,7 +19,7 @@ public class GemsTür_Game : MonoBehaviour
         camera = FindAnyObjectByType<Camera_Game>();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -45,7 +46,8 @@ public class GemsTür_Game : MonoBehaviour
         if(gemsEingesetzt == false && kollidiert && Input.GetKeyDown(KeyCode.E) && gm.giveCurrentPlayerItems().TryGetValue(Items.Gem, out int anzahl) && anzahl == 4)
         {
             gm.RemoveItem(Items.Gem, 4);
-            wall.SetActive(false);
+            Invoke("GemInput",1f);
+            Invoke("DoorOpen",2f);
             gemsEingesetzt = true;
         }
     }
@@ -57,5 +59,14 @@ public class GemsTür_Game : MonoBehaviour
         gm?.ShowText(false);
     }
 
+    void DoorOpen()
+    {
+        fullGemSlot.SetActive(false);
+
+    }
+    void GemInput()
+    {
+        emptyGemSlot.SetActive(false);
+    }
     
 }
