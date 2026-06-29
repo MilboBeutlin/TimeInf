@@ -6,7 +6,6 @@ using System;
 
 public class Datenbank : MonoBehaviour
 {
-    //private Model model;
     public static Datenbank Instance;
     //Alle Stats im Game
     //Player:
@@ -33,7 +32,6 @@ public class Datenbank : MonoBehaviour
     private void Start()
     {
         savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
-        // model = FindAnyObjectByType<Model>();
         //Alle stats im Game
         playerAttacks = new List<Attacks>();
 

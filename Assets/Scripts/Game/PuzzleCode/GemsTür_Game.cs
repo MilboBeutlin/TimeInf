@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using System.Collections;
 
 public class GemsTür_Game : MonoBehaviour
 {
@@ -46,8 +47,8 @@ public class GemsTür_Game : MonoBehaviour
         if(gemsEingesetzt == false && kollidiert && Input.GetKeyDown(KeyCode.E) && gm.giveCurrentPlayerItems().TryGetValue(Items.Gem, out int anzahl) && anzahl == 4)
         {
             gm.RemoveItem(Items.Gem, 4);
-            Invoke("GemInput",1f);
-            Invoke("DoorOpen",2f);
+            emptyGemSlot.SetActive(false);
+            Invoke(nameof (OpenDoor), 0.5f);
             gemsEingesetzt = true;
         }
     }
@@ -59,14 +60,9 @@ public class GemsTür_Game : MonoBehaviour
         gm?.ShowText(false);
     }
 
-    void DoorOpen()
+   void OpenDoor()
     {
         fullGemSlot.SetActive(false);
-
-    }
-    void GemInput()
-    {
-        emptyGemSlot.SetActive(false);
     }
     
 }

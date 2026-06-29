@@ -2,24 +2,9 @@ using UnityEngine;
 using System.Collections.Generic;
 public class Model : MonoBehaviour
 {
-
-    //[SerializeField] private Datenbank DB;
     private Datenbank DB => Datenbank.Instance;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        //DB = FindAnyObjectByType<Datenbank>();
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     // player
-
     public List<Attacks> GetCurrentPlayerAttacks() {
         return DB.GetCurrentPlayerAttacks();
     }

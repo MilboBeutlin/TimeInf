@@ -2,25 +2,9 @@ using UnityEngine;
 using System.Collections.Generic;
 public class Controller : MonoBehaviour
 {
-    //[SerializeField] private Datenbank DB;
     private Datenbank DB => Datenbank.Instance;
     [SerializeField] private GM_Game gm;
 
-    void Start()
-    {
-       // DB = FindAnyObjectByType<Datenbank>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    /*public void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }*/
 
     // player
     public void SetCurrentPlayerAttacks(List<Attacks> attacks) {
