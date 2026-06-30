@@ -21,9 +21,10 @@ public class Door_Game : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+            Player_Game player = other.GetComponent<Player_Game>();
+
             // Door only works if the player enters from the correct direction.
-            if(targetDoorSP != null && ((verticalDoor && rb.linearVelocity.y != 0) || (!verticalDoor && rb.linearVelocity.x != 0)))
+            if(targetDoorSP != null && (verticalDoor && player.CurrentMovement.y != 0) || (!verticalDoor && player.CurrentMovement.x != 0))
             {
                 if(leadsTo == "R6" && model.GetCurrentPlayerItems().ContainsKey(Items.Lighter)) // Remove the darkness if the player owns the lighter.
                 {

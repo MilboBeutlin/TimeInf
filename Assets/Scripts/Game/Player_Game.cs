@@ -13,6 +13,7 @@ public class Player_Game : MonoBehaviour
 [SerializeField] private Controller controller;
 [SerializeField] private GM_Game gameMaster;
 private Vector2 input;
+public Vector2 CurrentMovement => input;
 
 void Update()
 {
