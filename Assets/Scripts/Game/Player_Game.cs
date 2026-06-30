@@ -54,7 +54,7 @@ void FixedUpdate() //movement with raycasts to block walking at walls + only mov
 {
     Vector2 move = input;
 
-    if (move.x != 0)
+   /* if (move.x != 0)
     {
         RaycastHit2D hit = Physics2D.Raycast(body.position, new Vector2(move.x, 0), 0.1f, wallLayer);
         if (hit.collider != null)
@@ -70,7 +70,7 @@ void FixedUpdate() //movement with raycasts to block walking at walls + only mov
         {
             move.y = 0;
         }
-    }
+    }*/
 
     body.linearVelocity = move.normalized * speed;
 }
