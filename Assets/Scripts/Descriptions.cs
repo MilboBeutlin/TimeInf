@@ -13,8 +13,8 @@ public class Description : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        descriptionPanel.SetActive(true); 
-        if(string.IsNullOrEmpty(ownText.text)) // if it isn't a attackButton its assigned Text will be used
+        descriptionPanel.SetActive(true);
+        if (ownText == null)
         {
             descriptionText.text = description;
         }

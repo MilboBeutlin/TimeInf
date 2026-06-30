@@ -8,20 +8,27 @@ public class Item_Game : MonoBehaviour
     [SerializeField] private Attacks attack;
     private GM_Game gm;
     private Controller controller;
+    private Model model;
 
      private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             controller = FindAnyObjectByType<Controller>();
-            controller.AddItem(item, amount);
-            if (attack != Attacks.NULL && FindAnyObjectByType<Model>().GetCurrentPlayerAttacks().Count < 10) //checks if you can collect this attacks and if you have enough space
+            gm = FindAnyObjectByType<GM_Game>();
+            model = FindAnyObjectByType<Model>();
+            if (attack != Attacks.NULL && model.GetCurrentPlayerAttacks().Count < 10 && !model.GetCurrentPlayerAttacks().Contains(attack)) //checks if you can collect this attacks and if you have enough space
             {
                 controller.AddAttack(attack);
+                gm.AttackGot(attack);
             }
-            gm = FindAnyObjectByType<GM_Game>();
-            gm.ItemsGot(item, amount);
+            else if(!model.GetCurrentPlayerAttacks().Contains(attack) || attack == Attacks.NULL)
+            {
+                controller.AddItem(item, amount);
+                gm.ItemsGot(item, amount);
+            }
             Destroy(gameObject);
+
         }
     }
 }

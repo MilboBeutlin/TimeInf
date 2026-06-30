@@ -88699,12 +88699,20 @@ PrefabInstance:
       value: R10
       objectReference: {fileID: 0}
     - target: {fileID: 4889059431554435543, guid: d5619fa93aab4cb4f9d16933e43f120d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889059431554435543, guid: d5619fa93aab4cb4f9d16933e43f120d, type: 3}
       propertyPath: targetDoorSP
       value: 
       objectReference: {fileID: 1486154411}
     - target: {fileID: 4889059431554435543, guid: d5619fa93aab4cb4f9d16933e43f120d, type: 3}
       propertyPath: verticalDoor
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6864552490741221960, guid: d5619fa93aab4cb4f9d16933e43f120d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7789083601915406471, guid: d5619fa93aab4cb4f9d16933e43f120d, type: 3}
       propertyPath: m_Sprite
@@ -126768,7 +126776,7 @@ PrefabInstance:
       objectReference: {fileID: 1988482979}
     - target: {fileID: 4106345480269023353, guid: f66dba6cf652616488ebff9fda5fb1d8, type: 3}
       propertyPath: item
-      value: 8
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4106345480269023353, guid: f66dba6cf652616488ebff9fda5fb1d8, type: 3}
       propertyPath: amount

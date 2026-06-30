@@ -31,6 +31,16 @@ public class Datenbank : MonoBehaviour
 
     private void Start()
     {
+        //Löscht den Speicherstand
+        /*savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
+
+        if (File.Exists(savePath))
+        {
+            File.Delete(savePath);                         
+        }
+
+        Load();*/ 
+        
         savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
         //Alle stats im Game
         playerAttacks = new List<Attacks>();

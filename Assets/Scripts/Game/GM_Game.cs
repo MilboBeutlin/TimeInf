@@ -77,6 +77,12 @@ public class GM_Game : MonoBehaviour
         textItem.text = "You got " + amount + " " + item;
         Invoke("Deactivation", 1f);
     }
+    public void AttackGot(Attacks attack)
+    {
+        itemGotMssg.SetActive(true);
+        textItem.text = "You got " + attack;
+        Invoke("Deactivation", 1f);
+    }
     private void Deactivation()
     {
         itemGotMssg.SetActive(false);
