@@ -4,24 +4,25 @@ public class AudioManager : MonoBehaviour
 {
    public static AudioManager Instance;
    [SerializeField] private AudioSource audioSource;
-    private int volume = 1;
+    private float volume = 0f;
     private bool musicEnabled = true; 
 
    
     void Awake()
+{
+    if (Instance != null)
     {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-
+        Destroy(gameObject);
+        return;
     }
 
-    void Start()
+    Instance = this;
+    DontDestroyOnLoad(gameObject);
+
+    
+}
+
+  /* void Start()
     {
         
     }
@@ -31,40 +32,72 @@ public class AudioManager : MonoBehaviour
     {
         
     }
-
+*/
 
     public void MusikAbspielen(AudioClip audioClip)
     {
 
+    if (audioClip == null)
+        {
+            return;
+        } 
 
-     audioSource.clip = audioClip;
+    if (audioSource.clip == audioClip && audioSource.isPlaying)
+        {
+              return;
+        }
+      
+
+    audioSource.Stop();
+    audioSource.clip = audioClip;
     audioSource.loop = true;
 
-    if (musicEnabled)
-        {
-            audioSource.Play();
-        }
+   
+    audioSource.Play();        
+    Apply();
+    
+
+
     }
 
-    public void SetMusicVolume(int lautstaerke)
+   public void SetMusicVolume(float lautstaerke)
+{
+    volume = lautstaerke;
+    Apply();
+}
+
+
+public void ToggleAudio()
+{
+    musicEnabled = !musicEnabled;
+
+    Apply();
+
+    if (audioSource.isPlaying)
     {
-        volume = lautstaerke;
-        audioSource.volume = musicEnabled ? volume : 0;
+        audioSource.volume = musicEnabled ? volume : 0f;
     }
+}
 
-    public void ToggleAudio(bool eingeschaltet)
+    public float GetVolume()
     {
-        musicEnabled = eingeschaltet;
-
-        if (eingeschaltet)
-        {
-            audioSource.volume = volume;
-        } 
-        else
-        {
-        audioSource.volume = 0;    
-        }
+        return volume;
     }
+
+    public bool IsMusicEnabled()
+    {
+        return musicEnabled;
+    }
+
+
+private void Apply()
+{
+    audioSource.volume = musicEnabled ? volume : 0f;
+}
 
 
 }
+
+
+
+

@@ -1,11 +1,17 @@
 using UnityEngine;
+using System.Collections;
 
 public class SceneMusic : MonoBehaviour
 {
     [SerializeField] private AudioClip audioClip;
 
-    void Start()
-    {
-        AudioManager.Instance.MusikAbspielen(audioClip);
-    }
+    private void Awake()
+{
+    AudioManager.Instance.MusikAbspielen(audioClip);
+}
+private IEnumerator Start()
+{
+    yield return null;
+    AudioManager.Instance.MusikAbspielen(audioClip);
+}
 }
