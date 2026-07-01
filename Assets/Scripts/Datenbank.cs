@@ -52,6 +52,16 @@ public class Datenbank : MonoBehaviour
         }
 
         Load();
+        if(playerAttacks.Count() <= 0)
+        {
+            //starter stuff geaddet
+            currentPlayerStats[0] = 100;
+            AddItem(Items.Coins, 6);
+            AddPlayerAttack(Attacks.Hammer);
+            AddPlayerAttack(Attacks.Strike);
+            AddItem(Items.Brick, 1);
+            AddItem(Items.HealingPotion, 1);
+        }
     }
     
     private void Awake()
@@ -106,7 +116,7 @@ public class Datenbank : MonoBehaviour
     public void Load()
     {
         if (File.Exists(savePath))
-        {
+        { 
             string json = File.ReadAllText(savePath);
 
             GameData data = JsonUtility.FromJson<GameData>(json);
