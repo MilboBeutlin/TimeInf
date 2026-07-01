@@ -52,7 +52,7 @@ public class Datenbank : MonoBehaviour
         }
 
         Load();
-        if (playerItems.Count == 0 && savedPlayerItems.Count == 0)
+        if ()
         {
             AddItem(Items.Coins, 5);
             AddItem(Items.Brick, 1);
@@ -155,6 +155,9 @@ public class Datenbank : MonoBehaviour
         } else
         {
             currentPlayerStats[0] = 100;
+            AddItem(Items.Coins, 6);
+            AddPlayerAttack(Attacks.Hammer);
+            AddPlayerAttack(Attacks.Strike);
         }
         
     }
