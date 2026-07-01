@@ -14,6 +14,7 @@ public class Player_Game : MonoBehaviour
 [SerializeField] private GM_Game gameMaster;
 private Vector2 input;
 public Vector2 CurrentMovement => input;
+[SerializeField] private GameObject globalLight;
 
 void Update()
 {
@@ -48,7 +49,14 @@ void Update()
         }          
     }
 
-    
+    Scene battleScene = SceneManager.GetSceneByName("Fight");
+
+    if (!battleScene.isLoaded)
+    {
+        globalLight.SetActive(true);
+    }else{
+        globalLight.SetActive(false);
+    }
 }
 
 void FixedUpdate() //movement with raycasts to block walking at walls + only movement along each axis
@@ -80,11 +88,27 @@ void OnTriggerEnter2D(Collider2D other)
     if (other.CompareTag("Enemy")) //loading enemie on collision
     {
         EnemyLoading(other.gameObject.GetComponent<Enemy_Game>().type);
-        SceneManager.LoadScene("Fight");
+        SceneManager.LoadScene("Fight", LoadSceneMode.Additive);
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        Destroy(other.gameObject);
     }
     else if (other.CompareTag("Death"))
     {
         gameMaster.PlayerDeath();
+    }
+}
+private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+{
+    if (scene.name == "Fight")
+    {
+        if (globalLight != null && globalLight)
+        {
+            globalLight.SetActive(false);
+        }
+
+        var battleLight = FindFirstObjectByType<UnityEngine.Rendering.Universal.Light2D>();
+
+        battleLight.gameObject.SetActive(true);
     }
 }
 

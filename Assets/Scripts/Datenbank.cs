@@ -29,19 +29,25 @@ public class Datenbank : MonoBehaviour
 
     private string savePath;
 
-    private void Start()
+    public void Start()
     {
         //Löscht den Speicherstand
-        /*savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
-
-        if (File.Exists(savePath))
+        if(ButtonScript.newGame)
         {
-            File.Delete(savePath);                         
+            Debug.Log("Neues Spiel gestartet, Speicherstand wird gelöscht");
+            ButtonScript.newGame = false;
+            savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
+
+            if (File.Exists(savePath))
+            {
+                File.Delete(savePath);                         
+            }
+        }
+        else
+        {
+            savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
         }
 
-        Load();*/ 
-        
-        savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
         //Alle stats im Game
         playerAttacks = new List<Attacks>();
 

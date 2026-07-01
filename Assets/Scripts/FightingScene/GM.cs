@@ -465,7 +465,7 @@ public class GM : MonoBehaviour
                 //game stuff delete
                 Application.Quit();   
             }
-            SceneManager.LoadScene("Game"); 
+            SceneManager.UnloadSceneAsync("Fight");
             
         }else{
         Attacks i;

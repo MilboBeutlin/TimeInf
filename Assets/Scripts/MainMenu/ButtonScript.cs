@@ -9,6 +9,7 @@ public class ButtonScript : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private Text Title;
+    public static bool newGame;
      public void LoadNewScene(string sceneName) //start oder return button
     {
         SceneManager.LoadScene(sceneName);
@@ -22,10 +23,12 @@ public class ButtonScript : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene(1);
-        string savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
-        File.WriteAllText(savePath, null);
-        
+         Debug.Log("NewGame Button geklickt");
+        newGame = true;
+         Datenbank db = FindObjectOfType<Datenbank>();
+         db?.Start();
+         SceneManager.LoadScene(1);
+         
     }
 
     public void OpenSetting()

@@ -11058,6 +11058,7 @@ MonoBehaviour:
   sR: {fileID: 1713716838}
   controller: {fileID: 1706314857}
   gameMaster: {fileID: 1988482979}
+  globalLight: {fileID: 1729054627}
 --- !u!4 &560590465
 Transform:
   m_ObjectHideFlags: 0
