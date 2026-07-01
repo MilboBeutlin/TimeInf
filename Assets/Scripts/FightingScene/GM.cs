@@ -6,6 +6,7 @@ using System;
 using Random = UnityEngine.Random;
 using System.Linq;
 using TMPro;
+
 public class GM : MonoBehaviour
 {
     private Model model;
@@ -42,7 +43,7 @@ public class GM : MonoBehaviour
     [SerializeField] private Sprite[] enemySprites;
     [SerializeField] private GameObject analysisPanel;
     [SerializeField] private GameObject opponentFeedbackPanel;
-    private string[] enemyFeedbackTexts = new string[]{"Eye beam", "Horn attack","Flaming strike", "Heabutt", "Void edge", "Shadow touch", "Hellish Bite", "Leg lunge", "Volcanic Slam", "Magma Burst", "Eclipse", "Phantasma wave"};
+    private string[] enemyFeedbackTexts = new string[]{"Eye beam", "Horn attack","Flaming strike", "Heabutt", "Void edge", "Shadow touch", "Hellish Bite", "Leg lunge", "Volcanic Slam", "Magma Burst", "Eclipse", "Phantasma wave", "CrownOfDamnation", "Chaos Lance"};
 
     //health, attack, armor, speed, dk
 
@@ -457,6 +458,13 @@ public class GM : MonoBehaviour
         if (currentopponentStats[0] <= 0)
         {
             DoSave();
+            if(enemy == Gegner.Endboss)
+            {
+                //Endboss besiegt, Spiel beenden
+                Debug.Log("Endboss besiegt, Spiel beenden");
+                //game stuff delete
+                Application.Quit();   
+            }
             SceneManager.LoadScene("Game"); 
             
         }else{

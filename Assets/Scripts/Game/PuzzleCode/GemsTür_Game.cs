@@ -12,7 +12,7 @@ public class GemsTür_Game : MonoBehaviour
     private bool kollidiert = false;
   private bool gemsEingesetzt = false;
     private Camera_Game camera;
-   private Vector2 pos;
+   //private Vector2 pos;
 
     
     private void Start()
@@ -31,12 +31,12 @@ public class GemsTür_Game : MonoBehaviour
                     gm.ShowText(true);
                     kollidiert = true;
                 }
-            else if(targetDoorSP != null && rb.linearVelocity.y != 0)
+            else if(targetDoorSP != null && rb.linearVelocity.x != 0)
             {
-                    pos = targetDoorSP.position;
-                    pos += new Vector2(0, 5);
-                    other.transform.position = pos;
-                    camera.UpdateCamera("R10");
+                    //pos = targetDoorSP.position;
+                    //pos += new Vector2(0, 5);
+                    other.transform.position = targetDoorSP.position;
+                    camera.UpdateCamera("R11");
             }
         }
     }
@@ -44,7 +44,7 @@ public class GemsTür_Game : MonoBehaviour
 
     void Update()
     {
-        if(gemsEingesetzt == false && kollidiert && Input.GetKeyDown(KeyCode.E) && gm.giveCurrentPlayerItems().TryGetValue(Items.Gem, out int anzahl) && anzahl == 4)
+        if(gemsEingesetzt == false && kollidiert && Input.GetKeyDown(KeyCode.E) && gm.giveCurrentPlayerItems().TryGetValue(Items.Gem, out int anzahl) && anzahl >= 4)
         {
             gm.RemoveItem(Items.Gem, 4);
             emptyGemSlot.SetActive(false);
