@@ -685,7 +685,7 @@ public class GM : MonoBehaviour
 
             case Items.Coins:
                 currentopponentStats[0] -= 1;
-
+                coinUsed = true;
                 break;
 
             case Items.MirrorShard:
