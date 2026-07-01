@@ -52,22 +52,6 @@ public class Datenbank : MonoBehaviour
         }
 
         Load();
-        if ()
-        {
-            AddItem(Items.Coins, 5);
-            AddItem(Items.Brick, 1);
-            AddItem(Items.HealingPotion, 1);
-            
-        }
-        /*else{
-            playerItems = savedPlayerItems;
-        } */
-
-        if (playerAttacks.Count == 0)
-        {
-            playerAttacks.Add(Attacks.Hammer);
-            playerAttacks.Add(Attacks.Strike);
-        }
     }
     
     private void Awake()
@@ -154,10 +138,13 @@ public class Datenbank : MonoBehaviour
 
         } else
         {
+            //starter stuff geaddet
             currentPlayerStats[0] = 100;
             AddItem(Items.Coins, 6);
             AddPlayerAttack(Attacks.Hammer);
             AddPlayerAttack(Attacks.Strike);
+            AddItem(Items.Brick, 1);
+            AddItem(Items.HealingPotion, 1);
         }
         
     }
