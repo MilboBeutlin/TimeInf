@@ -24,14 +24,14 @@ public class GemsTür_Game : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
+            Player_Game player = other.GetComponent<Player_Game>();
             if(gemsEingesetzt == false)
                 {
                     gm.ChangeText("Press E to  insert Gems and open Door");
                     gm.ShowText(true);
                     kollidiert = true;
                 }
-            else if(targetDoorSP != null && rb.linearVelocity.x != 0)
+            else if(targetDoorSP != null && player.CurrentMovement.y != 0)
             {
                     //pos = targetDoorSP.position;
                     //pos += new Vector2(0, 5);
