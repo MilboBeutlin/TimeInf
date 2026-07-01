@@ -1,6 +1,6 @@
 using System.IO;
 using TMPro;
-using UnityEditor.Overlays;
+
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,7 +24,7 @@ public class ButtonScript : MonoBehaviour
     public void NewGame()
     {
          Debug.Log("NewGame Button geklickt");
-        newGame = true;
+         newGame = true;
          Datenbank db = FindObjectOfType<Datenbank>();
          db?.Start();
          SceneManager.LoadScene(1);
