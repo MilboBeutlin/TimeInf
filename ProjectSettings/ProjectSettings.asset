@@ -14,7 +14,7 @@ PlayerSettings:
   accelerometerFrequency: 60
   companyName: DefaultCompany
   productName: TimeInf
-  defaultCursor: {fileID: 2800000, guid: b7d813c7498f01a4aa1c23c62c6023a1, type: 3}
+  defaultCursor: {fileID: 2800000, guid: 8716bc8b510ff0841b3f9e435379fa60, type: 3}
   cursorHotspot: {x: 16, y: 16}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
