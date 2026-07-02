@@ -23,12 +23,15 @@ public class ButtonScript : MonoBehaviour
 
     public void NewGame()
     {
-         Debug.Log("NewGame Button geklickt");
-         newGame = true;
+         /*Debug.Log("NewGame Button geklickt");
+         newGame = true;*/
          Datenbank db = FindObjectOfType<Datenbank>();
-         db?.Start();
-         SceneManager.LoadScene(1);
+         db?.NewGame();
          
+ 
+        
+
+        SceneManager.LoadScene(1);
     }
 
     public void OpenSetting()

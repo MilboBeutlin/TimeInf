@@ -3,7 +3,6 @@ using System.Collections.Generic;
 public class Controller : MonoBehaviour
 {
     private Datenbank DB => Datenbank.Instance;
-    [SerializeField] private GM_Game gm;
 
 
     // player

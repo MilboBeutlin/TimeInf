@@ -100,7 +100,8 @@ public class GM : MonoBehaviour
     //Läd alle relevanten Daten aus der DB in diese Klasse
     public void DoLoad()
     {
-        
+        Debug.Log("Attacken in DB: " + model.GetCurrentPlayerAttacks().Count);
+Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
         for(int i = 0; i < currentPlayerAttacksArray.Length;i++)
         {
             currentPlayerAttacksArray[i] = Attacks.NULL;

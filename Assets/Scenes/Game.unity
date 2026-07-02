@@ -89925,7 +89925,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1706314856}
-  - component: {fileID: 1706314855}
   - component: {fileID: 1706314854}
   - component: {fileID: 1706314857}
   m_Layer: 0
@@ -89947,18 +89946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef0d63917a71fa64f9a334d09da17f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Model
---- !u!114 &1706314855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1706314853}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31c7c9ce296924a4dbb887594deb5f8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Datenbank
 --- !u!4 &1706314856
 Transform:
   m_ObjectHideFlags: 0
@@ -89986,7 +89973,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6900e791e8767a46a82b4e3c73dc71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Controller
-  gm: {fileID: 0}
 --- !u!4 &1708300776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5401070039773527561, guid: f66dba6cf652616488ebff9fda5fb1d8, type: 3}

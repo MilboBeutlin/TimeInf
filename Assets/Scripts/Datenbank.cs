@@ -32,7 +32,7 @@ public class Datenbank : MonoBehaviour
     public void Start()
     {
         //Löscht den Speicherstand
-        if(ButtonScript.newGame)
+        /*if(ButtonScript.newGame)
         {
             Debug.Log("Neues Spiel gestartet, Speicherstand wird gelöscht");
             ButtonScript.newGame = false;
@@ -46,10 +46,12 @@ public class Datenbank : MonoBehaviour
         else
         {
             savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
-        }
-
+        }*/
+        savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
         //Alle stats im Game
         playerAttacks = new List<Attacks>();
+        playerItems = new Dictionary<Items, int>();
+        playerEffects = new Dictionary<Statuseffekte, int>();
 
         currentOponnentAttacks = new Attacks[6];
         for (int i = 0; i <currentOponnentAttacks.Length; i++)
@@ -68,6 +70,16 @@ public class Datenbank : MonoBehaviour
             AddItem(Items.Brick, 1);
             AddItem(Items.HealingPotion, 1);
         }
+    }
+    public void NewGame()
+    {
+        savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
+
+        if (File.Exists(savePath))
+        {
+            File.Delete(savePath);
+        }
+        Load(); // Load the default game state after deleting the save file
     }
     
     private void Awake()
@@ -121,6 +133,7 @@ public class Datenbank : MonoBehaviour
 
     public void Load()
     {
+        Debug.Log("Vor Load: " + playerAttacks.Count);
         if (File.Exists(savePath))
         { 
             string json = File.ReadAllText(savePath);
@@ -147,13 +160,21 @@ public class Datenbank : MonoBehaviour
 
                 }
             }
-
             currentPlayerStats = data.Stats;
             savePlayerLocation = data.Location;
             
 
         } else
         {
+            //start location player
+            spawnPosition = new Vector3(0, 0, 0);
+            savePlayerLocation = "K1";
+
+            //resett
+            playerAttacks = new List<Attacks>();
+            playerItems = new Dictionary<Items, int>();
+            playerEffects = new Dictionary<Statuseffekte, int>();
+
             //starter stuff geaddet
             currentPlayerStats[0] = 100;
             AddItem(Items.Coins, 6);
@@ -162,7 +183,7 @@ public class Datenbank : MonoBehaviour
             AddItem(Items.Brick, 1);
             AddItem(Items.HealingPotion, 1);
         }
-        
+        Debug.Log("Nach Load: " + playerAttacks.Count);
     }
 
     
