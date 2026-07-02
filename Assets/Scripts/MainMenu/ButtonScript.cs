@@ -5,15 +5,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+//manages the buttons in the main menu and the pause menu
+
 public class ButtonScript : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private Text Title;
     public static bool newGame;
-     public void LoadNewScene(string sceneName) //start oder return button
+     public void LoadNewScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
-        Time.timeScale = 1f;
+        Time.timeScale = 1f;                    //time resumes normally
     }
 
     public void ExitGame()
@@ -21,23 +23,17 @@ public class ButtonScript : MonoBehaviour
         Application.Quit();
     }
 
-    public void NewGame()
+    public void NewGame() //resets all the data and loads the game 
     {
-         /*Debug.Log("NewGame Button geklickt");
-         newGame = true;*/
-         Datenbank db = FindObjectOfType<Datenbank>();
-         db?.NewGame();
-         
- 
-        
-
+        Datenbank db = FindObjectOfType<Datenbank>();
+        db?.NewGame();
         SceneManager.LoadScene(1);
     }
 
     public void OpenSetting()
     {
-        pauseMenu.SetActive(!pauseMenu.activeSelf);
-        Time.timeScale = pauseMenu.activeSelf? 0:1;
+        pauseMenu.SetActive(!pauseMenu.activeSelf); //pauseMenu on/off based on its current state
+        Time.timeScale = pauseMenu.activeSelf? 0:1; //time flow off / normal speed based on the current state of pauseMenu
     }
 
     public void Update()

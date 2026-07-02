@@ -298,6 +298,7 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
             currentOpponentEffects[Statuseffekte.Gesegnet] -= 1;
             if (currentOpponentEffects[Statuseffekte.Gesegnet] == 0)
             {
+                currentopponentStats[1] += 20;
                 currentOpponentEffects.Remove(Statuseffekte.Gesegnet);
             }
         }
@@ -307,8 +308,9 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
             currentPlayerEffects[Statuseffekte.Gesegnet] -= 1;
             if(currentPlayerEffects[Statuseffekte.Gesegnet] == 0)
             {
+                currentplayerStats[1] -= 15;
                 currentPlayerEffects.Remove(Statuseffekte.Gesegnet);
-            currentPlayerEffects[Statuseffekte.Gesegnet] = 0;
+                currentPlayerEffects[Statuseffekte.Gesegnet] = 0;
             }
         }
         if (currentOpponentEffects.ContainsKey(Statuseffekte.Gelähmt))

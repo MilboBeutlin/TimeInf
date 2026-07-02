@@ -6843,7 +6843,7 @@ GameObject:
   - component: {fileID: 470630373}
   - component: {fileID: 470630372}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: particel_background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6896,7 +6896,7 @@ ParticleSystemRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 15
   m_MaskInteraction: 0
   m_RenderMode: 4
   m_MeshDistribution: 1
@@ -20363,7 +20363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: You are Holy
+  description: You are blessed. You deal more damage
   ownText: {fileID: 0}
 --- !u!1 &1110718323
 GameObject:

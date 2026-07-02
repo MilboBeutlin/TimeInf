@@ -14,7 +14,6 @@ public class ClosedEntry_Game : MonoBehaviour
         // Open the passage when the player interacts while carrying the required key.
         if(gameMaster.GetText() == "Press E to use Key" && isColliding && Input.GetKeyDown(KeyCode.E) && gameMaster.giveCurrentPlayerItems().ContainsKey(Items.StrangeKey))
         {
-            gameMaster.RemoveItem(Items.StrangeKey, 1);
             wall.SetActive(false);
         }
     }
