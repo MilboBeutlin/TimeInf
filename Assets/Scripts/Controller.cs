@@ -90,5 +90,9 @@ public class Controller : MonoBehaviour
     {
         DB.SetSpawnPosition(spawnPosition);
     }
+    public void NewGame()
+    {
+        DB.NewGame();
+    }
     
 }

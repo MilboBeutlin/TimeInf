@@ -1,13 +1,22 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
+//moves credits up the screen and returns to main menu when finished
 
 public class Credits : MonoBehaviour
 {
-    [Header("Scroll-Geschwindigkeit")]
-    [SerializeField] private float scrollSpeed = 20f;
+    private float scrollSpeed = 40f;
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * Time.deltaTime * scrollSpeed);
+        transform.Translate(Vector3.up * Time.deltaTime * scrollSpeed); // Move the credits up the screen
+
+        Invoke(nameof(ReturnToMenu), 50); // Call the ReturnToMenu method after the specified duration
+    }
+
+    void ReturnToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

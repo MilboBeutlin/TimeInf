@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class ButtonScript : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private Text Title;
+    [SerializeField] private Text title;
     public static bool newGame;
      public void LoadNewScene(string sceneName)
     {
@@ -39,11 +39,11 @@ public class ButtonScript : MonoBehaviour
     public void Update()
     {
         //Secret Easter Egg lol
-        if(Title != null)
+        if(title != null)
         {
             if (Input.GetKey(KeyCode.H) && Input.GetKey(KeyCode.U) && Input.GetKey(KeyCode.X) && Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.V))
             {
-                Title.text = "Alles gute zum Vatertag Leon";
+                title.text = "Alles gute zum Vatertag Leon";
             }
         }
         

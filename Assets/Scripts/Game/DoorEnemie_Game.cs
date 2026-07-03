@@ -34,7 +34,10 @@ public class DoorEnemie_Game : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        gm?.ShowText(false);
+        if (other.CompareTag("Player"))
+        {
+            gm?.ShowText(false);
+        }
         
     }
     //moves the enemy or spawn it if it was the second time walking awway from it

@@ -10,6 +10,8 @@ public class Chest_Game : MonoBehaviour
     private bool status;
     private bool isColliding;
     private Controller controller;
+    [Header("isOpen: no content, !isOpen: has content")]
+    [SerializeField] private bool isOpen;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -31,7 +33,7 @@ public class Chest_Game : MonoBehaviour
     }
     void Update()
     {
-        if(isColliding && Input.GetKeyDown(KeyCode.E) && !status)
+        if(isColliding && Input.GetKeyDown(KeyCode.E) && !status && !isOpen)
         {
             sR.sprite = openChest; //Grafik Chest offen
             controller = FindAnyObjectByType<Controller>();
@@ -40,6 +42,9 @@ public class Chest_Game : MonoBehaviour
             Debug.Log("You gained: " + item);
             status = true;
             gm.ShowText(false);
+        }else if(isColliding && Input.GetKeyDown(KeyCode.E) && !status && isOpen)
+        {
+            gm.ChangeText("It's already open");
         }
     }
     

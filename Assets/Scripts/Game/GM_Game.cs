@@ -49,11 +49,11 @@ public class GM_Game : MonoBehaviour
     {
         if( i == true)
         {
-            textFeld.SetActive(true);
+            textFeld?.SetActive(true);
         }
         else
         {
-            textFeld.SetActive(false);
+            textFeld?.SetActive(false);
         }
     }
 

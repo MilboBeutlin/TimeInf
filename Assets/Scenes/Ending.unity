@@ -599,7 +599,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71cd6160e8ffe5b4896c266ae7cd88e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Credits
-  scrollSpeed: 40
 --- !u!114 &1944721720
 MonoBehaviour:
   m_ObjectHideFlags: 0

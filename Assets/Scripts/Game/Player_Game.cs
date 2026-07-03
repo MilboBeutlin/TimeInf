@@ -63,31 +63,14 @@ void FixedUpdate() //movement with raycasts to block walking at walls + only mov
 {
     Vector2 move = input;
 
-   /* if (move.x != 0)
-    {
-        RaycastHit2D hit = Physics2D.Raycast(body.position, new Vector2(move.x, 0), 0.1f, wallLayer);
-        if (hit.collider != null)
-        {
-            move.x = 0;
-        }
-    }
-
-    if (move.y != 0)
-    {
-        RaycastHit2D hit = Physics2D.Raycast(body.position, new Vector2(0, move.y), 0.1f, wallLayer);
-        if (hit.collider != null)
-        {
-            move.y = 0;
-        }
-    }*/
-
     body.linearVelocity = move.normalized * speed;
 }
 void OnTriggerEnter2D(Collider2D other)
 {
     if (other.CompareTag("Enemy")) //loading enemie on collision
     {
-        EnemyLoading(other.gameObject.GetComponent<Enemy_Game>().type);
+        controller.SetCurrentOponent(other.gameObject.GetComponent<Enemy_Game>().type);
+        
         SceneManager.LoadScene("Fight", LoadSceneMode.Additive);
         SceneManager.sceneLoaded += OnSceneLoaded;
         Destroy(other.gameObject);
@@ -110,38 +93,5 @@ private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 
         battleLight.gameObject.SetActive(true);
     }
-}
-
-private void EnemyLoading(Gegner type) 
-{
-    if (type == Gegner.Endboss)
-    {
-        //setting endboss attacks
-        controller.SetCurrentOponnentAttacks(new Attacks[]
-        {
-            Attacks.DarkSlash,
-            Attacks.PoisonThrow,
-            Attacks.CrownOfDamnation,
-            Attacks.DemonSphere,
-            Attacks.ChaosLance,
-            Attacks.EvilBlock,
-            Attacks.DarkResonance,
-            Attacks.KingsBreaker,
-            Attacks.EndlessDarkness
-        });
-    }
-    else
-    {
-        //setting attacks for opponents
-        controller.SetCurrentOponnentAttacks(new Attacks[]
-        {
-            Attacks.BasicAttack,
-            Attacks.MinorAttack,
-            Attacks.Debuff,         //depends on the enemy which debuff
-            Attacks.BuffSteal,
-            Attacks.AttackBlock
-        });
-    }
-    controller.SetCurrentOponent(type);
 }
 }

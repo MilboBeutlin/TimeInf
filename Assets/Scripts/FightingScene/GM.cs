@@ -466,7 +466,8 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
                 //Endboss besiegt, Spiel beenden
                 Debug.Log("Endboss besiegt, Spiel beenden");
                 //game stuff delete
-                Application.Quit();   
+                controller.NewGame();
+                SceneManager.LoadScene(3);
             }
             SceneManager.UnloadSceneAsync("Fight");
             
