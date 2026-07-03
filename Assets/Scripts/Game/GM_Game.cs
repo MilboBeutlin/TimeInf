@@ -26,7 +26,6 @@ public class GM_Game : MonoBehaviour
     {
         /*model = FindAnyObjectByType<Model>();
         controller = FindAnyObjectByType<Controller>();*/
-        textFeld.SetActive(false);
         pauseMenu.SetActive(false);
         
         player.transform.position = model.GetSpawnPosition();
@@ -34,11 +33,20 @@ public class GM_Game : MonoBehaviour
         camera.UpdateCamera(model.GetSavePlayerLocation());
         Debug.Log(model.GetSpawnPosition());
         Debug.Log(model.GetSavePlayerLocation());
+        ChangeText("You can click on books to read them.");
+        ShowText(true);
+        Invoke(nameof(CloseTutorial), 10f);
+    }
+    private void CloseTutorial()
+    {
+        if(text.text == "You can click on books to read them.")
+        {
+            ShowText(false);
+        }
     }
     
     public void ChangeText(string Itext)
     {
-        //text.GetComponent<TMP_Text>().text = Itext;
         text.text = Itext;
     }
     public string GetText()
