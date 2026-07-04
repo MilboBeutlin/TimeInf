@@ -48,7 +48,7 @@ public class GM : MonoBehaviour
     [SerializeField] private OnHitEffect player;
     [SerializeField] private OnHitEffect enemy;
 
-    //health, attack, armor, speed, dk
+    private GM_Game gameMaster;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,6 +56,7 @@ public class GM : MonoBehaviour
         bM = FindAnyObjectByType<ButtonManager>();
         model = FindAnyObjectByType<Model>();
         controller = FindAnyObjectByType<Controller>();
+        gameMaster = FindAnyObjectByType<GM_Game>();
 
         //Fight Logic
         playerturn = true;
@@ -477,6 +478,7 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
                 SceneManager.LoadScene(3);
             }
             await SceneManager.UnloadSceneAsync("Fight");
+            gameMaster.LightsSwitchToFight(false);
             
         }else{
         Attacks i;

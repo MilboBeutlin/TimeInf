@@ -10,13 +10,13 @@ private float walkSpeed = 8f;
 private float sprintSpeed = 16f;
 [SerializeField] private Rigidbody2D body;
 [SerializeField] private LayerMask wallLayer;
-[SerializeField] private Sprite[] sprites;
+[SerializeField] private Sprite[] playerSprites;
 [SerializeField] private SpriteRenderer sR;
 [SerializeField] private Controller controller;
 [SerializeField] private GM_Game gameMaster;
 private Vector2 input;
 public Vector2 CurrentMovement => input;
-[SerializeField] private GameObject globalLight;
+
 
 void Update()
 {
@@ -31,11 +31,11 @@ void Update()
 
         if (input.x < 0)
         {
-            sR.sprite = sprites[0]; // facing left
+            sR.sprite = playerSprites[0]; // facing left
         }
         else
         {
-            sR.sprite = sprites[1]; // facing right
+            sR.sprite = playerSprites[1]; // facing right
         }
             
     }
@@ -43,11 +43,11 @@ void Update()
     {
         if (input.y < 0)
         {
-            sR.sprite = sprites[2]; // facing down
+            sR.sprite = playerSprites[2]; // facing down
         }
         else
         {
-            sR.sprite = sprites[3]; // facing up
+            sR.sprite = playerSprites[3]; // facing up
         }          
     }
 
@@ -58,16 +58,6 @@ void Update()
     else
     {
         currentSpeed = walkSpeed;
-    }
-
-
-    Scene battleScene = SceneManager.GetSceneByName("Fight");
-
-    if (!battleScene.isLoaded)
-    {
-        globalLight.SetActive(true);
-    }else{
-        globalLight.SetActive(false);
     }
 }
 
@@ -84,26 +74,12 @@ void OnTriggerEnter2D(Collider2D other)
         controller.SetCurrentOponent(other.gameObject.GetComponent<Enemy_Game>().type);
         gameMaster.ShowText(false);
         SceneManager.LoadScene("Fight", LoadSceneMode.Additive);
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        gameMaster.LightsSwitchToFight(true);
         Destroy(other.gameObject);
     }
     else if (other.CompareTag("Death"))
     {
         gameMaster.PlayerDeath();
-    }
-}
-private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-{
-    if (scene.name == "Fight")
-    {
-        if (globalLight != null && globalLight)
-        {
-            globalLight.SetActive(false);
-        }
-
-        var battleLight = FindFirstObjectByType<UnityEngine.Rendering.Universal.Light2D>();
-
-        battleLight.gameObject.SetActive(true);
     }
 }
 }

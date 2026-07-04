@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.Rendering.Universal;
 
 public class GM_Game : MonoBehaviour
 {
@@ -19,13 +20,12 @@ public class GM_Game : MonoBehaviour
     
     [SerializeField] private Text textItem;
     [SerializeField] private GameObject spawnPoint;
+    [SerializeField] private Light2D gameLight;
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        /*model = FindAnyObjectByType<Model>();
-        controller = FindAnyObjectByType<Controller>();*/
         pauseMenu.SetActive(false);
         
         player.transform.position = model.GetSpawnPosition();
@@ -37,6 +37,7 @@ public class GM_Game : MonoBehaviour
         ShowText(true);
         Invoke(nameof(CloseTutorial), 10f);
     }
+
     private void CloseTutorial()
     {
         if(text.text == "You can click on books to read them.")
@@ -96,4 +97,10 @@ public class GM_Game : MonoBehaviour
     {
         itemGotMssg.SetActive(false);
     }
+
+    public void LightsSwitchToFight(bool switchToFight)
+    {
+       gameLight.intensity = switchToFight ? 0.03f : 0.25f;
+    }
+
 }

@@ -34,7 +34,7 @@ public class ClosedEntry_Game : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isColliding = false;
-            gameMaster.ShowText(false);
+            gameMaster?.ShowText(false);
         }
     }
 }
