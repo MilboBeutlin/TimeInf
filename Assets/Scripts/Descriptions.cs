@@ -51,14 +51,4 @@ public class Description : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         descriptionPanel.SetActive(false);
     }
-   /* void OnMouseEnter()
-    {
-        descriptionPanel.SetActive(true);
-        descriptionText.text = description;
-    }
-
-    void OnMouseExit()
-    {
-        descriptionPanel.SetActive(false);
-    }*/
 }

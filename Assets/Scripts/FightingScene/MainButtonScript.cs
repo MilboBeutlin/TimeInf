@@ -2,6 +2,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading.Tasks;
 //using static System.Net.Mime.MediaTypeNames;
 
 public class MainButtonScript : MonoBehaviour
@@ -115,22 +116,22 @@ void Awake()
     }
 
     // F�r Unity Buttons, um Attacken auszuf�hren
-    public void DoAttack(int i)
+    public async void DoAttack(int i)
     {
         if (i == 5 && GM.givePlayerAttack(7) != Attacks.NULL)
         {
             FirstAttackPage = !FirstAttackPage;
         } else if (FirstAttackPage == false && GM.givePlayerAttack(7) != Attacks.NULL)
         {
-            GM.DoAttack(i +5);
+            await GM.DoAttack(i +5);
         } else {
-            GM.DoAttack(i);
+            await GM.DoAttack(i);
         }
     }
-    public void DoUseItem(int r)
+    public async void DoUseItem(int r)
     {
         Items i = (Items)r;
-        GM.DoUseItem(i);
+        await GM.DoUseItem(i);
     }
 
     public void SwitchAttackPages()

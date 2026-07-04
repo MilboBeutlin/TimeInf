@@ -6,6 +6,7 @@ using System;
 using Random = UnityEngine.Random;
 using System.Linq;
 using TMPro;
+using System.Threading.Tasks;
 
 public class GM : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class GM : MonoBehaviour
 
     private int GegnerDamageLastRound; //nur relevant für Item Spiegelfragment!!
 
-    private int timer;
+    //private int timer;
 
     [SerializeField] private GameObject SliderPlayerLife;
     [SerializeField] private GameObject SliderGegnerLife;
@@ -44,6 +45,8 @@ public class GM : MonoBehaviour
     [SerializeField] private GameObject analysisPanel;
     [SerializeField] private GameObject opponentFeedbackPanel;
     private string[] enemyFeedbackTexts = new string[]{"Eye beam", "Horn attack","Flaming strike", "Heabutt", "Void edge", "Shadow touch", "Hellish Bite", "Leg lunge", "Volcanic Slam", "Magma Burst", "Eclipse", "Phantasma wave", "CrownOfDamnation", "Chaos Lance"};
+    [SerializeField] private OnHitEffect player;
+    [SerializeField] private OnHitEffect enemy;
 
     //health, attack, armor, speed, dk
 
@@ -72,7 +75,7 @@ public class GM : MonoBehaviour
         SliderPlayerLife.GetComponent<Slider>().value = currentplayerStats[0];
         SliderGegnerLife.GetComponent<Slider>().value = currentopponentStats[0];
         
-        if(timer > 0)
+        /*if(timer > 0)
         {
             timer--;
         } else
@@ -80,7 +83,7 @@ public class GM : MonoBehaviour
             OponentFeedbackText.text = " ";
             opponentFeedbackPanel.SetActive(false);
             //AnalyseText.text = " ";
-        }
+        }*/
 
         // wenn PlayerHP == 0, dann
         if (currentplayerStats[0] <= 0)
@@ -325,7 +328,7 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
   
     }
 
-    public void DoAttack(int y)
+    public async Task DoAttack(int y)
     {
         Turn();
 
@@ -353,7 +356,7 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
 
             case Attacks.Hammer:
                  currentopponentStats[0] -= Math.Max(0, 50 - currentopponentStats[2]); // 50 schaden / rüstung
-                 Debug.Log("Hammer");
+                 await enemy.PlayHitEffect();
                 break;
 
 
@@ -364,6 +367,7 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
                 {
                 SetEffect(Statuseffekte.Blutend, 3, false);
                 }
+                await enemy.PlayHitEffect();
                 break;
 
 
@@ -374,6 +378,7 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
                 {
                 SetEffect(Statuseffekte.Gelähmt, 1, false);
                 }
+                await enemy.PlayHitEffect();
             break;
 
             case Attacks.PoisonDagger:
@@ -384,11 +389,13 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
                 {
                  SetEffect(Statuseffekte.Blutend, 3, false);
                  }
+                 await enemy.PlayHitEffect();
                 break;
 
             case Attacks.Fireball:
                 currentopponentStats[0] -= Math.Max(0, 45 - currentopponentStats[2]);
                 SetEffect(Statuseffekte.Brennend, 1, false);
+                await enemy.PlayHitEffect();
             break;
 
             case Attacks.Dampen:
@@ -398,10 +405,12 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
             case Attacks.Vengeance:
                 int random4 = Random.Range(30, 100);
                 currentopponentStats[0] -= Math.Max(0, random4 - currentopponentStats[2]);
+                await enemy.PlayHitEffect();
                 break;
 
             case Attacks.Dig:
                 currentopponentStats[0] -= 10; // ignoriert rüstung
+                await enemy.PlayHitEffect();
              break;
 
              case Attacks.LightOfHope:
@@ -416,6 +425,7 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
                 } else {
                 currentopponentStats[0] -= Math.Max(0, 60 - currentopponentStats[2]);
                 }
+                await enemy.PlayHitEffect();
             break;
 
             case Attacks.Cleansing:
@@ -423,12 +433,9 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
             break;
 
             case Attacks.AgonyStrike:
-                //if (currentplayerStats[0] * (8/10) > 0)
-                //{
                 currentplayerStats[0] = Math.Max(1, currentplayerStats[0] * 8 / 10);
                 currentopponentStats[0] -= Math.Max(0, 90 - currentopponentStats[2]);
-                //}
-                //else Debug.Log("bitte nicht");
+                await enemy.PlayHitEffect();
             break;
 
             case Attacks.Enlightenment:
@@ -449,13 +456,13 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
                 Debug.Log("Error M10");
                 break;
         }
-
-        OponentTurn();
+        await Task.Delay(600);
+        await OponentTurn();
     }
 
     
 
-    public void OponentTurn()
+    async Task OponentTurn()
     {
         Gegner enemy = model.GetCurrentOponent();
         if (currentopponentStats[0] <= 0)
@@ -469,7 +476,7 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
                 controller.NewGame();
                 SceneManager.LoadScene(3);
             }
-            SceneManager.UnloadSceneAsync("Fight");
+            await SceneManager.UnloadSceneAsync("Fight");
             
         }else{
         Attacks i;
@@ -556,11 +563,15 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
                 case Attacks.BasicAttack:
                     currentplayerStats[0] -= Math.Max(0, 40 - currentplayerStats[2]);
                     OponentFeedbackText.text = "Enemy uses " + enemyFeedbackTexts[((int)enemy-1)*2];
+                    opponentFeedbackPanel?.SetActive(true);
+                    await player.PlayHitEffect();
                     break;
 
                 case Attacks.MinorAttack:
                     currentplayerStats[0] -= Math.Max(0, 30 - currentplayerStats[2]);
-                OponentFeedbackText.text = "Enemy uses " + enemyFeedbackTexts[((int)enemy-1)*2+1];
+                    OponentFeedbackText.text = "Enemy uses " + enemyFeedbackTexts[((int)enemy-1)*2+1];
+                    opponentFeedbackPanel?.SetActive(true);
+                    await player.PlayHitEffect();
                 break;
 
                 case Attacks.Debuff:
@@ -586,6 +597,8 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
                     {
                     currentplayerStats[0] -= 10; //Math.Max(0, 10 - currentopponentStats[2]);
                     OponentFeedbackText.text = "Enemy uses " + enemyFeedbackTexts[(int)enemy*2+1];
+                    opponentFeedbackPanel?.SetActive(true);
+                    await player.PlayHitEffect();
                     }
 
                     break;
@@ -609,22 +622,23 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
                 
 
             }
-        opponentFeedbackPanel.SetActive(true);
-        timer = 100;
+        opponentFeedbackPanel?.SetActive(true);
+        //timer = 100;
+        await Task.Delay(100);
         playerturn = true;
         bM.TurnChange(true);
         }
     }
 
     
-    public void DoUseItem(Items item)
+    public async Task DoUseItem(Items item)
     {
         Turn();
 
         if(currentPlayerItems.ContainsKey(item) == false)
         {
             Debug.Log("Der Spieler hat ein Item benutzt, welches nicht im Inventar ist. >:( grrr");
-            OponentTurn();
+            await OponentTurn();
             return;
         }
         int randInt = Random.Range(0, 10);
@@ -689,16 +703,19 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
 
             case Items.Coins:
                 currentopponentStats[0] -= 1;
+                await enemy.PlayHitEffect();
                 coinUsed = true;
                 break;
 
             case Items.MirrorShard:
                 currentopponentStats[0] -= GegnerDamageLastRound;
+                await enemy.PlayHitEffect();
                 break;
 
             case Items.Brick:
                 currentopponentStats[0] -= Math.Max(0, 40 - currentopponentStats[2]);
                 SetEffect(Statuseffekte.Gelähmt, 1, false);
+                await enemy.PlayHitEffect();
                 break;
 
         }
@@ -710,7 +727,8 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
         bM.CheckItems();
         if(coinUsed == false)
         {
-            OponentTurn();
+            await Task.Delay(600);
+            await OponentTurn();
             coinUsed = false;
         } else
         {
@@ -750,7 +768,7 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
                 break;
 
             case Gegner.StorageGuard:
-                AnalyseText.text = "This is a simple Guard. He has litte HEalth, but a tuff Armour!";
+                AnalyseText.text = "This is a simple Guard. He has little HEalth, but a tuff Armour!";
                 break;
             case Gegner.Insects:
                 AnalyseText.text = "These little Beasts, with little to no health or Armour, can be a real Nightmare!";
