@@ -47,30 +47,40 @@ public class ButtonManager : MonoBehaviour
 
     public void MainButton()
     {
-        mainButtons.SetActive(true);
-        attackButtons.SetActive(false);
-        itemButtons.SetActive(false);
+        if(mainButtons && attackButtons && itemButtons)
+        {
+            mainButtons.SetActive(true);
+            attackButtons.SetActive(false);
+            itemButtons.SetActive(false);
+        }
     }
     public void AttackButtons()
     {
-        mainButtons.SetActive(false);
-        attackButtons.SetActive(true);
-        itemButtons.SetActive(false);
+        if(mainButtons && attackButtons && itemButtons)
+        {
+            mainButtons.SetActive(false);
+            attackButtons.SetActive(true);
+            itemButtons.SetActive(false);
+        }
     }
     public void ItemButtons()
     {
-        mainButtons.SetActive(false);
-        attackButtons.SetActive(false);
-        itemButtons.SetActive(true);
-        
-        
+        if(mainButtons && attackButtons && itemButtons)
+        {
+            mainButtons.SetActive(false);
+            attackButtons.SetActive(false);
+            itemButtons.SetActive(true);
+        }         
     }
 
 
     public void TurnChange(bool i)
     {
         MainButton();
-        mainButtons.GetComponent<MainButtonScript>().SetMainButtonActive(i);
+        if(mainButtons)
+        {
+            mainButtons.GetComponent<MainButtonScript>().SetMainButtonActive(i);
+        }
     }
 
     public void CheckItems()

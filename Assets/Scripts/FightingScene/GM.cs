@@ -66,8 +66,7 @@ public class GM : MonoBehaviour
 
         currentOponnentAttacks = new Attacks[6];
         DoLoad();
-        OponentFeedbackText.text = " ";
-        opponentFeedbackPanel.SetActive(false);
+        EnemyFeedbackText("");
         enemyRenderer.sprite = enemySprites[(int)model.GetCurrentOponent() - 1];
     }
     // Update is called once per frame
@@ -564,15 +563,13 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
 
                 case Attacks.BasicAttack:
                     currentplayerStats[0] -= Math.Max(0, 40 - currentplayerStats[2]);
-                    OponentFeedbackText.text = "Enemy uses " + enemyFeedbackTexts[((int)enemy-1)*2];
-                    opponentFeedbackPanel?.SetActive(true);
+                    EnemyFeedbackText("Enemy uses " + enemyFeedbackTexts[((int)enemy-1)*2]);
                     await player.PlayHitEffect();
                     break;
 
                 case Attacks.MinorAttack:
                     currentplayerStats[0] -= Math.Max(0, 30 - currentplayerStats[2]);
-                    OponentFeedbackText.text = "Enemy uses " + enemyFeedbackTexts[((int)enemy-1)*2+1];
-                    opponentFeedbackPanel?.SetActive(true);
+                    EnemyFeedbackText("Enemy uses " + enemyFeedbackTexts[((int)enemy-1)*2+1]);
                     await player.PlayHitEffect();
                 break;
 
@@ -580,26 +577,25 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
                    if(enemy == Gegner.MonsterPainting || enemy == Gegner.PrisonGuard)
                    {
                         SetEffect(Statuseffekte.Brennend, 3, true);
-                        OponentFeedbackText.text = "Enemy set you in flames";
+                        EnemyFeedbackText("Enemy set you in flames");
                    } else if(enemy == Gegner.ShadowEnemy)
                    {
                         SetEffect(Statuseffekte.Blutend, 2, true);
                         SetEffect(Statuseffekte.Gelähmt, 1, true);
-                        OponentFeedbackText.text = "Enemy stunned you. You are bleeding";
+                        EnemyFeedbackText("Enemy stunned you. You are bleeding");
                    }else if(enemy == Gegner.Insects) 
                    {
                         SetEffect(Statuseffekte.Vergiftet, 4, true);
-                        OponentFeedbackText.text = "Enemy sprayed poison on you";
+                        EnemyFeedbackText("Enemy sprayed poison on you");
 
                    } else if(enemy == Gegner.MiniBoss ||enemy == Gegner.Endboss || enemy == Gegner.MiniBoss)
                    {
                         SetEffect(Statuseffekte.Verflucht, 9999, true);
-                        OponentFeedbackText.text = "Enemy cursed you";
+                        EnemyFeedbackText("Enemy cursed you");
                    } else
                     {
                     currentplayerStats[0] -= 10; //Math.Max(0, 10 - currentopponentStats[2]);
-                    OponentFeedbackText.text = "Enemy uses " + enemyFeedbackTexts[(int)enemy*2+1];
-                    opponentFeedbackPanel?.SetActive(true);
+                    EnemyFeedbackText("Enemy uses " + enemyFeedbackTexts[(int)enemy*2+1]);
                     await player.PlayHitEffect();
                     }
 
@@ -614,19 +610,18 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
                         currentOpponentEffects[effekt] = currentPlayerEffects[effekt];
                         }
                     }
-                OponentFeedbackText.text = "Enemy removed you buff";
+                EnemyFeedbackText("Enemy removed you buff");
                 break;
 
                 case Attacks.AttackBlock:
                     SetEffect(Statuseffekte.Geschützt, 1, false);
-                OponentFeedbackText.text = "Enemy BLOCKED";
+                    EnemyFeedbackText("Enemy BLOCKED");
                 break;
                 
 
             }
-        opponentFeedbackPanel?.SetActive(true);
-        //timer = 100;
-        await Task.Delay(100);
+        await Task.Delay(500);
+        EnemyFeedbackText("");
         playerturn = true;
         bM.TurnChange(true);
         }
@@ -788,6 +783,22 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
                 AnalyseText.text = "This Guy, with low healh, but middle Armour, can barely be seen.";
                 break;
         }
-        //timer = 300;
+    }
+
+    private void EnemyFeedbackText(string enemyFeedbackText)
+    {
+        if(OponentFeedbackText)
+        {
+            OponentFeedbackText.text = enemyFeedbackText;
+        }
+
+        if (opponentFeedbackPanel && enemyFeedbackText != null && enemyFeedbackText.Length > 0)
+        {
+            opponentFeedbackPanel.SetActive(true);
+        }
+        else if (opponentFeedbackPanel && (enemyFeedbackText == null || enemyFeedbackText.Length == 0))
+        {
+            opponentFeedbackPanel.SetActive(false);
+        }
     }
 }
