@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 112323947}
   - component: {fileID: 112323949}
   m_Layer: 0
-  m_Name: Square
+  m_Name: hourGlas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -562,7 +562,7 @@ GameObject:
   - component: {fileID: 1944721720}
   - component: {fileID: 1944721719}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -584,8 +584,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1700}
-  m_SizeDelta: {x: 996.2944, y: 1838.103}
+  m_AnchoredPosition: {x: 0.01001, y: -2818.8428}
+  m_SizeDelta: {x: 1920, y: 4075.7886}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1944721719
 MonoBehaviour:
@@ -632,41 +632,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Credits:
-
-
-    Game made by dominik
-
-
-    everything made by dominik
-
-
-    music
-    made by vivien
-
-
-    fighting scene made by mio
-
-
-    leon made by lake
-
-
-
-
-
-    ender
-    lilies is a good game
-
-    please subscribe to milbo on twitch
-
-
-
-    LEAKS!
-
-
-
-    FNAF4
-    is in producing by Milbo'
+  m_Text: "-----------------Credits-----------------\n\n----------------- ENTWICKLUNGSTEAM
+    -----------------\r\n\r\nProjektleitung / Producer\r\nMio\nDominik\r\n\r\nGame
+    Design (Konzept & Spielmechanik)\r\nMio\nDominik\nLeon\nVivien\r\n\r\nProgrammierung
+    / Development\r\nDominik\nMio\nVivien\nLeon\r\n\r\nPuzzle Design\r\nDominik\nMio\nLeon\nVivien\r\n\r\n-----------------
+    GRAFIK & ANIMATION -----------------\r\n\r\nArt Director / Lead Artist\r\nDominik\r\n\r\n2D
+    Pixel Art / Concept Art\r\nDominik\r\n\r\nUI/UX Design (Men\xFCs & Interface)\r\nDominik\r\n\r\nAnimationen\r\nDominik\r\n\r\n-----------------
+    AUDIO & SOUND -----------------\r\n\r\nMusik / Soundtrack\r\nVivien\r\n\r\nSoundeffekte
+    (SFX)\r\nVivien"
 --- !u!222 &1944721721
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ public class SceneMusic : MonoBehaviour
 
     private void Awake()
 {
-    AudioManager.Instance.MusikAbspielen(audioClip);
+    //AudioManager.Instance.MusikAbspielen(audioClip);
 }
 private IEnumerator Start()
 {

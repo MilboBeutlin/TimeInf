@@ -227,6 +227,7 @@ RectTransform:
   - {fileID: 1500981758}
   - {fileID: 644646815}
   - {fileID: 1676130839}
+  - {fileID: 1162448417}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -20475,12 +20476,6 @@ Animator:
   m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1110718327
 MonoBehaviour:
---- !u!1 &1124510445
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -20492,16 +20487,22 @@ GameObject:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OnHitEffect
   slashPrefab: {fileID: 401027327717605114, guid: 2b6d6b81c7b56804c825c7cafb0e7316, type: 3}
-serializedVersion: 6
-m_Component:
-- component: {fileID: 1124510446}
-m_Layer: 5
-m_Name: Handle Slide Area
-m_TagString: Untagged
-m_Icon: {fileID: 0}
-m_NavMeshLayer: 0
-m_StaticEditorFlags: 0
-m_IsActive: 1
+--- !u!1 &1124510445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1124510446}
+  m_Layer: 0
+  m_Name: 
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!224 &1124510446
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20522,7 +20523,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
-
 --- !u!1 &1133609426
 GameObject:
   m_ObjectHideFlags: 0
@@ -20839,7 +20839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1162448417
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20874,7 +20874,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pauseMenu: {fileID: 1674144559}
   slider: {fileID: 383907659}
-
 --- !u!1 &1234992762
 GameObject:
   m_ObjectHideFlags: 0
@@ -22800,8 +22799,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 615365262}
-  - {fileID: 305288309}
   - {fileID: 1758854850}
   - {fileID: 383907658}
   - {fileID: 631673001}
@@ -22812,7 +22809,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
-
 --- !u!1 &1676130838
 GameObject:
   m_ObjectHideFlags: 0
@@ -23251,8 +23247,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 570590571}
+  m_Children: []
   m_Father: {fileID: 1674144560}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
@@ -23273,7 +23268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonScript
   pauseMenu: {fileID: 1674144559}
-  Title: {fileID: 0}
+  title: {fileID: 0}
 --- !u!114 &1758854852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23491,7 +23486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05506fb9bb4cd3f439bd81a5c2be65a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MuteButton
-
 --- !u!1 &1820446406
 GameObject:
   m_ObjectHideFlags: 0
@@ -27340,4 +27334,3 @@ SceneRoots:
   - {fileID: 1957085025}
   - {fileID: 1956037847}
   - {fileID: 1592945740}
-
