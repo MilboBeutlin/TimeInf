@@ -6,12 +6,11 @@ using UnityEngine.UI;
 public class ButtonManager : MonoBehaviour
 {
     [SerializeField] private GameObject mainButtons;
-
     [SerializeField] private GameObject attackButtons;
+    [SerializeField] private GameObject itemButtons;
 
     private GM gm;
-
-    [SerializeField] private GameObject itemButtons;
+    
     [SerializeField] private Transform canvas;
 
     [SerializeField] private GameObject[] ItembuttonsList;
@@ -45,6 +44,7 @@ public class ButtonManager : MonoBehaviour
         Statuseffekt_Rage.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Wütend));
     }
 
+    // Methoden zur aktivierung und deaktivierung der Knöpfe.
     public void MainButton()
     {
         if(mainButtons && attackButtons && itemButtons)
@@ -83,6 +83,7 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
+    //Disabled alle Itemknöpfe, bei denen die Items nicht im Inventar liegen
     public void CheckItems()
     {
         // Alle Kn�pfe deaktivieren, die NULL sind.

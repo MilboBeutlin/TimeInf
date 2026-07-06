@@ -24,7 +24,6 @@ public class GM : MonoBehaviour
     [SerializeField] private int[] currentplayerStats;
     [SerializeField] private Dictionary<Items, int> currentPlayerItems;
     [SerializeField] private Dictionary<Statuseffekte, int> currentPlayerEffects;
-
     [SerializeField]  private Attacks[] currentPlayerAttacksArray;
     //gegner
     [SerializeField] private int[] currentopponentStats; //health, attack, armor, speed, dk
@@ -74,18 +73,7 @@ public class GM : MonoBehaviour
     {
         SliderPlayerLife.GetComponent<Slider>().value = currentplayerStats[0];
         SliderGegnerLife.GetComponent<Slider>().value = currentopponentStats[0];
-        
-        /*if(timer > 0)
-        {
-            timer--;
-        } else
-        {
-            OponentFeedbackText.text = " ";
-            opponentFeedbackPanel.SetActive(false);
-            //AnalyseText.text = " ";
-        }*/
 
-        // wenn PlayerHP == 0, dann
         if (currentplayerStats[0] <= 0)
         {
             if (currentPlayerItems.ContainsKey(Items.PhoenixFeather)) {
@@ -98,13 +86,30 @@ public class GM : MonoBehaviour
                 SceneManager.LoadScene(0);
             }
         }
+
+        if (currentopponentStats[0] <= 0)
+        {
+            DoSave();
+            if (enemy == Gegner.Endboss)
+            {
+                //Endboss besiegt, Spiel beenden
+                Debug.Log("Endboss besiegt, Spiel beenden");
+                //game stuff delete
+                controller.NewGame();
+                SceneManager.LoadScene(3);
+            }
+            await SceneManager.UnloadSceneAsync("Fight");
+            gameMaster.LightsSwitchToFight(false);
+
+        }
     }
 
     //Läd alle relevanten Daten aus der DB in diese Klasse
     public void DoLoad()
     {
+        // macht aus der PlayerAttacksListe ein Array
         Debug.Log("Attacken in DB: " + model.GetCurrentPlayerAttacks().Count);
-Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
+        Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
         for(int i = 0; i < currentPlayerAttacksArray.Length;i++)
         {
             currentPlayerAttacksArray[i] = Attacks.NULL;
@@ -114,6 +119,7 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
             currentPlayerAttacksArray[i] = model.GetCurrentPlayerAttacks()[i];
         }
         
+        // Läd den rest
         currentplayerStats = model.GetCurrentPlayerStats();
         currentPlayerItems = model.GetCurrentPlayerItems();
         currentPlayerEffects = model.GetPlayerEffects();
@@ -135,55 +141,7 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
         controller.SetCurrentOponnentStats(currentopponentStats);
         
     }
-    public Attacks givePlayerAttack(int attack)
-    {
-        if(attack >= currentPlayerAttacksArray.Length)
-        {
-            Debug.Log("Der Spieler hat versucht eine Attacke zu benutzen, die er nicht hat. >:( grrr");
-            return Attacks.NULL;
-        }
-        return currentPlayerAttacksArray[attack];
-    }
 
-    public bool GetPlayerturn()
-    {
-        return playerturn;
-    }
-
-    public Dictionary<Items, int> giveCurrentPlayerItems()
-    {
-        return currentPlayerItems;
-    }
-    public Dictionary<Statuseffekte, int> giveCurrentPlayerEffects()
-    {
-        return currentPlayerEffects;
-    }
-    // k == true; PlayerEffect || k == false; OponnentEffect || setzt Effecte von Spieler oder Gegner.
-    public void SetEffect(Statuseffekte effect, int duration, bool isPlayer)
-    {
-        if (isPlayer)
-        {
-            if (currentPlayerEffects.ContainsKey(effect))
-            {
-                currentPlayerEffects[effect] = duration;
-            }
-            else
-            {
-                currentPlayerEffects.Add(effect, duration);
-            }
-        }
-        else
-        {
-            if (currentOpponentEffects.ContainsKey(effect))
-            {
-                currentOpponentEffects[effect] = duration;
-            }
-            else
-            {
-                currentOpponentEffects.Add(effect, duration);
-            }
-        }
-    }
 
     //Alle Dinge die sich immer wieder holen und ehh gemacht werden müssen, egal ob ein Item oder eine Attacke benutzt wird.
     public void Turn()
@@ -465,21 +423,7 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
     async Task OponentTurn()
     {
         Gegner enemy = model.GetCurrentOponent();
-        if (currentopponentStats[0] <= 0)
-        {
-            DoSave();
-            if(enemy == Gegner.Endboss)
-            {
-                //Endboss besiegt, Spiel beenden
-                Debug.Log("Endboss besiegt, Spiel beenden");
-                //game stuff delete
-                controller.NewGame();
-                SceneManager.LoadScene(3);
-            }
-            await SceneManager.UnloadSceneAsync("Fight");
-            gameMaster.LightsSwitchToFight(false);
-            
-        }else{
+       
         Attacks i;
         //Hier timer, der bissl stallt.
 
@@ -624,10 +568,9 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
         EnemyFeedbackText("");
         playerturn = true;
         bM.TurnChange(true);
-        }
     }
 
-    
+    //Falls der Spieler ein Item benutzt, wird diese Methode aufgerufen.
     public async Task DoUseItem(Items item)
     {
         Turn();
@@ -801,4 +744,58 @@ Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
             opponentFeedbackPanel.SetActive(false);
         }
     }
+
+    // Werte setzten / Verändern
+
+
+    public Attacks givePlayerAttack(int attack)
+    {
+        if (attack >= currentPlayerAttacksArray.Length)
+        {
+            Debug.Log("Der Spieler hat versucht eine Attacke zu benutzen, die er nicht hat. >:( grrr");
+            return Attacks.NULL;
+        }
+        return currentPlayerAttacksArray[attack];
+    }
+
+    public bool GetPlayerturn()
+    {
+        return playerturn;
+    }
+
+    public Dictionary<Items, int> giveCurrentPlayerItems()
+    {
+        return currentPlayerItems;
+    }
+    public Dictionary<Statuseffekte, int> giveCurrentPlayerEffects()
+    {
+        return currentPlayerEffects;
+    }
+    // k == true; PlayerEffect || k == false; OponnentEffect || setzt Effecte von Spieler oder Gegner.
+    public void SetEffect(Statuseffekte effect, int duration, bool isPlayer)
+    {
+        if (isPlayer)
+        {
+            if (currentPlayerEffects.ContainsKey(effect))
+            {
+                currentPlayerEffects[effect] = duration;
+            }
+            else
+            {
+                currentPlayerEffects.Add(effect, duration);
+            }
+        }
+        else
+        {
+            if (currentOpponentEffects.ContainsKey(effect))
+            {
+                currentOpponentEffects[effect] = duration;
+            }
+            else
+            {
+                currentOpponentEffects.Add(effect, duration);
+            }
+        }
+    }
+
 }
