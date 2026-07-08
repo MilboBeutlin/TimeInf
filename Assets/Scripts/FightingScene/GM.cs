@@ -90,7 +90,7 @@ public class GM : MonoBehaviour
         if (currentopponentStats[0] <= 0)
         {
             DoSave();
-            if (enemy == Gegner.Endboss)
+            if (model.GetCurrentOponent() == Gegner.Endboss)
             {
                 //Endboss besiegt, Spiel beenden
                 Debug.Log("Endboss besiegt, Spiel beenden");
@@ -98,7 +98,7 @@ public class GM : MonoBehaviour
                 controller.NewGame();
                 SceneManager.LoadScene(3);
             }
-            await SceneManager.UnloadSceneAsync("Fight");
+            SceneManager.UnloadSceneAsync("Fight");
             gameMaster.LightsSwitchToFight(false);
 
         }
