@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Rendering.Universal;
 public class Model : MonoBehaviour
 {
     private Datenbank DB => Datenbank.Instance;
@@ -50,9 +51,6 @@ public class Model : MonoBehaviour
     public Gegner GetCurrentOponent() {
         return DB.GetCurrentOponent();
     }
-    public Attacks[] GetCurrentOponnentAttacks() {
-        return DB.GetCurrentOponnentAttacks();
-    }
     public Dictionary<Statuseffekte, int> GetOpponentEffects() {
         return DB.GetOpponentEffects();
     }
@@ -86,5 +84,12 @@ public class Model : MonoBehaviour
     public void Save()
     {
         DB.Save();
+    }
+
+
+
+    public void LightsSwitchtoFight(bool fight)
+    {
+        DB.LightsSwitchToFight(fight);
     }
 }

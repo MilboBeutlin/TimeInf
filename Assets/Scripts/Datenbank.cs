@@ -1,8 +1,10 @@
-using UnityEngine;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System;
+using System.Runtime.InteropServices.WindowsRuntime;
+using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Datenbank : MonoBehaviour
 {
@@ -20,56 +22,36 @@ public class Datenbank : MonoBehaviour
 
     //Gegner:
     private Gegner currentOponent;
-    private Attacks[] currentOponnentAttacks;
     private Dictionary<Statuseffekte, int> oponentEffects = new Dictionary<Statuseffekte, int>();
     private int[] currentOponnentStats; //health, attack, armor, speed, dk
+
+
+    //new Fighting Stuff
+    private int playerHealth = 5;
+    private List<Attacks> fokusedAttacks;
+    private List<Attacks> unfokusedAttacks;
 
     //other stuff:
     private Vector3 spawnPosition;
 
     private string savePath;
+    [SerializeField] private GameObject gameLight;
 
     public void Start()
     {
-        //Löscht den Speicherstand
-        /*if(ButtonScript.newGame)
-        {
-            Debug.Log("Neues Spiel gestartet, Speicherstand wird gelöscht");
-            ButtonScript.newGame = false;
-            savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
-
-            if (File.Exists(savePath))
-            {
-                File.Delete(savePath);                         
-            }
-        }
-        else
-        {
-            savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
-        }*/
         savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
+
         //Alle stats im Game
         playerAttacks = new List<Attacks>();
         playerItems = new Dictionary<Items, int>();
         playerEffects = new Dictionary<Statuseffekte, int>();
+        gameLight = GameObject.FindGameObjectWithTag("GlobalLight");
 
-        currentOponnentAttacks = new Attacks[6];
-        for (int i = 0; i <currentOponnentAttacks.Length; i++)
-        {
-            currentOponnentAttacks[i] = Attacks.NULL;   
-        }
+        
 
         Load();
-        if(playerAttacks.Count() <= 0)
-        {
-            //starter stuff geaddet
-            currentPlayerStats[0] = 100;
-            AddItem(Items.Coins, 6);
-            AddPlayerAttack(Attacks.Hammer);
-            AddPlayerAttack(Attacks.Strike);
-            AddItem(Items.Brick, 1);
-            AddItem(Items.HealingPotion, 1);
-        }
+
+        
     }
     public void NewGame()
     {
@@ -303,6 +285,25 @@ public class Datenbank : MonoBehaviour
         this.savePlayerLocation = savePlayerLocation;
     }
 
+
+    //New Fight
+
+    public List<Attacks> GetAttacks(bool fokused)
+    {
+        if(fokused) { return fokusedAttacks; }
+        else { return unfokusedAttacks; }
+    }
+
+    public void SetAttacks(List<Attacks> attacks, bool fokused)
+    {
+        if(fokused)
+        {
+            fokusedAttacks = attacks;
+        } else
+        {
+            unfokusedAttacks = attacks;
+        }
+    }
     // opponent
 
     public Gegner GetCurrentOponent() {
@@ -311,14 +312,6 @@ public class Datenbank : MonoBehaviour
 
     public void SetCurrentOponent(Gegner currentOponent) {
         this.currentOponent = currentOponent;
-    }
-
-    public Attacks[] GetCurrentOponnentAttacks() {
-        return currentOponnentAttacks;
-    }
-
-    public void SetCurrentOponnentAttacks(Attacks[] currentOponnentAttacks) {
-        this.currentOponnentAttacks = currentOponnentAttacks;
     }
 
     public Dictionary<Statuseffekte, int> GetOpponentEffects() {
@@ -364,6 +357,13 @@ public class Datenbank : MonoBehaviour
     public void SetSpawnPosition(Vector3 spawnPosition)
     {
         this.spawnPosition = spawnPosition;
+    }
+
+
+    //Lights
+    public void LightsSwitchToFight(bool switchToFight)
+    {
+        gameLight.GetComponent<Light2D>().intensity = switchToFight ? 0.03f : 0.25f;
     }
 
 }

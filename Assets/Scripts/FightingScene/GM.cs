@@ -14,8 +14,7 @@ public class GM : MonoBehaviour
     private Controller controller;
     private ButtonManager bM;
 
-    //Fight logic
-    [SerializeField] private bool playerturn;
+    //Für die Funktionalität der Coin
     private bool coinUsed = false;
 
 
@@ -24,7 +23,6 @@ public class GM : MonoBehaviour
     [SerializeField] private int[] currentplayerStats;
     [SerializeField] private Dictionary<Items, int> currentPlayerItems;
     [SerializeField] private Dictionary<Statuseffekte, int> currentPlayerEffects;
-    [SerializeField]  private Attacks[] currentPlayerAttacksArray;
     //gegner
     [SerializeField] private int[] currentopponentStats; //health, attack, armor, speed, dk
     [SerializeField] private Attacks[] currentOponnentAttacks;
@@ -47,7 +45,18 @@ public class GM : MonoBehaviour
     [SerializeField] private OnHitEffect player;
     [SerializeField] private OnHitEffect enemy;
 
-    private GM_Game gameMaster;
+    //private GM_Game gameMaster;
+
+    //new Fight
+    private List<Attacks> fokusedAttackslocal;
+    private List<Attacks> unfokusedAttackslocal;
+
+    private int timerGegner;
+    private Attacks currentGegnerAttacks;
+    
+
+    private int playerHealthlocal;
+    private int gegnerHealthlocal;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -55,15 +64,7 @@ public class GM : MonoBehaviour
         bM = FindAnyObjectByType<ButtonManager>();
         model = FindAnyObjectByType<Model>();
         controller = FindAnyObjectByType<Controller>();
-        gameMaster = FindAnyObjectByType<GM_Game>();
 
-        //Fight Logic
-        playerturn = true;
-
-        //Stats
-        currentPlayerAttacksArray = new Attacks[10];
-
-        currentOponnentAttacks = new Attacks[6];
         DoLoad();
         EnemyFeedbackText("");
         enemyRenderer.sprite = enemySprites[(int)model.GetCurrentOponent() - 1];
@@ -99,32 +100,28 @@ public class GM : MonoBehaviour
                 SceneManager.LoadScene(3);
             }
             SceneManager.UnloadSceneAsync("Fight");
-            gameMaster.LightsSwitchToFight(false);
+            model.LightsSwitchtoFight(false);
 
+        }
+
+
+        //GegnerLogic
+
+        if(timerGegner <= 0)
+        {
+            
+        } else
+        {
+            timerGegner--;
         }
     }
 
     //Läd alle relevanten Daten aus der DB in diese Klasse
     public void DoLoad()
     {
-        // macht aus der PlayerAttacksListe ein Array
-        Debug.Log("Attacken in DB: " + model.GetCurrentPlayerAttacks().Count);
-        Debug.Log("Arraygröße: " + currentPlayerAttacksArray.Length);
-        for(int i = 0; i < currentPlayerAttacksArray.Length;i++)
-        {
-            currentPlayerAttacksArray[i] = Attacks.NULL;
-        }
-        for(int i = 0; i < model.GetCurrentPlayerAttacks().Count; i++)
-        {
-            currentPlayerAttacksArray[i] = model.GetCurrentPlayerAttacks()[i];
-        }
-        
+
         // Läd den rest
-        currentplayerStats = model.GetCurrentPlayerStats();
         currentPlayerItems = model.GetCurrentPlayerItems();
-        currentPlayerEffects = model.GetPlayerEffects();
-        currentOponnentAttacks = model.GetCurrentOponnentAttacks();
-        currentOpponentEffects = model.GetOpponentEffects();
         currentopponentStats = model.GetCurrentOponnentStats();
         SliderGegnerLife.GetComponent<Slider>().maxValue = currentopponentStats[0];
     }
@@ -134,446 +131,69 @@ public class GM : MonoBehaviour
     public void DoSave()
     {
 
-        controller.SetCurrentPlayerStats(currentplayerStats);
+        
         controller.SetPlayerItems(currentPlayerItems);
-        controller.SetPlayerEffects(currentPlayerEffects);
 
-        controller.SetCurrentOponnentStats(currentopponentStats);
         
     }
 
 
-    //Alle Dinge die sich immer wieder holen und ehh gemacht werden müssen, egal ob ein Item oder eine Attacke benutzt wird.
-    public void Turn()
+
+    public void Counter()
     {
-        playerturn = false;
-        bM.TurnChange(false);
-
-        //hier werden die Effekte die noch vorhanden sind abgehandelt.
-
-        if(currentOpponentEffects.ContainsKey(Statuseffekte.Vergiftet)) {
-           currentopponentStats[0] -= 10; // grundschaden 10 / resistenz
-            currentOpponentEffects[Statuseffekte.Vergiftet] -= 1;
-            if (currentOpponentEffects[Statuseffekte.Vergiftet] == 0)
-            {
-                currentOpponentEffects.Remove(Statuseffekte.Vergiftet);
-            }
-        }
-        if (currentPlayerEffects.ContainsKey(Statuseffekte.Vergiftet))
+        if(fokusedAttackslocal.Contains(currentGegnerAttacks))
         {
-            currentplayerStats[0] -= 10;
-            currentPlayerEffects[Statuseffekte.Vergiftet] -= 1;
-            if(currentPlayerEffects[Statuseffekte.Vergiftet] == 0)
-            {
-                currentPlayerEffects.Remove(Statuseffekte.Vergiftet);
-            }
-        }
-
-         if(currentOpponentEffects.ContainsKey(Statuseffekte.Blutend)) {
-            currentopponentStats[0] = (int)(currentopponentStats[0] * 0.9f); // 10% schaden
-            currentOpponentEffects[Statuseffekte.Blutend] -= 1;
-            if (currentOpponentEffects[Statuseffekte.Blutend] == 0)
-            {
-                currentOpponentEffects.Remove(Statuseffekte.Blutend);
-            }
-        }
-        if (currentPlayerEffects.ContainsKey(Statuseffekte.Blutend))
+            gegnerHealthlocal--;
+        } else
         {
-            currentplayerStats[0] = (int)(currentplayerStats[0] * 0.9f);
-            currentPlayerEffects[Statuseffekte.Blutend] -= 1;
-            if(currentPlayerEffects[Statuseffekte.Blutend] == 0)
-            {
-                currentPlayerEffects.Remove(Statuseffekte.Blutend);
-            }
+            playerHealthlocal--;
         }
-
-
-        if(currentOpponentEffects.ContainsKey(Statuseffekte.Brennend)) {
-            currentopponentStats[0] = (int)(currentopponentStats[0] * 0.92f);
-            //currentplayerStats[1] = currentplayerStats[1] * (9/10);// wird es resettet?
-            currentOpponentEffects[Statuseffekte.Brennend] -= 1;
-            if (currentOpponentEffects[Statuseffekte.Brennend] == 0)
-            {
-                currentOpponentEffects.Remove(Statuseffekte.Brennend);
-            }
-        }
-        if (currentPlayerEffects.ContainsKey(Statuseffekte.Brennend))
-        {
-            currentplayerStats[0] = (int)(currentplayerStats[0] * 0.92f);
-            currentPlayerEffects[Statuseffekte.Brennend] -= 1;
-            if(currentPlayerEffects[Statuseffekte.Brennend] == 0)
-            {
-                currentPlayerEffects.Remove(Statuseffekte.Brennend);
-            }
-        }
-
-  
-        if (currentPlayerEffects.ContainsKey(Statuseffekte.Hoffnungsvoll)) // nur 1 runde
-        {
-          
-            if(currentPlayerEffects[Statuseffekte.Hoffnungsvoll] == 0)
-            {
-                currentplayerStats[1] = currentplayerStats[1] * 2;
-                currentPlayerEffects.Remove(Statuseffekte.Hoffnungsvoll);
-            } else {
-            currentplayerStats[1] = currentplayerStats[1] / 2; 
-            currentPlayerEffects[Statuseffekte.Hoffnungsvoll] = 0;
-            }
-        }
-
-
-         if (currentPlayerEffects.ContainsKey(Statuseffekte.Geschützt)) // nur 1 runde
-        {
-          
-            if(currentPlayerEffects[Statuseffekte.Geschützt] == 0)
-            {
-                currentplayerStats[2] -= 100000;
-                currentPlayerEffects.Remove(Statuseffekte.Geschützt);
-            } else {
-            currentplayerStats[2] += 100000;
-            currentPlayerEffects[Statuseffekte.Geschützt] = 0;
-            }
-        }
-
-         if(currentOpponentEffects.ContainsKey(Statuseffekte.Wütend)) {
-            currentopponentStats[1] += 20;
-            currentOpponentEffects[Statuseffekte.Wütend] -= 1;
-            if (currentOpponentEffects[Statuseffekte.Wütend] == 0)
-            {
-                currentOpponentEffects.Remove(Statuseffekte.Wütend);
-            }
-        }
-        if (currentPlayerEffects.ContainsKey(Statuseffekte.Wütend))
-        {
-            currentplayerStats[1] += 20;
-            currentPlayerEffects[Statuseffekte.Wütend] -= 1;
-            if(currentPlayerEffects[Statuseffekte.Wütend] == 0)
-            {
-                currentPlayerEffects.Remove(Statuseffekte.Wütend);
-            }
-        }
-
-
-        if(currentOpponentEffects.ContainsKey(Statuseffekte.Gesegnet)) {
-            currentopponentStats[1] -= 20;
-            currentOpponentEffects[Statuseffekte.Gesegnet] -= 1;
-            if (currentOpponentEffects[Statuseffekte.Gesegnet] == 0)
-            {
-                currentopponentStats[1] += 20;
-                currentOpponentEffects.Remove(Statuseffekte.Gesegnet);
-            }
-        }
-        if (currentPlayerEffects.ContainsKey(Statuseffekte.Gesegnet))
-        {
-            currentplayerStats[1] += 15;
-            currentPlayerEffects[Statuseffekte.Gesegnet] -= 1;
-            if(currentPlayerEffects[Statuseffekte.Gesegnet] == 0)
-            {
-                currentplayerStats[1] -= 15;
-                currentPlayerEffects.Remove(Statuseffekte.Gesegnet);
-                currentPlayerEffects[Statuseffekte.Gesegnet] = 0;
-            }
-        }
-        if (currentOpponentEffects.ContainsKey(Statuseffekte.Gelähmt))
-        {
-            coinUsed = true;
-            if (currentOpponentEffects[Statuseffekte.Gelähmt] == 0)
-            {
-                currentOpponentEffects.Remove(Statuseffekte.Gelähmt);
-            }
-        }
-
-  
+        currentGegnerAttacks = Attacks.NULL;
     }
 
-    public async Task DoAttack(int y)
+    public void Strike()
     {
-        Turn();
-
-        Attacks selectedAttack;
-
-        if(y >= currentPlayerAttacksArray.Length)
+        if (unfokusedAttackslocal.Contains(currentGegnerAttacks))
         {
-            Debug.Log("Der Spieler hat versucht eine Attacke zu benutzen, die er nicht hat. >:( grrr");
-            selectedAttack = Attacks.NULL;
+            gegnerHealthlocal--;
         }
         else
         {
-            selectedAttack = currentPlayerAttacksArray[y];
+            playerHealthlocal--;
         }
-        
-        //Hier ALLE Attacen für NUR Spieler rein.
-        switch (selectedAttack)
-        {
-            case Attacks.NULL:
-                break;
-
-             case Attacks.Protection:
-                SetEffect(Statuseffekte.Geschützt, 1, true);
-                break;
-
-            case Attacks.Hammer:
-                 currentopponentStats[0] -= Math.Max(0, 50 - currentopponentStats[2]); // 50 schaden / rüstung
-                 await enemy.PlayHitEffect();
-                break;
-
-
-            case Attacks.Mutilation:
-                currentopponentStats[0] -= Math.Max(0, 80 - currentopponentStats[2]);
-                int random1 = Random.Range(0, 100);
-                if (random1 <= 10)
-                {
-                SetEffect(Statuseffekte.Blutend, 3, false);
-                }
-                await enemy.PlayHitEffect();
-                break;
-
-
-             case Attacks.Strike:
-                currentopponentStats[0] -= Math.Max(0, 35 - currentopponentStats[2]);
-                int random2 = Random.Range(0, 100);
-                if (random2 <= 45)
-                {
-                SetEffect(Statuseffekte.Gelähmt, 1, false);
-                }
-                await enemy.PlayHitEffect();
-            break;
-
-            case Attacks.PoisonDagger:
-                currentopponentStats[0] -= Math.Max(0, 15 - currentopponentStats[2]);
-                SetEffect(Statuseffekte.Vergiftet, 3, false);
-                int random3 = Random.Range(0, 100);
-                if (random3 <= 15)
-                {
-                 SetEffect(Statuseffekte.Blutend, 3, false);
-                 }
-                 await enemy.PlayHitEffect();
-                break;
-
-            case Attacks.Fireball:
-                currentopponentStats[0] -= Math.Max(0, 45 - currentopponentStats[2]);
-                SetEffect(Statuseffekte.Brennend, 1, false);
-                await enemy.PlayHitEffect();
-            break;
-
-            case Attacks.Dampen:
-                currentopponentStats[1] = currentopponentStats[1] * (9/10);
-            break; 
-
-            case Attacks.Vengeance:
-                int random4 = Random.Range(30, 100);
-                currentopponentStats[0] -= Math.Max(0, random4 - currentopponentStats[2]);
-                await enemy.PlayHitEffect();
-                break;
-
-            case Attacks.Dig:
-                currentopponentStats[0] -= 10; // ignoriert rüstung
-                await enemy.PlayHitEffect();
-             break;
-
-             case Attacks.LightOfHope:
-                SetEffect(Statuseffekte.Hoffnungsvoll, 1, true);
-            break;
-
-            case Attacks.RedeemingStrike:
-                if(currentOpponentEffects.ContainsKey(Statuseffekte.Vergiftet))
-                {
-                    currentopponentStats[0] -= Math.Max(0, 85 - currentopponentStats[2]);
-                    currentOpponentEffects.Remove(Statuseffekte.Vergiftet);
-                } else {
-                currentopponentStats[0] -= Math.Max(0, 60 - currentopponentStats[2]);
-                }
-                await enemy.PlayHitEffect();
-            break;
-
-            case Attacks.Cleansing:
-                        currentPlayerEffects.Clear();
-            break;
-
-            case Attacks.AgonyStrike:
-                currentplayerStats[0] = Math.Max(1, currentplayerStats[0] * 8 / 10);
-                currentopponentStats[0] -= Math.Max(0, 90 - currentopponentStats[2]);
-                await enemy.PlayHitEffect();
-            break;
-
-            case Attacks.Enlightenment:
-                if (currentopponentStats[4] > 15)
-                {
-                     currentopponentStats[4] -= 15;
-                } else
-                {
-                    currentopponentStats[4] = 0;
-                }
-
-            break;
-
-
-
-
-            default:
-                Debug.Log("Error M10");
-                break;
-        }
-        await Task.Delay(600);
-        await OponentTurn();
+        currentGegnerAttacks = Attacks.NULL;
     }
-
     
 
-    async Task OponentTurn()
+    public void GegnerTurn()
     {
-        Gegner enemy = model.GetCurrentOponent();
-       
-        Attacks i;
-        //Hier timer, der bissl stallt.
-
-        //hier entscheiden welche Attacke gew�hlt wird.
-        int r = Random.Range(0, 10);
-        if(enemy == Gegner.MiniBoss)
+        //testen, ob mit der alten Attacke gedealt wurde
+        if (currentGegnerAttacks != Attacks.NULL)
         {
-            if(Random.Range(0, 3) == 3)
-            {
-                r = 9;
-            }
-        } else if(enemy == Gegner.Endboss)
-            {
-                if(r == 3 || r==4||r==5)
-                {
-                    r = 6;
-                } else if(Random.Range(0,2) ==2)
-                {
-                    r = 0;
-                }
-            }
+            playerHealthlocal--;
+            currentGegnerAttacks = Attacks.NULL;
+        }
 
-        
-            switch (r)
-            {
-                    case 1:
-                        i = Attacks.BasicAttack;
-                        break;
+        //Attacke setzen
+        if (Random.Range(0, 1) == 1)
+        {
+            currentGegnerAttacks = fokusedAttackslocal[Random.Range(0, fokusedAttackslocal.Count())];
+        }
+        else
+        {
+            currentGegnerAttacks = unfokusedAttackslocal[Random.Range(0, unfokusedAttackslocal.Count())];
+        }
 
-                    case 2:
-                        i = Attacks.BasicAttack;
-                        break;
-                    case 3:
-                        i = Attacks.MinorAttack;
-                        break;
-                    case 4:
-                        i = Attacks.MinorAttack;
-                        break;
-                    case 5:
-                        i = Attacks.MinorAttack;
-                        break;
-                    case 6:
-                        //i = Attacks.BuffSteal; //sollte nur möglich sein, wenn der Spieler einen Buff hat!!!
-                        //habs so gemacht, liebe grüße DS
-                        if (currentPlayerEffects.Keys.Any(IstBuff))
-                        {
-                            i = Attacks.BuffSteal;
-                        }
-                        else
-                        {
-                            i = Attacks.BasicAttack;
-                        }
-                        break;
-                    case 7:
-                        i = Attacks.AttackBlock;
-                        break;
-                    case 8:
-                        i = Attacks.BasicAttack;
-                        break;
-                    case 9:
-                        i = Attacks.Debuff;
-                        break;
-                    case 10:
-                        i = Attacks.Debuff;
-                        break;
-                    case 0:
-                        i = Attacks.Debuff;
-                        break;
-                    default:
-                        i = Attacks.NULL;
-                        break;
-            }
-            Debug.Log("Attacks wird ausgeführt " + i);
+        EnemyFeedbackText(currentGegnerAttacks.ToString());
 
-        
-            //Hier ALLE Attacken für NUR jeden Gegner.
-            switch (i)
-            {
-                case Attacks.NULL:
-                    break;
-
-                case Attacks.BasicAttack:
-                    currentplayerStats[0] -= Math.Max(0, 40 - currentplayerStats[2]);
-                    EnemyFeedbackText("Enemy uses " + enemyFeedbackTexts[((int)enemy-1)*2]);
-                    await player.PlayHitEffect();
-                    break;
-
-                case Attacks.MinorAttack:
-                    currentplayerStats[0] -= Math.Max(0, 30 - currentplayerStats[2]);
-                    EnemyFeedbackText("Enemy uses " + enemyFeedbackTexts[((int)enemy-1)*2+1]);
-                    await player.PlayHitEffect();
-                break;
-
-                case Attacks.Debuff:
-                   if(enemy == Gegner.MonsterPainting || enemy == Gegner.PrisonGuard)
-                   {
-                        SetEffect(Statuseffekte.Brennend, 3, true);
-                        EnemyFeedbackText("Enemy set you in flames");
-                   } else if(enemy == Gegner.ShadowEnemy)
-                   {
-                        SetEffect(Statuseffekte.Blutend, 2, true);
-                        SetEffect(Statuseffekte.Gelähmt, 1, true);
-                        EnemyFeedbackText("Enemy stunned you. You are bleeding");
-                   }else if(enemy == Gegner.Insects) 
-                   {
-                        SetEffect(Statuseffekte.Vergiftet, 4, true);
-                        EnemyFeedbackText("Enemy sprayed poison on you");
-
-                   } else if(enemy == Gegner.MiniBoss ||enemy == Gegner.Endboss || enemy == Gegner.MiniBoss)
-                   {
-                        SetEffect(Statuseffekte.Verflucht, 9999, true);
-                        EnemyFeedbackText("Enemy cursed you");
-                   } else
-                    {
-                    currentplayerStats[0] -= 10; //Math.Max(0, 10 - currentopponentStats[2]);
-                    EnemyFeedbackText("Enemy uses " + enemyFeedbackTexts[(int)enemy*2+1]);
-                    await player.PlayHitEffect();
-                    }
-
-                    break;
-
-
-                case Attacks.BuffSteal:
-                    foreach (var effekt in currentPlayerEffects.Keys)
-                    {
-                        if (IstBuff(effekt))
-                        {
-                        currentOpponentEffects[effekt] = currentPlayerEffects[effekt];
-                        }
-                    }
-                EnemyFeedbackText("Enemy removed you buff");
-                break;
-
-                case Attacks.AttackBlock:
-                    SetEffect(Statuseffekte.Geschützt, 1, false);
-                    EnemyFeedbackText("Enemy BLOCKED");
-                break;
-                
-
-            }
-        await Task.Delay(500);
-        EnemyFeedbackText("");
-        playerturn = true;
-        bM.TurnChange(true);
+        timerGegner = 40;
     }
 
     //Falls der Spieler ein Item benutzt, wird diese Methode aufgerufen.
+    /*
     public async Task DoUseItem(Items item)
     {
-        Turn();
+        
 
         if(currentPlayerItems.ContainsKey(item) == false)
         {
@@ -672,12 +292,14 @@ public class GM : MonoBehaviour
             coinUsed = false;
         } else
         {
-            playerturn = true;
+            
             bM.TurnChange(true);
             coinUsed = false;
             
         }
     }
+
+    */
 
      private bool IstBuff(Statuseffekte effekt)
     {
@@ -748,20 +370,6 @@ public class GM : MonoBehaviour
     // Werte setzten / Verändern
 
 
-    public Attacks givePlayerAttack(int attack)
-    {
-        if (attack >= currentPlayerAttacksArray.Length)
-        {
-            Debug.Log("Der Spieler hat versucht eine Attacke zu benutzen, die er nicht hat. >:( grrr");
-            return Attacks.NULL;
-        }
-        return currentPlayerAttacksArray[attack];
-    }
-
-    public bool GetPlayerturn()
-    {
-        return playerturn;
-    }
 
     public Dictionary<Items, int> giveCurrentPlayerItems()
     {

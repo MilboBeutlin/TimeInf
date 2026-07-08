@@ -20,7 +20,7 @@ public class GM_Game : MonoBehaviour
     
     [SerializeField] private Text textItem;
     [SerializeField] private GameObject spawnPoint;
-    [SerializeField] private Light2D gameLight;
+    
     
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -98,9 +98,6 @@ public class GM_Game : MonoBehaviour
         itemGotMssg.SetActive(false);
     }
 
-    public void LightsSwitchToFight(bool switchToFight)
-    {
-       gameLight.intensity = switchToFight ? 0.03f : 0.25f;
-    }
+    
 
 }

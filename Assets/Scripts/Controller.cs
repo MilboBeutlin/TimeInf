@@ -74,9 +74,6 @@ public class Controller : MonoBehaviour
     public void SetCurrentOponent(Gegner gegner) {
         DB.SetCurrentOponent(gegner);
     }
-    public void SetCurrentOponnentAttacks(Attacks[] attacks) {
-        DB.SetCurrentOponnentAttacks(attacks);
-    }
     public void AddOpponentEffects(Statuseffekte effect, int duration) {
         DB.AddOpponentEffects(effect, duration);
     }
