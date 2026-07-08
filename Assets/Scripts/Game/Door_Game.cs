@@ -30,7 +30,7 @@ public class Door_Game : MonoBehaviour
                 {
                     darkness.SetActive(false);
                 }
-                if(leadsTo == "R2" && model.GetCurrentPlayerAttacks().Contains(Attacks.Swim))  // Remove the water obstacle if the player has learned Swim.
+                if(leadsTo == "R2" && /* model.GetCurrentPlayerAttacks().Contains(Attacks.Swim)*/ 1==1)  // Remove the water obstacle if the player has learned Swim.
                 {
                     waterCollider.enabled = false;
                 }

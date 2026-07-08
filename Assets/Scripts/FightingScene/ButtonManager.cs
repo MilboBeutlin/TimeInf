@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ButtonManager : MonoBehaviour
 {
     [SerializeField] private GameObject mainButtons;
-    [SerializeField] private GameObject attackButtons;
     [SerializeField] private GameObject itemButtons;
 
     private GM gm;
@@ -15,13 +14,6 @@ public class ButtonManager : MonoBehaviour
 
     [SerializeField] private GameObject[] ItembuttonsList;
 
-    [SerializeField] private GameObject Statuseffekt_Verflucht;
-    [SerializeField] private GameObject Statuseffekt_Rage;
-    [SerializeField] private GameObject Statuseffekt_Stun;
-    [SerializeField] private GameObject Statuseffekt_Holy;
-    [SerializeField] private GameObject Statuseffekt_Blutend;
-    [SerializeField] private GameObject Statuseffekt_Vergifted;
-    [SerializeField] private GameObject Statuseffekt_Verbrannt;
 
 
 
@@ -33,55 +25,30 @@ public class ButtonManager : MonoBehaviour
         CheckItems();
     }
 
-    public void Update()
-    {
-        Statuseffekt_Blutend.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Blutend));
-        Statuseffekt_Verbrannt.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Brennend));
-        Statuseffekt_Stun.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Gelähmt));
-        Statuseffekt_Holy.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Gesegnet));
-        Statuseffekt_Verflucht.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Verflucht));
-        Statuseffekt_Vergifted.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Vergiftet));
-        Statuseffekt_Rage.SetActive(gm.giveCurrentPlayerEffects().ContainsKey(Statuseffekte.Wütend));
-    }
+
 
     // Methoden zur aktivierung und deaktivierung der Knöpfe.
     public void MainButton()
     {
-        if(mainButtons && attackButtons && itemButtons)
+        if(mainButtons &&  itemButtons)
         {
             mainButtons.SetActive(true);
-            attackButtons.SetActive(false);
+            
             itemButtons.SetActive(false);
         }
     }
-    public void AttackButtons()
-    {
-        if(mainButtons && attackButtons && itemButtons)
-        {
-            mainButtons.SetActive(false);
-            attackButtons.SetActive(true);
-            itemButtons.SetActive(false);
-        }
-    }
+
     public void ItemButtons()
     {
-        if(mainButtons && attackButtons && itemButtons)
+        if(mainButtons &&  itemButtons)
         {
             mainButtons.SetActive(false);
-            attackButtons.SetActive(false);
+            
             itemButtons.SetActive(true);
         }         
     }
 
-
-    public void TurnChange(bool i)
-    {
-        MainButton();
-        if(mainButtons)
-        {
-            mainButtons.GetComponent<MainButtonScript>().SetMainButtonActive(i);
-        }
-    }
+    
 
     //Disabled alle Itemknöpfe, bei denen die Items nicht im Inventar liegen
     public void CheckItems()

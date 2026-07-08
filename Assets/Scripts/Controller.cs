@@ -6,28 +6,14 @@ public class Controller : MonoBehaviour
 
 
     // player
-    public void SetCurrentPlayerAttacks(List<Attacks> attacks) {
-        DB.SetCurrentPlayerAttacks(attacks);
+    public void SetPlayerHealth(int health)
+    {
+        DB.SetPlayerHEalth(health);
     }
 
-    public void IncreasePlayerLp(int amount) {
-        DB.SetCurrentPlayerStats(0, amount);
-    }
-    public void IncreasePlayerAtk(int amount) {
-        DB.SetCurrentPlayerStats(1, amount);
-    }
-    public void IncreasePlayerArmor(int amount) {
-        DB.SetCurrentPlayerStats(2, amount);
-    }
-    public void IncreasePlayerSpeed(int amount) {
-        DB.SetCurrentPlayerStats(3, amount);
-    }
-    public void IncreasePlayerDk(int amount) {
-        DB.SetCurrentPlayerStats(4, amount);
-    }
-
-    public void AddPlayerEffects(Statuseffekte effect, int duration) {
-        DB.AddPlayerEffects(effect, duration);
+    public void SetGegnerHealth(int health)
+    {
+        DB.SetGegnerHEalth(health);
     }
 
     public void SetPlayerItems(Dictionary<Items, int> items) {
@@ -37,23 +23,12 @@ public class Controller : MonoBehaviour
         DB.SetSavePlayerItems(items);
     }
 
-    public void SetPlayerEffects(Dictionary<Statuseffekte, int> i)
-    {
-        DB.SetPlayerEffects(i);
-    }
-
-    public void SetCurrentPlayerStats(int[] i)
-    {
-        DB.SetCurrentPlayerFULLStats(i);
-    }
+    
     public void AddItem(Items item, int amount) {
         DB.AddItem(item, amount);
     }
 
-    public void AddAttack(Attacks attack)
-    {
-        DB.AddPlayerAttack(attack);
-    }
+    
 
 
     // Bei Amount 0 werden alle entfernt
@@ -74,12 +49,7 @@ public class Controller : MonoBehaviour
     public void SetCurrentOponent(Gegner gegner) {
         DB.SetCurrentOponent(gegner);
     }
-    public void AddOpponentEffects(Statuseffekte effect, int duration) {
-        DB.AddOpponentEffects(effect, duration);
-    }
-    public void SetCurrentOponnentStats(int[] stats) {
-        DB.SetCurrentOponnentStats(stats);
-    }
+    
 
     //other things
 

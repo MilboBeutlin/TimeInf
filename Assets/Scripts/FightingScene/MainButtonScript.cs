@@ -10,7 +10,6 @@ public class MainButtonScript : MonoBehaviour
     private ButtonManager bM;
     private GM GM;
 
-    [SerializeField] private Text[] AttacksArray;
 
     [SerializeField] private GameObject ItemButtons;
 
@@ -18,15 +17,9 @@ public class MainButtonScript : MonoBehaviour
     [SerializeField] private Text ItemButtonText;
 
     private bool FirstAttackPage = true;
-    [SerializeField] private Transform attackButtonsParent;
 //private TextMeshProUGUI[] AttacksArray;
 
-void Awake()
-{
-    if(attackButtonsParent != null){
-        AttacksArray = attackButtonsParent.GetComponentsInChildren<Text>(true);
-    }
-}
+
 
     void Start()
     {
@@ -65,22 +58,14 @@ void Awake()
     }
     */
 
-    public void SwitchAttackPages()
+    public void Counter()
     {
-        if(FirstAttackPage == true)
-        {
-            FirstAttackPage = false;
-        } else
-        {
-            FirstAttackPage = true;
-        }
+        GM.Counter();
     }
 
-
-    public void Analyse()
+    public void Striker()
     {
-        GM.Analyse();
-        
+        GM.Strike();
     }
     
 }

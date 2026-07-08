@@ -17,17 +17,6 @@ public class GM : MonoBehaviour
     //Für die Funktionalität der Coin
     private bool coinUsed = false;
 
-
-    //Stats
-    //player
-    [SerializeField] private int[] currentplayerStats;
-    [SerializeField] private Dictionary<Items, int> currentPlayerItems;
-    [SerializeField] private Dictionary<Statuseffekte, int> currentPlayerEffects;
-    //gegner
-    [SerializeField] private int[] currentopponentStats; //health, attack, armor, speed, dk
-    [SerializeField] private Attacks[] currentOponnentAttacks;
-    [SerializeField] private Dictionary<Statuseffekte, int> currentOpponentEffects;
-
     private int GegnerDamageLastRound; //nur relevant für Item Spiegelfragment!!
 
     //private int timer;
@@ -50,6 +39,7 @@ public class GM : MonoBehaviour
     //new Fight
     private List<Attacks> fokusedAttackslocal;
     private List<Attacks> unfokusedAttackslocal;
+    [SerializeField] private Dictionary<Items, int> currentPlayerItems;
 
     private int timerGegner;
     private Attacks currentGegnerAttacks;
@@ -72,23 +62,17 @@ public class GM : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SliderPlayerLife.GetComponent<Slider>().value = currentplayerStats[0];
-        SliderGegnerLife.GetComponent<Slider>().value = currentopponentStats[0];
+        SliderPlayerLife.GetComponent<Slider>().value = playerHealthlocal;
+        SliderGegnerLife.GetComponent<Slider>().value = gegnerHealthlocal;
 
-        if (currentplayerStats[0] <= 0)
+        if (playerHealthlocal <= 0)
         {
-            if (currentPlayerItems.ContainsKey(Items.PhoenixFeather)) {
-                currentplayerStats[0] = 30;
-                currentPlayerItems[Items.PhoenixFeather] -= 1;
-            } else
-            {
-                currentplayerStats[0] = 100;
-                model.Save();
-                SceneManager.LoadScene(0);
-            }
+            playerHealthlocal = 100;
+            model.Save();
+            SceneManager.LoadScene(0);
         }
 
-        if (currentopponentStats[0] <= 0)
+        if (gegnerHealthlocal <= 0)
         {
             DoSave();
             if (model.GetCurrentOponent() == Gegner.Endboss)
@@ -100,7 +84,7 @@ public class GM : MonoBehaviour
                 SceneManager.LoadScene(3);
             }
             SceneManager.UnloadSceneAsync("Fight");
-            model.LightsSwitchtoFight(false);
+            model.LightsSwitchToFight(false);
 
         }
 
@@ -122,8 +106,9 @@ public class GM : MonoBehaviour
 
         // Läd den rest
         currentPlayerItems = model.GetCurrentPlayerItems();
-        currentopponentStats = model.GetCurrentOponnentStats();
-        SliderGegnerLife.GetComponent<Slider>().maxValue = currentopponentStats[0];
+
+        playerHealthlocal = model.GetPlayerHealth();
+        gegnerHealthlocal = model.GetGegnerHealth();
     }
 
     // Speichert alle Relevanten Daten aus dieser Klasse in die DB
@@ -131,7 +116,8 @@ public class GM : MonoBehaviour
     public void DoSave()
     {
 
-        
+        controller.SetPlayerHealth(playerHealthlocal);
+        controller.SetGegnerHealth(gegnerHealthlocal);
         controller.SetPlayerItems(currentPlayerItems);
 
         
@@ -301,54 +287,7 @@ public class GM : MonoBehaviour
 
     */
 
-     private bool IstBuff(Statuseffekte effekt)
-    {
-        switch (effekt)
-        {
-            case Statuseffekte.Gesegnet: 
-            case Statuseffekte.Geschützt:
-                return true;
 
-            default:
-                return false;
-        }
-    }
-
-    public Dictionary<Items, int> GiveCurrentPlayerItems()
-    {
-        return currentPlayerItems;
-    }
-
-    // Die Funktion Analyse:
-    public void Analyse()
-    { 
-        analysisPanel.SetActive(true);
-        switch (model.GetCurrentOponent())
-        {
-            case Gegner.PrisonGuard:
-                AnalyseText.text = "This is the Prison Guard. He Has hight Health, but middle Armour!";
-                break;
-
-            case Gegner.StorageGuard:
-                AnalyseText.text = "This is a simple Guard. He has little HEalth, but a tuff Armour!";
-                break;
-            case Gegner.Insects:
-                AnalyseText.text = "These little Beasts, with little to no health or Armour, can be a real Nightmare!";
-                break;
-            case Gegner.MonsterPainting:
-                AnalyseText.text = "Just a Painting. (middle Health and Armour)";
-                break;
-            case Gegner.Endboss:
-                AnalyseText.text = "HE CAN SEE YOU . . .";
-                break;
-            case Gegner.MiniBoss:
-                AnalyseText.text = "This fella protects the Foyer. He has high health, but no armour.";
-                break;
-            case Gegner.ShadowEnemy:
-                AnalyseText.text = "This Guy, with low healh, but middle Armour, can barely be seen.";
-                break;
-        }
-    }
 
     private void EnemyFeedbackText(string enemyFeedbackText)
     {
@@ -375,35 +314,6 @@ public class GM : MonoBehaviour
     {
         return currentPlayerItems;
     }
-    public Dictionary<Statuseffekte, int> giveCurrentPlayerEffects()
-    {
-        return currentPlayerEffects;
-    }
-    // k == true; PlayerEffect || k == false; OponnentEffect || setzt Effecte von Spieler oder Gegner.
-    public void SetEffect(Statuseffekte effect, int duration, bool isPlayer)
-    {
-        if (isPlayer)
-        {
-            if (currentPlayerEffects.ContainsKey(effect))
-            {
-                currentPlayerEffects[effect] = duration;
-            }
-            else
-            {
-                currentPlayerEffects.Add(effect, duration);
-            }
-        }
-        else
-        {
-            if (currentOpponentEffects.ContainsKey(effect))
-            {
-                currentOpponentEffects[effect] = duration;
-            }
-            else
-            {
-                currentOpponentEffects.Add(effect, duration);
-            }
-        }
-    }
+
 
 }
