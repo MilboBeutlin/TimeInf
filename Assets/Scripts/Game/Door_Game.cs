@@ -5,20 +5,20 @@ public class Door_Game : MonoBehaviour
 {
 
     [SerializeField] private Transform targetDoorSP;
-    [SerializeField] private string leadsTo;
+    [SerializeField] private LocationID leadsTo;
     [SerializeField] private GameObject darkness;
     [SerializeField] private GameObject mirrorRoomContent;
     [SerializeField] private Model model;
     [SerializeField] private BoxCollider2D waterCollider;
     [SerializeField] private bool verticalDoor; // decides whether this door can only be entered vertically or horizontally
     private Camera_Game camera;
-    
+
     private void Awake()
     {
         camera = FindAnyObjectByType<Camera_Game>();
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    /*private void OnTriggerStay2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -44,6 +44,48 @@ public class Door_Game : MonoBehaviour
             }
             
             
+        }
+    }*/
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player"))
+        {
+            return;
+        }
+        if (targetDoorSP == null)
+        {
+            return;
+        }
+        Player_Game player = other.GetComponent<Player_Game>();
+
+        bool correctDirection = verticalDoor ? player.CurrentMovement.y != 0 : player.CurrentMovement.x != 0;
+
+        if (!correctDirection)
+        {
+            return;
+        }
+
+        HandleSpecialRooms();
+
+        player.transform.position = targetDoorSP.position;
+        camera.UpdateCamera(leadsTo);
+    }
+
+    private void HandleSpecialRooms()
+    {
+        if (darkness && leadsTo == LocationID.R6 && model.GetCurrentPlayerItems().ContainsKey(Items.Lighter))
+        {
+            darkness.SetActive(false);
+        }
+
+        if (waterCollider && leadsTo == LocationID.R2 && model.GetCurrentPlayerAttacks().Contains(Attacks.Swim))
+        {
+            waterCollider.enabled = false;
+        }
+
+        if (mirrorRoomContent != null)
+        {
+            mirrorRoomContent.SetActive(false);
         }
     }
 }

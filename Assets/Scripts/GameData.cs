@@ -12,5 +12,5 @@ public class GameData
 
     public int[] Stats;
 
-    public string Location;
+    public LocationID Location;
 }

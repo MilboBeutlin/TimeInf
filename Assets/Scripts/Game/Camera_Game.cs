@@ -8,15 +8,15 @@ public class Camera_Game : MonoBehaviour
     [SerializeField] private Transform[] corridors; //empty object for the postion
     [SerializeField] private Transform[] hallway; //empty object for the postion
     [SerializeField] private Controller controller;
-    private string newLocation;
+    private LocationID newLocation;
     void Start()
     {
     }
-    public void UpdateCamera(string location) 
+    public void UpdateCamera(LocationID location)
     {
-        if(string.IsNullOrEmpty(location)) //Default spawn location
+        if (location == LocationID.Null) //Default spawn location
         {
-            newLocation = "K1";
+            newLocation = LocationID.K1;
         }
         else
         {
@@ -27,21 +27,23 @@ public class Camera_Game : MonoBehaviour
 
     void Update()
     {
-        int index = int.Parse(newLocation.Substring(1)); // Gets the location index (e.g. "R3" -> 3)
+        string id = newLocation.ToString();
+        char type = id[0];
+        int index = int.Parse(id.Substring(1));
 
-        switch (newLocation[0]) // First character of location is the location type.
+        switch (type) // First character of location is the location type.
         {
             case 'R': //rooms
-            transform.position = rooms[index-1].position;
-            break;
+                transform.position = rooms[index].position;
+                break;
 
             case 'K': //vertical hallway
-            transform.position = new Vector2(corridors[index].position.x, player.transform.position.y);
-            break;
+                transform.position = new Vector2(corridors[index].position.x, player.transform.position.y);
+                break;
 
             case 'G': //horizontal hallway
-            transform.position = new Vector2(player.transform.position.x, hallway[index].position.y);
-            break;
-        }    
+                transform.position = new Vector2(player.transform.position.x, hallway[index].position.y);
+                break;
+        }
     }
 }

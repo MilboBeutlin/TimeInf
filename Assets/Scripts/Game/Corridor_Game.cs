@@ -3,8 +3,8 @@ using UnityEngine;
 //Updates the camera location when the player leaves a corridor.
 public class Corridor_Game : MonoBehaviour
 {
-    [SerializeField] private string leadsTo; //to where it leads: the place on the right to the collider
-    [SerializeField] private string leadsFrom; //from where it leads: the place on the left to the collider
+    [SerializeField] private LocationID leadsTo; //to where it leads: the place on the right to the collider
+    [SerializeField] private LocationID leadsFrom; //from where it leads: the place on the left to the collider
     [SerializeField] private bool vertical; // decides whether this is a vertical or horizontal corridor.
     private Camera_Game camera;
 

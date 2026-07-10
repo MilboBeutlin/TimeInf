@@ -28,7 +28,7 @@ public class Chest_Game : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             isColliding = false;
-            gm.ShowText(false);
+            gm?.ShowText(false);
         }
     }
     void Update()

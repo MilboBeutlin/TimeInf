@@ -36,11 +36,11 @@ public class Model : MonoBehaviour
     public Dictionary<Items, int> GetSavedPlayerItems() {
         return DB.GetSavedPlayerItems();
     }
-    public string GetPlayerLocation()
+    public LocationID GetPlayerLocation()
     {
         return DB.GetPlayerLocation();
     }
-    public string GetSavePlayerLocation()
+    public LocationID GetSavePlayerLocation()
     {
         return DB.GetSavePlayerLocation();
     }

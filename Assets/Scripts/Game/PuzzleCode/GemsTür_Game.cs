@@ -5,16 +5,15 @@ using System.Collections;
 public class GemsTür_Game : MonoBehaviour
 {
 
-     [SerializeField] private GM_Game gm;
-     [SerializeField] private GameObject emptyGemSlot;
-     [SerializeField] private GameObject fullGemSlot;
+    [SerializeField] private GM_Game gm;
+    [SerializeField] private GameObject emptyGemSlot;
+    [SerializeField] private GameObject fullGemSlot;
     [SerializeField] private Transform targetDoorSP;
     private bool kollidiert = false;
-  private bool gemsEingesetzt = false;
+    private bool gemsEingesetzt = false;
     private Camera_Game camera;
-   //private Vector2 pos;
 
-    
+
     private void Start()
     {
         camera = FindAnyObjectByType<Camera_Game>();
@@ -25,18 +24,16 @@ public class GemsTür_Game : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Player_Game player = other.GetComponent<Player_Game>();
-            if(gemsEingesetzt == false)
-                {
-                    gm.ChangeText("Press E to  insert Gems and open Door");
-                    gm.ShowText(true);
-                    kollidiert = true;
-                }
-            else if(targetDoorSP != null && player.CurrentMovement.y != 0)
+            if (gemsEingesetzt == false)
             {
-                    //pos = targetDoorSP.position;
-                    //pos += new Vector2(0, 5);
-                    other.transform.position = targetDoorSP.position;
-                    camera.UpdateCamera("R11");
+                gm.ChangeText("Press E to  insert Gems and open Door");
+                gm.ShowText(true);
+                kollidiert = true;
+            }
+            else if (targetDoorSP != null && player.CurrentMovement.y != 0)
+            {
+                other.transform.position = targetDoorSP.position;
+                camera.UpdateCamera(LocationID.R11);
             }
         }
     }
@@ -44,11 +41,11 @@ public class GemsTür_Game : MonoBehaviour
 
     void Update()
     {
-        if(gemsEingesetzt == false && kollidiert && Input.GetKeyDown(KeyCode.E) && gm.giveCurrentPlayerItems().TryGetValue(Items.Gem, out int anzahl) && anzahl >= 4)
+        if (gemsEingesetzt == false && kollidiert && Input.GetKeyDown(KeyCode.E) && gm.giveCurrentPlayerItems().TryGetValue(Items.Gem, out int anzahl) && anzahl >= 4)
         {
             gm.RemoveItem(Items.Gem, 4);
             emptyGemSlot.SetActive(false);
-            Invoke(nameof (OpenDoor), 0.5f);
+            Invoke(nameof(OpenDoor), 0.5f);
             gemsEingesetzt = true;
         }
     }
@@ -60,9 +57,9 @@ public class GemsTür_Game : MonoBehaviour
         gm?.ShowText(false);
     }
 
-   void OpenDoor()
+    void OpenDoor()
     {
         fullGemSlot.SetActive(false);
     }
-    
+
 }

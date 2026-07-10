@@ -61,11 +61,11 @@ public class Controller : MonoBehaviour
     {
         DB.RemoveItem(item, amount);
     }
-    public void SetPlayerLocation(string playerLocation)
+    public void SetPlayerLocation(LocationID playerLocation)
     {
         DB.SetPlayerLocation(playerLocation);
     }
-    public void SetSavePlayerLocation(string savePlayerLocation)
+    public void SetSavePlayerLocation(LocationID savePlayerLocation)
     {
         DB.SetSavePlayerLocation(savePlayerLocation);
     }
