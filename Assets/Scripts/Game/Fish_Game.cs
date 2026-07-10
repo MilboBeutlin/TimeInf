@@ -1,5 +1,5 @@
 using UnityEngine;
-//fish moving around the lake, left and right
+//fish moving around the lake, back and forth between two horizontal points
 public class Fish_Game : MonoBehaviour
 {
     [SerializeField] private float leftPoint;
@@ -12,7 +12,7 @@ public class Fish_Game : MonoBehaviour
     private void Awake()
     {
         sR = GetComponent<SpriteRenderer>();
-        speed = Random.Range(1.8f, 4f);
+        speed = Random.Range(1.8f, 4f); //random speed for each fish
     }
 
     private void Update()

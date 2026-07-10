@@ -1,6 +1,6 @@
 using UnityEngine;
 
-//teleports the player between two doors
+//teleports the player between two doors and handles events of special rooms
 public class Door_Game : MonoBehaviour
 {
 
@@ -18,34 +18,6 @@ public class Door_Game : MonoBehaviour
         camera = FindAnyObjectByType<Camera_Game>();
     }
 
-    /*private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            Player_Game player = other.GetComponent<Player_Game>();
-
-            // Door only works if the player enters from the correct direction.
-            if(targetDoorSP != null && (verticalDoor && player.CurrentMovement.y != 0) || (!verticalDoor && player.CurrentMovement.x != 0))
-            {
-                if(leadsTo == "R6" && model.GetCurrentPlayerItems().ContainsKey(Items.Lighter)) // Remove the darkness if the player owns the lighter.
-                {
-                    darkness.SetActive(false);
-                }
-                if(leadsTo == "R2" && model.GetCurrentPlayerAttacks().Contains(Attacks.Swim))  // Remove the water obstacle if the player has learned Swim.
-                {
-                    waterCollider.enabled = false;
-                }
-                if (mirrorRoomContent)
-                {
-                    mirrorRoomContent.SetActive(false); // Disable the mirror room content when the player enters the mirror room through the mirror door.
-                }
-                other.transform.position = targetDoorSP.position; //teleports the Player to other door
-                camera.UpdateCamera(leadsTo);
-            }
-            
-            
-        }
-    }*/
     private void OnTriggerStay2D(Collider2D other)
     {
         if (!other.CompareTag("Player"))
@@ -58,6 +30,7 @@ public class Door_Game : MonoBehaviour
         }
         Player_Game player = other.GetComponent<Player_Game>();
 
+        //blocks the player from entering the door if they are not moving in the correct direction
         bool correctDirection = verticalDoor ? player.CurrentMovement.y != 0 : player.CurrentMovement.x != 0;
 
         if (!correctDirection)
@@ -71,7 +44,7 @@ public class Door_Game : MonoBehaviour
         camera.UpdateCamera(leadsTo);
     }
 
-    private void HandleSpecialRooms()
+    private void HandleSpecialRooms() //handles special events that occur when the player enters certain rooms
     {
         if (darkness && leadsTo == LocationID.R6 && model.GetCurrentPlayerItems().ContainsKey(Items.Lighter))
         {

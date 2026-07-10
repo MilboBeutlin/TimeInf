@@ -9,12 +9,12 @@ public class Camera_Game : MonoBehaviour
     [SerializeField] private Transform[] hallway; //empty object for the postion
     [SerializeField] private Controller controller;
     private LocationID newLocation;
-    void Start()
-    {
-    }
+    private char type;
+    private int index;
+
     public void UpdateCamera(LocationID location)
     {
-        if (location == LocationID.Null) //Default spawn location
+        if (location == LocationID.None) //Default spawn location
         {
             newLocation = LocationID.K1;
         }
@@ -23,13 +23,15 @@ public class Camera_Game : MonoBehaviour
             newLocation = location;
         }
         controller.SetPlayerLocation(newLocation);
+
+        //translates the locationID into a type and index for the camera to use
+        string id = newLocation.ToString();
+        type = id[0];
+        index = int.Parse(id.Substring(1));
     }
 
     void Update()
     {
-        string id = newLocation.ToString();
-        char type = id[0];
-        int index = int.Parse(id.Substring(1));
 
         switch (type) // First character of location is the location type.
         {

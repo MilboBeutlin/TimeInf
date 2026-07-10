@@ -51,6 +51,7 @@ void Update()
         }          
     }
 
+    //sprinting with left shift
     if (Input.GetKey(KeyCode.LeftShift))
     {
         currentSpeed = sprintSpeed;
@@ -67,6 +68,7 @@ void FixedUpdate()
 
     body.linearVelocity = move.normalized * currentSpeed;
 }
+
 void OnTriggerEnter2D(Collider2D other)
 {
     if (other.CompareTag("Enemy")) //loading enemie on collision
