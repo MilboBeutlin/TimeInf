@@ -7,6 +7,7 @@ public class Door_Game : MonoBehaviour
     [SerializeField] private Transform targetDoorSP;
     [SerializeField] private string leadsTo;
     [SerializeField] private GameObject darkness;
+    [SerializeField] private GameObject mirrorRoomContent;
     [SerializeField] private Model model;
     [SerializeField] private BoxCollider2D waterCollider;
     [SerializeField] private bool verticalDoor; // decides whether this door can only be entered vertically or horizontally
@@ -33,6 +34,10 @@ public class Door_Game : MonoBehaviour
                 if(leadsTo == "R2" && model.GetCurrentPlayerAttacks().Contains(Attacks.Swim))  // Remove the water obstacle if the player has learned Swim.
                 {
                     waterCollider.enabled = false;
+                }
+                if (mirrorRoomContent)
+                {
+                    mirrorRoomContent.SetActive(false); // Disable the mirror room content when the player enters the mirror room through the mirror door.
                 }
                 other.transform.position = targetDoorSP.position; //teleports the Player to other door
                 camera.UpdateCamera(leadsTo);
