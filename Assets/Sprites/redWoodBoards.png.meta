@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 5a9ccb0cc144d664190675a5d5e296bc
+guid: d6084dafb5837eb47b84d65329642c9f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7658024522965619364
-    second: woodBoards_0
+      213: 4144751483546104768
+    second: redWoodBoards_0
   - first:
-      213: -7668100674070990243
-    second: woodBoards_1
+      213: 4813426247009387649
+    second: redWoodBoards_1
   - first:
-      213: 9093715588833425384
-    second: woodBoards_2
+      213: 7598142933473183283
+    second: redWoodBoards_2
   - first:
-      213: -7017579800688345620
-    second: woodBoards_3
+      213: -5800321130361811816
+    second: redWoodBoards_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: woodBoards_0
+      name: redWoodBoards_0
       rect:
         serializedVersion: 2
         x: 3
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5d6763354b39b590800000000000000
-      internalID: -7658024522965619364
+      spriteID: 0c3f903b38d158930800000000000000
+      internalID: 4144751483546104768
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: woodBoards_1
+      name: redWoodBoards_1
       rect:
         serializedVersion: 2
         x: 51
@@ -146,14 +146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d52b014701f659590800000000000000
-      internalID: -7668100674070990243
+      spriteID: 18449854ba9bcc240800000000000000
+      internalID: 4813426247009387649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: woodBoards_2
+      name: redWoodBoards_2
       rect:
         serializedVersion: 2
         x: 3
@@ -168,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8e739d0c52e533e70800000000000000
-      internalID: 9093715588833425384
+      spriteID: 3364056cdb6027960800000000000000
+      internalID: 7598142933473183283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: woodBoards_3
+      name: redWoodBoards_3
       rect:
         serializedVersion: 2
         x: 51
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cedb30d1a5c8c9e90800000000000000
-      internalID: -7017579800688345620
+      spriteID: 89c8791d9ae118fa0800000000000000
+      internalID: -5800321130361811816
       vertices: []
       indices: 
       edges: []
@@ -200,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7205d746923b1f241acdf8875a0b880c
+    spriteID: 39b1f942a4f489c4b958db19196a7079
     internalID: 0
     vertices: []
     indices: 
@@ -212,10 +212,10 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      woodBoards_0: -7658024522965619364
-      woodBoards_1: -7668100674070990243
-      woodBoards_2: 9093715588833425384
-      woodBoards_3: -7017579800688345620
+      redWoodBoards_0: 4144751483546104768
+      redWoodBoards_1: 4813426247009387649
+      redWoodBoards_2: 7598142933473183283
+      redWoodBoards_3: -5800321130361811816
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
