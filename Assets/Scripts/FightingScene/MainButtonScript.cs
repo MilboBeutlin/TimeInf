@@ -16,7 +16,7 @@ public class MainButtonScript : MonoBehaviour
     [SerializeField] private Items ButtonType;
     [SerializeField] private Text ItemButtonText;
 
-    private bool FirstAttackPage = true;
+    
 //private TextMeshProUGUI[] AttacksArray;
 
 

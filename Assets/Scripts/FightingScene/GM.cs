@@ -15,7 +15,7 @@ public class GM : MonoBehaviour
     private ButtonManager bM;
 
     //Für die Funktionalität der Coin
-    private bool coinUsed = false;
+    //private bool coinUsed = false;
 
     private int GegnerDamageLastRound; //nur relevant für Item Spiegelfragment!!
 

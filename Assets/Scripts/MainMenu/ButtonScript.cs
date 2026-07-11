@@ -25,7 +25,7 @@ public class ButtonScript : MonoBehaviour
 
     public void NewGame() //resets all the data and loads the game 
     {
-        Datenbank db = FindObjectOfType<Datenbank>();
+        Datenbank db = FindFirstObjectByType<Datenbank>();
         db?.NewGame();
         SceneManager.LoadScene(1);
     }

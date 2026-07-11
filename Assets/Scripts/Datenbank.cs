@@ -17,8 +17,8 @@ public class Datenbank : MonoBehaviour
     [SerializeField] private Dictionary<Items, int> playerItems = new Dictionary<Items, int>();
     private Dictionary<Items, int> savedPlayerItems = new Dictionary<Items, int>();
     
-    private string playerLocation = "K1";
-    private string savePlayerLocation;
+    private LocationID playerLocation = LocationID.K1;
+    private LocationID savePlayerLocation;
 
     //Gegner:
     private Gegner currentOponent;
@@ -139,7 +139,7 @@ public class Datenbank : MonoBehaviour
         {
             //start location player
             spawnPosition = new Vector3(0, 0, 0);
-            savePlayerLocation = "K1";
+            savePlayerLocation = LocationID.K1;
 
             //resett
             
@@ -204,19 +204,19 @@ public class Datenbank : MonoBehaviour
             }
         }
     }
-    public string GetPlayerLocation()
+    public LocationID GetPlayerLocation()
     {
         return playerLocation;
     }
-    public void SetPlayerLocation(string playerLocation)
+    public void SetPlayerLocation(LocationID playerLocation)
     {
         this.playerLocation = playerLocation;
     }
-    public string GetSavePlayerLocation()
+    public LocationID GetSavePlayerLocation()
     {
         return savePlayerLocation;
     }
-    public void SetSavePlayerLocation(string savePlayerLocation)
+    public void SetSavePlayerLocation(LocationID savePlayerLocation)
     {
         this.savePlayerLocation = savePlayerLocation;
     }

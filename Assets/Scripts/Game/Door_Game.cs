@@ -5,7 +5,7 @@ public class Door_Game : MonoBehaviour
 {
 
     [SerializeField] private Transform targetDoorSP;
-    [SerializeField] private string leadsTo;
+    [SerializeField] private LocationID leadsTo;
     [SerializeField] private GameObject darkness;
     [SerializeField] private Model model;
     [SerializeField] private BoxCollider2D waterCollider;
@@ -26,11 +26,11 @@ public class Door_Game : MonoBehaviour
             // Door only works if the player enters from the correct direction.
             if(targetDoorSP != null && (verticalDoor && player.CurrentMovement.y != 0) || (!verticalDoor && player.CurrentMovement.x != 0))
             {
-                if(leadsTo == "R6" && model.GetCurrentPlayerItems().ContainsKey(Items.Lighter)) // Remove the darkness if the player owns the lighter.
+                if(leadsTo == LocationID.R6 && model.GetCurrentPlayerItems().ContainsKey(Items.Lighter)) // Remove the darkness if the player owns the lighter.
                 {
                     darkness.SetActive(false);
                 }
-                if(leadsTo == "R2" && /* model.GetCurrentPlayerAttacks().Contains(Attacks.Swim)*/ 1==1)  // Remove the water obstacle if the player has learned Swim.
+                if(leadsTo == LocationID.R2 && /* model.GetCurrentPlayerAttacks().Contains(Attacks.Swim)*/ 1==1)  // Remove the water obstacle if the player has learned Swim.
                 {
                     waterCollider.enabled = false;
                 }
