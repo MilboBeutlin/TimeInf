@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-/// This class is for a button blockade prefab that can be clicked a certain number of times before being destroyed
+// This class is for a button blockade prefab that can be clicked a certain number of times before being destroyed
 public class ButtonBlockade : MonoBehaviour
 {
     [SerializeField] private Image image;
@@ -18,7 +18,7 @@ public class ButtonBlockade : MonoBehaviour
         image.sprite = damageSprites[0];
     }
 
-    /// Handles the click event for the button blockade
+    // Handles the click event for the button blockade
     public void Click()
     {
         clicksRemaining--;
@@ -37,11 +37,14 @@ public class ButtonBlockade : MonoBehaviour
 
     }
     /* how to create the blockade prefab and set it up in the scene:
-    
+
+        public void BlockButton(Transform playerButton)
+    {
         GameObject obj = Instantiate(blockadePrefab, playerButton);
 
         obj.transform.localPosition = Vector3.zero;
 
         obj.GetComponent<Blockade>().Setup(clicksNeeded, blockadeSprites);
+    }
     */
 }
