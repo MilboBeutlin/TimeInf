@@ -1,75 +1,56 @@
-using UnityEngine;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System;
+using System.Runtime.InteropServices.WindowsRuntime;
+using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Datenbank : MonoBehaviour
 {
     public static Datenbank Instance;
     //Alle Stats im Game
     //Player:
-    private List<Attacks> playerAttacks = new List<Attacks>();
-    private Dictionary<Statuseffekte, int> playerEffects = new Dictionary<Statuseffekte, int>();
 
+
+    private bool playerHasSwim;
     [SerializeField] private Dictionary<Items, int> playerItems = new Dictionary<Items, int>();
     private Dictionary<Items, int> savedPlayerItems = new Dictionary<Items, int>();
-    private int[] currentPlayerStats = new int[]{100,25,20,6,0}; //health, attack, armor, speed, dk
-    private LocationID playerLocation = LocationID.K1;
-    private LocationID savePlayerLocation;
+    
+    private string playerLocation = "K1";
+    private string savePlayerLocation;
 
     //Gegner:
     private Gegner currentOponent;
-    private Attacks[] currentOponnentAttacks;
-    private Dictionary<Statuseffekte, int> oponentEffects = new Dictionary<Statuseffekte, int>();
-    private int[] currentOponnentStats; //health, attack, armor, speed, dk
+
+    //new Fighting Stuff
+    private int playerHealth = 5;
+    private int gegnerHEalth;
+    private List<Attacks> fokusedAttacks;
+    private List<Attacks> unfokusedAttacks;
 
     //other stuff:
     private Vector3 spawnPosition;
 
     private string savePath;
+    [SerializeField] private GameObject gameLight;
 
     public void Start()
     {
-        //Löscht den Speicherstand
-        /*if(ButtonScript.newGame)
-        {
-            Debug.Log("Neues Spiel gestartet, Speicherstand wird gelöscht");
-            ButtonScript.newGame = false;
-            savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
-
-            if (File.Exists(savePath))
-            {
-                File.Delete(savePath);                         
-            }
-        }
-        else
-        {
-            savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
-        }*/
         savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
+
         //Alle stats im Game
-        playerAttacks = new List<Attacks>();
+        
         playerItems = new Dictionary<Items, int>();
-        playerEffects = new Dictionary<Statuseffekte, int>();
+        
+        gameLight = GameObject.FindGameObjectWithTag("GlobalLight");
 
-        currentOponnentAttacks = new Attacks[6];
-        for (int i = 0; i <currentOponnentAttacks.Length; i++)
-        {
-            currentOponnentAttacks[i] = Attacks.NULL;   
-        }
-
+        
+        
+        
         Load();
-        if(playerAttacks.Count() <= 0)
-        {
-            //starter stuff geaddet
-            currentPlayerStats[0] = 100;
-            AddItem(Items.Coins, 6);
-            AddPlayerAttack(Attacks.Hammer);
-            AddPlayerAttack(Attacks.Strike);
-            AddItem(Items.Brick, 1);
-            AddItem(Items.HealingPotion, 1);
-        }
+
+        
     }
     public void NewGame()
     {
@@ -109,11 +90,7 @@ public class Datenbank : MonoBehaviour
         data.spawnPointlocation[1] = spawnPosition.y;
         data.spawnPointlocation[2] = spawnPosition.z;
 
-        data.Attacks = new string[playerAttacks.Count];
-        for(int i = 0; i<playerAttacks.Count; i++)
-        {
-            data.Attacks[i] = playerAttacks[i].ToString();
-        }
+        
 
         data.Items = new string[playerItems.Count];
         for(int i = 0; i <playerItems.Count; i++)
@@ -123,7 +100,7 @@ public class Datenbank : MonoBehaviour
 
         data.ItemLenght = playerItems.Values.ToArray<int>();
         data.Location = savePlayerLocation;
-        data.Stats = currentPlayerStats;
+        data.Stats = playerHealth;
 
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(savePath, json);
@@ -133,7 +110,7 @@ public class Datenbank : MonoBehaviour
 
     public void Load()
     {
-        Debug.Log("Vor Load: " + playerAttacks.Count);
+        
         if (File.Exists(savePath))
         { 
             string json = File.ReadAllText(savePath);
@@ -144,13 +121,7 @@ public class Datenbank : MonoBehaviour
             spawnPosition.y = data.spawnPointlocation[1];
             spawnPosition.z = data.spawnPointlocation[2];
 
-            for (int i = 0; i < data.Attacks.Length; i++)
-            {
-                if (Enum.TryParse<Attacks>(data.Attacks[i], out Attacks result))
-                {
-                    playerAttacks.Add(Enum.Parse<Attacks>(data.Attacks[i]));
-                }
-            }
+            
 
             for (int i = 0; i < data.Items.Length; i++)
             {
@@ -160,7 +131,7 @@ public class Datenbank : MonoBehaviour
 
                 }
             }
-            currentPlayerStats = data.Stats;
+            playerHealth = data.Stats;
             savePlayerLocation = data.Location;
             
 
@@ -168,76 +139,23 @@ public class Datenbank : MonoBehaviour
         {
             //start location player
             spawnPosition = new Vector3(0, 0, 0);
-            savePlayerLocation = LocationID.K1;
+            savePlayerLocation = "K1";
 
             //resett
-            playerAttacks = new List<Attacks>();
+            
             playerItems = new Dictionary<Items, int>();
-            playerEffects = new Dictionary<Statuseffekte, int>();
+            
 
-            //starter stuff geaddet
-            currentPlayerStats[0] = 100;
-            AddItem(Items.Coins, 6);
-            AddPlayerAttack(Attacks.Hammer);
-            AddPlayerAttack(Attacks.Strike);
-            AddItem(Items.Brick, 1);
-            AddItem(Items.HealingPotion, 1);
+            
         }
-        Debug.Log("Nach Load: " + playerAttacks.Count);
+        
     }
 
     
 
     //Alle Stats im Game
     //player
-    public List<Attacks> GetCurrentPlayerAttacks() {
-        return playerAttacks;
-    }
-
-    public void SetCurrentPlayerAttacks(List<Attacks> playerAttacks) {
-        this.playerAttacks = playerAttacks;
-    }
-
-    public int GetCurrentPlayerStat(int index) {
-        return currentPlayerStats[index];
-    }
-    //Falls man den gesammten Array gleichzeitig setzten möchte:
-    public void SetCurrentPlayerFULLStats(int[] i )
-    {
-        currentPlayerStats = i;
-    }
-    public int[] GetCurrentPlayerStats() {
-        return currentPlayerStats;
-    }
-
-    public void SetPlayerEffects(Dictionary<Statuseffekte, int> i)
-    {
-        playerEffects = i;
-    }
-
-    public void SetCurrentPlayerStats(int index, int amount) {
-        this.currentPlayerStats[index] += amount;
-    }
-
-    public Dictionary<Statuseffekte, int> GetPlayerEffects() {
-        return playerEffects;
-    }
-
-    public void AddPlayerEffects(Statuseffekte effect, int duration) {
-        if (playerEffects.ContainsKey(effect))
-        {
-            playerEffects[effect] = duration;
-        }
-        else
-        {
-            playerEffects.Add(effect, duration);
-        }
-    }
-
-    public void AddPlayerAttack(Attacks attack)
-    {
-        playerAttacks.Add(attack);
-    }
+    
 
     public Dictionary<Items, int> GetCurrentPlayerItems()
     {
@@ -286,23 +204,61 @@ public class Datenbank : MonoBehaviour
             }
         }
     }
-    public LocationID GetPlayerLocation()
+    public string GetPlayerLocation()
     {
         return playerLocation;
     }
-    public void SetPlayerLocation(LocationID playerLocation)
+    public void SetPlayerLocation(string playerLocation)
     {
         this.playerLocation = playerLocation;
     }
-    public LocationID GetSavePlayerLocation()
+    public string GetSavePlayerLocation()
     {
         return savePlayerLocation;
     }
-    public void SetSavePlayerLocation(LocationID savePlayerLocation)
+    public void SetSavePlayerLocation(string savePlayerLocation)
     {
         this.savePlayerLocation = savePlayerLocation;
     }
 
+
+    //New Fight
+
+    public List<Attacks> GetAttacks(bool fokused)
+    {
+        if(fokused) { return fokusedAttacks; }
+        else { return unfokusedAttacks; }
+    }
+
+    public void SetAttacks(List<Attacks> attacks, bool fokused)
+    {
+        if(fokused)
+        {
+            fokusedAttacks = attacks;
+        } else
+        {
+            unfokusedAttacks = attacks;
+        }
+    }
+
+    public int GetPlayerHEalth()
+    {
+        return playerHealth;
+    }
+    public void SetPlayerHEalth(int health)
+    {
+        playerHealth = health;
+    }
+
+    public int GetOponentHEalth()
+    {
+        return gegnerHEalth;
+    }
+
+    public void SetGegnerHEalth(int health)
+    {
+        gegnerHEalth = health;
+    }
     // opponent
 
     public Gegner GetCurrentOponent() {
@@ -313,28 +269,7 @@ public class Datenbank : MonoBehaviour
         this.currentOponent = currentOponent;
     }
 
-    public Attacks[] GetCurrentOponnentAttacks() {
-        return currentOponnentAttacks;
-    }
-
-    public void SetCurrentOponnentAttacks(Attacks[] currentOponnentAttacks) {
-        this.currentOponnentAttacks = currentOponnentAttacks;
-    }
-
-    public Dictionary<Statuseffekte, int> GetOpponentEffects() {
-        return oponentEffects;
-    }
-
-    public void AddOpponentEffects(Statuseffekte effect, int duration) {
-        if (oponentEffects.ContainsKey(effect))
-        {
-            oponentEffects[effect] = duration;
-        }
-        else
-        {
-            oponentEffects.Add(effect, duration);
-        }
-    }
+    
 
     public int[] GetCurrentOpponentStats()
     {
@@ -352,9 +287,7 @@ public class Datenbank : MonoBehaviour
         };
     }
 
-    public void SetCurrentOponnentStats(int[] currentOponnentStats) {
-        this.currentOponnentStats = currentOponnentStats;
-    }
+    
 
     //other things:
     public Vector3 GetSpawnPosition()
@@ -364,6 +297,13 @@ public class Datenbank : MonoBehaviour
     public void SetSpawnPosition(Vector3 spawnPosition)
     {
         this.spawnPosition = spawnPosition;
+    }
+
+
+    //Lights
+    public void LightsSwitchToFight(bool switchToFight)
+    {
+        gameLight.GetComponent<Light2D>().intensity = switchToFight ? 0.03f : 0.25f;
     }
 
 }

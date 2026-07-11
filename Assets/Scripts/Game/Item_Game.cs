@@ -5,7 +5,6 @@ public class Item_Game : MonoBehaviour
 {
     [SerializeField] public Items item;
     [SerializeField] public int amount;
-    [SerializeField] private Attacks attack;
     private GM_Game gm;
     private Controller controller;
     private Model model;
@@ -17,18 +16,9 @@ public class Item_Game : MonoBehaviour
             controller = FindAnyObjectByType<Controller>();
             gm = FindAnyObjectByType<GM_Game>();
             model = FindAnyObjectByType<Model>();
-            if (attack != Attacks.NULL && model.GetCurrentPlayerAttacks().Count < 10 && !model.GetCurrentPlayerAttacks().Contains(attack)) //checks if you can collect this attacks and if you have enough space
-            {
-                controller.AddAttack(attack);
-                gm.AttackGot(attack);
-            }
-            else if(!model.GetCurrentPlayerAttacks().Contains(attack) || attack == Attacks.NULL)
-            {
-                controller.AddItem(item, amount);
-                gm.ItemsGot(item, amount);
-            }
+            controller.AddItem(item, amount);
+            gm.ItemsGot(item, amount);         
             Destroy(gameObject);
-
         }
     }
 }

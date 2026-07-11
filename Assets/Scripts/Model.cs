@@ -1,35 +1,23 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Rendering.Universal;
 public class Model : MonoBehaviour
 {
     private Datenbank DB => Datenbank.Instance;
 
     // player
-    public List<Attacks> GetCurrentPlayerAttacks() {
-        return DB.GetCurrentPlayerAttacks();
-    }
-    public int[] GetCurrentPlayerStats() {
-        return DB.GetCurrentPlayerStats();
-    }
-    public int GetCurrentPlayerLp() {
-        return DB.GetCurrentPlayerStat(0);
-    }
-    public int GetCurrentPlayerAtk() {
-        return DB.GetCurrentPlayerStat(1);
-    }
-    public int GetCurrentPlayerArmor() {
-        return DB.GetCurrentPlayerStat(2);
-    }
-    public int GetCurrentPlayerSpeed() {
-        return DB.GetCurrentPlayerStat(3);
-    }
-    public int GetCurrentPlayerDk() {
-        return DB.GetCurrentPlayerStat(4);
+    public int GetPlayerHealth()
+    {
+        return DB.GetPlayerHEalth();
     }
 
-    public Dictionary<Statuseffekte, int> GetPlayerEffects() {
-        return DB.GetPlayerEffects();
+    public int GetGegnerHealth()
+    {
+        return DB.GetOponentHEalth();
     }
+
+
+
     public Dictionary<Items, int> GetCurrentPlayerItems() {
         return DB.GetCurrentPlayerItems();
     }
@@ -50,12 +38,7 @@ public class Model : MonoBehaviour
     public Gegner GetCurrentOponent() {
         return DB.GetCurrentOponent();
     }
-    public Attacks[] GetCurrentOponnentAttacks() {
-        return DB.GetCurrentOponnentAttacks();
-    }
-    public Dictionary<Statuseffekte, int> GetOpponentEffects() {
-        return DB.GetOpponentEffects();
-    }
+    
     public int[] GetCurrentOponnentStats() {
         return DB.GetCurrentOpponentStats();
     }
@@ -86,5 +69,12 @@ public class Model : MonoBehaviour
     public void Save()
     {
         DB.Save();
+    }
+
+
+
+    public void LightsSwitchToFight(bool fight)
+    {
+        DB.LightsSwitchToFight(fight);
     }
 }
