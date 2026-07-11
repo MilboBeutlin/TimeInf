@@ -41,7 +41,7 @@ public class GM : MonoBehaviour
     private List<Attacks> unfokusedAttackslocal;
     [SerializeField] private Dictionary<Items, int> currentPlayerItems;
 
-    private int timerGegner;
+    private int timerGegner = 40;
     private Attacks currentGegnerAttacks;
     
 
@@ -93,7 +93,7 @@ public class GM : MonoBehaviour
 
         if(timerGegner <= 0)
         {
-            
+            GegnerTurn();
         } else
         {
             timerGegner--;
@@ -103,11 +103,13 @@ public class GM : MonoBehaviour
     //Läd alle relevanten Daten aus der DB in diese Klasse
     public void DoLoad()
     {
-
+        Debug.Log("Fs geladen.");
         // Läd den rest
         currentPlayerItems = model.GetCurrentPlayerItems();
 
+        gegnerHealthlocal = model.GetCurrentOponnentStats();
         playerHealthlocal = model.GetPlayerHealth();
+
         gegnerHealthlocal = model.GetGegnerHealth();
     }
 

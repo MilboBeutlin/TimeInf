@@ -25,7 +25,7 @@ public class Datenbank : MonoBehaviour
 
     //new Fighting Stuff
     private int playerHealth = 5;
-    private int gegnerHEalth;
+    private int gegnerHEalth = 4;
     private List<Attacks> fokusedAttacks;
     private List<Attacks> unfokusedAttacks;
 
@@ -283,7 +283,6 @@ public class Datenbank : MonoBehaviour
         };
     }
 
-    
 
     //other things:
     public Vector3 GetSpawnPosition()
@@ -300,7 +299,12 @@ public class Datenbank : MonoBehaviour
     public void LightsSwitchToFight(bool switchToFight)
     {
         gameLight = GameObject.FindGameObjectWithTag("GlobalLight");
-        gameLight.GetComponent<Light2D>().intensity = switchToFight ? 0.03f : 0.25f;
+        if (gameLight != null)
+        {
+            gameLight.GetComponent<Light2D>().intensity = switchToFight ? 0.03f : 0.25f;
+        }
+
+        
     }
 
 }

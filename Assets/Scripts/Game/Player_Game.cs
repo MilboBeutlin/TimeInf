@@ -75,6 +75,7 @@ void OnTriggerEnter2D(Collider2D other)
     {
         controller.SetCurrentOponent(other.gameObject.GetComponent<Enemy_Game>().type);
         gameMaster.ShowText(false);
+        
         SceneManager.LoadScene("Fight", LoadSceneMode.Additive);
         FindAnyObjectByType<Model>().LightsSwitchToFight(true);
         Destroy(other.gameObject);

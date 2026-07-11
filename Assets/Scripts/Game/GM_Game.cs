@@ -98,6 +98,4 @@ public class GM_Game : MonoBehaviour
         itemGotMssg.SetActive(false);
     }
 
-    
-
 }

@@ -61,5 +61,5 @@ public class Controller : MonoBehaviour
     {
         DB.NewGame();
     }
-    
+
 }
