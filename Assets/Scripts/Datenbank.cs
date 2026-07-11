@@ -42,11 +42,7 @@ public class Datenbank : MonoBehaviour
         //Alle stats im Game
         
         playerItems = new Dictionary<Items, int>();
-        
-        gameLight = GameObject.FindGameObjectWithTag("GlobalLight");
 
-        
-        
         
         Load();
 
@@ -303,6 +299,7 @@ public class Datenbank : MonoBehaviour
     //Lights
     public void LightsSwitchToFight(bool switchToFight)
     {
+        gameLight = GameObject.FindGameObjectWithTag("GlobalLight");
         gameLight.GetComponent<Light2D>().intensity = switchToFight ? 0.03f : 0.25f;
     }
 
