@@ -37,11 +37,11 @@ public class GM : MonoBehaviour
     //private GM_Game gameMaster;
 
     //new Fight
-    private List<Attacks> fokusedAttackslocal;
-    private List<Attacks> unfokusedAttackslocal;
+    private List<Attacks> fokusedAttackslocal = new List<Attacks> { Attacks.Schlag};
+    private List<Attacks> unfokusedAttackslocal = new List<Attacks> { Attacks.Feuerball };
     [SerializeField] private Dictionary<Items, int> currentPlayerItems;
 
-    private int timerGegner = 40;
+    private float timerGegner = 3f;
     private Attacks currentGegnerAttacks;
     
 
@@ -96,7 +96,7 @@ public class GM : MonoBehaviour
             GegnerTurn();
         } else
         {
-            timerGegner--;
+            timerGegner -= Time.deltaTime;
         }
     }
 
@@ -163,7 +163,7 @@ public class GM : MonoBehaviour
         }
 
         //Attacke setzen
-        if (Random.Range(0, 1) == 1)
+        if (Random.Range(0, 2) == 1)
         {
             currentGegnerAttacks = fokusedAttackslocal[Random.Range(0, fokusedAttackslocal.Count())];
         }
@@ -174,7 +174,7 @@ public class GM : MonoBehaviour
 
         EnemyFeedbackText(currentGegnerAttacks.ToString());
 
-        timerGegner = 40;
+        timerGegner = 4f;
     }
 
     //Falls der Spieler ein Item benutzt, wird diese Methode aufgerufen.
