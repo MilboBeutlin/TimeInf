@@ -267,19 +267,19 @@ public class Datenbank : MonoBehaviour
 
     
 
-    public int[] GetCurrentOpponentStats()
+    public int GetCurrentOpponentStats()
     {
         Debug.Log(currentOponent);
         return currentOponent switch
         {
-            Gegner.StorageGuard => new int[] {15, 30, 100, 3, 5},
-            Gegner.MonsterPainting => new int[] { 30, 35, 40, 9, 30 },
-            Gegner.ShadowEnemy => new int[] { 10, 50, 60, 7, 90 },
-            Gegner.Insects => new int[] { 25, 25, 0, 4, 55 },
-            Gegner.PrisonGuard => new int[] { 100, 55, 30, 5, 35 },
-            Gegner.MiniBoss => new int[] { 160, 75, 10, 8, 100 },
-            Gegner.Endboss => new int[] { 300, 90, 30, 9, 120 },
-            _ => new int[] { 100, 10, 0, 0 }
+            Gegner.StorageGuard => 15,
+            Gegner.MonsterPainting => 30,
+            Gegner.ShadowEnemy =>  10,
+            Gegner.Insects => 25,
+            Gegner.PrisonGuard => 100,
+            Gegner.MiniBoss => 160,
+            Gegner.Endboss => 300,
+            _ => 100
         };
     }
 
