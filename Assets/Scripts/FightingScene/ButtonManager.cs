@@ -33,17 +33,17 @@ public class ButtonManager : MonoBehaviour
         if(mainButtons &&  itemButtons)
         {
             mainButtons.SetActive(true);
-            
             itemButtons.SetActive(false);
         }
     }
 
     public void ItemButtons()
     {
+        Debug.Log("Methode aktiviert");
         if(mainButtons &&  itemButtons)
         {
+            Debug.Log("debuging");
             mainButtons.SetActive(false);
-            
             itemButtons.SetActive(true);
         }         
     }

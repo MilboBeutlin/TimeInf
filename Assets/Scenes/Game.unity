@@ -71913,7 +71913,6 @@ MonoBehaviour:
   targetDoorSP: {fileID: 375464574}
   leadsTo: 12
   darkness: {fileID: 0}
-  mirrorRoomContent: {fileID: 623493035}
   model: {fileID: 0}
   waterCollider: {fileID: 0}
   verticalDoor: 1
@@ -93345,7 +93344,6 @@ MonoBehaviour:
   targetDoorSP: {fileID: 215267975}
   leadsTo: 17
   darkness: {fileID: 0}
-  mirrorRoomContent: {fileID: 0}
   model: {fileID: 0}
   waterCollider: {fileID: 0}
   verticalDoor: 1
@@ -131042,7 +131040,6 @@ MonoBehaviour:
   itemGotMssg: {fileID: 1415678821}
   textItem: {fileID: 2002095417}
   spawnPoint: {fileID: 11600495}
-  gameLight: {fileID: 1729054628}
 --- !u!4 &1988482980
 Transform:
   m_ObjectHideFlags: 0
