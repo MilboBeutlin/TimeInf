@@ -49,10 +49,13 @@ public class GM : MonoBehaviour
     private int attackDamage = 1;
     [SerializeField] private GameObject blockadePrefab;
     [SerializeField] private Sprite[] blockadeSprites;
+    [SerializeField] private Transform[] playerButtonPositions;
+    private List<GameObject> activeBlockades = new List<GameObject>();
 
 
     private int playerHealthlocal;
     private int gegnerHealthlocal;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -65,7 +68,7 @@ public class GM : MonoBehaviour
         EnemyFeedbackText("");
         //SetEnemyAttacks(model.GetCurrentOponent()); to set the attacks as soon as i get the names from leon
         enemyRenderer.sprite = enemySprites[(int)model.GetCurrentOponent() - 1];
-        
+
         SliderGegnerLife.GetComponent<Slider>().maxValue = gegnerHealthlocal;
     }
     // Update is called once per frame
@@ -102,6 +105,7 @@ public class GM : MonoBehaviour
 
         if (timerGegner <= 0)
         {
+            UnblockButtons();
             StartCoroutine(GegnerTurn());
         }
         else
@@ -223,7 +227,10 @@ public class GM : MonoBehaviour
     public IEnumerator GegnerTurn()
     {
         timerGegner = 4f;
-        //BlockButton(this.transform);
+        if (Random.value < 0.2f)
+        {
+            BlockButton(playerButtonPositions);
+        }
 
         //testen, ob mit der alten Attacke gedealt wurde
         if (currentGegnerAttacks != Attacks.NULL)
@@ -263,21 +270,43 @@ public class GM : MonoBehaviour
     {
         return gegner switch
         {
-            Gegner.ShadowEnemy => 0.10f,
+            Gegner.ShadowEnemy => 0.1f,
             Gegner.MiniBoss => 0.15f,
             Gegner.Endboss => 0.25f,
-            Gegner.Insects => 0.00f,
+            Gegner.Insects => 0f,
             _ => 0.05f
         };
     }
 
-    public void BlockButton(Transform playerButton)
+    public void BlockButton(Transform[] playerButtons)
     {
-        GameObject obj = Instantiate(blockadePrefab, playerButton);
+        foreach (Transform playerButton in playerButtons)
+        {
+            GameObject obj = Instantiate(blockadePrefab, playerButton);
 
-        obj.transform.localPosition = Vector3.zero;
+            RectTransform rt = obj.GetComponent<RectTransform>();
+            rt.anchorMin = Vector2.zero;
+            rt.anchorMax = Vector2.one;
+            rt.offsetMin = Vector2.zero;
+            rt.offsetMax = Vector2.zero;
 
-        obj.GetComponent<ButtonBlockade>().Setup(2, blockadeSprites);
+            obj.transform.localScale = new Vector3(1.2f, 2f, 1f);
+
+            obj.transform.SetAsLastSibling();
+
+            obj.GetComponent<ButtonBlockade>().Setup(4, blockadeSprites);
+            activeBlockades.Add(obj);
+        }
+    }
+    private void UnblockButtons()
+    {
+        foreach (GameObject blockade in activeBlockades)
+        {
+            if (blockade != null)
+                Destroy(blockade);
+        }
+
+        activeBlockades.Clear();
     }
     //Falls der Spieler ein Item benutzt, wird diese Methode aufgerufen.
     /*

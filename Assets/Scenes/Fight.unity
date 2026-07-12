@@ -11847,8 +11847,14 @@ MonoBehaviour:
   enemyOnHitEffect: {fileID: 1274510179}
   blockadePrefab: {fileID: 1431646325634721010, guid: 3f989ae9ff0ca964f86cfce6a06f8d87, type: 3}
   blockadeSprites:
-  - {fileID: -5800321130361811816, guid: d6084dafb5837eb47b84d65329642c9f, type: 3}
-  - {fileID: 7598142933473183283, guid: d6084dafb5837eb47b84d65329642c9f, type: 3}
+  - {fileID: -8390520778133761690, guid: 32bff86bfa6fd234097e982ed20fde06, type: 3}
+  - {fileID: 5113341711338175057, guid: 32bff86bfa6fd234097e982ed20fde06, type: 3}
+  - {fileID: 9063762423436215502, guid: 32bff86bfa6fd234097e982ed20fde06, type: 3}
+  - {fileID: 369109897442046415, guid: 32bff86bfa6fd234097e982ed20fde06, type: 3}
+  playerButtonPositions:
+  - {fileID: 8793920922679450288}
+  - {fileID: 7493555071670867481}
+  - {fileID: 8025621813457571748}
 --- !u!4 &531401903
 Transform:
   m_ObjectHideFlags: 0
@@ -18914,8 +18920,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -198.519, y: -83.8}
-  m_SizeDelta: {x: 117.038, y: 30}
+  m_AnchoredPosition: {x: -202.24, y: -83.8}
+  m_SizeDelta: {x: 130.84, y: 30}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &8897929089208467650
 CanvasRenderer:
