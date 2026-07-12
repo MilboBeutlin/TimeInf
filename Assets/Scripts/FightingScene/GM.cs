@@ -41,12 +41,14 @@ public class GM : MonoBehaviour
     //new Fight
     private List<Attacks> fokusedAttackslocal = new List<Attacks> { Attacks.Schlag };
     private List<Attacks> unfokusedAttackslocal = new List<Attacks> { Attacks.Feuerball };
-    private List<Attacks> devilArts = new List<Attacks> { TheEnd, DemonSword, BlackFlash };
+    private List<Attacks> devilArts = new List<Attacks> { Attacks.TheEnd, Attacks.DemonSword, Attacks.BlackFlash };
     [SerializeField] private Dictionary<Items, int> currentPlayerItems;
 
     private float timerGegner = 0.8f;
     private Attacks currentGegnerAttacks;
     private int attackDamage = 1;
+    [SerializeField] private GameObject blockadePrefab;
+    [SerializeField] private Sprite[] blockadeSprites;
 
 
     private int playerHealthlocal;
@@ -221,6 +223,7 @@ public class GM : MonoBehaviour
     public IEnumerator GegnerTurn()
     {
         timerGegner = 4f;
+        //BlockButton(this.transform);
 
         //testen, ob mit der alten Attacke gedealt wurde
         if (currentGegnerAttacks != Attacks.NULL)
@@ -268,6 +271,14 @@ public class GM : MonoBehaviour
         };
     }
 
+    public void BlockButton(Transform playerButton)
+    {
+        GameObject obj = Instantiate(blockadePrefab, playerButton);
+
+        obj.transform.localPosition = Vector3.zero;
+
+        obj.GetComponent<ButtonBlockade>().Setup(2, blockadeSprites);
+    }
     //Falls der Spieler ein Item benutzt, wird diese Methode aufgerufen.
     /*
     public async Task DoUseItem(Items item)

@@ -11845,6 +11845,10 @@ MonoBehaviour:
   opponentFeedbackPanel: {fileID: 1573642914}
   playerOnHitEffect: {fileID: 1110718327}
   enemyOnHitEffect: {fileID: 1274510179}
+  blockadePrefab: {fileID: 1431646325634721010, guid: 3f989ae9ff0ca964f86cfce6a06f8d87, type: 3}
+  blockadeSprites:
+  - {fileID: -5800321130361811816, guid: d6084dafb5837eb47b84d65329642c9f, type: 3}
+  - {fileID: 7598142933473183283, guid: d6084dafb5837eb47b84d65329642c9f, type: 3}
 --- !u!4 &531401903
 Transform:
   m_ObjectHideFlags: 0
