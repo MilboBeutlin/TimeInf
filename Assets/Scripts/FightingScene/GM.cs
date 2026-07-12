@@ -41,7 +41,7 @@ public class GM : MonoBehaviour
     //new Fight
     private List<Attacks> fokusedAttackslocal = new List<Attacks> { Attacks.Schlag };
     private List<Attacks> unfokusedAttackslocal = new List<Attacks> { Attacks.Feuerball };
-    private List<Attacks> devilArts = new List<Attacks> { Attacks.DarkSlash };
+    private List<Attacks> devilArts = new List<Attacks> { TheEnd, DemonSword, BlackFlash };
     [SerializeField] private Dictionary<Items, int> currentPlayerItems;
 
     private float timerGegner = 0.8f;
@@ -61,8 +61,9 @@ public class GM : MonoBehaviour
 
         DoLoad();
         EnemyFeedbackText("");
+        //SetEnemyAttacks(model.GetCurrentOponent()); to set the attacks as soon as i get the names from leon
         enemyRenderer.sprite = enemySprites[(int)model.GetCurrentOponent() - 1];
-
+        
         SliderGegnerLife.GetComponent<Slider>().maxValue = gegnerHealthlocal;
     }
     // Update is called once per frame
@@ -129,6 +130,40 @@ public class GM : MonoBehaviour
         controller.SetPlayerItems(currentPlayerItems);
 
 
+    }
+    private void SetEnemyAttacks(Gegner gegner)
+    {
+        switch (gegner)
+        {
+            case Gegner.StorageGuard:
+                fokusedAttackslocal = new() { };
+                unfokusedAttackslocal = new() { };
+                break;
+            case Gegner.MonsterPainting:
+                fokusedAttackslocal = new() { };
+                unfokusedAttackslocal = new() { };
+                break;
+            case Gegner.ShadowEnemy:
+                fokusedAttackslocal = new() { };
+                unfokusedAttackslocal = new() { };
+                break;
+            case Gegner.Insects:
+                fokusedAttackslocal = new() { };
+                unfokusedAttackslocal = new() { };
+                break;
+            case Gegner.PrisonGuard:
+                fokusedAttackslocal = new() { };
+                unfokusedAttackslocal = new() { };
+                break;
+            case Gegner.MiniBoss:
+                fokusedAttackslocal = new() { };
+                unfokusedAttackslocal = new() { };
+                break;
+            case Gegner.Endboss:
+                fokusedAttackslocal = new() { };
+                unfokusedAttackslocal = new() { };
+                break;
+        }
     }
 
 
