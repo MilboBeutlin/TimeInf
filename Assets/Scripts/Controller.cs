@@ -8,12 +8,12 @@ public class Controller : MonoBehaviour
     // player
     public void SetPlayerHealth(int health)
     {
-        DB.SetPlayerHEalth(health);
+        DB.SetPlayerHealth(health);
     }
 
     public void SetGegnerHealth(int health)
     {
-        DB.SetGegnerHEalth(health);
+        DB.SetGegnerHealth(health);
     }
 
     public void SetPlayerItems(Dictionary<Items, int> items) {

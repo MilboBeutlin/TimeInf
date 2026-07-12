@@ -17,22 +17,14 @@ public class OnHitEffect : MonoBehaviour
         originalColor = spriteRenderer.color;
     }
 
-    public async Task PlayHitEffect()
+    public IEnumerator PlayHitEffect()
     {
-        slashEffect = Instantiate(slashPrefab, transform.position, Quaternion.identity);
+        GameObject slashEffect = Instantiate(slashPrefab, transform.position, Quaternion.identity);
 
-        if (spriteRenderer == null)
-        {
-            return;
-        }
         spriteRenderer.color = flashColor;
 
-        await Task.Delay(200);
+        yield return new WaitForSeconds(0.25f);
 
-        if (spriteRenderer == null)
-        {
-            return;
-        }
         spriteRenderer.color = originalColor;
 
         Destroy(slashEffect);

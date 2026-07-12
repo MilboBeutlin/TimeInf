@@ -25,7 +25,7 @@ public class Datenbank : MonoBehaviour
 
     //new Fighting Stuff
     private int playerHealth = 5;
-    private int gegnerHEalth = 4;
+    private int gegnerHealth;
     private List<Attacks> fokusedAttacks;
     private List<Attacks> unfokusedAttacks;
 
@@ -50,6 +50,7 @@ public class Datenbank : MonoBehaviour
     }
     public void NewGame()
     {
+
         savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
 
         if (File.Exists(savePath))
@@ -140,6 +141,7 @@ public class Datenbank : MonoBehaviour
             //resett
             
             playerItems = new Dictionary<Items, int>();
+            playerHealth = 5;
             
 
             
@@ -237,23 +239,33 @@ public class Datenbank : MonoBehaviour
         }
     }
 
-    public int GetPlayerHEalth()
+    public int GetPlayerHealth()
     {
         return playerHealth;
     }
-    public void SetPlayerHEalth(int health)
+    public void SetPlayerHealth(int health)
     {
         playerHealth = health;
     }
 
-    public int GetOponentHEalth()
+    public int GetOponentHealth()
     {
-        return gegnerHEalth;
+        return currentOponent switch
+        {
+            Gegner.StorageGuard => 10,
+            Gegner.MonsterPainting => 13,
+            Gegner.ShadowEnemy =>  15,
+            Gegner.Insects => 10,
+            Gegner.PrisonGuard => 15,
+            Gegner.MiniBoss => 25,
+            Gegner.Endboss => 35,
+            _ => 10
+        };
     }
 
-    public void SetGegnerHEalth(int health)
+    public void SetGegnerHealth(int health)
     {
-        gegnerHEalth = health;
+        gegnerHealth = health;
     }
     // opponent
 
@@ -264,25 +276,6 @@ public class Datenbank : MonoBehaviour
     public void SetCurrentOponent(Gegner currentOponent) {
         this.currentOponent = currentOponent;
     }
-
-    
-
-    public int GetCurrentOpponentStats()
-    {
-        Debug.Log(currentOponent);
-        return currentOponent switch
-        {
-            Gegner.StorageGuard => 15,
-            Gegner.MonsterPainting => 30,
-            Gegner.ShadowEnemy =>  10,
-            Gegner.Insects => 25,
-            Gegner.PrisonGuard => 100,
-            Gegner.MiniBoss => 160,
-            Gegner.Endboss => 300,
-            _ => 100
-        };
-    }
-
 
     //other things:
     public Vector3 GetSpawnPosition()

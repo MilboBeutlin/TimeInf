@@ -8,12 +8,12 @@ public class Model : MonoBehaviour
     // player
     public int GetPlayerHealth()
     {
-        return DB.GetPlayerHEalth();
+        return DB.GetPlayerHealth();
     }
 
     public int GetGegnerHealth()
     {
-        return DB.GetOponentHEalth();
+        return DB.GetOponentHealth();
     }
 
 
@@ -37,10 +37,6 @@ public class Model : MonoBehaviour
 
     public Gegner GetCurrentOponent() {
         return DB.GetCurrentOponent();
-    }
-    
-    public int GetCurrentOponnentStats() {
-        return DB.GetCurrentOpponentStats();
     }
 
     //other things

@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 using System.Linq;
 using TMPro;
 using System.Threading.Tasks;
+using System.Collections;
+
 
 public class GM : MonoBehaviour
 {
@@ -30,20 +32,22 @@ public class GM : MonoBehaviour
     [SerializeField] private Sprite[] enemySprites;
     [SerializeField] private GameObject analysisPanel;
     [SerializeField] private GameObject opponentFeedbackPanel;
-    private string[] enemyFeedbackTexts = new string[]{"Eye beam", "Horn attack","Flaming strike", "Heabutt", "Void edge", "Shadow touch", "Hellish Bite", "Leg lunge", "Volcanic Slam", "Magma Burst", "Eclipse", "Phantasma wave", "CrownOfDamnation", "Chaos Lance"};
-    [SerializeField] private OnHitEffect player;
-    [SerializeField] private OnHitEffect enemy;
+    private string[] enemyFeedbackTexts = new string[] { "Eye beam", "Horn attack", "Flaming strike", "Heabutt", "Void edge", "Shadow touch", "Hellish Bite", "Leg lunge", "Volcanic Slam", "Magma Burst", "Eclipse", "Phantasma wave", "CrownOfDamnation", "Chaos Lance" };
+    [SerializeField] private OnHitEffect playerOnHitEffect;
+    [SerializeField] private OnHitEffect enemyOnHitEffect;
 
     //private GM_Game gameMaster;
 
     //new Fight
-    private List<Attacks> fokusedAttackslocal = new List<Attacks> { Attacks.Schlag};
+    private List<Attacks> fokusedAttackslocal = new List<Attacks> { Attacks.Schlag };
     private List<Attacks> unfokusedAttackslocal = new List<Attacks> { Attacks.Feuerball };
+    private List<Attacks> devilArts = new List<Attacks> { Attacks.DarkSlash };
     [SerializeField] private Dictionary<Items, int> currentPlayerItems;
 
-    private float timerGegner = 3f;
+    private float timerGegner = 0.8f;
     private Attacks currentGegnerAttacks;
-    
+    private int attackDamage = 1;
+
 
     private int playerHealthlocal;
     private int gegnerHealthlocal;
@@ -58,6 +62,8 @@ public class GM : MonoBehaviour
         DoLoad();
         EnemyFeedbackText("");
         enemyRenderer.sprite = enemySprites[(int)model.GetCurrentOponent() - 1];
+
+        SliderGegnerLife.GetComponent<Slider>().maxValue = gegnerHealthlocal;
     }
     // Update is called once per frame
     void Update()
@@ -67,7 +73,7 @@ public class GM : MonoBehaviour
 
         if (playerHealthlocal <= 0)
         {
-            playerHealthlocal = 100;
+            controller.SetPlayerHealth(5);
             model.Save();
             SceneManager.LoadScene(0);
         }
@@ -91,10 +97,11 @@ public class GM : MonoBehaviour
 
         //GegnerLogic
 
-        if(timerGegner <= 0)
+        if (timerGegner <= 0)
         {
-            GegnerTurn();
-        } else
+            StartCoroutine(GegnerTurn());
+        }
+        else
         {
             timerGegner -= Time.deltaTime;
         }
@@ -107,7 +114,6 @@ public class GM : MonoBehaviour
         // Läd den rest
         currentPlayerItems = model.GetCurrentPlayerItems();
 
-        gegnerHealthlocal = model.GetCurrentOponnentStats();
         playerHealthlocal = model.GetPlayerHealth();
 
         gegnerHealthlocal = model.GetGegnerHealth();
@@ -122,59 +128,109 @@ public class GM : MonoBehaviour
         controller.SetGegnerHealth(gegnerHealthlocal);
         controller.SetPlayerItems(currentPlayerItems);
 
-        
-    }
 
+    }
 
 
     public void Counter()
     {
-        if(fokusedAttackslocal.Contains(currentGegnerAttacks))
-        {
-            gegnerHealthlocal--;
-        } else
-        {
-            playerHealthlocal--;
-        }
-        currentGegnerAttacks = Attacks.NULL;
+        StartCoroutine(CounterRoutine());
     }
-
     public void Strike()
     {
-        if (unfokusedAttackslocal.Contains(currentGegnerAttacks))
+        StartCoroutine(StrikeRoutine());
+    }
+
+    private IEnumerator CounterRoutine()
+    {
+        Debug.Log("Counter");
+        Debug.Log("Attack = " + currentGegnerAttacks);
+        if (fokusedAttackslocal.Contains(currentGegnerAttacks))
         {
             gegnerHealthlocal--;
+            EnemyFeedbackText("");
+            yield return StartCoroutine(enemyOnHitEffect.PlayHitEffect());
+
         }
         else
         {
-            playerHealthlocal--;
+            playerHealthlocal -= attackDamage;
+            EnemyFeedbackText("");
+            yield return StartCoroutine(playerOnHitEffect.PlayHitEffect());
         }
         currentGegnerAttacks = Attacks.NULL;
+        timerGegner = 0f;
     }
-    
 
-    public void GegnerTurn()
+    private IEnumerator StrikeRoutine()
     {
+        Debug.Log("Strike");
+        Debug.Log("Attack = " + currentGegnerAttacks);
+        if (unfokusedAttackslocal.Contains(currentGegnerAttacks))
+        {
+            gegnerHealthlocal--;
+            EnemyFeedbackText("");
+            yield return StartCoroutine(enemyOnHitEffect.PlayHitEffect());
+        }
+        else
+        {
+            playerHealthlocal -= attackDamage;
+            EnemyFeedbackText("");
+            yield return StartCoroutine(playerOnHitEffect.PlayHitEffect());
+        }
+        currentGegnerAttacks = Attacks.NULL;
+        timerGegner = 0f;
+    }
+
+
+    public IEnumerator GegnerTurn()
+    {
+        timerGegner = 4f;
+
         //testen, ob mit der alten Attacke gedealt wurde
         if (currentGegnerAttacks != Attacks.NULL)
         {
-            playerHealthlocal--;
+            playerHealthlocal -= attackDamage;
+            EnemyFeedbackText("");
+            yield return StartCoroutine(playerOnHitEffect.PlayHitEffect());
             currentGegnerAttacks = Attacks.NULL;
         }
 
         //Attacke setzen
-        if (Random.Range(0, 2) == 1)
+        float devilArtChance = GetDevilArtChance(model.GetCurrentOponent());
+
+        if (Random.value < devilArtChance)
         {
-            currentGegnerAttacks = fokusedAttackslocal[Random.Range(0, fokusedAttackslocal.Count())];
+            currentGegnerAttacks = devilArts[Random.Range(0, devilArts.Count)];
+            attackDamage = 2;
+            EnemyFeedbackText("<color=red>" + currentGegnerAttacks + "</color>");
         }
         else
         {
-            currentGegnerAttacks = unfokusedAttackslocal[Random.Range(0, unfokusedAttackslocal.Count())];
+            if (Random.value < 0.5f)
+            {
+                currentGegnerAttacks = fokusedAttackslocal[Random.Range(0, fokusedAttackslocal.Count)];
+            }
+            else
+            {
+                currentGegnerAttacks = unfokusedAttackslocal[Random.Range(0, unfokusedAttackslocal.Count)];
+            }
+
+            attackDamage = 1;
+            EnemyFeedbackText(currentGegnerAttacks.ToString());
         }
+    }
 
-        EnemyFeedbackText(currentGegnerAttacks.ToString());
-
-        timerGegner = 4f;
+    private float GetDevilArtChance(Gegner gegner)
+    {
+        return gegner switch
+        {
+            Gegner.ShadowEnemy => 0.10f,
+            Gegner.MiniBoss => 0.15f,
+            Gegner.Endboss => 0.25f,
+            Gegner.Insects => 0.00f,
+            _ => 0.05f
+        };
     }
 
     //Falls der Spieler ein Item benutzt, wird diese Methode aufgerufen.
@@ -293,7 +349,7 @@ public class GM : MonoBehaviour
 
     private void EnemyFeedbackText(string enemyFeedbackText)
     {
-        if(OponentFeedbackText)
+        if (OponentFeedbackText)
         {
             OponentFeedbackText.text = enemyFeedbackText;
         }
