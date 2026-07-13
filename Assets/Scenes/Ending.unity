@@ -584,7 +584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.01001, y: -2818.8428}
+  m_AnchoredPosition: {x: 0.01001, y: -1230}
   m_SizeDelta: {x: 1920, y: 4075.7886}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1944721719
@@ -599,6 +599,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71cd6160e8ffe5b4896c266ae7cd88e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Credits
+  scrollSpeed: 50
+  timeToReturnToMenu: 40
 --- !u!114 &1944721720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,7 +623,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 80
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -632,14 +634,96 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "-----------------Credits-----------------\n\n----------------- ENTWICKLUNGSTEAM
-    -----------------\r\n\r\nProjektleitung / Producer\r\nMio\nDominik\r\n\r\nGame
-    Design (Konzept & Spielmechanik)\r\nMio\nDominik\nLeon\nVivien\r\n\r\nProgrammierung
-    / Development\r\nDominik\nMio\nVivien\nLeon\r\n\r\nPuzzle Design\r\nDominik\nMio\nLeon\nVivien\r\n\r\n-----------------
-    GRAFIK & ANIMATION -----------------\r\n\r\nArt Director / Lead Artist\r\nDominik\r\n\r\n2D
-    Pixel Art / Concept Art\r\nDominik\r\n\r\nUI/UX Design (Men\xFCs & Interface)\r\nDominik\r\n\r\nAnimationen\r\nDominik\r\n\r\n-----------------
-    AUDIO & SOUND -----------------\r\n\r\nMusik / Soundtrack\r\nVivien\r\n\r\nSoundeffekte
-    (SFX)\r\nVivien"
+  m_Text: '-----------------Credits-----------------
+
+    
+
+    -----------------
+    DEVELOPMENT TEAM -----------------
+
+    
+
+    Projectleader/ Producer
+
+    Dominik
+
+    Mio
+
+    
+
+    Game
+    Design (Concept & Mechanics)
+
+    Mio
+
+    Dominik
+
+    Leon
+
+    Vivien
+
+    
+
+    Coding/
+    Development
+
+    Dominik
+
+    Mio
+
+    Vivien
+
+    Leon
+
+    
+
+    Puzzle
+    Design
+
+    Dominik
+
+    Mio
+
+    Leon
+
+    Vivien
+
+    
+
+    Graphic &
+    Animation
+
+    Dominik
+
+    
+
+    Music / Soundtrack
+
+    Vivien
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    And
+    You
+
+'
 --- !u!222 &1944721721
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -5,13 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class Credits : MonoBehaviour
 {
-    private float scrollSpeed = 50f;
+    [SerializeField] private float scrollSpeed = 50f;
+    [SerializeField] private int timeToReturnToMenu = 90;
 
     void Update()
     {
         transform.Translate(Vector3.up * Time.deltaTime * scrollSpeed); // Move the credits up the screen
 
-        Invoke(nameof(ReturnToMenu), 90); // Call the ReturnToMenu method after the specified duration
+        Invoke(nameof(ReturnToMenu), timeToReturnToMenu); // Call the ReturnToMenu method after the specified duration
     }
 
     void ReturnToMenu()
