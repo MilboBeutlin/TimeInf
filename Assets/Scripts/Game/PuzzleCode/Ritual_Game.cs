@@ -11,41 +11,41 @@ public class Ritual_Game : MonoBehaviour
     private GameObject player;
     private Vector2 pos;
 
-   void Update()
+    void Update()
     {
-        if(kollidiert && !schwertEingesetzt && gm.giveCurrentPlayerItems().ContainsKey(Items.RitualSword))
+        if (kollidiert && !schwertEingesetzt && gm.giveCurrentPlayerItems().ContainsKey(Items.RitualSword))
         {
 
 
-            if(Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 //controller = FindAnyObjectByType<Controller>();
-            controller.RemoveItem(Items.RitualSword, 1);
-            controller.AddItem(Items.PhoenixFeather, 1);
-            gm.ItemsGot(Items.PhoenixFeather, 1);
-            Debug.Log("+1 feather");
-            schwertEingesetzt = true;
-            gm.ShowText(false);
+                controller.RemoveItem(Items.RitualSword, 1);
+                controller.AddItem(Items.PhoenixFeather, 1);
+                gm.ItemsGot(Items.PhoenixFeather, 1);
+                Debug.Log("+1 feather");
+                schwertEingesetzt = true;
+                gm.ShowText(false);
 
             }
 
 
-            if(Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 schwertEingesetzt = true;
                 GameObject enemy = Instantiate(enemyPrefab, player.transform.position, Quaternion.identity);
                 enemy.GetComponent<Enemy_Game>().Creation(Gegner.MiniBoss, enemySprite);
             }
 
-         
+
         }
     }
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-   
-      if(other.CompareTag("Player") && gm.giveCurrentPlayerItems().ContainsKey(Items.RitualSword) && !schwertEingesetzt)
+
+        if (other.CompareTag("Player") && gm.giveCurrentPlayerItems().ContainsKey(Items.RitualSword) && !schwertEingesetzt)
         {
             kollidiert = true;
             gm.ChangeText("Press E to stop the ritual. Press F to finish it.");
@@ -57,17 +57,17 @@ public class Ritual_Game : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             kollidiert = false;
             gm?.ShowText(false);
-            
+
         }
     }
-   
+
     private void Awake()
-{
-    controller = FindAnyObjectByType<Controller>();
-    player = GameObject.FindGameObjectWithTag("Player");
-}
+    {
+        controller = FindAnyObjectByType<Controller>();
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 }
