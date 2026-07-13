@@ -5,40 +5,47 @@ public enum Attacks
     NULL,
     ///ATTACKEN FOKUSED:
     //StorageGuard:
+    HorAttack, ArThrust, BodyThrow, Stomp,
 
-    //MonsterPainting: 
+    //MonsterPainting:
+    InfernoStrike, FieryHead, FlameBody, HeadRush, SkullTwist, RagingPhoenix,
 
-    // ShadowEnemy:
+    //ShadowEnemy:
+    VoidEdge, DarkTouch, UnstoppableBlow, TigerClaw, PhantomStep, Consume, UmbralAmbush, PhantomSpear,
 
-    // Insects:
+    //Insects:
+    HellishBite, QuickStrike, NecroticVenom, DemonMandibles, Lunge, Sting,
 
-    // PrisonGuard:
+    //PrisonGuard:
+    VolcanicSlam, MeltingGrasp, FlameSkewer, MoltenCrusher, DevilTrigger, BlazeKick, BurningStrike,
 
-    // MiniBoss:
+    //MiniBoss:
+    IllusionarySword, GravityThrust, PsychicMaw, FalseReality, ForceCrush, Eclipse, TranscendentFlow, MindbladeSlash, PsionicClaw,
+    //demon king:
 
-    // Endboss:
-
-    Schlag,
     ///ATTACKEN UNFOKUSED:
     //StorageGuard:
+    MagneticBurst, FeintAttack, RockThrow, EyeBeam,
 
-    //MonsterPainting: 
+    //MonsterPainting:
+    Ignition, FurnaceOfSouls, CruelSun, FireLight, FlameCannon, MagmaShot,
 
-    // ShadowEnemy:
+    //ShadowEnemy:
+    DarkSiphon, ReignOfDarkness, ShadeSurge, UmbralPrison, Nightfall, SoulRend,
 
-    // Insects:
+    //Insects:
+    Glare, WebSling, VenomCrawl, UroborosDNA, SoulToxin, AcidSpew,
 
-    // PrisonGuard:
+    //PrisonGuard:
+    InfernalSurge, FireCircle, Vortex, SolarFlare, Ignite, BlazingDomain, HellfireBurst, Overheat, LavaGeyser,
 
-    // MiniBoss:
+    //MiniBoss:
+    ThoughtLance, Psychokinesis, Brainshock, Willbreaker, FracturedConsciousness, MindCrush, PhantasmaWave, DrainBeam, TelepathicScream, NeuralOverload, EmeraldSplash,
 
-    // Endboss:
-    Feuerball,
-    //devil arts
-    TheEnd, DemonSword, BlackFlash,
-    //AttackenK�nig
+    //demon king:
     DarkSlash, PoisonThrow, CrownOfDamnation, DemonSphere, ChaosLance, EvilBlock, DarkResonance, KingsBreaker, EndlessDarkness,
-    //AttackenNormalerGegner
-    BasicAttack, MinorAttack, Debuff, Debuff2, Debuff3, Debuff4, BuffSteal, AttackBlock,
+
+    ///devil arts of all enemies
+    TheEnd, DemonSword, BlackFlash,
 
 }

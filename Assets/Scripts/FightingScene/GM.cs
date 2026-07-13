@@ -32,15 +32,14 @@ public class GM : MonoBehaviour
     [SerializeField] private Sprite[] enemySprites;
     [SerializeField] private GameObject analysisPanel;
     [SerializeField] private GameObject opponentFeedbackPanel;
-    private string[] enemyFeedbackTexts = new string[] { "Eye beam", "Horn attack", "Flaming strike", "Heabutt", "Void edge", "Shadow touch", "Hellish Bite", "Leg lunge", "Volcanic Slam", "Magma Burst", "Eclipse", "Phantasma wave", "CrownOfDamnation", "Chaos Lance" };
     [SerializeField] private OnHitEffect playerOnHitEffect;
     [SerializeField] private OnHitEffect enemyOnHitEffect;
 
     //private GM_Game gameMaster;
 
     //new Fight
-    private List<Attacks> fokusedAttackslocal = new List<Attacks> { Attacks.Schlag };
-    private List<Attacks> unfokusedAttackslocal = new List<Attacks> { Attacks.Feuerball };
+    private List<Attacks> fokusedAttackslocal = new List<Attacks> {};
+    private List<Attacks> unfokusedAttackslocal = new List<Attacks> {};
     private List<Attacks> devilArts = new List<Attacks> { Attacks.TheEnd, Attacks.DemonSword, Attacks.BlackFlash };
     [SerializeField] private Dictionary<Items, int> currentPlayerItems;
 
@@ -66,7 +65,7 @@ public class GM : MonoBehaviour
 
         DoLoad();
         EnemyFeedbackText("");
-        //SetEnemyAttacks(model.GetCurrentOponent()); to set the attacks as soon as i get the names from leon
+        SetEnemyAttacks(model.GetCurrentOponent());
         enemyRenderer.sprite = enemySprites[(int)model.GetCurrentOponent() - 1];
 
         SliderGegnerLife.GetComponent<Slider>().maxValue = gegnerHealthlocal;
@@ -142,32 +141,158 @@ public class GM : MonoBehaviour
         switch (gegner)
         {
             case Gegner.StorageGuard:
-                fokusedAttackslocal = new() { };
-                unfokusedAttackslocal = new() { };
+                fokusedAttackslocal = new()
+    {
+        Attacks.HorAttack,
+        Attacks.ArThrust,
+        Attacks.BodyThrow,
+        Attacks.Stomp
+    };
+                unfokusedAttackslocal = new()
+    {
+        Attacks.MagneticBurst,
+        Attacks.FeintAttack,
+        Attacks.RockThrow,
+        Attacks.EyeBeam
+    };
                 break;
+
             case Gegner.MonsterPainting:
-                fokusedAttackslocal = new() { };
-                unfokusedAttackslocal = new() { };
+                fokusedAttackslocal = new()
+    {
+        Attacks.InfernoStrike,
+        Attacks.FieryHead,
+        Attacks.FlameBody,
+        Attacks.HeadRush,
+        Attacks.SkullTwist,
+        Attacks.RagingPhoenix
+    };
+                unfokusedAttackslocal = new()
+    {
+        Attacks.Ignition,
+        Attacks.FurnaceOfSouls,
+        Attacks.CruelSun,
+        Attacks.FireLight,
+        Attacks.FlameCannon,
+        Attacks.MagmaShot
+    };
                 break;
+
             case Gegner.ShadowEnemy:
-                fokusedAttackslocal = new() { };
-                unfokusedAttackslocal = new() { };
+                fokusedAttackslocal = new()
+    {
+        Attacks.VoidEdge,
+        Attacks.DarkTouch,
+        Attacks.UnstoppableBlow,
+        Attacks.TigerClaw,
+        Attacks.PhantomStep,
+        Attacks.Consume,
+        Attacks.UmbralAmbush,
+        Attacks.PhantomSpear
+    };
+                unfokusedAttackslocal = new()
+    {
+        Attacks.DarkSiphon,
+        Attacks.ReignOfDarkness,
+        Attacks.ShadeSurge,
+        Attacks.UmbralPrison,
+        Attacks.Nightfall,
+        Attacks.SoulRend
+    };
                 break;
+
             case Gegner.Insects:
-                fokusedAttackslocal = new() { };
-                unfokusedAttackslocal = new() { };
+                fokusedAttackslocal = new()
+    {
+        Attacks.HellishBite,
+        Attacks.QuickStrike,
+        Attacks.NecroticVenom,
+        Attacks.DemonMandibles,
+        Attacks.Lunge,
+        Attacks.Sting
+    };
+                unfokusedAttackslocal = new()
+    {
+        Attacks.Glare,
+        Attacks.WebSling,
+        Attacks.VenomCrawl,
+        Attacks.UroborosDNA,
+        Attacks.SoulToxin,
+        Attacks.AcidSpew
+    };
                 break;
+
             case Gegner.PrisonGuard:
-                fokusedAttackslocal = new() { };
-                unfokusedAttackslocal = new() { };
+                fokusedAttackslocal = new()
+    {
+        Attacks.VolcanicSlam,
+        Attacks.MeltingGrasp,
+        Attacks.FlameSkewer,
+        Attacks.MoltenCrusher,
+        Attacks.DevilTrigger,
+        Attacks.BlazeKick,
+        Attacks.BurningStrike
+    };
+                unfokusedAttackslocal = new()
+    {
+        Attacks.InfernalSurge,
+        Attacks.FireCircle,
+        Attacks.Vortex,
+        Attacks.SolarFlare,
+        Attacks.Ignite,
+        Attacks.BlazingDomain,
+        Attacks.HellfireBurst,
+        Attacks.Overheat,
+        Attacks.LavaGeyser
+    };
                 break;
+
             case Gegner.MiniBoss:
-                fokusedAttackslocal = new() { };
-                unfokusedAttackslocal = new() { };
+                fokusedAttackslocal = new()
+    {
+        Attacks.IllusionarySword,
+        Attacks.GravityThrust,
+        Attacks.PsychicMaw,
+        Attacks.FalseReality,
+        Attacks.ForceCrush,
+        Attacks.Eclipse,
+        Attacks.TranscendentFlow,
+        Attacks.MindbladeSlash,
+        Attacks.PsionicClaw
+    };
+                unfokusedAttackslocal = new()
+    {
+        Attacks.ThoughtLance,
+        Attacks.Psychokinesis,
+        Attacks.Brainshock,
+        Attacks.Willbreaker,
+        Attacks.FracturedConsciousness,
+        Attacks.MindCrush,
+        Attacks.PhantasmaWave,
+        Attacks.DrainBeam,
+        Attacks.TelepathicScream,
+        Attacks.NeuralOverload,
+        Attacks.EmeraldSplash
+    };
                 break;
+
             case Gegner.Endboss:
-                fokusedAttackslocal = new() { };
-                unfokusedAttackslocal = new() { };
+                fokusedAttackslocal = new()
+                {
+                };
+                unfokusedAttackslocal = new()
+                {
+                };
+                break;
+                default:
+                fokusedAttackslocal = new()
+                {
+                    Attacks.DarkSlash
+                };
+                unfokusedAttackslocal = new()
+                {
+                    Attacks.PoisonThrow
+                };
                 break;
         }
     }
