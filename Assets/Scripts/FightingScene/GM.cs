@@ -38,8 +38,8 @@ public class GM : MonoBehaviour
     //private GM_Game gameMaster;
 
     //new Fight
-    private List<Attacks> fokusedAttackslocal = new List<Attacks> {};
-    private List<Attacks> unfokusedAttackslocal = new List<Attacks> {};
+    private List<Attacks> fokusedAttackslocal = new List<Attacks> { };
+    private List<Attacks> unfokusedAttackslocal = new List<Attacks> { };
     private List<Attacks> devilArts = new List<Attacks> { Attacks.TheEnd, Attacks.DemonSword, Attacks.BlackFlash };
     [SerializeField] private Dictionary<Items, int> currentPlayerItems;
 
@@ -278,20 +278,47 @@ public class GM : MonoBehaviour
 
             case Gegner.Endboss:
                 fokusedAttackslocal = new()
-                {
-                };
+    {
+        Attacks.GripOfTheAbyss,
+        Attacks.DeathTouch,
+        Attacks.RedPhantom,
+        Attacks.ArcaneStrike,
+        Attacks.VoidExplosion,
+        Attacks.Annihilation,
+        Attacks.NightmareCrack,
+        Attacks.DevilRush,
+        Attacks.Oblivion,
+        Attacks.TheHollowKing,
+        Attacks.SeveredGrace,
+        Attacks.Sinbreaker
+    };
                 unfokusedAttackslocal = new()
-                {
-                };
+    {
+        Attacks.HollowEcho,
+        Attacks.AbyssalGlare,
+        Attacks.DimensionShift,
+        Attacks.FrenzyShadow,
+        Attacks.SoulFire,
+        Attacks.DevilOrbs,
+        Attacks.NightmareEye,
+        Attacks.LifeDrain,
+        Attacks.SoulEruption,
+        Attacks.Cataclysm,
+        Attacks.StarFire,
+        Attacks.DemonShade,
+        Attacks.EndlessNight,
+        Attacks.BloodOath,
+        Attacks.AshesOfCreation
+    };
                 break;
-                default:
+            default:
                 fokusedAttackslocal = new()
                 {
-                    Attacks.DarkSlash
+                    Attacks.Sinbreaker
                 };
                 unfokusedAttackslocal = new()
                 {
-                    Attacks.PoisonThrow
+                    Attacks.AshesOfCreation
                 };
                 break;
         }

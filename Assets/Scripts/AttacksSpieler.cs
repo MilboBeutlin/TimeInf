@@ -22,6 +22,10 @@ public enum Attacks
     //MiniBoss:
     IllusionarySword, GravityThrust, PsychicMaw, FalseReality, ForceCrush, Eclipse, TranscendentFlow, MindbladeSlash, PsionicClaw,
     //demon king:
+    GripOfTheAbyss, DeathTouch, RedPhantom, ArcaneStrike, VoidExplosion, Annihilation, NightmareCrack, DevilRush, Oblivion, TheHollowKing, SeveredGrace, Sinbreaker,
+
+
+
 
     ///ATTACKEN UNFOKUSED:
     //StorageGuard:
@@ -43,7 +47,7 @@ public enum Attacks
     ThoughtLance, Psychokinesis, Brainshock, Willbreaker, FracturedConsciousness, MindCrush, PhantasmaWave, DrainBeam, TelepathicScream, NeuralOverload, EmeraldSplash,
 
     //demon king:
-    DarkSlash, PoisonThrow, CrownOfDamnation, DemonSphere, ChaosLance, EvilBlock, DarkResonance, KingsBreaker, EndlessDarkness,
+    HollowEcho, AbyssalGlare, DimensionShift, FrenzyShadow, SoulFire, DevilOrbs, NightmareEye, LifeDrain, SoulEruption, Cataclysm, StarFire, DemonShade, EndlessNight, BloodOath, AshesOfCreation,
 
     ///devil arts of all enemies
     TheEnd, DemonSword, BlackFlash,
