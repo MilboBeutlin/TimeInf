@@ -1,13 +1,14 @@
-using UnityEngine;
-using System.Collections.Generic;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System;
-using Random = UnityEngine.Random;
-using System.Linq;
-using TMPro;
-using System.Threading.Tasks;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static UnityEngine.EventSystems.EventTrigger;
+using Random = UnityEngine.Random;
 
 
 public class GM : MonoBehaviour
@@ -51,6 +52,10 @@ public class GM : MonoBehaviour
     [SerializeField] private Transform[] playerButtonPositions;
     private List<GameObject> activeBlockades = new List<GameObject>();
 
+    //Dieser Wert wird nur für Items benutzt
+    private float timerGegnerSetTime = 40;
+    private int timerGegnerAnzahlZüge = -1;
+
 
     private int playerHealthlocal;
     private int gegnerHealthlocal;
@@ -78,9 +83,17 @@ public class GM : MonoBehaviour
 
         if (playerHealthlocal <= 0)
         {
-            controller.SetPlayerHealth(5);
-            model.Save();
-            SceneManager.LoadScene(0);
+            if(currentPlayerItems.ContainsKey(Items.PhoenixFeather))
+            {
+                playerHealthlocal = 2;
+            } else
+            {
+                controller.SetPlayerHealth(5);
+                DoSave();
+                model.Save();
+                SceneManager.LoadScene(0);
+            }
+            
         }
 
         if (gegnerHealthlocal <= 0)
@@ -104,6 +117,14 @@ public class GM : MonoBehaviour
 
         if (timerGegner <= 0)
         {
+            if (timerGegnerAnzahlZüge <= 0)
+            {
+                timerGegnerAnzahlZüge--;
+            } else
+            {
+                timerGegnerSetTime = 40;
+                timerGegnerAnzahlZüge = -1;
+            }
             UnblockButtons();
             StartCoroutine(GegnerTurn());
         }
@@ -351,7 +372,7 @@ public class GM : MonoBehaviour
 
     public IEnumerator GegnerTurn()
     {
-        timerGegner = 4f;
+        timerGegner = timerGegnerSetTime;
         if (Random.value < 0.2f)
         {
             BlockButton(playerButtonPositions);
@@ -433,117 +454,135 @@ public class GM : MonoBehaviour
 
         activeBlockades.Clear();
     }
+
+    
     //Falls der Spieler ein Item benutzt, wird diese Methode aufgerufen.
-    /*
-    public async Task DoUseItem(Items item)
+    
+    public void DoUseItem(Items item)
     {
         
 
         if(currentPlayerItems.ContainsKey(item) == false)
         {
             Debug.Log("Der Spieler hat ein Item benutzt, welches nicht im Inventar ist. >:( grrr");
-            await OponentTurn();
             return;
         }
-        int randInt = Random.Range(0, 10);
         switch (item)
         {
             case Items.NULL:
                 break;
 
             case Items.MagicApple:
-                currentplayerStats[2] += 5;
+                playerHealthlocal += 1;
             break;
 
-            case Items.Beer:
-                //wütend
-                SetEffect(Statuseffekte.Wütend, 2, true);                //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
-
-
-                //30% Chance auf vergifted
-
-                if (randInt <= 3)
-                {
-                    SetEffect(Statuseffekte.Vergiftet, 2, true);         //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
-                }
-                break;
-
-            case Items.PoisonMolotov:
-                SetEffect(Statuseffekte.Vergiftet, 2, false);            //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
-
-                //20% Chance auf wütend
-                if (randInt <= 2)
-                {
-                    SetEffect(Statuseffekte.Wütend, 2, false);           //numbers are WRONG! I JUST PUT EVERYWHERE 2 BECAUSE I CAN
-                }
-                break;
-
             case Items.HealingPotion:
-                currentplayerStats[0] += 40;
-                if (currentplayerStats[0] >= 101)
-                {
-                    currentplayerStats[0] = 100;
-                }
+                playerHealthlocal += 2;
                 break;
 
             case Items.GreaterHealingPotion:
-                currentplayerStats[0] += 70;
-                if (currentplayerStats[0] >= 101)
-                {
-                    currentplayerStats[0] = 100;
-                }
+                playerHealthlocal += 5;
+                
                 break;
 
             case Items.HolyCross:
-                SetEffect(Statuseffekte.Gesegnet, 999, true);
+                if(devilArts.Contains(currentGegnerAttacks))
+                {
+                    currentGegnerAttacks = Attacks.NULL;
+                }
+                playerHealthlocal++;
                 break;
 
-            case Items.PhoenixFeather:
-                if (currentPlayerEffects.ContainsKey(Statuseffekte.Verflucht))
-                {
-                    SetEffect(Statuseffekte.Verflucht, 0, true);
-                }
+            case Items.Beer:
+                //wütend
+                timerGegnerSetTime = 60;
+                timerGegnerAnzahlZüge = 3;
+                break;
+
+            case Items.PoisonMolotov:
+                gegnerHealthlocal--;
+                timerGegnerSetTime = 60;
+                timerGegnerAnzahlZüge = 1;
+                break;
+
+            case Items.Scroll:
+                playerHealthlocal -= 2;
+                timerGegnerSetTime = 90;
+                timerGegnerAnzahlZüge = 1;
+                break;
+
+            case Items.EvilScroll:
+                playerHealthlocal--;
+                gegnerHealthlocal -= 3;
+                break;
+
+            case Items.Bomb:
+                gegnerHealthlocal -= 3;
                 break;
 
             case Items.Coins:
-                currentopponentStats[0] -= 1;
-                await enemy.PlayHitEffect();
-                coinUsed = true;
+                gegnerHealthlocal--;
+                break;
+
+            case Items.Lighter:
+                timerGegnerSetTime = 30;
+                timerGegnerAnzahlZüge = 1;
+                gegnerHealthlocal -= 2;
+                break;
+
+            case Items.RitualSword:
+                //Devil Arts + Gegnerlangsamer
+                if (devilArts.Contains(currentGegnerAttacks))
+                {
+                    currentGegnerAttacks = Attacks.NULL;
+                }
+                timerGegnerSetTime = 60;
+                timerGegnerAnzahlZüge = 1;
                 break;
 
             case Items.MirrorShard:
-                currentopponentStats[0] -= GegnerDamageLastRound;
-                await enemy.PlayHitEffect();
+                //Devil Arts + -GegnerLeben
+                if (devilArts.Contains(currentGegnerAttacks))
+                {
+                    currentGegnerAttacks = Attacks.NULL;
+                }
+                gegnerHealthlocal--;
                 break;
 
             case Items.Brick:
-                currentopponentStats[0] -= Math.Max(0, 40 - currentopponentStats[2]);
-                SetEffect(Statuseffekte.Gelähmt, 1, false);
-                await enemy.PlayHitEffect();
+                gegnerHealthlocal -= 2;
+                break;
+
+            case Items.StrangeKey:
+                DoSave();
+                model.Save();
+                SceneManager.LoadScene(0);
+                break;
+
+            case Items.Shovel:
+                gegnerHealthlocal -= 1;
+                timerGegnerSetTime = 80;
+                timerGegnerAnzahlZüge = 1;
+                break;
+
+            case Items.FishingRod:
+                currentGegnerAttacks = Attacks.NULL;
                 break;
 
         }
+        if(item != Items.Lighter || item != Items.RitualSword || item != Items.StrangeKey || item != Items.FishingRod)
+        {
             currentPlayerItems[item] -= 1;
-        if (currentPlayerItems[item] == 0)
-        {
-            currentPlayerItems.Remove(item);
+            if (currentPlayerItems[item] == 0)
+            {
+                currentPlayerItems.Remove(item);
+            }
         }
+            
         bM.CheckItems();
-        if(coinUsed == false)
-        {
-            await Task.Delay(600);
-            await OponentTurn();
-            coinUsed = false;
-        } else
-        {
-            
-            bM.TurnChange(true);
-            coinUsed = false;
-            
-        }
     }
 
-    */
+    
 
 
 
@@ -565,9 +604,6 @@ public class GM : MonoBehaviour
     }
 
     // Werte setzten / Verändern
-
-
-
     public Dictionary<Items, int> giveCurrentPlayerItems()
     {
         return currentPlayerItems;

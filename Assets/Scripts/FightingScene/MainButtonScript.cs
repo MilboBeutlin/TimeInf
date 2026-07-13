@@ -48,15 +48,13 @@ public class MainButtonScript : MonoBehaviour
 
     
 
-    // F�r Unity Buttons, um Attacken auszuf�hren
     
-    /*
-    public async void DoUseItem(int r)
+    public void DoUseItem(int r)
     {
-        Items i = (Items)r;
-        await GM.DoUseItem(i);
+        Items i = (Items) r;
+        GM.DoUseItem(i);
     }
-    */
+    
 
     public void Counter()
     {
