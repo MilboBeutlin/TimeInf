@@ -415,7 +415,7 @@ public class GM : MonoBehaviour
         timerGegner = timerGegnerSetTime;
         if (Random.value < 0.2f)
         {
-            if(Random.Value < 0.5f)
+            if(Random.value < 0.5f)
             {
                 BlockButton(playerButtonPositions);
             }

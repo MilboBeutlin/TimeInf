@@ -32,7 +32,7 @@ public class MainButtonScript : MonoBehaviour
 
         if(GM.giveCurrentPlayerItems().Count <= 0)
         {
-            ItemButton.enabled = false;
+            ItemButton.interactable = false;
         }
     }
 
@@ -77,11 +77,11 @@ public class MainButtonScript : MonoBehaviour
 
     public void EnableButtons(bool i)
     {
-        StrikeButton.enabled = i;
-        CounterButton.enabled = i;
+        StrikeButton.interactable = i;
+        CounterButton.interactable = i;
         if (GM.giveCurrentPlayerItems().Count >= 1)
         {
-            ItemButton.enabled = i;
+            ItemButton.interactable = i;
         }
     }
     
