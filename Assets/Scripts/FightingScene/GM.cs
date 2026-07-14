@@ -16,12 +16,12 @@ public class GM : MonoBehaviour
     private Model model;
     private Controller controller;
     private ButtonManager bM;
-    
+
 
     //Für die Funktionalität der Coin
     //private bool coinUsed = false;
 
-    
+
 
     //private int timer;
 
@@ -51,10 +51,10 @@ public class GM : MonoBehaviour
     private int attackDamage = 1;
     [SerializeField] private GameObject blockadePrefab;
     [SerializeField] private Sprite[] blockadeSprites;
-    [SerializeField] private Transform[] playerButtonPositions;
+    [SerializeField] private RectTransform[] playerButtonPositions;
     private List<GameObject> activeBlockades = new List<GameObject>();
 
-    
+
 
     //Dieser Wert wird nur für Items benutzt
     private float timerGegnerSetTime = 4; //timerGegnerTickSpeed = 1; MUSS ZU tickspeed geändert werden, aus Gründen die du bei DS nachfragen kannst
@@ -78,8 +78,7 @@ public class GM : MonoBehaviour
         enemyRenderer.sprite = enemySprites[(int)model.GetCurrentOponent() - 1];
 
         SliderGegnerLife.GetComponent<Slider>().maxValue = gegnerHealthlocal;
-        
-        
+
     }
     // Update is called once per frame
     void Update()
@@ -120,7 +119,7 @@ public class GM : MonoBehaviour
 
         }
 
-        
+
         //GegnerLogic
 
         if (timerGegner <= 0)
@@ -384,7 +383,7 @@ public class GM : MonoBehaviour
         }
         currentGegnerAttacks = Attacks.NULL;
         timerGegner = 0f;
-        
+
     }
 
     private IEnumerator StrikeRoutine()
@@ -405,7 +404,7 @@ public class GM : MonoBehaviour
         }
         currentGegnerAttacks = Attacks.NULL;
         timerGegner = 0f;
-        
+
     }
 
 
@@ -416,7 +415,15 @@ public class GM : MonoBehaviour
         timerGegner = timerGegnerSetTime;
         if (Random.value < 0.2f)
         {
-            BlockButton(playerButtonPositions);
+            if(Random.Value < 0.5f)
+            {
+                BlockButton(playerButtonPositions);
+            }
+            else
+            {
+                ShuffleButtons();
+            }
+            
         }
 
         //testen, ob mit der alten Attacke gedealt wurde
@@ -495,6 +502,33 @@ public class GM : MonoBehaviour
         }
 
         activeBlockades.Clear();
+    }
+
+    public void ShuffleButtons()
+    {
+        // save current position
+        Vector2[] positions = new Vector2[3];
+
+        for (int i = 0; i < 3; i++)
+        {
+            positions[i] = playerButtonPositions[i].anchoredPosition;
+        }
+
+        // idk Fisher-Yates methode frag net
+        for (int i = 2; i > 0; i--)
+        {
+            int randomIndex = Random.Range(0, i + 1);
+
+            Vector2 temp = positions[i];
+            positions[i] = positions[randomIndex];
+            positions[randomIndex] = temp;
+        }
+
+        // set new position
+        for (int i = 0; i < 3; i++)
+        {
+            playerButtonPositions[i].anchoredPosition = positions[i];
+        }
     }
 
 
@@ -625,7 +659,7 @@ public class GM : MonoBehaviour
 
         bM.CheckItems();
         timerGegner = 0;
-        
+
         bM.EnableButton(false);
     }
 
