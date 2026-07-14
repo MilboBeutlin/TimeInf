@@ -26,6 +26,7 @@ public class GM : MonoBehaviour
 
     [SerializeField] private GameObject SliderPlayerLife;
     [SerializeField] private GameObject SliderGegnerLife;
+    [SerializeField] private GameObject SliderGegnerTime;
 
     [SerializeField] private Text OponentFeedbackText;
     [SerializeField] private Text AnalyseText;
@@ -53,7 +54,7 @@ public class GM : MonoBehaviour
     private List<GameObject> activeBlockades = new List<GameObject>();
 
     //Dieser Wert wird nur für Items benutzt
-    private float timerGegnerSetTime = 40;
+    private float timerGegnerSetTime = 4; //timerGegnerTickSpeed = 1; MUSS ZU tickspeed geändert werden, aus Gründen die du bei DS nachfragen kannst
     private int timerGegnerAnzahlZüge = -1;
 
 
@@ -80,20 +81,22 @@ public class GM : MonoBehaviour
     {
         SliderPlayerLife.GetComponent<Slider>().value = playerHealthlocal;
         SliderGegnerLife.GetComponent<Slider>().value = gegnerHealthlocal;
+        SliderGegnerTime.GetComponent<Slider>().value = timerGegner;
 
         if (playerHealthlocal <= 0)
         {
-            if(currentPlayerItems.ContainsKey(Items.PhoenixFeather))
+            if (currentPlayerItems.ContainsKey(Items.PhoenixFeather))
             {
                 playerHealthlocal = 2;
-            } else
+            }
+            else
             {
-                controller.SetPlayerHealth(5);
                 DoSave();
+                controller.SetPlayerHealth(5); //leben werden auf maximum gesetzt
                 model.Save();
                 SceneManager.LoadScene(0);
             }
-            
+
         }
 
         if (gegnerHealthlocal <= 0)
@@ -117,15 +120,15 @@ public class GM : MonoBehaviour
 
         if (timerGegner <= 0)
         {
-            if (timerGegnerAnzahlZüge <= 0)
+            if (timerGegnerAnzahlZüge >= 0)
             {
                 timerGegnerAnzahlZüge--;
-            } else
+            }
+            else
             {
-                timerGegnerSetTime = 40;
+                timerGegnerSetTime = 4;
                 timerGegnerAnzahlZüge = -1;
             }
-            UnblockButtons();
             StartCoroutine(GegnerTurn());
         }
         else
@@ -335,11 +338,11 @@ public class GM : MonoBehaviour
             default:
                 fokusedAttackslocal = new()
                 {
-                    Attacks.Sinbreaker
+                    Attacks.Punch
                 };
                 unfokusedAttackslocal = new()
                 {
-                    Attacks.AshesOfCreation
+                    Attacks.FireBall
                 };
                 break;
         }
@@ -399,6 +402,7 @@ public class GM : MonoBehaviour
 
     public IEnumerator GegnerTurn()
     {
+        UnblockButtons();
         timerGegner = timerGegnerSetTime;
         if (Random.value < 0.2f)
         {
@@ -482,14 +486,14 @@ public class GM : MonoBehaviour
         activeBlockades.Clear();
     }
 
-    
+
     //Falls der Spieler ein Item benutzt, wird diese Methode aufgerufen.
-    
+
     public void DoUseItem(Items item)
     {
-        
 
-        if(currentPlayerItems.ContainsKey(item) == false)
+
+        if (currentPlayerItems.ContainsKey(item) == false)
         {
             Debug.Log("Der Spieler hat ein Item benutzt, welches nicht im Inventar ist. >:( grrr");
             return;
@@ -499,9 +503,9 @@ public class GM : MonoBehaviour
             case Items.NULL:
                 break;
 
-            case Items.MagicApple:
+            case Items.MagicApple:  //small rework, all MagicApples will be used maybe that you got?
                 playerHealthlocal += 1;
-            break;
+                break;
 
             case Items.HealingPotion:
                 playerHealthlocal += 2;
@@ -509,11 +513,11 @@ public class GM : MonoBehaviour
 
             case Items.GreaterHealingPotion:
                 playerHealthlocal += 5;
-                
+
                 break;
 
             case Items.HolyCross:
-                if(devilArts.Contains(currentGegnerAttacks))
+                if (devilArts.Contains(currentGegnerAttacks))
                 {
                     currentGegnerAttacks = Attacks.NULL;
                 }
@@ -522,19 +526,19 @@ public class GM : MonoBehaviour
 
             case Items.Beer:
                 //wütend
-                timerGegnerSetTime = 60;
+                timerGegnerSetTime = 6;
                 timerGegnerAnzahlZüge = 3;
                 break;
 
             case Items.PoisonMolotov:
                 gegnerHealthlocal--;
-                timerGegnerSetTime = 60;
+                timerGegnerSetTime = 6;
                 timerGegnerAnzahlZüge = 1;
                 break;
 
-            case Items.Scroll:
+            case Items.Scroll:          ///useless, nobody will ever use it -> rework
                 playerHealthlocal -= 2;
-                timerGegnerSetTime = 90;
+                timerGegnerSetTime = 9;
                 timerGegnerAnzahlZüge = 1;
                 break;
 
@@ -552,23 +556,23 @@ public class GM : MonoBehaviour
                 break;
 
             case Items.Lighter:
-                timerGegnerSetTime = 30;
+                timerGegnerSetTime = 2.8f;
                 timerGegnerAnzahlZüge = 1;
                 gegnerHealthlocal -= 2;
                 break;
 
             case Items.RitualSword:
-                //Devil Arts + Gegnerlangsamer
+                //Devil Arts block + Gegnerlangsamer
                 if (devilArts.Contains(currentGegnerAttacks))
                 {
                     currentGegnerAttacks = Attacks.NULL;
                 }
-                timerGegnerSetTime = 60;
+                timerGegnerSetTime = 6;
                 timerGegnerAnzahlZüge = 1;
                 break;
 
             case Items.MirrorShard:
-                //Devil Arts + -GegnerLeben
+                //Devil Arts block + -GegnerLeben
                 if (devilArts.Contains(currentGegnerAttacks))
                 {
                     currentGegnerAttacks = Attacks.NULL;
@@ -588,16 +592,19 @@ public class GM : MonoBehaviour
 
             case Items.Shovel:
                 gegnerHealthlocal -= 1;
-                timerGegnerSetTime = 80;
+                timerGegnerSetTime = 8;
                 timerGegnerAnzahlZüge = 1;
                 break;
 
             case Items.FishingRod:
-                currentGegnerAttacks = Attacks.NULL;
+                if (!devilArts.Contains(currentGegnerAttacks))
+                {
+                    currentGegnerAttacks = Attacks.NULL;
+                }
                 break;
 
         }
-        if(item != Items.Lighter || item != Items.RitualSword || item != Items.StrangeKey || item != Items.FishingRod)
+        if (item != Items.Lighter || item != Items.RitualSword || item != Items.StrangeKey || item != Items.FishingRod)
         {
             currentPlayerItems[item] -= 1;
             if (currentPlayerItems[item] == 0)
@@ -605,11 +612,12 @@ public class GM : MonoBehaviour
                 currentPlayerItems.Remove(item);
             }
         }
-            
+
         bM.CheckItems();
+        timerGegner = 0;
     }
 
-    
+
 
 
 
@@ -634,6 +642,11 @@ public class GM : MonoBehaviour
     public Dictionary<Items, int> giveCurrentPlayerItems()
     {
         return currentPlayerItems;
+    }
+
+    public void SetGegnerTime(float time)
+    {
+        timerGegner = time;
     }
 
 

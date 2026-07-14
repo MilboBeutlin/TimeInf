@@ -391,7 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: 'Deals medium damage. Inflicts stun. '
+  description: Deal 2 damage.
 --- !u!1 &68863097
 GameObject:
   m_ObjectHideFlags: 0
@@ -556,7 +556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: Inflict poison but he could become enraged
+  description: Deal 1 damage. Enemy Attacks slower for 1 turn
 --- !u!1 &138443110
 GameObject:
   m_ObjectHideFlags: 0
@@ -876,7 +876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: Deals 1 damage. Won't skip your turn. Ignores armor.
+  description: Deal 1 damage.
 --- !u!1 &246914006
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,7 +935,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.6831882, b: 1, a: 1}
+  m_Color: {r: 0.9, g: 0.9, b: 0.9, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -944,10 +944,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
-    m_FontSize: 16
+    m_FontSize: 22
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1274,7 +1274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: 'You gain the buff enraged. With the slight chance of poison '
+  description: Enemy Attacks slower for 3 turns
 --- !u!1 &317260151
 GameObject:
   m_ObjectHideFlags: 0
@@ -6363,7 +6363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: Not made for a fight.
+  description: Blocks devil art and enemy attacks slower
 --- !u!1 &383907657
 GameObject:
   m_ObjectHideFlags: 0
@@ -11825,6 +11825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   SliderPlayerLife: {fileID: 997359860}
   SliderGegnerLife: {fileID: 317260151}
+  SliderGegnerTime: {fileID: 757170660}
   OponentFeedbackText: {fileID: 247510133}
   AnalyseText: {fileID: 1429636722}
   enemyRenderer: {fileID: 1274510177}
@@ -12474,7 +12475,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: It's a scroll. It doesn't do a thing.
+  description: Pay 2 health. Enemy attacks very slower.
 --- !u!1 &585730177
 GameObject:
   m_ObjectHideFlags: 0
@@ -12671,7 +12672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: Oh no. It's evil
+  description: Pay 1 HP. Deal 3 damage
 --- !u!1 &626512287
 GameObject:
   m_ObjectHideFlags: 0
@@ -13077,7 +13078,83 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: Heals you for a medium amount
+  description: Heal for 2
+--- !u!1 &707972842
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 707972843}
+  - component: {fileID: 707972845}
+  - component: {fileID: 707972844}
+  m_Layer: 5
+  m_Name: backGround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &707972843
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707972842}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1344601674}
+  m_Father: {fileID: 757170661}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 41.63, y: 2.6800003}
+  m_SizeDelta: {x: 203.92, y: -65.69}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &707972844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707972842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 0
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -874247033198980231, guid: eeacb7a7db3a0b2489ca4e0bcf40afba, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &707972845
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707972842}
+  m_CullTransparentMesh: 1
 --- !u!1 &734514834
 GameObject:
   m_ObjectHideFlags: 0
@@ -13236,6 +13313,94 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!1 &757170660
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 757170661}
+  - component: {fileID: 757170662}
+  m_Layer: 5
+  m_Name: GegnerTime
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &757170661
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757170660}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 707972843}
+  m_Father: {fileID: 1573642915}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 3.9500008, y: -96.10004}
+  m_SizeDelta: {x: 101.4, y: 96.1}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &757170662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757170660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
+  m_Navigation:
+    m_Mode: 1
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 0
+  m_TargetGraphic: {fileID: 1344601675}
+  m_FillRect: {fileID: 1344601674}
+  m_HandleRect: {fileID: 0}
+  m_Direction: 1
+  m_MinValue: 0
+  m_MaxValue: 4
+  m_WholeNumbers: 0
+  m_Value: 4
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &757551868
 GameObject:
   m_ObjectHideFlags: 0
@@ -14254,7 +14419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: Deal small damage. Ignores Armor.
+  description: Deal 1 damage. Enemy attacks slower.
 --- !u!1 &1033772003
 GameObject:
   m_ObjectHideFlags: 0
@@ -14306,7 +14471,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1033772005
@@ -14508,7 +14673,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 967259235}
   m_HandleRect: {fileID: 967259234}
   m_Direction: 0
-  m_Value: -0.00000018393996
+  m_Value: 0
   m_Size: 0.40856072
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -14824,7 +14989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03137255, g: 0.70980394, b: 0.9960785, a: 1}
+  m_Color: {r: 0.9, g: 0.9, b: 0.9, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -14832,11 +14997,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: 652f7165b7c30ab46af6c4aad90a639b, type: 2}
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -15009,7 +15174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: There is no keyhole around.
+  description: Lets you escape the fight.
 --- !u!1 &1162448416
 GameObject:
   m_ObjectHideFlags: 0
@@ -15325,6 +15490,81 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OnHitEffect
   slashPrefab: {fileID: 401027327717605114, guid: 2b6d6b81c7b56804c825c7cafb0e7316, type: 3}
+--- !u!1 &1344601673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1344601674}
+  - component: {fileID: 1344601676}
+  - component: {fileID: 1344601675}
+  m_Layer: 5
+  m_Name: foreGround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1344601674
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344601673}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 707972843}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -0.36000252}
+  m_SizeDelta: {x: 0, y: 3.24}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1344601675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344601673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.86403704, g: 0, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: -400518735473805397, guid: eeacb7a7db3a0b2489ca4e0bcf40afba, type: 3}
+  m_Type: 3
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 0
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1344601676
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344601673}
+  m_CullTransparentMesh: 1
 --- !u!1 &1369499547
 GameObject:
   m_ObjectHideFlags: 0
@@ -15568,7 +15808,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: There are no fishes here.
+  description: Blocks any attack except devil arts.
 --- !u!1 &1383510817
 GameObject:
   m_ObjectHideFlags: 0
@@ -15733,7 +15973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: Return the damage of the last turn back at your enemy.
+  description: Block a devil art and deal 1 damage.
 --- !u!1 &1429636720
 GameObject:
   m_ObjectHideFlags: 0
@@ -15977,7 +16217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: You gain the buff Blessed
+  description: 'Heal for 1. Block a devil art. '
 --- !u!1 &1564805700
 GameObject:
   m_ObjectHideFlags: 0
@@ -16046,6 +16286,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 247510130}
+  - {fileID: 757170661}
   m_Father: {fileID: 644646815}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
@@ -16629,7 +16870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: There is no torch to be lighted.
+  description: Deal 2 damage but your enemy attacks faster.
 --- !u!1 &1758387540
 GameObject:
   m_ObjectHideFlags: 0
@@ -17103,7 +17344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: Increase Armor slightly till you die
+  description: Heal for 1
 --- !u!1 &1891989348
 GameObject:
   m_ObjectHideFlags: 0
@@ -17718,7 +17959,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Description
   descriptionPanel: {fileID: 934788922}
   descriptionText: {fileID: 1429636722}
-  description: Heals you for a high amount
+  description: Heal you full
 --- !u!224 &19542774202339374
 RectTransform:
   m_ObjectHideFlags: 0

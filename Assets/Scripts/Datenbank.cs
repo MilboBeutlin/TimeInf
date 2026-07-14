@@ -221,7 +221,14 @@ public class Datenbank : MonoBehaviour
 
 
     //New Fight
-
+    public void SetPlayerHasSwim(bool b)
+    {
+        playerHasSwim = b;
+    }
+    public bool GetPlayerHasSwim()
+    {
+        return playerHasSwim;
+    }
     public List<Attacks> GetAttacks(bool fokused)
     {
         if(fokused) { return fokusedAttacks; }

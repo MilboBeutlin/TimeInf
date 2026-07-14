@@ -24,6 +24,10 @@ public class Model : MonoBehaviour
     public Dictionary<Items, int> GetSavedPlayerItems() {
         return DB.GetSavedPlayerItems();
     }
+    public bool GetPlayerHasSwim()
+    {
+        return DB.GetPlayerHasSwim();
+    }
     public LocationID GetPlayerLocation()
     {
         return DB.GetPlayerLocation();

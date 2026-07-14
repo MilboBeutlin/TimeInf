@@ -11918,6 +11918,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: R2Door
       objectReference: {fileID: 0}
+    - target: {fileID: 8798856524543916784, guid: d5619fa93aab4cb4f9d16933e43f120d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -68475,11 +68479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 557665993497675578, guid: e8e86638a0b08374eaa408eb164aaec7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -43.35251
+      value: 200.684
       objectReference: {fileID: 0}
     - target: {fileID: 557665993497675578, guid: e8e86638a0b08374eaa408eb164aaec7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -59.76067
+      value: 40.164
       objectReference: {fileID: 0}
     - target: {fileID: 557665993497675578, guid: e8e86638a0b08374eaa408eb164aaec7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -72012,6 +72016,7 @@ MonoBehaviour:
   targetDoorSP: {fileID: 375464574}
   leadsTo: 12
   darkness: {fileID: 0}
+  mirrorRoomContent: {fileID: 623493035}
   model: {fileID: 0}
   waterCollider: {fileID: 0}
   verticalDoor: 1
@@ -74275,16 +74280,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -34, y: -61, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 18
-      m_TileSpriteIndex: 17
-      m_TileMatrixIndex: 2
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 208, y: -41, z: 0}
     second:
       serializedVersion: 2
@@ -75066,6 +75061,16 @@ Tilemap:
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
   - first: {x: 162, y: 39, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 18
+      m_TileSpriteIndex: 17
+      m_TileMatrixIndex: 2
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 210, y: 39, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 18
@@ -81914,16 +81919,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: -34, y: -61, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 30
-      m_TileSpriteIndex: 37
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: -9, y: -61, z: 0}
     second:
       serializedVersion: 2
@@ -85204,6 +85199,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 210, y: 39, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 27
+      m_TileSpriteIndex: 29
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 22
@@ -85260,14 +85265,14 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: f7c4c5e01f462ec4991f73f822a897cf, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 786ff5a5b6196e04f99369d5503af5fa, type: 2}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 0063633604e6d984ea54b736daa43134, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 3d9959829591ac348b0fc459101c73db, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 3d00a4346344bd54f97e90dda5e3374c, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: eab4973648d3c384f9bbd5de0ad11067, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 80c7a2634c5b2f847a74f871064db485, type: 2}
   - m_RefCount: 0
@@ -85341,7 +85346,7 @@ Tilemap:
     m_Data: {fileID: 9029980930886714859, guid: c118d875d50536c45ab3e606d4fcc7a4, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -8266589518048551888, guid: c118d875d50536c45ab3e606d4fcc7a4, type: 3}
-  - m_RefCount: 1
+  - m_RefCount: 2
     m_Data: {fileID: 4237804231919619181, guid: 2afd06c41cd6b584aa31449660716ff9, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -141669237824752370, guid: 2afd06c41cd6b584aa31449660716ff9, type: 3}
@@ -85357,8 +85362,8 @@ Tilemap:
     m_Data: {fileID: 6822914213915818454, guid: f3a24605a13fa0241b32662afa3def7b, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 211713144629897761, guid: ff0dd013d48536a40b41828e34c3e9dc, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -7271055866151866646, guid: ff0dd013d48536a40b41828e34c3e9dc, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 631
     m_Data:
@@ -93464,6 +93469,7 @@ MonoBehaviour:
   targetDoorSP: {fileID: 215267975}
   leadsTo: 17
   darkness: {fileID: 0}
+  mirrorRoomContent: {fileID: 0}
   model: {fileID: 0}
   waterCollider: {fileID: 0}
   verticalDoor: 1
@@ -94408,7 +94414,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1779443217}
   m_Layer: 0
-  m_Name: "T\xFCr K3"
+  m_Name: GemDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

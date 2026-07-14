@@ -16,25 +16,27 @@ public class Controller : MonoBehaviour
         DB.SetGegnerHealth(health);
     }
 
-    public void SetPlayerItems(Dictionary<Items, int> items) {
+    public void SetPlayerItems(Dictionary<Items, int> items)
+    {
         DB.SetPlayerItems(items);
     }
-    public void SetSavePlayerItems(Dictionary<Items, int> items) {
+    public void SetSavePlayerItems(Dictionary<Items, int> items)
+    {
         DB.SetSavePlayerItems(items);
     }
-
-    
-    public void AddItem(Items item, int amount) {
+    public void AddItem(Items item, int amount)
+    {
         DB.AddItem(item, amount);
     }
-
-    
-
-
     // Bei Amount 0 werden alle entfernt
     public void RemoveItem(Items item, int amount)
     {
         DB.RemoveItem(item, amount);
+
+    }
+    public void SetPlayerHasSwim(bool b)
+    {
+        DB.SetPlayerHasSwim(b);
     }
     public void SetPlayerLocation(LocationID playerLocation)
     {
@@ -46,10 +48,11 @@ public class Controller : MonoBehaviour
     }
 
     // opponent
-    public void SetCurrentOponent(Gegner gegner) {
+    public void SetCurrentOponent(Gegner gegner)
+    {
         DB.SetCurrentOponent(gegner);
     }
-    
+
 
     //other things
 

@@ -584,7 +584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.01001, y: -1230}
+  m_AnchoredPosition: {x: 0.01001, y: -1347}
   m_SizeDelta: {x: 1920, y: 4075.7886}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1944721719
@@ -636,12 +636,12 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: '-----------------Credits-----------------
 
-    
 
-    -----------------
-    DEVELOPMENT TEAM -----------------
 
-    
+    ----------------- DEVELOPMENT
+    TEAM -----------------
+
+
 
     Projectleader/ Producer
 
@@ -649,7 +649,7 @@ MonoBehaviour:
 
     Mio
 
-    
+
 
     Game
     Design (Concept & Mechanics)
@@ -662,7 +662,7 @@ MonoBehaviour:
 
     Vivien
 
-    
+
 
     Coding/
     Development
@@ -675,10 +675,9 @@ MonoBehaviour:
 
     Leon
 
-    
 
-    Puzzle
-    Design
+
+    Puzzle Design
 
     Dominik
 
@@ -688,14 +687,14 @@ MonoBehaviour:
 
     Vivien
 
-    
 
-    Graphic &
-    Animation
+
+    Graphic
+    & Animation
 
     Dominik
 
-    
+
 
     Music / Soundtrack
 
@@ -703,6 +702,17 @@ MonoBehaviour:
 
 
 
+    Special
+    Thanks to
+
+    Florian Prager
+
+    & Beta Tester
+
+    Leon Unkelbach
+
+    Lukas
+    Buhleier
 
 
 
@@ -714,14 +724,7 @@ MonoBehaviour:
 
 
 
-
-
-
-
-
-
-    And
-    You
+    And You for playing
 
 '
 --- !u!222 &1944721721

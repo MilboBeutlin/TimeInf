@@ -52,4 +52,7 @@ public enum Attacks
     ///devil arts of all enemies
     TheEnd, DemonSword, BlackFlash,
 
+    ///default attacks
+    Punch, FireBall
+
 }
