@@ -9386,6 +9386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31c7c9ce296924a4dbb887594deb5f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Datenbank
+  gameLight: {fileID: 0}
 --- !u!4 &1956915038
 Transform:
   m_ObjectHideFlags: 0

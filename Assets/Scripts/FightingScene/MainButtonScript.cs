@@ -16,6 +16,10 @@ public class MainButtonScript : MonoBehaviour
     [SerializeField] private Items ButtonType;
     [SerializeField] private Text ItemButtonText;
 
+    [SerializeField] private Button StrikeButton;
+    [SerializeField] private Button CounterButton;
+    [SerializeField] private Button ItemButton;
+
     
 //private TextMeshProUGUI[] AttacksArray;
 
@@ -25,6 +29,11 @@ public class MainButtonScript : MonoBehaviour
     {
         bM = GetComponentInParent<ButtonManager>();
         GM = FindAnyObjectByType<GM>();
+
+        if(GM.giveCurrentPlayerItems().Count <= 0)
+        {
+            ItemButton.enabled = false;
+        }
     }
 
 
@@ -64,6 +73,16 @@ public class MainButtonScript : MonoBehaviour
     public void Striker()
     {
         GM.Strike();
+    }
+
+    public void EnableButtons(bool i)
+    {
+        StrikeButton.enabled = i;
+        CounterButton.enabled = i;
+        if (GM.giveCurrentPlayerItems().Count >= 1)
+        {
+            ItemButton.enabled = i;
+        }
     }
     
 }

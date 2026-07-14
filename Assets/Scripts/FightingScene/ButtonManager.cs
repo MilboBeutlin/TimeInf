@@ -9,6 +9,7 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject itemButtons;
 
     private GM gm;
+    [SerializeField] MainButtonScript mbs;
 
     [SerializeField] private Transform canvas;
 
@@ -48,6 +49,17 @@ public class ButtonManager : MonoBehaviour
             itemButtons.SetActive(true);
         }
     }
+
+    public void EnableButton(bool i)
+    {
+        if (mainButtons && itemButtons)
+        {
+            MainButton();
+            mbs.EnableButtons(i);
+        }
+    }
+        
+        
 
 
 

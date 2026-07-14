@@ -16,11 +16,12 @@ public class GM : MonoBehaviour
     private Model model;
     private Controller controller;
     private ButtonManager bM;
+    
 
     //Für die Funktionalität der Coin
     //private bool coinUsed = false;
 
-    private int GegnerDamageLastRound; //nur relevant für Item Spiegelfragment!!
+    
 
     //private int timer;
 
@@ -53,6 +54,8 @@ public class GM : MonoBehaviour
     [SerializeField] private Transform[] playerButtonPositions;
     private List<GameObject> activeBlockades = new List<GameObject>();
 
+    
+
     //Dieser Wert wird nur für Items benutzt
     private float timerGegnerSetTime = 4; //timerGegnerTickSpeed = 1; MUSS ZU tickspeed geändert werden, aus Gründen die du bei DS nachfragen kannst
     private int timerGegnerAnzahlZüge = -1;
@@ -75,6 +78,8 @@ public class GM : MonoBehaviour
         enemyRenderer.sprite = enemySprites[(int)model.GetCurrentOponent() - 1];
 
         SliderGegnerLife.GetComponent<Slider>().maxValue = gegnerHealthlocal;
+        
+        
     }
     // Update is called once per frame
     void Update()
@@ -115,7 +120,7 @@ public class GM : MonoBehaviour
 
         }
 
-
+        
         //GegnerLogic
 
         if (timerGegner <= 0)
@@ -351,10 +356,12 @@ public class GM : MonoBehaviour
 
     public void Counter()
     {
+        bM.EnableButton(false);
         StartCoroutine(CounterRoutine());
     }
     public void Strike()
     {
+        bM.EnableButton(false);
         StartCoroutine(StrikeRoutine());
     }
 
@@ -377,6 +384,7 @@ public class GM : MonoBehaviour
         }
         currentGegnerAttacks = Attacks.NULL;
         timerGegner = 0f;
+        
     }
 
     private IEnumerator StrikeRoutine()
@@ -397,11 +405,13 @@ public class GM : MonoBehaviour
         }
         currentGegnerAttacks = Attacks.NULL;
         timerGegner = 0f;
+        
     }
 
 
     public IEnumerator GegnerTurn()
     {
+        bM.EnableButton(true);
         UnblockButtons();
         timerGegner = timerGegnerSetTime;
         if (Random.value < 0.2f)
@@ -441,6 +451,7 @@ public class GM : MonoBehaviour
             attackDamage = 1;
             EnemyFeedbackText(currentGegnerAttacks.ToString());
         }
+
     }
 
     private float GetDevilArtChance(Gegner gegner)
@@ -491,7 +502,6 @@ public class GM : MonoBehaviour
 
     public void DoUseItem(Items item)
     {
-
 
         if (currentPlayerItems.ContainsKey(item) == false)
         {
@@ -615,6 +625,8 @@ public class GM : MonoBehaviour
 
         bM.CheckItems();
         timerGegner = 0;
+        
+        bM.EnableButton(false);
     }
 
 
