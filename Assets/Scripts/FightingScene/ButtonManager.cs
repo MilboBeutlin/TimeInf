@@ -16,8 +16,6 @@ public class ButtonManager : MonoBehaviour
     [SerializeField] private GameObject[] ItembuttonsList;
 
 
-
-
     private void Start()
     {
         MainButton();
@@ -25,7 +23,6 @@ public class ButtonManager : MonoBehaviour
 
         CheckItems();
     }
-
 
 
     // Methoden zur aktivierung und deaktivierung der Knöpfe.
@@ -37,18 +34,16 @@ public class ButtonManager : MonoBehaviour
             itemButtons.SetActive(false);
         }
     }
-
     public void ItemButtons()
     {
-        Debug.Log("Methode aktiviert");
         if (mainButtons && itemButtons)
         {
-            Debug.Log("debuging");
-            gm.SetGegnerTime(90);
+            gm.FreezeGegnerTimer();
             mainButtons.SetActive(false);
             itemButtons.SetActive(true);
         }
     }
+
 
     public void EnableButton(bool i)
     {
@@ -58,10 +53,6 @@ public class ButtonManager : MonoBehaviour
             mbs.EnableButtons(i);
         }
     }
-        
-        
-
-
 
     //Disabled alle Itemknöpfe, bei denen die Items nicht im Inventar liegen
     public void CheckItems()

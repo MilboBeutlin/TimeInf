@@ -46,17 +46,17 @@ public class Door_Game : MonoBehaviour
 
     private void HandleSpecialRooms() //handles special events that occur when the player enters certain rooms
     {
-        if (darkness && leadsTo == LocationID.R6 && model.GetCurrentPlayerItems().ContainsKey(Items.Lighter))
+        if (darkness && leadsTo == LocationID.R5 && model.GetCurrentPlayerItems().ContainsKey(Items.Lighter))
         {
             darkness.SetActive(false);
         }
 
-        if (waterCollider && leadsTo == LocationID.R2 && model.GetPlayerHasSwim())
+        if (waterCollider && leadsTo == LocationID.R1 && model.GetPlayerHasSwim())
         {
             waterCollider.enabled = false;
         }
 
-        if (mirrorRoomContent != null)
+        if (mirrorRoomContent != null && leadsTo == LocationID.R11 )
         {
             mirrorRoomContent.SetActive(false);
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 [System.Serializable]
 public class GameData
 {
-    
+
     public string[] Items;
     public int[] ItemLenght;
 

@@ -31,8 +31,7 @@ public class GM_Game : MonoBehaviour
         player.transform.position = model.GetSpawnPosition();
         spawnPoint.transform.position = model.GetSpawnPosition();
         camera.UpdateCamera(model.GetSavePlayerLocation());
-        Debug.Log(model.GetSpawnPosition());
-        Debug.Log(model.GetSavePlayerLocation());
+
         ChangeText("You can click on books to read them.");
         ShowText(true);
         Invoke(nameof(CloseTutorial), 10f);
@@ -87,10 +86,10 @@ public class GM_Game : MonoBehaviour
         textItem.text = "You got " + amount + " " + item;
         Invoke("Deactivation", 1f);
     }
-    public void AttackGot(Attacks attack)
+    public void SwimGot()
     {
         itemGotMssg.SetActive(true);
-        textItem.text = "You got " + attack;
+        textItem.text = "You can walk on water";
         Invoke("Deactivation", 1f);
     }
     private void Deactivation()

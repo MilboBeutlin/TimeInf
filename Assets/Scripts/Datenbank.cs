@@ -16,7 +16,7 @@ public class Datenbank : MonoBehaviour
     private bool playerHasSwim;
     [SerializeField] private Dictionary<Items, int> playerItems = new Dictionary<Items, int>();
     private Dictionary<Items, int> savedPlayerItems = new Dictionary<Items, int>();
-    
+
     private LocationID playerLocation = LocationID.K1;
     private LocationID savePlayerLocation;
 
@@ -40,13 +40,13 @@ public class Datenbank : MonoBehaviour
         savePath = Path.Combine(Application.persistentDataPath, "savegame.json");
 
         //Alle stats im Game
-        
+
         playerItems = new Dictionary<Items, int>();
 
-        
+
         Load();
 
-        
+
     }
     public void NewGame()
     {
@@ -59,7 +59,7 @@ public class Datenbank : MonoBehaviour
         }
         Load(); // Load the default game state after deleting the save file
     }
-    
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -87,10 +87,10 @@ public class Datenbank : MonoBehaviour
         data.spawnPointlocation[1] = spawnPosition.y;
         data.spawnPointlocation[2] = spawnPosition.z;
 
-        
+
 
         data.Items = new string[playerItems.Count];
-        for(int i = 0; i <playerItems.Count; i++)
+        for (int i = 0; i < playerItems.Count; i++)
         {
             data.Items[i] = playerItems.ElementAt(i).ToString();
         }
@@ -102,14 +102,14 @@ public class Datenbank : MonoBehaviour
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(savePath, json);
 
-        
+
     }
 
     public void Load()
     {
-        
+
         if (File.Exists(savePath))
-        { 
+        {
             string json = File.ReadAllText(savePath);
 
             GameData data = JsonUtility.FromJson<GameData>(json);
@@ -118,42 +118,39 @@ public class Datenbank : MonoBehaviour
             spawnPosition.y = data.spawnPointlocation[1];
             spawnPosition.z = data.spawnPointlocation[2];
 
-            
+
 
             for (int i = 0; i < data.Items.Length; i++)
             {
 
-                if (Enum.TryParse<Items>(data.Items[i], out  Items result)) {
+                if (Enum.TryParse<Items>(data.Items[i], out Items result))
+                {
                     playerItems.Add(Enum.Parse<Items>(data.Items[i]), data.ItemLenght[i]);
 
                 }
             }
             playerHealth = data.Stats;
             savePlayerLocation = data.Location;
-            
-
-        } else
+        }
+        else
         {
             //start location player
             spawnPosition = new Vector3(0, 0, 0);
             savePlayerLocation = LocationID.K1;
 
             //resett
-            
+
             playerItems = new Dictionary<Items, int>();
             playerHealth = 5;
-            
-
-            
         }
-        
+
     }
 
-    
+
 
     //Alle Stats im Game
     //player
-    
+
 
     public Dictionary<Items, int> GetCurrentPlayerItems()
     {
@@ -231,16 +228,17 @@ public class Datenbank : MonoBehaviour
     }
     public List<Attacks> GetAttacks(bool fokused)
     {
-        if(fokused) { return fokusedAttacks; }
+        if (fokused) { return fokusedAttacks; }
         else { return unfokusedAttacks; }
     }
 
     public void SetAttacks(List<Attacks> attacks, bool fokused)
     {
-        if(fokused)
+        if (fokused)
         {
             fokusedAttacks = attacks;
-        } else
+        }
+        else
         {
             unfokusedAttacks = attacks;
         }
@@ -261,11 +259,11 @@ public class Datenbank : MonoBehaviour
         {
             Gegner.StorageGuard => 10,
             Gegner.MonsterPainting => 13,
-            Gegner.ShadowEnemy =>  15,
-            Gegner.Insects => 10,
-            Gegner.PrisonGuard => 15,
-            Gegner.MiniBoss => 25,
-            Gegner.Endboss => 35,
+            Gegner.ShadowEnemy => 15,
+            Gegner.Insects => 8,
+            Gegner.PrisonGuard => 14,
+            Gegner.MiniBoss => 20,
+            Gegner.Endboss => 25,
             _ => 10
         };
     }
@@ -276,11 +274,13 @@ public class Datenbank : MonoBehaviour
     }
     // opponent
 
-    public Gegner GetCurrentOponent() {
+    public Gegner GetCurrentOponent()
+    {
         return currentOponent;
     }
 
-    public void SetCurrentOponent(Gegner currentOponent) {
+    public void SetCurrentOponent(Gegner currentOponent)
+    {
         this.currentOponent = currentOponent;
     }
 
@@ -295,7 +295,7 @@ public class Datenbank : MonoBehaviour
     }
 
 
-    //Lights
+    //Lights adjustment when switched to fight or back
     public void LightsSwitchToFight(bool switchToFight)
     {
         gameLight = GameObject.FindGameObjectWithTag("GlobalLight");
@@ -304,7 +304,7 @@ public class Datenbank : MonoBehaviour
             gameLight.GetComponent<Light2D>().intensity = switchToFight ? 0.03f : 0.25f;
         }
 
-        
+
     }
 
 }

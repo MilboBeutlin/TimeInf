@@ -15,7 +15,7 @@ public class ButtonBlockade : MonoBehaviour
         clicksRemaining = clicksNeeded;
         damageSprites = sprites;
 
-        image.sprite = damageSprites[0];
+        image.sprite = damageSprites[damageSprites.Length - clicksNeeded];
     }
 
     // Handles the click event for the button blockade
@@ -36,15 +36,4 @@ public class ButtonBlockade : MonoBehaviour
         }
 
     }
-    /* how to create the blockade prefab and set it up in the scene:
-
-        public void BlockButton(Transform playerButton)
-    {
-        GameObject obj = Instantiate(blockadePrefab, playerButton);
-
-        obj.transform.localPosition = Vector3.zero;
-
-        obj.GetComponent<Blockade>().Setup(clicksNeeded, blockadeSprites);
-    }
-    */
 }

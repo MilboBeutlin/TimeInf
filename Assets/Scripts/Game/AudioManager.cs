@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        LoadSettings();
     }
 
 
@@ -51,6 +52,7 @@ public class AudioManager : MonoBehaviour
     {
         volume = lautstaerke;
         Apply();
+        SaveSettings();
     }
 
 
@@ -59,11 +61,14 @@ public class AudioManager : MonoBehaviour
         musicEnabled = !musicEnabled;
 
         Apply();
+        SaveSettings();
+    }
+    public void SetMusicEnabled(bool value)
+    {
+        musicEnabled = value;
 
-        if (audioSource.isPlaying)
-        {
-            audioSource.volume = musicEnabled ? volume : 0f;
-        }
+        Apply();
+        SaveSettings();
     }
 
     public float GetVolume()
@@ -80,6 +85,22 @@ public class AudioManager : MonoBehaviour
     private void Apply()
     {
         audioSource.volume = musicEnabled ? volume : 0f;
+    }
+
+    public void SaveSettings()
+    {
+        PlayerPrefs.SetFloat("Volume", volume);
+        PlayerPrefs.SetInt("MusicEnabled", musicEnabled ? 1 : 0);
+        PlayerPrefs.Save();
+    }
+
+
+    public void LoadSettings()
+    {
+        volume = PlayerPrefs.GetFloat("Volume", 0.5f);
+        musicEnabled = PlayerPrefs.GetInt("MusicEnabled", 1) == 1;
+
+        Apply();
     }
 
 

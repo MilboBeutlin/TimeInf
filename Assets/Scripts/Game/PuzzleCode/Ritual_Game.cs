@@ -60,8 +60,10 @@ public class Ritual_Game : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             kollidiert = false;
-            gm?.ShowText(false);
-
+            if (gm)
+            {
+                gm.ShowText(false);
+            }
         }
     }
 

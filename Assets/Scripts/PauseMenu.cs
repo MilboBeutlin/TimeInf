@@ -52,15 +52,11 @@ public class PauseMenu : MonoBehaviour
     public void ToggleAudio()
     {
         AudioManager.Instance.ToggleAudio();
-
     }
 
 
     private void SyncMuteButton()
     {
         bool enabled = AudioManager.Instance.IsMusicEnabled();
-
-
-        Debug.Log("Music enabled: " + enabled);
     }
 }

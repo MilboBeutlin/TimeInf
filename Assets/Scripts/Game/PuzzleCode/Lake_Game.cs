@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+// Handles the fishing at the lake.
+// If the player has a fishing rod, they can catch a scroll once.
 public class Lake_Game : MonoBehaviour
 {
     [SerializeField] private GM_Game gm;
@@ -11,6 +13,7 @@ public class Lake_Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Gives the player a scroll when fishing is triggered
         if (isColliding && !didFish && Input.GetKeyDown(KeyCode.E))
         {
             controller = FindAnyObjectByType<Controller>();
@@ -23,7 +26,7 @@ public class Lake_Game : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && gm.giveCurrentPlayerItems().ContainsKey(Items.FishingRod))
+        if (other.CompareTag("Player") && gm.giveCurrentPlayerItems().ContainsKey(Items.FishingRod) && !didFish)
         {
             isColliding = true;
             gm.ChangeText("Press E to fish");

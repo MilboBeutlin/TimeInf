@@ -7,17 +7,26 @@ public class Item_Game : MonoBehaviour
     [SerializeField] public int amount;
     private GM_Game gm;
     private Controller controller;
-    private Model model;
+    [SerializeField] private bool isSwim;
 
-     private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             controller = FindAnyObjectByType<Controller>();
             gm = FindAnyObjectByType<GM_Game>();
-            model = FindAnyObjectByType<Model>();
-            controller.AddItem(item, amount);
-            gm.ItemsGot(item, amount);         
+
+            if (isSwim)
+            {
+                controller.SetPlayerHasSwim(true);
+                gm.SwimGot();
+            }
+            else
+            {
+                controller.AddItem(item, amount);
+                gm.ItemsGot(item, amount);
+            }
+
             Destroy(gameObject);
         }
     }

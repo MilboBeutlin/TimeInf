@@ -3,8 +3,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Threading.Tasks;
-//using static System.Net.Mime.MediaTypeNames;
 
+// Controls the battle UI buttons and forwards button actions to the game manager.
+// Also enables or disables buttons depending on the current game state.
 public class MainButtonScript : MonoBehaviour
 {
     private ButtonManager bM;
@@ -20,9 +21,6 @@ public class MainButtonScript : MonoBehaviour
     [SerializeField] private Button CounterButton;
     [SerializeField] private Button ItemButton;
 
-    
-//private TextMeshProUGUI[] AttacksArray;
-
 
 
     void Start()
@@ -30,7 +28,7 @@ public class MainButtonScript : MonoBehaviour
         bM = GetComponentInParent<ButtonManager>();
         GM = FindAnyObjectByType<GM>();
 
-        if(GM.giveCurrentPlayerItems().Count <= 0)
+        if(ItemButton && GM.giveCurrentPlayerItems().Count <= 0)
         {
             ItemButton.interactable = false;
         }
