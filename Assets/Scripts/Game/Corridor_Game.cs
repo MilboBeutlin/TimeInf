@@ -12,6 +12,7 @@ public class Corridor_Game : MonoBehaviour
     {
         camera = FindAnyObjectByType<Camera_Game>();
     }
+
     private void OnTriggerExit2D(Collider2D other) // checks if the player goes into the new location or turns around 
     {
         Rigidbody2D rb = other.attachedRigidbody;

@@ -11,7 +11,8 @@ public class PressurePlate_Game : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            for(int i = 0; i < 4; i++){
+            for (int i = 0; i < 4; i++)
+            {
                 Instantiate(arrow, arrowSpawnPoint.position + new Vector3(0, i, 0), Quaternion.Euler(0f, 0f, 45f));
             }
         }

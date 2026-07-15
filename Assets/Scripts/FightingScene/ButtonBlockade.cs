@@ -9,6 +9,7 @@ public class ButtonBlockade : MonoBehaviour
     private int clicksRemaining;
     private int spriteIndex;
 
+
     //allows to create the prefab with a certain number of clicks needed and a set of sprites to display as damage is taken
     public void Setup(int clicksNeeded, Sprite[] sprites)
     {

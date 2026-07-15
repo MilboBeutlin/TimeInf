@@ -15,11 +15,12 @@ public class DoorEnemie_Game : MonoBehaviour
     {
         gm = FindAnyObjectByType<GM_Game>();
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            if(transform.position != moveTo.position)
+            if (transform.position != moveTo.position)
             {
                 gm.ChangeText("You dare to exist?");
                 gm.ShowText(true);
@@ -38,8 +39,9 @@ public class DoorEnemie_Game : MonoBehaviour
         {
             gm?.ShowText(false);
         }
-        
+
     }
+
     //moves the enemy or spawn it if it was the second time walking awway from it
     private void OnBecameInvisible()
     {
@@ -52,6 +54,7 @@ public class DoorEnemie_Game : MonoBehaviour
         {
             GameObject enemy = Instantiate(enemyPrefab, player.position, Quaternion.identity);
             enemy.GetComponent<Enemy_Game>().Creation(Gegner.MonsterPainting, enemySprite);
+            
             this.gameObject.SetActive(false);
         }
     }

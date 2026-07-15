@@ -11,6 +11,7 @@ public class Door_Game : MonoBehaviour
     [SerializeField] private Model model;
     [SerializeField] private BoxCollider2D waterCollider;
     [SerializeField] private bool verticalDoor; // decides whether this door can only be entered vertically or horizontally
+
     private Camera_Game camera;
 
     private void Awake()
@@ -28,6 +29,7 @@ public class Door_Game : MonoBehaviour
         {
             return;
         }
+
         Player_Game player = other.GetComponent<Player_Game>();
 
         //blocks the player from entering the door if they are not moving in the correct direction
@@ -56,7 +58,7 @@ public class Door_Game : MonoBehaviour
             waterCollider.enabled = false;
         }
 
-        if (mirrorRoomContent != null && leadsTo == LocationID.R11 )
+        if (mirrorRoomContent != null && leadsTo == LocationID.R11)
         {
             mirrorRoomContent.SetActive(false);
         }

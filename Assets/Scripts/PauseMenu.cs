@@ -2,15 +2,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
+//open/closes the PauseMenu
+//handles the music buttons of the PauseMenu
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private Slider slider;
 
-    void Awake()
-    {
-
-    }
 
     private void Start()
     {
@@ -26,8 +24,11 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pauseMenu.SetActive(!pauseMenu.activeSelf); //pauseMenu on/off based on its current state
-            Time.timeScale = pauseMenu.activeSelf ? 0f : 1f; //time flow off / normal speed based on the current state of pauseMenu
+            //pauseMenu on/off based on its current state
+            pauseMenu.SetActive(!pauseMenu.activeSelf);
+
+            //time flow off / normal speed based on the current state of pauseMenu
+            Time.timeScale = pauseMenu.activeSelf ? 0f : 1f;
         }
     }
 

@@ -244,6 +244,7 @@ public class FightLogic : MonoBehaviour
         }
     }
 
+    // Converts an attack enum name into a readable string by putting spaces before uppercase letters.
     public static string FormatAttackName(Attacks attack)
     {
         string text = attack.ToString();

@@ -1,11 +1,12 @@
 using UnityEngine;
+
 //fish moving around the lake, back and forth between two horizontal points
 public class Fish_Game : MonoBehaviour
 {
     [SerializeField] private float leftPoint;
     [SerializeField] private float rightPoint;
-    private float speed;
 
+    private float speed;
     private bool movingRight = true;
     private SpriteRenderer sR;
 

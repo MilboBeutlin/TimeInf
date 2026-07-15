@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.Rendering.Universal;
 
+// Main game manager for handling global gameplay functions for the game scene.
+// Controls UI messages, player setup, inventory interactions and scene reloads.
 public class GM_Game : MonoBehaviour
 {
 
@@ -17,21 +19,20 @@ public class GM_Game : MonoBehaviour
     [SerializeField] private Camera_Game camera;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject itemGotMssg;
-    
+
     [SerializeField] private Text textItem;
     [SerializeField] private GameObject spawnPoint;
-    
-    
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     void Start()
     {
+        // Initializes the player position and camera location from the saved data.
         pauseMenu.SetActive(false);
-        
+
         player.transform.position = model.GetSpawnPosition();
         spawnPoint.transform.position = model.GetSpawnPosition();
         camera.UpdateCamera(model.GetSavePlayerLocation());
 
+        // Shows a short tutorial message at the start.
         ChangeText("You can click on books to read them.");
         ShowText(true);
         Invoke(nameof(CloseTutorial), 10f);
@@ -39,23 +40,25 @@ public class GM_Game : MonoBehaviour
 
     private void CloseTutorial()
     {
-        if(text.text == "You can click on books to read them.")
+        if (text.text == "You can click on books to read them.")
         {
             ShowText(false);
         }
     }
-    
+
     public void ChangeText(string Itext)
     {
         text.text = Itext;
     }
+
     public string GetText()
     {
         return text.text;
     }
+
     public void ShowText(bool i)
     {
-        if( i == true)
+        if (i == true)
         {
             textFeld?.SetActive(true);
         }
@@ -72,26 +75,30 @@ public class GM_Game : MonoBehaviour
 
     public void RemoveItem(Items item, int amount)
     {
-        controller.RemoveItem(item,amount);
+        controller.RemoveItem(item, amount);
     }
 
     public void PlayerDeath()
     {
-        Debug.Log("You are dead bitch");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
     public void ItemsGot(Items item, int amount)
     {
         itemGotMssg.SetActive(true);
         textItem.text = "You got " + amount + " " + item;
+
         Invoke("Deactivation", 1f);
     }
+
     public void SwimGot()
     {
         itemGotMssg.SetActive(true);
         textItem.text = "You can walk on water";
+
         Invoke("Deactivation", 1f);
     }
+
     private void Deactivation()
     {
         itemGotMssg.SetActive(false);

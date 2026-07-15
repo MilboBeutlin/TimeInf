@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//handles the ritual the player either can finish to summon a miniBoss or stio it to get the phoenix feather
 public class Ritual_Game : MonoBehaviour
 {
     [SerializeField] private GM_Game gm;
@@ -15,24 +16,23 @@ public class Ritual_Game : MonoBehaviour
     {
         if (kollidiert && !schwertEingesetzt && gm.giveCurrentPlayerItems().ContainsKey(Items.RitualSword))
         {
-
-
             if (Input.GetKeyDown(KeyCode.E))
             {
-                //controller = FindAnyObjectByType<Controller>();
                 controller.RemoveItem(Items.RitualSword, 1);
                 controller.AddItem(Items.PhoenixFeather, 1);
+
                 gm.ItemsGot(Items.PhoenixFeather, 1);
-                Debug.Log("+1 feather");
-                schwertEingesetzt = true;
                 gm.ShowText(false);
 
+                schwertEingesetzt = true;
             }
 
 
             if (Input.GetKeyDown(KeyCode.F))
             {
                 schwertEingesetzt = true;
+
+                //summons the mini boss
                 GameObject enemy = Instantiate(enemyPrefab, player.transform.position, Quaternion.identity);
                 enemy.GetComponent<Enemy_Game>().Creation(Gegner.MiniBoss, enemySprite);
             }

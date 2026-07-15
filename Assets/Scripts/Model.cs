@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Rendering.Universal;
+
+// Acts as an interface between game systems and the database.
 public class Model : MonoBehaviour
 {
     private Datenbank DB => Datenbank.Instance;
@@ -18,10 +20,12 @@ public class Model : MonoBehaviour
 
 
 
-    public Dictionary<Items, int> GetCurrentPlayerItems() {
+    public Dictionary<Items, int> GetCurrentPlayerItems()
+    {
         return DB.GetCurrentPlayerItems();
     }
-    public Dictionary<Items, int> GetSavedPlayerItems() {
+    public Dictionary<Items, int> GetSavedPlayerItems()
+    {
         return DB.GetSavedPlayerItems();
     }
     public bool GetPlayerHasSwim()
@@ -39,7 +43,8 @@ public class Model : MonoBehaviour
 
     // opponent
 
-    public Gegner GetCurrentOponent() {
+    public Gegner GetCurrentOponent()
+    {
         return DB.GetCurrentOponent();
     }
 

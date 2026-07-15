@@ -163,7 +163,7 @@ public class GM : MonoBehaviour
         }
     }
 
-    // Forwarding methods are there so references to GM still work as before
+    //Forwarding methods are there so references to GM still work as before
     public void Counter()
     {
         fightLogic.Counter();

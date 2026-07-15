@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.PlayerLoop;
 using UnityEngine.UI;
 
+//manages the buttons if they are de- or actiavted and
+// activates only the item buttons that the player has
 public class ButtonManager : MonoBehaviour
 {
     [SerializeField] private GameObject mainButtons;
@@ -54,10 +56,10 @@ public class ButtonManager : MonoBehaviour
         }
     }
 
-    //Disabled alle Itemknöpfe, bei denen die Items nicht im Inventar liegen
+    //Disabled alle Itemknoepfe, bei denen die Items nicht im Inventar liegen
     public void CheckItems()
     {
-        // Alle Kn�pfe deaktivieren, die NULL sind.
+        // Alle Knoepfe deaktivieren, die NULL sind.
         for (int i = 0; i < ItembuttonsList.Length; i++)
         {
             Items buttonItem = ItembuttonsList[i].GetComponent<MainButtonScript>().giveItemButtonType();

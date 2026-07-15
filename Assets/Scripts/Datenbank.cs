@@ -6,13 +6,14 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
+//Central storage for game data
+//handles saving and loading savedData
 public class Datenbank : MonoBehaviour
 {
     public static Datenbank Instance;
     //Alle Stats im Game
+
     //Player:
-
-
     private bool playerHasSwim;
     [SerializeField] private Dictionary<Items, int> playerItems = new Dictionary<Items, int>();
     private Dictionary<Items, int> savedPlayerItems = new Dictionary<Items, int>();
@@ -43,10 +44,7 @@ public class Datenbank : MonoBehaviour
 
         playerItems = new Dictionary<Items, int>();
 
-
         Load();
-
-
     }
     public void NewGame()
     {
@@ -57,6 +55,7 @@ public class Datenbank : MonoBehaviour
         {
             File.Delete(savePath);
         }
+
         Load(); // Load the default game state after deleting the save file
     }
 
@@ -145,8 +144,6 @@ public class Datenbank : MonoBehaviour
         }
 
     }
-
-
 
     //Alle Stats im Game
     //player

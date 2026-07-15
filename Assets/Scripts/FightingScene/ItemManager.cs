@@ -47,7 +47,7 @@ public class ItemManager : MonoBehaviour
     private IEnumerator DoUseItemRoutine(Items item)
     {
         bool damagedEnemy = false;
-        
+
         switch (item)
         {
             case Items.NULL:
@@ -173,6 +173,7 @@ public class ItemManager : MonoBehaviour
                 }
                 break;
         }
+
         // Wait here until the hit animation is finished before continuing
         if (damagedEnemy)
         {
@@ -193,9 +194,5 @@ public class ItemManager : MonoBehaviour
     public Dictionary<Items, int> giveCurrentPlayerItems()
     {
         return currentPlayerItems;
-    }
-    private void PlayEnemyHitEffect()
-    {
-        StartCoroutine(gm.EnemyOnHitEffect.PlayHitEffect());
     }
 }

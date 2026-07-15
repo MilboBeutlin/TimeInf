@@ -1,5 +1,7 @@
 using UnityEngine;
 
+//handles the audio and saves the settings values 
+//separately from the rest, so it won't reset when the player starts a new Game
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance;
@@ -43,9 +45,6 @@ public class AudioManager : MonoBehaviour
 
         audioSource.Play();
         Apply();
-
-
-
     }
 
     public void SetMusicVolume(float lautstaerke)

@@ -28,6 +28,7 @@ public class MainButtonScript : MonoBehaviour
         bM = GetComponentInParent<ButtonManager>();
         GM = FindAnyObjectByType<GM>();
 
+        // Disable the item button if the inventory is empty.
         if(ItemButton && GM.giveCurrentPlayerItems().Count <= 0)
         {
             ItemButton.interactable = false;
@@ -37,6 +38,7 @@ public class MainButtonScript : MonoBehaviour
 
     public void Update()
     {
+        // Keeps the displayed item name synchronized with the assigned item type.
         if (ItemButtonText != null)
         {
             ItemButtonText.text = ButtonType.ToString();
@@ -55,7 +57,7 @@ public class MainButtonScript : MonoBehaviour
 
     
 
-    
+    // Uses the selected inventory item.
     public void DoUseItem(int r)
     {
         Items i = (Items) r;
@@ -73,10 +75,13 @@ public class MainButtonScript : MonoBehaviour
         GM.Strike();
     }
 
+    //Enables or disables the battle buttons.
+    //The item button is only enabled if the player has at least 1 item
     public void EnableButtons(bool i)
     {
         StrikeButton.interactable = i;
         CounterButton.interactable = i;
+
         if (GM.giveCurrentPlayerItems().Count >= 1)
         {
             ItemButton.interactable = i;

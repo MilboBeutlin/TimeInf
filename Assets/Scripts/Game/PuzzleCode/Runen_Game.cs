@@ -7,8 +7,8 @@ public class Runen_Game : MonoBehaviour
     [SerializeField] private int correctRotation;
     [SerializeField] private RunenStatuePuzzle_Game puzzleManager;
     [SerializeField] private Sprite[] statueSprite;
-
     [SerializeField] private SpriteRenderer spriteRenderer;
+    
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();

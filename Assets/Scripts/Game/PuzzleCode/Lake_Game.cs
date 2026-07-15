@@ -10,7 +10,7 @@ public class Lake_Game : MonoBehaviour
     private bool isColliding;
     private bool didFish;
 
-    // Update is called once per frame
+
     void Update()
     {
         // Gives the player a scroll when fishing is triggered
@@ -18,10 +18,11 @@ public class Lake_Game : MonoBehaviour
         {
             controller = FindAnyObjectByType<Controller>();
             controller.AddItem(Items.Scroll, 1);
+
             gm.ItemsGot(Items.Scroll, 1);
-            Debug.Log("You gained: " + "Scroll");
-            didFish = true;
             gm.ShowText(false);
+
+            didFish = true;
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -40,7 +41,7 @@ public class Lake_Game : MonoBehaviour
             isColliding = false;
             if (gm)
             {
-                 gm.ShowText(false);
+                gm.ShowText(false);
             }
         }
     }

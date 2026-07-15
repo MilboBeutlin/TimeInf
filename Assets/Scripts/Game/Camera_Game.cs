@@ -32,7 +32,6 @@ public class Camera_Game : MonoBehaviour
 
     void Update()
     {
-
         switch (type) // First character of location is the location type.
         {
             case 'R': //rooms

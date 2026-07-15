@@ -1,33 +1,34 @@
 using UnityEngine;
 
+// The player can use a bomb to destroy the cage and free the NPC.
 public class R5_Cage_Game : MonoBehaviour
 {
     private GM_Game GM;
     private Model model;
-    //[SerializeField] private Sprite cage_broken;
     [SerializeField] private GameObject cage;
     [SerializeField] private GameObject NPC;
 
     private bool isTrigger = false;
-
     private bool isOpen = false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+
     void Start()
     {
         GM = FindAnyObjectByType<GM_Game>();
         model = FindAnyObjectByType<Model>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         if(isTrigger && !isOpen)
         {
             if (Input.GetKeyDown(KeyCode.E) && model.GetCurrentPlayerItems().ContainsKey(Items.Bomb))
             {
-                //gameObject.GetComponent<SpriteRenderer>().sprite = cage_broken;
                 cage.SetActive(false);
+                
                 FindAnyObjectByType<NPC_R9_Game>().Cagebroken();
+
                 isOpen = true;
                 isTrigger = false;
                 GM.ShowText(false);
@@ -45,8 +46,6 @@ public class R5_Cage_Game : MonoBehaviour
         }
         
     }
-
-
 
     private void OnTriggerExit2D(Collider2D collision)
     {

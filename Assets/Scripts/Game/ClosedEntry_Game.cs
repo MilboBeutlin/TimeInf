@@ -12,7 +12,7 @@ public class ClosedEntry_Game : MonoBehaviour
     void Update()
     {
         // Open the passage when the player interacts while carrying the required key.
-        if(gameMaster.GetText() == "Press E to use Key" && isColliding && Input.GetKeyDown(KeyCode.E) && gameMaster.giveCurrentPlayerItems().ContainsKey(Items.StrangeKey))
+        if (gameMaster.GetText() == "Press E to use Key" && isColliding && Input.GetKeyDown(KeyCode.E) && gameMaster.giveCurrentPlayerItems().ContainsKey(Items.StrangeKey))
         {
             wall.SetActive(false);
         }
@@ -20,13 +20,13 @@ public class ClosedEntry_Game : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(wall.activeSelf && other.CompareTag("Player"))
+        if (wall.activeSelf && other.CompareTag("Player"))
         {
             gameMaster.ChangeText("Press E to use Key");
             gameMaster.ShowText(true);
             isColliding = true;
         }
-        
+
     }
 
     void OnTriggerExit2D(Collider2D other)

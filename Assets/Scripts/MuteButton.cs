@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+//Handles the function of a button to mute music
 public class MuteButton : MonoBehaviour
 {
     [SerializeField] private Sprite muteButton;

@@ -9,7 +9,8 @@ public class lights : MonoBehaviour
     [SerializeField] private float variation = 0.05f;
     [SerializeField] private float speed = 0.2f;
 
-    void Update() // changes the light intensity with random speed within the specified variation
+    // changes the light intensity with random speed within the specified variation
+    void Update()
     {
         float noise = Mathf.PerlinNoise(Time.time * speed, 0f);
         lightSource.intensity = startIntensity + (noise - 0.5f) * 2f * variation;
@@ -17,7 +18,7 @@ public class lights : MonoBehaviour
 
 
     // de/activates lights to have better FPS
-    private void OnBecameVisible() 
+    private void OnBecameVisible()
     {
         lightSource.enabled = true;
     }

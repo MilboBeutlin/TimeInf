@@ -10,12 +10,12 @@ public class PixelDissolve : MonoBehaviour
     public float columnsPerSecond = 70f;
 
     [Header("Dust")]
-    [Range(0,1)]
+    [Range(0, 1)]
     public float particleChance = 0.35f;
 
     private SpriteRenderer sr;
 
-    // Runtime copy of the sprite texture so the original asset is not modified.
+    // Runtime copy of the sprite texture so the original texture is not changed
     private Texture2D runtimeTexture;
 
     private Sprite runtimeSprite;
@@ -38,12 +38,9 @@ public class PixelDissolve : MonoBehaviour
         runtimeTexture = new Texture2D((int)rect.width, (int)rect.height);
 
         runtimeTexture.filterMode = FilterMode.Point;
-
         runtimeTexture.SetPixels(original.texture.GetPixels((int)rect.x, (int)rect.y, (int)rect.width, (int)rect.height));
-
         runtimeTexture.Apply();
-
-        runtimeSprite = Sprite.Create(runtimeTexture, new Rect(0,0,runtimeTexture.width,runtimeTexture.height), new Vector2(original.pivot.x / rect.width, original.pivot.y / rect.height), original.pixelsPerUnit);
+        runtimeSprite = Sprite.Create(runtimeTexture, new Rect(0, 0, runtimeTexture.width, runtimeTexture.height), new Vector2(original.pivot.x / rect.width, original.pivot.y / rect.height), original.pixelsPerUnit);
 
         sr.sprite = runtimeSprite;
     }
@@ -74,14 +71,14 @@ public class PixelDissolve : MonoBehaviour
                 if (Random.value < particleChance)
                 {
                     // Converts the current pixel position into world space.
-                    Vector3 worldPos = transform.position + new Vector3((x - sr.sprite.pivot.x) / ppu,(y - sr.sprite.pivot.y) / ppu,0);
+                    Vector3 worldPos = transform.position + new Vector3((x - sr.sprite.pivot.x) / ppu, (y - sr.sprite.pivot.y) / ppu, 0);
 
                     GameObject dust = Instantiate(dustPrefab, worldPos, Quaternion.identity);
 
                     dust.GetComponent<PixelFade>().Init(c);
                 }
 
-                runtimeTexture.SetPixel(x, y, new Color(0,0,0,0));
+                runtimeTexture.SetPixel(x, y, new Color(0, 0, 0, 0));
             }
 
             runtimeTexture.Apply();

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+// Handles chest interactions.
+// A closed chest gives the player an item once, while an already open chest
+// only displays a message.
 public class Chest_Game : MonoBehaviour
 {
     [SerializeField] private Items item;
@@ -10,12 +13,13 @@ public class Chest_Game : MonoBehaviour
     private bool status;
     private bool isColliding;
     private Controller controller;
+
     [Header("isOpen: no content, !isOpen: has content")]
     [SerializeField] private bool isOpen;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player") && !status)
+        if (other.CompareTag("Player") && !status)
         {
             isColliding = true;
             gm.ChangeText("Press E to Open Chest");
@@ -25,7 +29,7 @@ public class Chest_Game : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             isColliding = false;
             gm?.ShowText(false);
@@ -33,22 +37,25 @@ public class Chest_Game : MonoBehaviour
     }
     void Update()
     {
-        if(isColliding && Input.GetKeyDown(KeyCode.E) && !status && !isOpen)
+        if (isColliding && Input.GetKeyDown(KeyCode.E) && !status && !isOpen)
         {
             sR.sprite = openChest; //Grafik Chest offen
+
             controller = FindAnyObjectByType<Controller>();
             controller.AddItem(item, amount);
+
             gm.ItemsGot(item, amount);
-            Debug.Log("You gained: " + item);
-            status = true;
             gm.ShowText(false);
-        }else if(isColliding && Input.GetKeyDown(KeyCode.E) && !status && isOpen)
+
+            status = true;
+        }
+        else if (isColliding && Input.GetKeyDown(KeyCode.E) && !status && isOpen)
         {
             gm.ChangeText("It's already open");
         }
     }
-    
 
-    
-    
+
+
+
 }

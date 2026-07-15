@@ -12,7 +12,8 @@ public class ButtonScript : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private Text title;
     public static bool newGame;
-     public void LoadNewScene(string sceneName)
+
+    public void LoadNewScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
         Time.timeScale = 1f;                    //time resumes normally
@@ -32,21 +33,24 @@ public class ButtonScript : MonoBehaviour
 
     public void OpenSetting()
     {
-        pauseMenu.SetActive(!pauseMenu.activeSelf); //pauseMenu on/off based on its current state
-        Time.timeScale = pauseMenu.activeSelf? 0:1; //time flow off / normal speed based on the current state of pauseMenu
+        //pauseMenu on/off based on its current state
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+
+        //time flow off / normal speed based on the current state of pauseMenu
+        Time.timeScale = pauseMenu.activeSelf ? 0 : 1;
     }
 
     public void Update()
     {
         //Secret Easter Egg lol
-        if(title != null)
+        if (title != null)
         {
             if (Input.GetKey(KeyCode.H) && Input.GetKey(KeyCode.U) && Input.GetKey(KeyCode.X) && Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.V))
             {
                 title.text = "Alles gute zum Vatertag Leon";
             }
         }
-        
+
     }
 
 }

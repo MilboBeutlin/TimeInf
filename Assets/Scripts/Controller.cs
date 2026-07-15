@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+
+// Acts as an interface between game systems and the database.
 public class Controller : MonoBehaviour
 {
     private Datenbank DB => Datenbank.Instance;
@@ -28,6 +30,7 @@ public class Controller : MonoBehaviour
     {
         DB.AddItem(item, amount);
     }
+
     // Bei Amount 0 werden alle entfernt
     public void RemoveItem(Items item, int amount)
     {

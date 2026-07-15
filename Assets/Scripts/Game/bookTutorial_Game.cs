@@ -2,9 +2,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+//handles the book so they show when clicked specific text
+//and stops time during it
 public class bookTutorial_Game : MonoBehaviour
 {
-    [TextArea(5,20)]
+    [TextArea(5, 20)]
     [SerializeField] private string buchText;
 
     [SerializeField] private GameObject bookPanel;
@@ -12,19 +14,19 @@ public class bookTutorial_Game : MonoBehaviour
     private bool mausGedrueckt = false;
 
 
-     private void OnMouseDown()
+    private void OnMouseDown()
     {
         mausGedrueckt = true;
     }
 
     private void OnMouseUp()
     {
-          mausGedrueckt = false;
+        mausGedrueckt = false;
     }
 
     private void Update()
     {
-        if(mausGedrueckt)
+        if (mausGedrueckt)
         {
             TextAnzeigen();
         }

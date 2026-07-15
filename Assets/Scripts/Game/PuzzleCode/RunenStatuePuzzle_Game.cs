@@ -14,47 +14,58 @@ public class RunenStatuePuzzle_Game : MonoBehaviour
 
     public void CheckRunen()
     {
-        if(runes[0].IsCorrect() && runes[1].IsCorrect() && runes[2].IsCorrect() && runes[3].IsCorrect() && !isSolved)    // Checks if every rune is in the correct rotation.
+        // Checks if every rune is in the correct rotation:
+        if (runes[0].IsCorrect() && runes[1].IsCorrect() && runes[2].IsCorrect() && runes[3].IsCorrect() && !isSolved)
         {
             if (runePuzzle)
             {
                 isSolved = true;
-                StartCoroutine(SetRuneInactive(1, 2, 0.5f));                                                     //remove runes with a delay
+
+                //remove runes with a delay
+                StartCoroutine(SetRuneInactive(1, 2, 0.5f));
                 StartCoroutine(SetRuneInactive(3, 0, 1));
-                StartCoroutine(MoveDoor(door.transform.position + new Vector3(3f, 0f, 0f)));                    //door appears slowly out of the ground
+
+                //door appears slowly out of the ground
+                StartCoroutine(MoveDoor(door.transform.position + new Vector3(3f, 0f, 0f)));
             }
-            else{
+            else
+            {
                 isSolved = true;
                 chest.SetActive(true);
             }
-            
+
         }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             camera.orthographicSize = 4f; //zoom in
         }
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             camera.orthographicSize = 6f; // zoom back to normal
         }
     }
-    IEnumerator SetRuneInactive(int which, int which2, float t)        //with delay setting runes inactive
+
+    //with delay setting runes inactive
+    IEnumerator SetRuneInactive(int which, int which2, float t)
     {
         yield return new WaitForSeconds(t);
         runes[which].gameObject.SetActive(false);
         runes[which2].gameObject.SetActive(false);
     }
-    IEnumerator MoveDoor(Vector3 target)                            //with delay door appears out of the ground
+
+    //with delay door appears out of the ground
+    IEnumerator MoveDoor(Vector3 target)
     {
         BoxCollider2D ownCollider = this.GetComponent<BoxCollider2D>();
         ownCollider.isTrigger = false;
         door.SetActive(true);
+
         while (Vector3.Distance(door.transform.position, target) > 0.01f)
         {
             door.transform.position = Vector3.MoveTowards(door.transform.position, target, 2 * Time.deltaTime);

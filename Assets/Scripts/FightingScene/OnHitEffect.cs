@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+//controls the animation of the slash effect of the player and enemy
 public class OnHitEffect : MonoBehaviour
 {
     private SpriteRenderer spriteRenderer;
